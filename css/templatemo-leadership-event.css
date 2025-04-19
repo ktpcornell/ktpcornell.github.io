@@ -597,6 +597,17 @@ strong {
   font-size: 12px;
   text-transform: uppercase;
 }
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bg-pink {
+  background-color: #f78fb3;
+}
+
 
 .speakers-featured-text {
   background: var(--secondary-color);
@@ -696,7 +707,7 @@ strong {
   CALL TO ACTION              
 -----------------------------------------*/
 .call-to-action {
-  background-image: url('../images/terren-hurst-blgOFmPIlr0-unsplash.jpg');
+  background-image: url('../images/DSC_0547.JPG');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -706,7 +717,7 @@ strong {
 
 .call-to-action::after {
   content: "";
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.75);
   position: absolute;
   top: 0;
   left: 0;
