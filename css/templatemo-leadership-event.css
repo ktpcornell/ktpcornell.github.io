@@ -341,13 +341,87 @@ strong {
   position: relative;
   height: 60vh; /* Adjust the height as needed */
   background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
-              url("images/YOUR_IMAGE_NAME_HERE.jpg") center center / cover no-repeat;
+              url("../images/DSC_0565.JPG") center center / cover no-repeat;
 }
 
 .recruitment-hero h1,
 .recruitment-hero p {
   z-index: 2;
   position: relative;
+}
+.gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* makes the div a square */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-image-wrapper img.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper img.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.member-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.member-card .card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 140%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.member-card:hover .card-inner {
+  transform: scale(1.03);
+}
+.member-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.member-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 20, 60, 0.85); /* Navy blue */
+  color: white;
+  text-align: center;
+}
+.card-back {
+  background-color: #001433;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transform: rotateY(180deg);
 }
 
 .recruitment-hero::before {
