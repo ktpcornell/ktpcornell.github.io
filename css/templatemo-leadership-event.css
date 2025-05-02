@@ -341,7 +341,7 @@ strong {
   position: relative;
   height: 60vh; /* Adjust the height as needed */
   background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
-              url("../images/DSC_0565.JPG") center center / cover no-repeat;
+              url("../images/classpictures/2025boys.JPG") center center / cover no-repeat;
 }
 
 .recruitment-hero h1,
@@ -823,7 +823,7 @@ strong {
   CALL TO ACTION              
 -----------------------------------------*/
 .call-to-action {
-  background-image: url('../images/DSC_0547.JPG');
+  background-image: url('../images/classpictures/2025girls.JPG');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;

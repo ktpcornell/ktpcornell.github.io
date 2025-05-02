@@ -7,6 +7,20 @@
     $('.navbar-nav .nav-link').click(function(){
         $(".navbar-collapse").collapse('hide');
     });
+    $('click', function (event) {
+      document.querySelectorAll('.member-card').forEach(card => {
+        if (!card.contains(event.target)) {
+          card.classList.remove('flipped');
+        }
+      });
+    });
+
+    $('.member-card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        e.stopPropagation();
+        card.classList.toggle('flipped');
+      });
+    });
 
     // CUSTOM LINK 
     $('.custom-link').click(function(){
