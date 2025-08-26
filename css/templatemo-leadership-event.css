@@ -1053,7 +1053,10 @@ strong {
   background: var(--primary-color);
   color: var(--white-color);
 }
-
+.custom-here-link {
+    color: rgb(103, 103, 244);
+    text-decoration: underline;
+}
 
 /*---------------------------------------
   RESPONSIVE STYLES               
