@@ -3,1455 +3,318 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <meta name="description" content="">
-        <meta name="author" content="">
-
         <title>KTP Cornell</title>
         <link rel="icon" href="images/ktplogo2.png" type="image/png">
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
         <link href="css/bootstrap-icons.css" rel="stylesheet">
-
         <link href="css/templatemo-leadership-event.css" rel="stylesheet">
-        
-<!--
-
-TemplateMo 575 Leadership Event
-https://templatemo.com/tm-575-leadership-event
-
--->
     </head>
     
     <body>
-
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a href="index.html" class="navbar-brand  d-flex flex-column align-items-center">
-                      <img src="images/navbarlogo.png" style="height: 40px; margin-right: 4px;">
-                        <span class="text-white" style="font-size: 12px; width: -10px;">Cornell Chapter</span>
-    
+                <a href="index.html" class="navbar-brand d-flex flex-column align-items-center">
+                    <img src="images/navbarlogo.png" style="height: 40px; margin-right: 4px;">
+                    <span class="text-white" style="font-size: 12px; width: -10px;">Cornell Chapter</span>
                 </a>
-
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link click-scroll text-white" href="index.html">Home</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About Us</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link "style="color: var(--primary-color);" href="members.html">Members</a>
+                            <a class="nav-link" style="color: var(--primary-color);" href="members.html">Members</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#contact-footer">Contact Us</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link custom-btn btn d-none d-lg-block" href="join.html">Apply</a>
                         </li>
                     </ul>
-                <div>
-                        
+                </div>
             </div>
         </nav>
 
         <main>
-          <!-- E-board Section -->
             <div class="mb-3 container">
                 <h2 class="fw-bold text-center mb-4 mt-3" style="color: var(--navbar-bg-color);">Executive board</h2>
-                <!-- <div class="text-center mb-5">
-                  <img src="images/classpictures/2025eboard.JPG" class="img-fluid" style="max-width: 600px;" alt="E-board group photo">
-                </div> -->
-                <div class="row g-4 mb-5">
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Riya Pate.png" alt="Riya">
-                          <div class="member-overlay">
-                            <div class="member-name">Riya Patel</div>
-                            <div class="member-major">Hotel Administration '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Savannah, GA</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/rbp18" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="rbp95@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">rbp95@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities. </p>
-                        </div>
-                      </div>
+                <div id="eboard-root" class="row g-4 mb-5">
+                    <div class="col-12 text-center">
+                        <p>Loading E-board members...</p>
                     </div>
-                    <div class = "text-center mt-2"><h6>Co-President</h6></div>
-                  </div>
-          
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Gregory Parent.jpeg" alt="Gregory">
-                          <div class="member-overlay">
-                            <div class="member-name">Gregory Parent</div>
-                            <div class="member-major">Computer Science '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Armonk, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/gregory-parent" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="gmp89@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">gmp89@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>Co-President</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Jonathan Zhang.png" alt="Jonathan">
-                          <div class="member-overlay">
-                            <div class="member-name">Jonathan Zhang</div>
-                            <div class="member-major">Computer Science '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Long Island, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/jzhangcs/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="jz2357@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">jz2357@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Jonathan is involved in Generative AI at Cornell, Society of Asian Scientists and Engineers (SASE), and Emmaus Road. This summer, he is planning to work at SLAC National Accelerator Lab. In his free time, he enjoys playing Basketball, Badminton, and listening to music.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP External Affairs</h6></div>
-                  </div>
-
-                  
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Sonja Wong.JPG" alt="Sonja">
-                          <div class="member-overlay">
-                            <div class="member-name">Sonja Wong</div>
-                            <div class="member-major">Computer Science '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Hong Kong</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/sonja-wong/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="sw2374@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">sw2374@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Sonja is involved in CUAUV, Bindel Labs, uTECH, Cornell Data Strategy, WICC, and Cornell Marketing. This summer, she is planning to work at IBM as a tech intern. In her freetime, she enjoys baking, songwriting, and performing with her band.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP Internal Affairs</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/alishavarma.png" alt="Alisha">
-                          <div class="member-overlay">
-                            <div class="member-name">Alisha Varma</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Jersey City, NJ</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/alishav1/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="av523@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">av523@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Alisha is a part of Hack4Impact Project Team, CTC, and Smart is Strong. She also does research and is planning to work as a SWE intern at Wells Fargo this summer. In her free time, she enjoys dancing, doing calligraphy, and drinking boba.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP NME - Professional</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/amishigupta.JPG" alt="Amishi">
-                          <div class="member-overlay">
-                            <div class="member-name">Amishi Gupta</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Durham, NC</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/amishigupta/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="ag2424@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">ag2424@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Amishi is involved in Cornell Nexus Project Team, Cornell Tech Consulting, Cornell Nazaqat, and WICC. This summer, she is planning to work at Amazon as an SDE intern. In her free time, she enjoys dancing, listening to music, and drinking boba.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP NME - Technical</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Logan Canfield.JPG" alt="Logan">
-                          <div class="member-overlay">
-                            <div class="member-name">Logan Canfield</div>
-                            <div class="member-major">Computer Science & Mathematics '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Rochester, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/logan-canfield-55b78227b/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="ltc37@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">ltc37@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Logan is involved in Cornell University Wind Symphony. This summer, he is planning to work at Laboratory for Laser Energetics at University of Rochester. In his free time, he enjoys playing Basketball, Tennis, Piano, and card games.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP Finance</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/KaytonBuerlein.JPG" alt="Kayton">
-                          <div class="member-overlay">
-                            <div class="member-name">Kayton Buerlein</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Richmond, VA</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/kayton-buerlein-2b2028292/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="keb324@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">keb324@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Kayton is involved in Mediocre Melodies Acapella and WICC. In her free time, she enjoys hiking, eating food, drinking coffee, and long walks with friends.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP Marketing</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Serena Zhu.jpeg" alt="Serena">
-                          <div class="member-overlay">
-                            <div class="member-name">Serena Zhu</div>
-                            <div class="member-major">Computer Science '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Woodbury, MN</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/serena-zhu-341389322" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="srz24@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">srz24@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Serena is involved in Symphony Orchestra. This summer, she is planning to work at Medtronic. In her free time, she enjoys listening to music, eating food, going to concerts, and playing sports.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP DEI</h6></div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Richard Ippoliti.JPG" alt="Richard">
-                          <div class="member-overlay">
-                            <div class="member-name">Richard Ippoliti</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Bellmore, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/richard-ippoliti" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="rji9@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">rji9@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Richard is involved in Cornell Cyber Club, and Sigma Chi Fraternity. This summer, he plans to intern at Jahnel Group as a SWE intern. In his free time, he enjoys fishing, surfing, hanging out with friends, and watching TV.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP Brotherhood</h6></div>
-                  </div>
-
-                  
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Vishu Agarwal.jpeg" alt="Vishu">
-                          <div class="member-overlay">
-                            <div class="member-name">Vishu Agarwal</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Westborough, MA</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/vishu-agarwal237/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="va243@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">va243@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Vishu is involved in Cornell IEEE Chapter Corporate team, Cornell Data Journal, and Cornell Entrepreneurship. This summer, he is planning to work at Duoling in NYC as a SWE intern. In his free time, he enjoys lifting, biking, playing table tennis, and drinking boba.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class = "text-center mt-2"><h6>VP Brotherhood</h6></div>
-                  </div>
-
-
-
-                  <!-- <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/avatar/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university.jpg" alt="Belen">
-                          <div class="member-overlay">
-                            <div class="member-name">Belen</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Hometown</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://linkedin.com/in/belen" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="https://www.linkedin.com/company/kappa-theta-pi-cornell-chapter" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">ktpcornell@gmail.com</p>
-                          </div>
-                          
-                          <p class="text-white">About</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                  <!-- Repeat for other members as needed -->
-                  
-                  
-
                 </div>
           
-                <!-- Alpha Class Section -->
                 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Alpha Class</h2>
                 <h4 class="text-center mb-4">Spring 2025</h4>
                 <div class="text-center mb-5">
-                  <img src="images/classpictures/alphaclass.JPG" class="img-fluid" style="max-width: 1000px;" alt="Alpha Class group photo">
+                    <img src="images/classpictures/alphaclass.JPG" class="img-fluid" style="max-width: 1000px;" alt="Alpha Class group photo">
                 </div>
-                <div class="row g-4 mb-5">
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <div class="member-card" onclick="this.classList.toggle('flipped')">
-                    <div class="card-inner">
-                      <div class="card-front">
-                        <img src="images/headshots/AlphaClass/Alexis Barrow.JPG" alt="Alexis">
-                        <div class="member-overlay">
-                          <div class="member-name">Alexis Barrow</div>
-                          <div class="member-major">Mechanical and Aerospace Engineering '27</div>
-                        </div>
-                      </div>
-                      <div class="align-items-baseline text-white card-back">
-                          <div class="d-flex mb-3">
-                              <a target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi bi-house"></i>
-                              </a>
-                              <p class="mb-0 text-white">Ramsey, NJ</p>
-                            </div>
-                      
-                            <div class="d-flex mb-3">
-                              <i class="bi bi-linkedin me-2 fs-5"></i>
-                              <a href="https://www.linkedin.com/in/alexis-barrow12" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                        <div class="d-flex mb-3">
-                          <a href="alexismadbarrow@gmail.com" target="_blank" class="text-white me-2 fs-5">
-                            <i class="bi-envelope"></i>
-                          </a>
-                          <p class="mb-0 text-white">alexismadbarrow@gmail.com</p>
-                        </div>
-                        
-                        <p class="text-white">Outside KTP, Alexis is involved in Cornell Electric Vehicles, and Tri Delta sorority. This summer, she is planning to work at General Atomics Aeronautical Systems. In her free time, she enjoys running, playing soccer, painting, and doing embroidery.</p>
-                      </div>
+                <div id="alpha-root" class="row g-4 mb-5">
+                    <div class="col-12 text-center">
+                        <p>Loading Alpha Class members...</p>
                     </div>
-                  </div>
                 </div>
-                
-                  
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/alishavarma.png" alt="Alisha">
-                          <div class="member-overlay">
-                            <div class="member-name">Alisha Varma</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Jersey City, NJ</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/alishav1/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="av523@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">av523@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Alisha is a part of Hack4Impact Project Team, CTC, and Smart is Strong. She also does research and is planning to work as a SWE intern at Wells Fargo this summer. In her free time, she enjoys dancing, doing calligraphy, and drinking boba.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
 
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/amishigupta.JPG" alt="Amishi">
-                          <div class="member-overlay">
-                            <div class="member-name">Amishi Gupta</div>
-                            <div class="member-major">Computer Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Durham, NC</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/amishigupta/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="ag2424@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">ag2424@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Amishi is involved in Cornell Nexus Project Team, Cornell Tech Consulting, Cornell Nazaqat, and WICC. This summer, she is planning to work at Amazon as an SDE intern. In her free time, she enjoys dancing, listening to music, and drinking boba.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Ashley Kwarteng.jpg" alt="Ashley">
-                          <div class="member-overlay">
-                            <div class="member-name">Ashley Kwarteng</div>
-                            <div class="member-major">Data Science '27</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Atlanta, Georgia</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/ashley-kwarteng/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="aak242@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">aak242@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Ashley is involved in Ghanians at Cornell, Pan African Student Association, Design Consulting at Cornell, and Big Red Heads. This summer, Ashley is working at Leidos as a PM intern. In her free time, she enjoys making videos for Youtube, reading, thrifting, and gym.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/AlphaClass/Esperanza R..png" alt="Esperanza">
-                          <div class="member-overlay">
-                            <div class="member-name">Esperanza Román Carrera</div>
-                            <div class="member-major">Information Science and Economics '28</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Chicago, IL</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/esperanzarc/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="er549@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">er549@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white">Outside KTP, Esperanza is involved in ALPFA, DTI Project Team, and CUDAA. This summer, she is planning to work at Cleveland Avenue. In her free time, she enjoys Photography, listening to music, going to concerts, and drinking Coffee. </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Gabriel Benavidez.png" alt="Gabriel">
-                            <div class="member-overlay">
-                              <div class="member-name">Gabriel Benavidez</div>
-                              <div class="member-major">ORIE '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Boston, MA</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/gabriel-benavidez-4a020a260" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                              </div>
-                            <div class="d-flex mb-3">
-                              <a href="gob8@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">gob8@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Gabriel is a part of Cornell DEBUT, SAFC, and ALPFA. This summer, he is planning to work at Cambridge. In his free time, he enjoys playing Soccer, Basketball, Golf, Chess, Poker, and Snowboarding.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Gregory Parent.jpeg" alt="Gregory">
-                            <div class="member-overlay">
-                              <div class="member-name">Gregory Parent</div>
-                              <div class="member-major">Computer Science '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Armonk, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/gregory-parent" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="gmp89@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">gmp89@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Jonathan Zhang.png" alt="Jonathan">
-                            <div class="member-overlay">
-                              <div class="member-name">Jonathan Zhang</div>
-                              <div class="member-major">Computer Science '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Long Island, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/jzhangcs/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="jz2357@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">jz2357@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Jonathan is involved in Generative AI at Cornell, Society of Asian Scientists and Engineers (SASE), and Emmaus Road. This summer, he is planning to work at SLAC National Accelerator Lab. In his free time, he enjoys playing Basketball, Badminton, and listening to music.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/KaytonBuerlein.JPG" alt="Kayton">
-                            <div class="member-overlay">
-                              <div class="member-name">Kayton Buerlein</div>
-                              <div class="member-major">Computer Science '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Richmond, VA</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/kayton-buerlein-2b2028292/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="keb324@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">keb324@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Kayton is involved in Mediocre Melodies Acapella and WICC. In her free time, she enjoys hiking, eating food, drinking coffee, and long walks with friends.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Logan Canfield.JPG" alt="Logan">
-                            <div class="member-overlay">
-                              <div class="member-name">Logan Canfield</div>
-                              <div class="member-major">Computer Science & Mathematics '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Rochester, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/logan-canfield-55b78227b/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="ltc37@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">ltc37@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Logan is involved in Cornell University Wind Symphony. This summer, he is planning to work at Laboratory for Laser Energetics at University of Rochester. In his free time, he enjoys playing Basketball, Tennis, Piano, and card games.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Matthew Laterza.JPG" alt="Logan">
-                            <div class="member-overlay">
-                              <div class="member-name">Matthew Laterza</div>
-                              <div class="member-major">Computer Science '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Rye Brook, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/matthewlaterza/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="mvl32@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">mvl32@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Matthew is involved in Sports Taekwondo at Cornell. In his free time, he enjoys playing video games, taekwondo, and listening to music.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Oscar C-A.JPG" alt="Oscar">
-                            <div class="member-overlay">
-                              <div class="member-name">Oscar Callamari-Abrams</div>
-                              <div class="member-major">ORIE '26</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Manhattan, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/oscar-callamari-abrams-23ab5a276/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="oc67@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">oc67@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Oscar is involved in the Food Recovery Network, and a part of Lambda Chi Alpha Fraternity. This summer, he is working at Courier Health. In his free time, he enjoys skiing, photography, and scuba diving.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Richard Ippoliti.JPG" alt="Richard">
-                            <div class="member-overlay">
-                              <div class="member-name">Richard Ippoliti</div>
-                              <div class="member-major">Computer Science '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Bellmore, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/richard-ippoliti" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="rji9@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">rji9@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Richard is involved in Cornell Cyber Club, and Sigma Chi Fraternity. This summer, he plans to intern at Jahnel Group as a SWE intern. In his free time, he enjoys fishing, surfing, hanging out with friends, and watching TV.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Serena Zhu.jpeg" alt="Serena">
-                            <div class="member-overlay">
-                              <div class="member-name">Serena Zhu</div>
-                              <div class="member-major">Computer Science '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Woodbury, MN</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/serena-zhu-341389322" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="srz24@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">srz24@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Serena is involved in Symphony Orchestra. This summer, she is planning to work at Medtronic. In her free time, she enjoys listening to music, eating food, going to concerts, and playing sports.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Riya Pate.png" alt="Riya">
-                            <div class="member-overlay">
-                              <div class="member-name">Riya Patel</div>
-                              <div class="member-major">Hotel Administration '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Savannah, GA</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/rbp18" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="rbp95@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">rbp95@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities. </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Sonja Wong.JPG" alt="Sonja">
-                            <div class="member-overlay">
-                              <div class="member-name">Sonja Wong</div>
-                              <div class="member-major">Computer Science '28</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Hong Kong</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/sonja-wong/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="sw2374@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">sw2374@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Sonja is involved in CUAUV, Bindel Labs, uTECH, Cornell Data Strategy, WICC, and Cornell Marketing. This summer, she is planning to work at IBM as a tech intern. In her freetime, she enjoys baking, songwriting, and performing with her band.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Tamer Gabal.JPG" alt="Tamer">
-                            <div class="member-overlay">
-                              <div class="member-name">Tamer Gabal</div>
-                              <div class="member-major">Computer Science '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Queens, NY</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/tamergabal/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="tg432@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">tg432@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Tamer is involved in Cornell Webdev Club, and CS 3110 TA. This summer, he is planning to intern at Amazon in NYC as a SDE intern. In his free time, he enjoys lifting, watching basketball, gaming, and playing poker. </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="member-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img src="images/headshots/AlphaClass/Vishu Agarwal.jpeg" alt="Vishu">
-                            <div class="member-overlay">
-                              <div class="member-name">Vishu Agarwal</div>
-                              <div class="member-major">Computer Science '27</div>
-                            </div>
-                          </div>
-                          <div class="align-items-baseline text-white card-back">
-                              <div class="d-flex mb-3">
-                                  <a target="_blank" class="text-white me-2 fs-5">
-                                    <i class="bi bi-house"></i>
-                                  </a>
-                                  <p class="mb-0 text-white">Westborough, MA</p>
-                                </div>
-                          
-                                <div class="d-flex mb-3">
-                                  <i class="bi bi-linkedin me-2 fs-5"></i>
-                                  <a href="https://www.linkedin.com/in/vishu-agarwal237/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                            <div class="d-flex mb-3">
-                              <a href="va243@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                                <i class="bi-envelope"></i>
-                              </a>
-                              <p class="mb-0 text-white">va243@cornell.edu</p>
-                            </div>
-                            
-                            <p class="text-white">Outside KTP, Vishu is involved in Cornell IEEE Chapter Corporate team, Cornell Data Journal, and Cornell Entrepreneurship. This summer, he is planning to work at Duoling in NYC as a SWE intern. In his free time, he enjoys lifting, biking, playing table tennis, and drinking boba.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Repeat for other members as needed -->
-  
-  
-                  </div>
-              </div>
-              <div class="mb-3 container">
+            <div class="mb-3 container">
                 <h2 class="fw-bold text-center mb-4 mt-3" style="color: var(--navbar-bg-color);">Founders</h2>
-                <!-- <div class="text-center mb-5">
-                  <img src="images/classpictures/2025eboard.JPG" class="img-fluid" style="max-width: 600px;" alt="E-board group photo">
-                </div> -->
-                <div class="row g-4 mb-5">
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Belen Del Castillo.JPG" alt="Belen">
-                          <div class="member-overlay">
-                            <div class="member-name">Belen del Castillo</div>
-                            <div class="member-major">Information Science '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Chicago, IL</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/belen-del-castillo/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="bad88@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">bad88@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"> </p>
-                        </div>
-                      </div>
+                <div id="founders-root" class="row g-4 mb-5">
+                    <div class="col-12 text-center">
+                        <p>Loading Founders...</p>
                     </div>
-                  </div>
-          
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Jake Berko.JPG" alt="Jake">
-                          <div class="member-overlay">
-                            <div class="member-name">Jake Berko</div>
-                            <div class="member-major">Computer Science '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">NY, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/jberko/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="jmb787@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">jmb787@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Videesha Mohan.JPG" alt="Videesha">
-                          <div class="member-overlay">
-                            <div class="member-name">Videesha Mohan</div>
-                            <div class="member-major">Economics '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Atlanta, GA</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/videesha-mohan/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="vm322@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">vm322@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Manraj Singh.jpeg" alt="Manraj">
-                          <div class="member-overlay">
-                            <div class="member-name">Manraj Singh</div>
-                            <div class="member-major">Economics '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">Hagerstown, MD</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/manraj-singh27/" target="_blank" class="mb-0 text-info">LinkedIn</a></div>
-                          <div class="d-flex mb-3">
-                            <a href="ms3263@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">ms3263@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Ginger McCoy.JPG" alt="Ginger">
-                          <div class="member-overlay">
-                            <div class="member-name">Ginger McCoy</div>
-                            <div class="member-major">Computer Science '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">NYC, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/gingermccoy/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="gmm225@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">gmm225@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="member-card" onclick="this.classList.toggle('flipped')">
-                      <div class="card-inner">
-                        <div class="card-front">
-                          <img src="images/headshots/Founders/Nichole Lopez.JPG" alt="Nichole">
-                          <div class="member-overlay">
-                            <div class="member-name">Nichole Lopez</div>
-                            <div class="member-major">Information Science and Economics '26</div>
-                          </div>
-                        </div>
-                        <div class="align-items-baseline text-white card-back">
-                            <div class="d-flex mb-3">
-                                <a target="_blank" class="text-white me-2 fs-5">
-                                  <i class="bi bi-house"></i>
-                                </a>
-                                <p class="mb-0 text-white">East Hampton, NY</p>
-                              </div>
-                        
-                              <div class="d-flex mb-3">
-                                <i class="bi bi-linkedin me-2 fs-5"></i>
-                                <a href="https://www.linkedin.com/in/nglopez/" target="_blank" class="mb-0 text-info">LinkedIn</a>
-                            </div>
-                          <div class="d-flex mb-3">
-                            <a href="nl385@cornell.edu" target="_blank" class="text-white me-2 fs-5">
-                              <i class="bi-envelope"></i>
-                            </a>
-                            <p class="mb-0 text-white">nl385@cornell.edu</p>
-                          </div>
-                          
-                          <p class="text-white"></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                </div>
             </div>
         </main>
 
-
-        <footer class="site-footer text-white py-5" style="background-color: var(--navbar-bg-color); font-size: 14px;" id = "contact-footer">
+        <footer class="site-footer text-white py-5" style="background-color: var(--navbar-bg-color); font-size: 14px;" id="contact-footer">
             <div class="container">
-              <div class="row justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <a href="index.html" class="d-flex flex-column align-items-baseline">
+                            <img src="images/navbarlogo.png" style="height: 30px; margin-right: -5px;">
+                            <span class="text-white mb-2" style="font-size: 12px; margin-left: 0px; width: -10px;">Cornell Chapter</span>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="text-white d-block mb-2">Home</a></li>
+                            <li><a href="about.html" class="text-white d-block mb-2">About Us</a></li>
+                            <li><a href="members.html" class="d-block mb-2" style="color: var(--primary-color);">Members</a></li>
+                            <li><a href="join.html" class="text-white d-block mb-2">Recruitment</a></li>
+                            <li><a href="https://kappathetapi.org" class="text-white d-block">Nationals</a></li>
+                        </ul>
+                    </div>
               
-                <!-- Menu Column -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                  <a href="index.html" class="  d-flex flex-column align-items-baseline">
-                    <img src="images/navbarlogo.png" style="height: 30px; margin-right: -5px;">
-                      <span class="text-white mb-2" style="font-size: 12px; margin-left: 0px; width: -10px;">Cornell Chapter</span>
-                </a>
-                  <ul class="list-unstyled">
-                    <li><a href="index.html" class="text-white d-block mb-2" >Home</a></li>
-                    <li><a href="about.html" class="text-white d-block mb-2">About Us</a></li>
-                    <li><a href="members.html" class="d-block mb-2" style="color: var(--primary-color);">Members</a></li>
-                    <li><a href="join.html" class="text-white d-block mb-2">Recruitment</a></li>
-                    <li><a href="https://kappathetapi.org" class="text-white d-block">Nationals</a></li>
-                  </ul>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <h5 class="fw-bold mb-3 text-white">Contact Us</h5>
+                        <div class="d-flex mb-2">
+                            <a href="" target="_blank" class="text-white me-2 fs-5">
+                                <i class="bi-envelope"></i>
+                            </a>
+                            <p class="mb-0 text-white">ktpcornell@gmail.com</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <a href="https://www.instagram.com/ktpcornell" target="_blank" class="text-white me-2 fs-5">
+                                <i class="bi-instagram"></i>
+                            </a>
+                            <p class="mb-0 text-white">@ktpcornell</p>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <a href="https://www.linkedin.com/company/kappa-theta-pi-cornell-chapter" target="_blank" class="text-white me-2 fs-5">
+                                <i class="bi-linkedin"></i>
+                            </a>
+                            <p class="mb-0 text-white">KTP Cornell Chapter</p>
+                        </div>
+                    </div>
                 </div>
           
-                <!-- Contact Column -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                  <h5 class="fw-bold mb-3 text-white">Contact Us</h5>
-                  <div class="d-flex mb-2">
-                    <a href="" target="_blank" class="text-white me-2 fs-5">
-                      <i class="bi-envelope"></i>
-                    </a>
-                    <p class="mb-0 text-white">ktpcornell@gmail.com</p>
-                  </div>
-                  <div class="d-flex mb-2">
-                    <a href="https://www.instagram.com/ktpcornell" target="_blank" class="text-white me-2 fs-5">
-                      <i class="bi-instagram"></i>
-                    </a>
-                    <p class="mb-0 text-white">@ktpcornell</p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <a href="https://www.linkedin.com/company/kappa-theta-pi-cornell-chapter" target="_blank" class="text-white me-2 fs-5">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                    <p class="mb-0 text-white">KTP Cornell Chapter</p>
-                  </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <p class="text-white mb-1">This organization is a registered student organization of Cornell University.
+                            <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" class="text-white text-decoration-underline" target="_blank" rel="noopener noreferrer">
+                                Equal Education and Employment
+                            </a>
+                        </p>
+                        <p class="text-white mb-0">© Kappa Theta Pi Alpha Epsilon Chapter 2025. All rights reserved.</p>
+                    </div>
                 </div>
-              </div>
-          
-              <!-- Copyright -->
-              <div class="row mt-3">
-                <div class="col text-center">
-                  <p class="text-white mb-1">This organization is a registered student organization of Cornell University.
-                    <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" class="text-white text-decoration-underline" target="_blank" rel="noopener noreferrer">
-                      Equal Education and Employment
-                    </a>
-                  </p>
-                  <p class="text-white mb-0">© Kappa Theta Pi Alpha Epsilon Chapter 2025. All rights reserved.</p>
-                </div>
-              </div>
             </div>
-          </footer>
+        </footer>
           
-         
-          <script>
-            let currentlyFlippedCard = null;
+        <!-- React Scripts -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-            document.addEventListener('click', function (e) {
-                document.querySelectorAll('.member-card').forEach(card => {
-                    if (!card.contains(e.target)) {
-                        card.classList.remove('flipped');
+        <script type="text/babel">
+            const { useState, useEffect, useRef } = React;
+
+            function MemberCard({ member }) {
+                const [flipped, setFlipped] = useState(false);
+                const cardRef = useRef();
+
+                useEffect(() => {
+                    function handleClickOutside(e) {
+                        if (cardRef.current && !cardRef.current.contains(e.target)) {
+                            setFlipped(false);
+                        }
                     }
-                });
-                if (currentlyFlippedCard && !currentlyFlippedCard.contains(e.target)) {
-                    currentlyFlippedCard.classList.remove('flipped');
-                    currentlyFlippedCard = null;
-                }
-            });
+                    document.addEventListener('click', handleClickOutside);
+                    return () => document.removeEventListener('click', handleClickOutside);
+                }, []);
 
-            document.querySelectorAll('.member-card').forEach(card => {
-                card.addEventListener('click', function (e) {
+                const handleCardClick = (e) => {
                     e.stopPropagation();
-                    if (this === currentlyFlippedCard) {
-                        this.classList.remove('flipped');
-                        currentlyFlippedCard = null;
-                    } else {
-                        document.querySelectorAll('.member-card').forEach(c => c.classList.remove('flipped'));
-                        this.classList.add('flipped');
-                        currentlyFlippedCard = this;
+                    setFlipped(!flipped);
+                };
+
+                return (
+                    <div className="col-sm-6 col-md-4 col-lg-3">
+                        <div 
+                            ref={cardRef}
+                            className={`member-card ${flipped ? 'flipped' : ''}`} 
+                            onClick={handleCardClick}
+                        >
+                            <div className="card-inner">
+                                <div className="card-front">
+                                    <img src={member.photo} alt={member.name} />
+                                    <div className="member-overlay">
+                                        <div className="member-name">{member.name}</div>
+                                        <div className="member-major">{member.major}</div>
+                                    </div>
+                                </div>
+                                <div className="align-items-baseline text-white card-back">
+                                    {member.hometown && (
+                                        <div className="d-flex mb-3">
+                                            <a target="_blank" className="text-white me-2 fs-5">
+                                                <i className="bi bi-house"></i>
+                                            </a>
+                                            <p className="mb-0 text-white">{member.hometown}</p>
+                                        </div>
+                                    )}
+
+                                    {member.linkedin && (
+                                        <div className="d-flex mb-3">
+                                            <i className="bi bi-linkedin me-2 fs-5"></i>
+                                            <a href={member.linkedin} target="_blank" className="mb-0 text-info">LinkedIn</a>
+                                        </div>
+                                    )}
+
+                                    {member.email && (
+                                        <div className="d-flex mb-3">
+                                            <a href={`mailto:${member.email}`} target="_blank" className="text-white me-2 fs-5">
+                                                <i className="bi-envelope"></i>
+                                            </a>
+                                            <p className="mb-0 text-white">{member.email}</p>
+                                        </div>
+                                    )}
+
+                                    {member.description && (
+                                        <p className="text-white">{member.description}</p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        {member.role && (
+                            <div className="text-center mt-2">
+                                <h6>{member.role}</h6>
+                            </div>
+                        )}
+                    </div>
+                );
+            }
+
+            // Hardcoded data (since JSON fetch might not work locally)
+            const membersData = {
+                "eboard": [
+                    {
+                        "name": "Riya Patel",
+                        "major": "Hotel Administration '27",
+                        "photo": "images/headshots/AlphaClass/Riya Pate.png",
+                        "hometown": "Savannah, GA",
+                        "linkedin": "https://www.linkedin.com/in/rbp18",
+                        "email": "rbp95@cornell.edu",
+                        "description": "Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities.",
+                        "role": "Co-President"
+                    },
+                    {
+                        "name": "Gregory Parent",
+                        "major": "Computer Science '28",
+                        "photo": "images/headshots/AlphaClass/Gregory Parent.jpeg",
+                        "hometown": "Armonk, NY",
+                        "linkedin": "https://www.linkedin.com/in/gregory-parent",
+                        "email": "gmp89@cornell.edu",
+                        "description": "Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.",
+                        "role": "Co-President"
                     }
+                ],
+                "alpha": [
+                    {
+                        "name": "Alexis Barrow",
+                        "major": "Mechanical and Aerospace Engineering '27",
+                        "photo": "images/headshots/AlphaClass/Alexis Barrow.JPG",
+                        "hometown": "Ramsey, NJ",
+                        "linkedin": "https://www.linkedin.com/in/alexis-barrow12",
+                        "email": "alexismadbarrow@gmail.com",
+                        "description": "Outside KTP, Alexis is involved in Cornell Electric Vehicles, and Tri Delta sorority. This summer, she is planning to work at General Atomics Aeronautical Systems. In her free time, she enjoys running, playing soccer, painting, and doing embroidery.",
+                        "role": ""
+                    }
+                ],
+                "founders": [
+                    {
+                        "name": "Belen del Castillo",
+                        "major": "Information Science '26",
+                        "photo": "images/headshots/Founders/Belen Del Castillo.JPG",
+                        "hometown": "Chicago, IL",
+                        "linkedin": "https://www.linkedin.com/in/belen-del-castillo/",
+                        "email": "bad88@cornell.edu",
+                        "description": "",
+                        "role": ""
+                    }
+                ]
+            };
+
+            function renderMembers(containerId, members) {
+                const container = document.getElementById(containerId);
+                if (container && members) {
+                    const root = ReactDOM.createRoot(container);
+                    root.render(
+                        React.createElement(React.Fragment, null, 
+                            members.map((member, index) => 
+                                React.createElement(MemberCard, { key: index, member: member })
+                            )
+                        )
+                    );
+                }
+            }
+
+            // Try to fetch JSON first, fall back to hardcoded data
+            fetch('data/members.json')  // Try relative path first
+                .then(response => {
+                    if (!response.ok) {
+                        // Try different path
+                        return fetch('./members.json');
+                    }
+                    return response;
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('JSON file not found');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderMembers('eboard-root', data.eboard);
+                    renderMembers('alpha-root', data.alpha);
+                    renderMembers('founders-root', data.founders);
+                })
+                .catch(error => {
+                    console.log('Using hardcoded data due to:', error);
+                    // Use hardcoded data as fallback
+                    renderMembers('eboard-root', membersData.eboard);
+                    renderMembers('alpha-root', membersData.alpha);
+                    renderMembers('founders-root', membersData.founders);
                 });
-            });
+
         </script>
 
-        <!-- JAVASCRIPT FILES -->
+        <!-- Other JavaScript Files -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
-
     </body>
 </html>

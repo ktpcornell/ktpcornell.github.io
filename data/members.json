@@ -1,0 +1,358 @@
+{
+  "eboard": [
+    {
+      "name": "Riya Patel",
+      "major": "Hotel Administration '27",
+      "photo": "images/headshots/AlphaClass/Riya Pate.png",
+      "hometown": "Savannah, GA",
+      "linkedin": "https://www.linkedin.com/in/rbp18",
+      "email": "rbp95@cornell.edu",
+      "description": "Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities.",
+      "role": "Co-President"
+    },
+    {
+      "name": "Gregory Parent",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Gregory Parent.jpeg",
+      "hometown": "Armonk, NY",
+      "linkedin": "https://www.linkedin.com/in/gregory-parent",
+      "email": "gmp89@cornell.edu",
+      "description": "Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.",
+      "role": "Co-President"
+    },
+    {
+      "name": "Jonathan Zhang",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Jonathan Zhang.png",
+      "hometown": "Long Island, NY",
+      "linkedin": "https://www.linkedin.com/in/jzhangcs/",
+      "email": "jz2357@cornell.edu",
+      "description": "Outside KTP, Jonathan is involved in Generative AI at Cornell, Society of Asian Scientists and Engineers (SASE), and Emmaus Road. This summer, he is planning to work at SLAC National Accelerator Lab. In his free time, he enjoys playing Basketball, Badminton, and listening to music.",
+      "role": "VP External Affairs"
+    },
+    {
+      "name": "Sonja Wong",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Sonja Wong.JPG",
+      "hometown": "Hong Kong",
+      "linkedin": "https://www.linkedin.com/in/sonja-wong/",
+      "email": "sw2374@cornell.edu",
+      "description": "Outside KTP, Sonja is involved in CUAUV, Bindel Labs, uTECH, Cornell Data Strategy, WICC, and Cornell Marketing. This summer, she is planning to work at IBM as a tech intern. In her freetime, she enjoys baking, songwriting, and performing with her band.",
+      "role": "VP Internal Affairs"
+    },
+    {
+      "name": "Alisha Varma",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/alishavarma.png",
+      "hometown": "Jersey City, NJ",
+      "linkedin": "https://www.linkedin.com/in/alishav1/",
+      "email": "av523@cornell.edu",
+      "description": "Outside KTP, Alisha is a part of Hack4Impact Project Team, CTC, and Smart is Strong. She also does research and is planning to work as a SWE intern at Wells Fargo this summer. In her free time, she enjoys dancing, doing calligraphy, and drinking boba.",
+      "role": "VP NME - Professional"
+    },
+    {
+      "name": "Amishi Gupta",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/amishigupta.JPG",
+      "hometown": "Durham, NC",
+      "linkedin": "https://www.linkedin.com/in/amishigupta/",
+      "email": "ag2424@cornell.edu",
+      "description": "Outside KTP, Amishi is involved in Cornell Nexus Project Team, Cornell Tech Consulting, Cornell Nazaqat, and WICC. This summer, she is planning to work at Amazon as an SDE intern. In her free time, she enjoys dancing, listening to music, and drinking boba.",
+      "role": "VP NME - Technical"
+    },
+    {
+      "name": "Logan Canfield",
+      "major": "Computer Science & Mathematics '28",
+      "photo": "images/headshots/AlphaClass/Logan Canfield.JPG",
+      "hometown": "Rochester, NY",
+      "linkedin": "https://www.linkedin.com/in/logan-canfield-55b78227b/",
+      "email": "ltc37@cornell.edu",
+      "description": "Outside KTP, Logan is involved in Cornell University Wind Symphony. This summer, he is planning to work at Laboratory for Laser Energetics at University of Rochester. In his free time, he enjoys playing Basketball, Tennis, Piano, and card games.",
+      "role": "VP Finance"
+    },
+    {
+      "name": "Kayton Buerlein",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/KaytonBuerlein.JPG",
+      "hometown": "Richmond, VA",
+      "linkedin": "https://www.linkedin.com/in/kayton-buerlein-2b2028292/",
+      "email": "keb324@cornell.edu",
+      "description": "Outside KTP, Kayton is involved in Mediocre Melodies Acapella and WICC. In her free time, she enjoys hiking, eating food, drinking coffee, and long walks with friends.",
+      "role": "VP Marketing"
+    },
+    {
+      "name": "Serena Zhu",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Serena Zhu.jpeg",
+      "hometown": "Woodbury, MN",
+      "linkedin": "https://www.linkedin.com/in/serena-zhu-341389322",
+      "email": "srz24@cornell.edu",
+      "description": "Outside KTP, Serena is involved in Symphony Orchestra. This summer, she is planning to work at Medtronic. In her free time, she enjoys listening to music, eating food, going to concerts, and playing sports.",
+      "role": "VP DEI"
+    },
+    {
+      "name": "Richard Ippoliti",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Richard Ippoliti.JPG",
+      "hometown": "Bellmore, NY",
+      "linkedin": "https://www.linkedin.com/in/richard-ippoliti",
+      "email": "rji9@cornell.edu",
+      "description": "Outside KTP, Richard is involved in Cornell Cyber Club, and Sigma Chi Fraternity. This summer, he plans to intern at Jahnel Group as a SWE intern. In his free time, he enjoys fishing, surfing, hanging out with friends, and watching TV.",
+      "role": "VP Brotherhood"
+    },
+    {
+      "name": "Vishu Agarwal",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Vishu Agarwal.jpeg",
+      "hometown": "Westborough, MA",
+      "linkedin": "https://www.linkedin.com/in/vishu-agarwal237/",
+      "email": "va243@cornell.edu",
+      "description": "Outside KTP, Vishu is involved in Cornell IEEE Chapter Corporate team, Cornell Data Journal, and Cornell Entrepreneurship. This summer, he is planning to work at Duoling in NYC as a SWE intern. In his free time, he enjoys lifting, biking, playing table tennis, and drinking boba.",
+      "role": "VP Brotherhood"
+    },
+    {
+      "name": "Tamer Gabal",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Tamer Gabal.JPG",
+      "hometown": "Queens, NY",
+      "linkedin": "https://www.linkedin.com/in/tamergabal/",
+      "email": "tg432@cornell.edu",
+      "description": "Outside KTP, Tamer is involved in Cornell Webdev Club, and CS 3110 TA. This summer, he is planning to intern at Amazon in NYC as a SDE intern. In his free time, he enjoys lifting, watching basketball, gaming, and playing poker.",
+      "role": "VP Secretary"
+    }
+  ],
+  "alpha": [
+    {
+      "name": "Alexis Barrow",
+      "major": "Mechanical and Aerospace Engineering '27",
+      "photo": "images/headshots/AlphaClass/Alexis Barrow.JPG",
+      "hometown": "Ramsey, NJ",
+      "linkedin": "https://www.linkedin.com/in/alexis-barrow12",
+      "email": "alexismadbarrow@gmail.com",
+      "description": "Outside KTP, Alexis is involved in Cornell Electric Vehicles, and Tri Delta sorority. This summer, she is planning to work at General Atomics Aeronautical Systems. In her free time, she enjoys running, playing soccer, painting, and doing embroidery.",
+      "role": ""
+    },
+    {
+      "name": "Alisha Varma",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/alishavarma.png",
+      "hometown": "Jersey City, NJ",
+      "linkedin": "https://www.linkedin.com/in/alishav1/",
+      "email": "av523@cornell.edu",
+      "description": "Outside KTP, Alisha is a part of Hack4Impact Project Team, CTC, and Smart is Strong. She also does research and is planning to work as a SWE intern at Wells Fargo this summer. In her free time, she enjoys dancing, doing calligraphy, and drinking boba.",
+      "role": ""
+    },
+    {
+      "name": "Amishi Gupta",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/amishigupta.JPG",
+      "hometown": "Durham, NC",
+      "linkedin": "https://www.linkedin.com/in/amishigupta/",
+      "email": "ag2424@cornell.edu",
+      "description": "Outside KTP, Amishi is involved in Cornell Nexus Project Team, Cornell Tech Consulting, Cornell Nazaqat, and WICC. This summer, she is planning to work at Amazon as an SDE intern. In her free time, she enjoys dancing, listening to music, and drinking boba.",
+      "role": ""
+    },
+    {
+      "name": "Ashley Kwarteng",
+      "major": "Data Science '27",
+      "photo": "images/headshots/AlphaClass/Ashley Kwarteng.jpg",
+      "hometown": "Atlanta, Georgia",
+      "linkedin": "https://www.linkedin.com/in/ashley-kwarteng/",
+      "email": "aak242@cornell.edu",
+      "description": "Outside KTP, Ashley is involved in Ghanians at Cornell, Pan African Student Association, Design Consulting at Cornell, and Big Red Heads. This summer, Ashley is working at Leidos as a PM intern. In her free time, she enjoys making videos for Youtube, reading, thrifting, and gym.",
+      "role": ""
+    },
+    {
+      "name": "Esperanza Román Carrera",
+      "major": "Information Science and Economics '28",
+      "photo": "images/headshots/AlphaClass/Esperanza R..png",
+      "hometown": "Chicago, IL",
+      "linkedin": "https://www.linkedin.com/in/esperanzarc/",
+      "email": "er549@cornell.edu",
+      "description": "Outside KTP, Esperanza is involved in ALPFA, DTI Project Team, and CUDAA. This summer, she is planning to work at Cleveland Avenue. In her free time, she enjoys Photography, listening to music, going to concerts, and drinking Coffee.",
+      "role": ""
+    },
+    {
+      "name": "Gregory Parent",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Gregory Parent.jpeg",
+      "hometown": "Armonk, NY",
+      "linkedin": "https://www.linkedin.com/in/gregory-parent",
+      "email": "gmp89@cornell.edu",
+      "description": "Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.",
+      "role": ""
+    },
+    {
+      "name": "Jonathan Zhang",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Jonathan Zhang.png",
+      "hometown": "Long Island, NY",
+      "linkedin": "https://www.linkedin.com/in/jzhangcs/",
+      "email": "jz2357@cornell.edu",
+      "description": "Outside KTP, Jonathan is involved in Generative AI at Cornell, Society of Asian Scientists and Engineers (SASE), and Emmaus Road. This summer, he is planning to work at SLAC National Accelerator Lab. In his free time, he enjoys playing Basketball, Badminton, and listening to music.",
+      "role": ""
+    },
+    {
+      "name": "Kayton Buerlein",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/KaytonBuerlein.JPG",
+      "hometown": "Richmond, VA",
+      "linkedin": "https://www.linkedin.com/in/kayton-buerlein-2b2028292/",
+      "email": "keb324@cornell.edu",
+      "description": "Outside KTP, Kayton is involved in Mediocre Melodies Acapella and WICC. In her free time, she enjoys hiking, eating food, drinking coffee, and long walks with friends.",
+      "role": ""
+    },
+    {
+      "name": "Logan Canfield",
+      "major": "Computer Science & Mathematics '28",
+      "photo": "images/headshots/AlphaClass/Logan Canfield.JPG",
+      "hometown": "Rochester, NY",
+      "linkedin": "https://www.linkedin.com/in/logan-canfield-55b78227b/",
+      "email": "ltc37@cornell.edu",
+      "description": "Outside KTP, Logan is involved in Cornell University Wind Symphony. This summer, he is planning to work at Laboratory for Laser Energetics at University of Rochester. In his free time, he enjoys playing Basketball, Tennis, Piano, and card games.",
+      "role": ""
+    },
+    {
+      "name": "Matthew Laterza",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Matthew Laterza.JPG",
+      "hometown": "Rye Brook, NY",
+      "linkedin": "https://www.linkedin.com/in/matthewlaterza/",
+      "email": "mvl32@cornell.edu",
+      "description": "Outside KTP, Matthew is involved in Sports Taekwondo at Cornell. In his free time, he enjoys playing video games, taekwondo, and listening to music.",
+      "role": ""
+    },
+    {
+      "name": "Oscar Callamari-Abrams",
+      "major": "ORIE '26",
+      "photo": "images/headshots/AlphaClass/Oscar C-A.JPG",
+      "hometown": "Manhattan, NY",
+      "linkedin": "https://www.linkedin.com/in/oscar-callamari-abrams-23ab5a276/",
+      "email": "oc67@cornell.edu",
+      "description": "Outside KTP, Oscar is involved in the Food Recovery Network, and a part of Lambda Chi Alpha Fraternity. This summer, he is working at Courier Health. In his free time, he enjoys skiing, photography, and scuba diving.",
+      "role": ""
+    },
+    {
+      "name": "Richard Ippoliti",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Richard Ippoliti.JPG",
+      "hometown": "Bellmore, NY",
+      "linkedin": "https://www.linkedin.com/in/richard-ippoliti",
+      "email": "rji9@cornell.edu",
+      "description": "Outside KTP, Richard is involved in Cornell Cyber Club, and Sigma Chi Fraternity. This summer, he plans to intern at Jahnel Group as a SWE intern. In his free time, he enjoys fishing, surfing, hanging out with friends, and watching TV.",
+      "role": ""
+    },
+    {
+      "name": "Serena Zhu",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Serena Zhu.jpeg",
+      "hometown": "Woodbury, MN",
+      "linkedin": "https://www.linkedin.com/in/serena-zhu-341389322",
+      "email": "srz24@cornell.edu",
+      "description": "Outside KTP, Serena is involved in Symphony Orchestra. This summer, she is planning to work at Medtronic. In her free time, she enjoys listening to music, eating food, going to concerts, and playing sports.",
+      "role": ""
+    },
+    {
+      "name": "Riya Patel",
+      "major": "Hotel Administration '27",
+      "photo": "images/headshots/AlphaClass/Riya Pate.png",
+      "hometown": "Savannah, GA",
+      "linkedin": "https://www.linkedin.com/in/rbp18",
+      "email": "rbp95@cornell.edu",
+      "description": "Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities.",
+      "role": ""
+    },
+    {
+      "name": "Sonja Wong",
+      "major": "Computer Science '28",
+      "photo": "images/headshots/AlphaClass/Sonja Wong.JPG",
+      "hometown": "Hong Kong",
+      "linkedin": "https://www.linkedin.com/in/sonja-wong/",
+      "email": "sw2374@cornell.edu",
+      "description": "Outside KTP, Sonja is involved in CUAUV, Bindel Labs, uTECH, Cornell Data Strategy, WICC, and Cornell Marketing. This summer, she is planning to work at IBM as a tech intern. In her freetime, she enjoys baking, songwriting, and performing with her band.",
+      "role": ""
+    },
+    {
+      "name": "Tamer Gabal",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Tamer Gabal.JPG",
+      "hometown": "Queens, NY",
+      "linkedin": "https://www.linkedin.com/in/tamergabal/",
+      "email": "tg432@cornell.edu",
+      "description": "Outside KTP, Tamer is involved in Cornell Webdev Club, and CS 3110 TA. This summer, he is planning to intern at Amazon in NYC as a SDE intern. In his free time, he enjoys lifting, watching basketball, gaming, and playing poker.",
+      "role": ""
+    },
+    {
+      "name": "Vishu Agarwal",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Vishu Agarwal.jpeg",
+      "hometown": "Westborough, MA",
+      "linkedin": "https://www.linkedin.com/in/vishu-agarwal237/",
+      "email": "va243@cornell.edu",
+      "description": "Outside KTP, Vishu is involved in Cornell IEEE Chapter Corporate team, Cornell Data Journal, and Cornell Entrepreneurship. This summer, he is planning to work at Duoling in NYC as a SWE intern. In his free time, he enjoys lifting, biking, playing table tennis, and drinking boba.",
+      "role": ""
+    }
+  ],
+  "founders": [
+    {
+      "name": "Belen del Castillo",
+      "major": "Information Science '26",
+      "photo": "images/headshots/Founders/Belen Del Castillo.JPG",
+      "hometown": "Chicago, IL",
+      "linkedin": "https://www.linkedin.com/in/belen-del-castillo/",
+      "email": "bad88@cornell.edu",
+      "description": "",
+      "role": ""
+    },
+    {
+      "name": "Jake Berko",
+      "major": "Computer Science '26",
+      "photo": "images/headshots/Founders/Jake Berko.JPG",
+      "hometown": "NY, NY",
+      "linkedin": "https://www.linkedin.com/in/jberko/",
+      "email": "jmb787@cornell.edu",
+      "description": "",
+      "role": ""
+    },
+    {
+      "name": "Videesha Mohan",
+      "major": "Economics '26",
+      "photo": "images/headshots/Founders/Videesha Mohan.JPG",
+      "hometown": "Atlanta, GA",
+      "linkedin": "https://www.linkedin.com/in/videesha-mohan/",
+      "email": "vm322@cornell.edu",
+      "description": "",
+      "role": ""
+    },
+    {
+      "name": "Manraj Singh",
+      "major": "Economics '26",
+      "photo": "images/headshots/Founders/Manraj Singh.jpeg",
+      "hometown": "Hagerstown, MD",
+      "linkedin": "https://www.linkedin.com/in/manraj-singh27/",
+      "email": "ms3263@cornell.edu",
+      "description": "",
+      "role": ""
+    },
+    {
+      "name": "Ginger McCoy",
+      "major": "Computer Science '26",
+      "photo": "images/headshots/Founders/Ginger McCoy.JPG",
+      "hometown": "NYC, NY",
+      "linkedin": "https://www.linkedin.com/in/gingermccoy/",
+      "email": "gmm225@cornell.edu",
+      "description": "",
+      "role": ""
+    },
+    {
+      "name": "Nichole Lopez",
+      "major": "Information Science and Economics '26",
+      "photo": "images/headshots/Founders/Nichole Lopez.JPG",
+      "hometown": "East Hampton, NY",
+      "linkedin": "https://www.linkedin.com/in/nglopez/",
+      "email": "nl385@cornell.edu",
+      "description": "",
+      "role": ""
+    }
+  ]
+}
