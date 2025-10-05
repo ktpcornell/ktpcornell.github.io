@@ -81,16 +81,6 @@
       "role": "VP Marketing"
     },
     {
-      "name": "Serena Zhu",
-      "major": "Computer Science '28",
-      "photo": "images/headshots/AlphaClass/Serena Zhu.jpeg",
-      "hometown": "Woodbury, MN",
-      "linkedin": "https://www.linkedin.com/in/serena-zhu-341389322",
-      "email": "srz24@cornell.edu",
-      "description": "Outside KTP, Serena is involved in Symphony Orchestra. This summer, she is planning to work at Medtronic. In her free time, she enjoys listening to music, eating food, going to concerts, and playing sports.",
-      "role": "VP DEI"
-    },
-    {
       "name": "Richard Ippoliti",
       "major": "Computer Science '27",
       "photo": "images/headshots/AlphaClass/Richard Ippoliti.JPG",
@@ -118,7 +108,7 @@
       "linkedin": "https://www.linkedin.com/in/tamergabal/",
       "email": "tg432@cornell.edu",
       "description": "Outside KTP, Tamer is involved in Cornell Webdev Club, and CS 3110 TA. This summer, he is planning to intern at Amazon in NYC as a SDE intern. In his free time, he enjoys lifting, watching basketball, gaming, and playing poker.",
-      "role": "VP Secretary"
+      "role": "VP DEI"
     }
   ],
   "alpha": [
