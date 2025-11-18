@@ -57,11 +57,23 @@
                         <p>Loading E-board members...</p>
                     </div>
                 </div>
+
+                <!-- <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Beta Class</h2>
+                <h4 class="text-center mb-4">Fall 2025</h4>
+                <div class="text-center mb-5">
+                    <img src="images/classpictures/betaclass.png" class="img-fluid" style="max-width: 1000px;" alt="Beta Class group photo">
+                </div>
+
+                <div id="beta-root" class="row g-4 mb-5">
+                    <div class="col-12 text-center">
+                        <p>Loading Beta Class members...</p>
+                    </div>
+                </div> -->
           
                 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Alpha Class</h2>
                 <h4 class="text-center mb-4">Spring 2025</h4>
                 <div class="text-center mb-5">
-                    <img src="images/classpictures/alphaclass.JPG" class="img-fluid" style="max-width: 1000px;" alt="Alpha Class group photo">
+                    <img src="images/classpictures/alphaclass.png" class="img-fluid" style="max-width: 1000px;" alt="Alpha Class group photo">
                 </div>
                 <div id="alpha-root" class="row g-4 mb-5">
                     <div class="col-12 text-center">
@@ -217,54 +229,6 @@
             }
 
             // Hardcoded data (since JSON fetch might not work locally)
-            const membersData = {
-                "eboard": [
-                    {
-                        "name": "Riya Patel",
-                        "major": "Hotel Administration '27",
-                        "photo": "images/headshots/AlphaClass/Riya Pate.png",
-                        "hometown": "Savannah, GA",
-                        "linkedin": "https://www.linkedin.com/in/rbp18",
-                        "email": "rbp95@cornell.edu",
-                        "description": "Outside KTP, Riya is involved in Cornell Hotel Society, Cornell Marketing Club, Cornell Real Estate Club, CREDIT, and SWIB. This summer, she is working at Arnva Ventures as a PE intern. In her free time, she enjoys discovering new brunch spots, planning events, and exploring vibrant cities.",
-                        "role": "Co-President"
-                    },
-                    {
-                        "name": "Gregory Parent",
-                        "major": "Computer Science '28",
-                        "photo": "images/headshots/AlphaClass/Gregory Parent.jpeg",
-                        "hometown": "Armonk, NY",
-                        "linkedin": "https://www.linkedin.com/in/gregory-parent",
-                        "email": "gmp89@cornell.edu",
-                        "description": "Outside KTP, Gregory is invoved in Cornell Fintech Club. In his free time, he enjoys lifting, watching movies, and listening to Rock Music.",
-                        "role": "Co-President"
-                    }
-                ],
-                "alpha": [
-                    {
-                        "name": "Alexis Barrow",
-                        "major": "Mechanical and Aerospace Engineering '27",
-                        "photo": "images/headshots/AlphaClass/Alexis Barrow.JPG",
-                        "hometown": "Ramsey, NJ",
-                        "linkedin": "https://www.linkedin.com/in/alexis-barrow12",
-                        "email": "alexismadbarrow@gmail.com",
-                        "description": "Outside KTP, Alexis is involved in Cornell Electric Vehicles, and Tri Delta sorority. This summer, she is planning to work at General Atomics Aeronautical Systems. In her free time, she enjoys running, playing soccer, painting, and doing embroidery.",
-                        "role": ""
-                    }
-                ],
-                "founders": [
-                    {
-                        "name": "Belen del Castillo",
-                        "major": "Information Science '26",
-                        "photo": "images/headshots/Founders/Belen Del Castillo.JPG",
-                        "hometown": "Chicago, IL",
-                        "linkedin": "https://www.linkedin.com/in/belen-del-castillo/",
-                        "email": "bad88@cornell.edu",
-                        "description": "",
-                        "role": ""
-                    }
-                ]
-            };
 
             function renderMembers(containerId, members) {
                 const container = document.getElementById(containerId);
@@ -298,15 +262,9 @@
                 .then(data => {
                     renderMembers('eboard-root', data.eboard);
                     renderMembers('alpha-root', data.alpha);
+                    renderMembers('beta-root', data.beta);
                     renderMembers('founders-root', data.founders);
                 })
-                .catch(error => {
-                    console.log('Using hardcoded data due to:', error);
-                    // Use hardcoded data as fallback
-                    renderMembers('eboard-root', membersData.eboard);
-                    renderMembers('alpha-root', membersData.alpha);
-                    renderMembers('founders-root', membersData.founders);
-                });
 
         </script>
 
