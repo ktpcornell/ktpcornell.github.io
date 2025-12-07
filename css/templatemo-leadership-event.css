@@ -169,10 +169,56 @@ strong {
   vertical-align: top;
 }
 
+.history-image {
+  border-radius: 14px;
+  transition: transform 0.25s ease;
+}
+
+.history-image:hover {
+  transform: scale(1.04);
+}
+
+.values-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 14px;
+}
+
+.values-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+.typing-text {
+  position: relative;
+  display: inline-block;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+
+.typing-text::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 1em;
+  background: currentColor;
+  animation: typing-caret 0.9s steps(1) infinite;
+}
+
+@keyframes typing-caret {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 
 /*---------------------------------------
   CUSTOM ICON               
------------------------------------------*/
+ -----------------------------------------*/
 .custom-icon {
   display: inline-block;
   height: 45px;

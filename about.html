@@ -82,7 +82,9 @@ https://templatemo.com/tm-575-leadership-event
                     <div class="row">
 
                         <div class="col-lg-10 col-12">
-                            <h2 class="mb-4" style="color: var(--navbar-bg-color);">About Us<u class="text-info"></u></h2>
+                            <h2 class="mb-4" style="color: var(--navbar-bg-color);">
+                              We are <span id="about-typing" class="typing-text"></span><u class="text-info"></u>
+                            </h2>
                         </div>
 
                         <div class="col-lg-6 col-12">
@@ -100,7 +102,7 @@ https://templatemo.com/tm-575-leadership-event
                             <a class="custom-btn btn custom-link mt-3" href="join.html">Join Us</a>
                         </div>
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-                            <img src="images/classpictures/Fall2025Happy.JPEG" class="img-fluid" alt="KTP group photo">
+                            <img src="images/classpictures/Fall2025Happy.JPEG" class="img-fluid history-image" alt="KTP group photo">
                         </div>
 
                         
@@ -115,7 +117,7 @@ https://templatemo.com/tm-575-leadership-event
                     
                     <!-- Pillar 1 -->
                     <div class="col-md-6 col-lg-4">
-                      <div class="card h-100 shadow-sm p-4 border-0">
+                      <div class="card h-100 shadow-sm p-4 border-0 values-card">
                         <div class="icon-box mb-3 bg-pink text-white rounded-circle mx-auto">
                           <i class="bi bi-briefcase fs-3"></i>
                         </div>
@@ -126,7 +128,7 @@ https://templatemo.com/tm-575-leadership-event
               
                     <!-- Pillar 2 -->
                     <div class="col-md-6 col-lg-4">
-                      <div class="card h-100 shadow-sm p-4 border-0">
+                      <div class="card h-100 shadow-sm p-4 border-0 values-card">
                         <div class="icon-box mb-3 bg-warning text-white rounded-circle mx-auto">
                           <i class="bi bi-globe fs-3"></i>
                         </div>
@@ -137,7 +139,7 @@ https://templatemo.com/tm-575-leadership-event
               
                     <!-- Pillar 3 -->
                     <div class="col-md-6 col-lg-4">
-                      <div class="card h-100 shadow-sm p-4 border-0">
+                      <div class="card h-100 shadow-sm p-4 border-0 values-card">
                         <div class="icon-box mb-3 bg-info text-white rounded-circle mx-auto">
                           <i class="bi bi-people fs-3"></i>
                         </div>
@@ -148,7 +150,7 @@ https://templatemo.com/tm-575-leadership-event
               
                     <!-- Pillar 4 -->
                     <div class="col-md-6 col-lg-4">
-                      <div class="card h-100 shadow-sm p-4 border-0">
+                      <div class="card h-100 shadow-sm p-4 border-0 values-card">
                         <div class="icon-box mb-3 bg-success text-white rounded-circle mx-auto">
                           <i class="bi bi-cpu fs-3"></i>
                         </div>
@@ -159,7 +161,7 @@ https://templatemo.com/tm-575-leadership-event
               
                     <!-- Pillar 5 -->
                     <div class="col-md-6 col-lg-4">
-                      <div class="card h-100 shadow-sm p-4 border-0">
+                      <div class="card h-100 shadow-sm p-4 border-0 values-card">
                         <div class="icon-box mb-3 bg-primary text-white rounded-circle mx-auto">
                           <i class="bi bi-mortarboard fs-3"></i>
                         </div>
@@ -245,6 +247,51 @@ https://templatemo.com/tm-575-leadership-event
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
+        <script>
+          (function() {
+            const typingTarget = document.getElementById('about-typing');
+            if (!typingTarget) return;
+
+            const phrases = ['innovators', 'engineers', 'leaders', 'developers', 'designers', 'problem solvers'];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            const typeSpeed = 110;
+            const deleteSpeed = 60;
+            const holdDelay = 1200;
+
+            const typeLoop = () => {
+              const currentPhrase = phrases[phraseIndex];
+
+              if (deleting) {
+                typingTarget.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                  deleting = false;
+                  phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+
+                setTimeout(typeLoop, deleteSpeed);
+                return;
+              }
+
+              typingTarget.textContent = currentPhrase.substring(0, charIndex + 1);
+              charIndex++;
+
+              if (charIndex === currentPhrase.length) {
+                deleting = true;
+                setTimeout(typeLoop, holdDelay);
+                return;
+              }
+
+              setTimeout(typeLoop, typeSpeed);
+            };
+
+            typeLoop();
+          })();
+        </script>
                 <!-- React + ReactDOM -->
         <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
