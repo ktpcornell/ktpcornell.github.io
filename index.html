@@ -84,7 +84,7 @@ https://templatemo.com/tm-575-leadership-event
                             <div class="hero-text">
 
                                 <h1 class="text-white" style="margin-top: 130px; margin-bottom: 20px;">
-                                    Kappa Theta Pi Cornell Chapter
+                                    Kappa Theta Pi <span id="hero-typing" class="typing-text d-block"></span>
                                   </h1>
 
                                 <a href="#contact-footer" class="custom-link bi-arrow-down arrow-icon"></a>
@@ -271,6 +271,48 @@ https://templatemo.com/tm-575-leadership-event
         <script src="js/custom.js"></script>
         <script>
             (function() {
+                const typingTarget = document.getElementById('hero-typing');
+                if (typingTarget) {
+                    const phrases = ['Cornell Chapter', 'Alpha Epsilon'];
+                    let phraseIndex = 0;
+                    let charIndex = 0;
+                    let deleting = false;
+
+                    const typeSpeed = 110;
+                    const deleteSpeed = 60;
+                    const holdDelay = 1200;
+
+                    const typeLoop = () => {
+                        const currentPhrase = phrases[phraseIndex];
+
+                        if (deleting) {
+                            typingTarget.textContent = currentPhrase.substring(0, charIndex - 1);
+                            charIndex--;
+
+                            if (charIndex === 0) {
+                                deleting = false;
+                                phraseIndex = (phraseIndex + 1) % phrases.length;
+                            }
+
+                            setTimeout(typeLoop, deleteSpeed);
+                            return;
+                        }
+
+                        typingTarget.textContent = currentPhrase.substring(0, charIndex + 1);
+                        charIndex++;
+
+                        if (charIndex === currentPhrase.length) {
+                            deleting = true;
+                            setTimeout(typeLoop, holdDelay);
+                            return;
+                        }
+
+                        setTimeout(typeLoop, typeSpeed);
+                    };
+
+                    typeLoop();
+                }
+
                 const placements = [
                     { name: 'Google', file: 'google.png' },
                     { name: 'Microsoft', file: 'microsoft.png' },

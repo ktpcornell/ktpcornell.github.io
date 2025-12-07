@@ -189,30 +189,37 @@ strong {
 }
 
 .typing-text {
-  position: relative;
   display: inline-block;
-  padding-right: 8px;
   white-space: nowrap;
+  min-height: 1.2em;
 }
 
-.typing-text::after {
+.about-typing {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 1.2em;
+  line-height: 1.2em;
+  min-width: 18ch;
+  padding-right: 8px;
+}
+
+.about-typing::after {
   content: "";
   position: absolute;
   right: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 3px;
   height: 1em;
   background: currentColor;
-  animation: typing-caret 0.9s steps(1) infinite;
+  animation: about-typing-caret 0.9s steps(1) infinite;
 }
 
-@keyframes typing-caret {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
+@keyframes about-typing-caret {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 
