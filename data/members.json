@@ -11,6 +11,16 @@
       "role": "Co-President"
     },
     {
+      "name": "Riya Patel",
+      "major": "Hotel Administration '27",
+      "photo": "images/headshots/AlphaClass/Riya Pate.png",
+      "hometown": "Savannah, GA",
+      "linkedin": "https://www.linkedin.com/in/rbp18",
+      "email": "rbp95@cornell.edu",
+      "description": "Outside KTP, Riya is involved in the CHS, Cc as the VP of Finance and is also active in CREDIT. This summer, she is planning to work in real estate private equity. Previously, she has worked at Leela Construction and Arna Ventures. In her free time, she enjoys watching movies.",
+      "role": "Co-President"
+    },
+    {
       "name": "Jonathan Zhang",
       "major": "Computer Science '28",
       "photo": "images/headshots/AlphaClass/Jonathan Zhang.png",
@@ -196,6 +206,16 @@
   ],
   "alpha": [
     {
+      "name": "Alexis Barrow",
+      "major": "Mechanical and Aerospace Engineering '27",
+      "photo": "images/headshots/AlphaClass/Alexis Barrow.JPG",
+      "hometown": "Ramsey, NJ",
+      "linkedin": "https://www.linkedin.com/in/alexis-barrow12",
+      "email": "amb662@cornell.edu",
+      "description": "Outside KTP, Alexis is involved in Cornell Electric Vehicles, and Tri Delta sorority. Previously, she has worked at General Atomics Aeronautical Systems. In her free time, she enjoys running, playing soccer, painting, and doing embroidery.",
+      "role": ""
+    },
+    {
       "name": "Alisha Varma",
       "major": "Computer Science '27",
       "photo": "images/headshots/AlphaClass/Alisha Varma.jpg",
@@ -213,6 +233,26 @@
       "linkedin": "https://www.linkedin.com/in/amishigupta/",
       "email": "ag2424@cornell.edu",
       "description": "Outside KTP, Amishi is involved in Cornell Nexus Project Team, Cornell Tech Consulting, Cornell Nazaqat, and SWE. Previously, she has worked at Amazon and Echo3D as a SWE intern. In her free time, she enjoys dancing, listening to music, and drinking boba.",
+      "role": ""
+    },
+    {
+      "name": "Ashley Kwarteng",
+      "major": "Data Science '27",
+      "photo": "images/headshots/AlphaClass/Ashley Kwarteng.jpg",
+      "hometown": "Atlanta, Georgia",
+      "linkedin": "https://www.linkedin.com/in/ashley-kwarteng/",
+      "email": "aak242@cornell.edu",
+      "description": "Outside KTP, Ashley is involved in Ghanians at Cornell, Pan African Student Association, Design Consulting at Cornell, and Big Red Heads. Previously, she has worked at Leidos as a PM intern. In her free time, she enjoys making videos for Youtube, reading, thrifting, and gym.",
+      "role": ""
+    },
+    {
+      "name": "Esperanza Román Carrera",
+      "major": "Information Science and Economics '28",
+      "photo": "images/headshots/AlphaClass/Esperanza R..png",
+      "hometown": "Chicago, IL",
+      "linkedin": "https://www.linkedin.com/in/esperanzarc/",
+      "email": "er549@cornell.edu",
+      "description": "Outside KTP, Esperanza is involved in ALPFA, DTI Project Team, and CUDAA. Previously, she has worked at Cleveland Avenue. In her free time, she enjoys Photography, listening to music, going to concerts, and drinking Coffee.",
       "role": ""
     },
     {
@@ -276,6 +316,16 @@
       "role": ""
     },
     {
+      "name": "Riya Patel",
+      "major": "Hotel Administration '27",
+      "photo": "images/headshots/AlphaClass/Riya Pate.png",
+      "hometown": "Savannah, GA",
+      "linkedin": "https://www.linkedin.com/in/rbp18",
+      "email": "rbp95@cornell.edu",
+      "description": "Outside KTP, Riya is involved in the CHS, Cc as the VP of Finance and is also active in CREDIT. This summer, she is planning to work in real estate private equity. Previously, she has worked at Leela Construction and Arna Ventures. In her free time, she enjoys watching movies.",
+      "role": ""
+    },
+    {
       "name": "Sonja Wong",
       "major": "Computer Science '28",
       "photo": "images/headshots/AlphaClass/Sonja Wong.JPG",
@@ -283,6 +333,16 @@
       "linkedin": "https://www.linkedin.com/in/sonja-wong/",
       "email": "sw2374@cornell.edu",
       "description": "Outside KTP, she is a lead on CUAUV, WICC, Cornell Data Strategy while doing ML research with Bindel and Urban Tech SWE with Avci. This summer, Sonja is planning to work at the DoorDash headquarters (SF) as a SWE Intern, Previously, she has worked at IBM as an AI Engineer Intern.",
+      "role": ""
+    },
+    {
+      "name": "Tamer Gabal",
+      "major": "Computer Science '27",
+      "photo": "images/headshots/AlphaClass/Tamer Gabal.JPG",
+      "hometown": "Queens, NY",
+      "linkedin": "https://www.linkedin.com/in/tamergabal/",
+      "email": "tg432@cornell.edu",
+      "description": "Outside KTP, Tamer is involved in Cornell Webdev Club, and CS 3110 TA. Previously, he has worked at AWS as a SDE intern. In his free time, he enjoys lifting, watching basketball, gaming, and playing poker.",
       "role": ""
     },
     {

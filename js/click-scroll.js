@@ -1,37 +1,22 @@
-//jquery-click-scroll
-//by syamsul'isul' Arifin
+// Smooth scroll handler that only runs when a valid in-page anchor exists.
+$(document).ready(function () {
+  $('.click-scroll').on('click', function (e) {
+    const href = $(this).attr('href');
 
-var sectionArray = [1, 2, 3, 4, 5, 6, 7];
+    // Let normal navigation proceed for non-anchor links.
+    if (!href || href.charAt(0) !== '#') {
+      return;
+    }
 
-$.each(sectionArray, function(index, value){
-          
-     $(document).scroll(function(){
-         var offsetSection = $('#' + 'section_' + value).offset().top - 84;
-         var docScroll = $(document).scrollTop();
-         var docScroll1 = docScroll + 1;
-         
-        
-         if ( docScroll1 >= offsetSection ){
-             $('.navbar-nav .nav-item .nav-link').removeClass('active');
-             $('.navbar-nav .nav-item .nav-link:link').addClass('inactive');  
-             $('.navbar-nav .nav-item .nav-link').eq(index).addClass('active');
-             $('.navbar-nav .nav-item .nav-link').eq(index).removeClass('inactive');
-         }
-         
-     });
-    
-    $('.click-scroll').eq(index).click(function(e){
-        var offsetClick = $('#' + 'section_' + value).offset().top - 84;
-        e.preventDefault();
-        $('html, body').animate({
-            'scrollTop':offsetClick
-        }, 300)
-    });
-    
-});
+    const $target = $(href);
+    if (!$target.length) {
+      return;
+    }
 
-$(document).ready(function(){
-    $('.navbar-nav .nav-item .nav-link:link').addClass('inactive');    
-    $('.navbar-nav .nav-item .nav-link').eq(0).addClass('active');
-    $('.navbar-nav .nav-item .nav-link:link').eq(0).removeClass('inactive');
+    e.preventDefault();
+    const headerHeight = ($('.navbar').outerHeight() || 0) + 10;
+    const targetOffset = $target.offset().top - headerHeight;
+
+    $('html, body').animate({ scrollTop: targetOffset }, 300);
+  });
 });
