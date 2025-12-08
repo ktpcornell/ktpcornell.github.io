@@ -198,6 +198,12 @@ https://templatemo.com/tm-575-leadership-event
                             <h2 class="mb-3">Chapter Placements </h2>
                             <div id="placements-cloud" class="placements-cloud d-flex flex-wrap justify-content-center gap-3 gap-lg-4"></div>
                         </div>
+                        <h1></h1>
+                        <div class="col-lg-10 col-12 text-center mx-auto mb-4">
+                            <h2 class="mb-3">Campus Involvements </h2>
+                            <div id="campus-cloud" class="placements-cloud d-flex flex-wrap justify-content-center gap-3 gap-lg-4"></div>
+                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -362,30 +368,69 @@ https://templatemo.com/tm-575-leadership-event
                     // { name: 'AT&T', file: 'att.png' },
                     // { name: 'Capital Group', file: 'capital_group.png' },
                     // { name: 'McKinsey', file: 'mckinsey.png' },
-                    // { name: 'BCG', file: 'bcg.png' },
-                    // { name: 'Bank of America', file: 'bank_of_america.png' },
-                    // { name: 'P&G', file: 'p&g.png' },
-                    // { name: 'Slack', file: 'slack.png' }
-                ];
+                // { name: 'BCG', file: 'bcg.png' },
+                // { name: 'Bank of America', file: 'bank_of_america.png' },
+                // { name: 'P&G', file: 'p&g.png' },
+                // { name: 'Slack', file: 'slack.png' }
+            ];
 
-                const container = document.getElementById('placements-cloud');
+            const renderCloud = (items, targetId, pathPrefix) => {
+                const container = document.getElementById(targetId);
                 if (!container) return;
 
                 const fragment = document.createDocumentFragment();
-                placements.forEach((placement, index) => {
+                items.forEach((item, index) => {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'placement-logo';
                     wrapper.style.animationDelay = `${index * 50}ms`;
 
                     const img = document.createElement('img');
-                    img.src = `images/network/${placement.file}`;
-                    img.alt = `${placement.name} logo placeholder`;
+                    img.src = `${pathPrefix}${item.file}`;
+                    img.alt = `${item.name} logo`;
 
                     wrapper.appendChild(img);
                     fragment.appendChild(wrapper);
                 });
 
                 container.appendChild(fragment);
+            };
+
+            renderCloud(placements, 'placements-cloud', 'images/network/');
+
+            const campusClubs = [
+              { name: 'ACSU', file: 'acsu.png' },
+              { name: 'ALFA', file: 'alfa.png' },
+              { name: 'AppDev', file: 'appdev.png' },
+              { name: 'Armada', file: 'armada.png' },
+              { name: 'AUV', file: 'auv.png' },
+              { name: 'Blockchain', file: 'blockchain.png' },
+              { name: 'CDJ', file: 'cdj.png' },
+              { name: 'CDS', file: 'cds.png' },
+              { name: 'CEV', file: 'cev.png' },
+              { name: 'CHS', file: 'chs.png' },
+              { name: 'CMR', file: 'cmr.png' },
+              { name: 'CREDIT', file: 'credit.png' },
+              { name: 'CTC', file: 'ctc.png' },
+              { name: 'CUxD', file: 'cuxd.png' },
+              { name: 'Cyber', file: 'cyber.png' },
+              { name: 'DataStrat', file: 'datastrat.png' },
+              { name: 'DCC', file: 'dcc.png' },
+              { name: 'DTI', file: 'dti.png' },
+              { name: 'Eship', file: 'eship.png' },
+              { name: 'EWB', file: 'ewb.png' },
+              { name: 'FinTech', file: 'fintech.png' },
+              { name: 'Hack4Impact', file: 'hack4impact.png' },
+              { name: 'IBC', file: 'ibc.png' },
+              { name: 'IEEE', file: 'ieee.png' },
+              { name: 'ISA', file: 'isa.png' },
+              { name: 'Nexus', file: 'nexus.png' },
+              { name: 'SWE', file: 'swe.png' },
+              { name: 'Thread', file: 'thread.png' },
+              { name: 'WebDev', file: 'webdev.png' },
+              { name: 'WICC', file: 'wicc.png' },
+            ];
+
+            renderCloud(campusClubs, 'campus-cloud', 'images/clubs/');
             })();
         </script>
 
