@@ -95,7 +95,7 @@ Every semester:
 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);"><class_name> Class</h2>
 <h4 class="text-center mb-4"><semester_year></h4>
 <div class="text-center mb-5">
-    <img src="images/classpictures/<class_name>.png" class="img-fluid" style="max-width: 750px;" alt="<class_name> Class group photo">
+    <img src="images/classpictures/<class_name>.png" class="img-fluid" style="max-width: 750px; width: 100%;" alt="<class_name> Class group photo">
 </div>
 
 <div id="<class_name>-root" class="row g-4 mb-5 justify-content-center">
