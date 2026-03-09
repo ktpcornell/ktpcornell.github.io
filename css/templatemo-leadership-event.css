@@ -467,6 +467,9 @@ strong {
   padding: 20px;
   transform: rotateY(180deg);
 }
+.card-back p, .card-back a {
+  font-size: 1rem;
+}
 
 .recruitment-hero::before {
   content: "";

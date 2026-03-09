@@ -192,7 +192,7 @@
                                 </div>
                                 <div className="align-items-baseline text-white card-back">
                                     {member.hometown && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <a target="_blank" className="text-white me-2 fs-5">
                                                 <i className="bi bi-house"></i>
                                             </a>
@@ -201,14 +201,14 @@
                                     )}
 
                                     {member.linkedin && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <i className="bi bi-linkedin me-2 fs-5"></i>
                                             <a href={member.linkedin} target="_blank" className="mb-0 text-info">LinkedIn</a>
                                         </div>
                                     )}
 
                                     {member.email && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <a href={`mailto:${member.email}`} target="_blank" className="text-white me-2 fs-5">
                                                 <i className="bi-envelope"></i>
                                             </a>
