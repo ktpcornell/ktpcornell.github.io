@@ -42,7 +42,7 @@
                             <a class="nav-link click-scroll" href="#contact-footer">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-btn btn d-none d-lg-block" href="join.html">Apply</a>
+                            <a class="nav-link custom-btn" href="join.html">Apply</a>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +53,7 @@
             <div class="mb-3 container">
                 <h2 class="fw-bold text-center mb-4 mt-3" style="color: var(--navbar-bg-color);">Executive board</h2>
                 <div class="text-center mb-5">
-                    <img src="images/classpictures/Fall2025Eboard.JPEG" class="img-fluid" style="max-width: 750px;" alt="Beta Class group photo">
+                    <img src="images/classpictures/Fall2025Eboard.JPEG" class="img-fluid" style="max-width: 750px; width: 100%;" alt="Beta Class group photo">
                 </div>
                 <div id="eboard-root" class="row g-4 mb-5 justify-content-center">
                     <div class="col-12 text-center">
@@ -64,7 +64,7 @@
                 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Beta Class</h2>
                 <h4 class="text-center mb-4">Fall 2025</h4>
                 <div class="text-center mb-5">
-                    <img src="images/classpictures/betaclass.png" class="img-fluid" style="max-width: 750px;" alt="Beta Class group photo">
+                    <img src="images/classpictures/betaclass.png" class="img-fluid" style="max-width: 750px; width: 100%;" alt="Beta Class group photo">
                 </div>
 
                 <div id="beta-root" class="row g-4 mb-5 justify-content-center">
@@ -76,7 +76,7 @@
                 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Alpha Class</h2>
                 <h4 class="text-center mb-4">Spring 2025</h4>
                 <div class="text-center mb-5">
-                    <img src="images/classpictures/alphaclass.png" class="img-fluid" style="max-width: 750px;" alt="Alpha Class group photo">
+                    <img src="images/classpictures/alphaclass.png" class="img-fluid" style="max-width: 750px; width: 100%;" alt="Alpha Class group photo">
                 </div>
                 <div id="alpha-root" class="row g-4 mb-5 justify-content-center">
                     <div class="col-12 text-center">
@@ -142,7 +142,7 @@
                                 Equal Education and Employment
                             </a>
                         </p>
-                        <p class="text-white mb-0">© Kappa Theta Pi Alpha Epsilon Chapter 2025. All rights reserved.</p>
+                        <p class="text-white mb-0">© Kappa Theta Pi Alpha Epsilon Chapter 2026. All rights reserved.</p>
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@
                                 </div>
                                 <div className="align-items-baseline text-white card-back">
                                     {member.hometown && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <a target="_blank" className="text-white me-2 fs-5">
                                                 <i className="bi bi-house"></i>
                                             </a>
@@ -201,14 +201,14 @@
                                     )}
 
                                     {member.linkedin && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <i className="bi bi-linkedin me-2 fs-5"></i>
                                             <a href={member.linkedin} target="_blank" className="mb-0 text-info">LinkedIn</a>
                                         </div>
                                     )}
 
                                     {member.email && (
-                                        <div className="d-flex mb-3">
+                                        <div className="d-flex align-items-center mb-3">
                                             <a href={`mailto:${member.email}`} target="_blank" className="text-white me-2 fs-5">
                                                 <i className="bi-envelope"></i>
                                             </a>
