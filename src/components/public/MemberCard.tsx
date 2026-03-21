@@ -24,8 +24,10 @@ export function MemberCard({ member }: MemberCardProps) {
     setFlipped((f) => !f)
   }
 
+  const photoSrc = member.photo.startsWith('http') ? member.photo : `/${member.photo}`
+
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 p-2">
+    <div>
       <div
         ref={cardRef}
         className={`member-card ${flipped ? 'flipped' : ''}`}
@@ -34,7 +36,7 @@ export function MemberCard({ member }: MemberCardProps) {
         <div className="card-inner">
           {/* Front */}
           <div className="card-front">
-            <img src={`/${member.photo}`} alt={member.name} />
+            <img src={photoSrc} alt={member.name} />
             <div className="member-overlay">
               <div className="member-name">{member.name}</div>
               <div className="member-major">{member.major}</div>
@@ -42,20 +44,20 @@ export function MemberCard({ member }: MemberCardProps) {
           </div>
 
           {/* Back */}
-          <div className="card-back align-items-baseline text-white">
+          <div className="card-back text-white">
             {member.hometown && (
-              <div className="d-flex align-items-center mb-3">
-                <span className="text-white me-2 fs-5">🏠</span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">🏠</span>
                 <p className="mb-0 text-white">{member.hometown}</p>
               </div>
             )}
             {member.linkedin && (
-              <div className="d-flex align-items-center mb-3">
+              <div className="mb-3">
                 <a
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mb-0 text-info"
+                  className="text-ktp-cyan"
                   onClick={(e) => e.stopPropagation()}
                 >
                   LinkedIn ↗
@@ -63,10 +65,10 @@ export function MemberCard({ member }: MemberCardProps) {
               </div>
             )}
             {member.email && (
-              <div className="d-flex align-items-center mb-3">
+              <div className="mb-3">
                 <a
                   href={`mailto:${member.email}`}
-                  className="mb-0 text-white"
+                  className="text-white"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {member.email}
@@ -74,9 +76,7 @@ export function MemberCard({ member }: MemberCardProps) {
               </div>
             )}
             {member.description && (
-              <p className="text-white" style={{ fontSize: '0.85rem' }}>
-                {member.description}
-              </p>
+              <p className="text-white text-sm">{member.description}</p>
             )}
           </div>
         </div>

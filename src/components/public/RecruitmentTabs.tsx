@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Clock, MapPin } from 'lucide-react'
+import { RECRUITMENT_OPEN_EVENTS, RECRUITMENT_INTERVIEW_ROUNDS, type RecruitmentEvent } from '@/lib/constants'
 
 const TABS = [
   { id: 'events', label: 'Events', sub: 'Open Events for everyone' },
@@ -7,33 +9,35 @@ const TABS = [
   { id: 'tips', label: 'Tips + Application', sub: '' },
 ]
 
-function EventRow({
-  title,
-  desc,
-  date,
-  time,
-  location,
-}: {
-  title: string
-  desc: string
-  date: string
-  time: string
-  location: string
-}) {
+function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   return (
-    <div className="border-b pb-8 mb-8">
-      <div className="col-lg-8">
-        <h4 className="mb-2">{title}</h4>
-        <p>{desc}</p>
-        <div className="flex flex-wrap items-center gap-6 mt-4 text-sm">
-          <span>{date}</span>
-          <span>🕐 {time}</span>
-          <span>📍 {location}</span>
-        </div>
+    <div className="border-b pb-8 mb-8 max-w-3xl mx-auto">
+      <h4 className="mb-2">{title}</h4>
+      <p>{desc}</p>
+      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-text">
+        <span>{date}</span>
+        <span className="flex items-center gap-1">
+          <Clock size={14} />
+          {time}
+        </span>
+        <span className="flex items-center gap-1">
+          <MapPin size={14} />
+          {location}
+        </span>
       </div>
     </div>
   )
 }
+
+const btnBase =
+  'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white'
+const btnInactive = 'border-l-ktp-section-bg'
+const btnActive = 'border-l-ktp-cyan shadow-lg'
+
+const outlineBtn =
+  'inline-block px-6 py-2.5 rounded-full border-2 border-ktp-navy text-ktp-navy text-sm font-bold hover:bg-ktp-navy hover:text-white transition-colors no-underline'
+const solidBtn =
+  'inline-block px-6 py-2.5 rounded-full bg-ktp-navy text-white text-sm font-bold hover:bg-ktp-cyan hover:text-ktp-navy transition-colors no-underline'
 
 export function RecruitmentTabs() {
   const [activeTab, setActiveTab] = useState('events')
@@ -41,15 +45,21 @@ export function RecruitmentTabs() {
   return (
     <div>
       {/* Tab buttons */}
-      <div className="flex flex-wrap schedule-tabs">
-        {TABS.map((tab) => (
+      <div className="flex flex-wrap border-b-0">
+        {TABS.map((tab, i) => (
           <button
             key={tab.id}
-            className={`schedule-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+            className={`${btnBase} ${activeTab === tab.id ? btnActive : btnInactive} ${i === 0 ? 'border-l-transparent' : ''}`}
             onClick={() => setActiveTab(tab.id)}
           >
-            <h3>{tab.label}</h3>
-            {tab.sub && <small>{tab.sub}</small>}
+            <h3
+              className={`text-xl mb-1 font-bold ${
+                activeTab === tab.id ? 'text-ktp-cyan' : 'text-ktp-navy'
+              }`}
+            >
+              {tab.label}
+            </h3>
+            {tab.sub && <small className="text-sm font-normal text-ktp-text">{tab.sub}</small>}
           </button>
         ))}
       </div>
@@ -58,68 +68,23 @@ export function RecruitmentTabs() {
       <div className="mt-8">
         {activeTab === 'events' && (
           <div>
-            <EventRow
-              title="Resume Review & Meet the Brothers"
-              desc="Come join us to hear about what makes a good resume for applying to Tech Roles and get your resume reviewed. At the end, we will have a meet and greet where you can get to know the brothers in an informal setting!"
-              date="Wednesday, January 28th"
-              time="5:00pm - 6:00pm"
-              location="MVR 1157"
-            />
-            <EventRow
-              title="Information Session 1"
-              desc="Join us for one of our information sessions! First, we'll give a presentation about what it means to be a brother in KTP. Then, we'll break out into open discussion and you'll have a chance to ask our brothers any questions."
-              date="Thursday, January 29th"
-              time="5:00pm - 6:00pm"
-              location="Hollister 110"
-            />
-            <EventRow
-              title="KTP x WICC x CDJ Women in Tech Panel"
-              desc="Join KTP, Women in Computing at Cornell (WICC), and Cornell Data Journal (CDJ) for a collaborative Women in Tech Panel featuring guest speakers affiliated with Google, Amazon, and more!"
-              date="Monday, February 2nd"
-              time="5:00pm - 6:00pm"
-              location="Phillips 203"
-            />
-            <EventRow
-              title="Information Session 2"
-              desc="A second chance to learn about KTP and ask our brothers questions before the application closes."
-              date="Tuesday, February 3rd"
-              time="5:00pm - 6:00pm"
-              location="Phillips 219"
-            />
+            {RECRUITMENT_OPEN_EVENTS.map((event) => (
+              <EventRow key={event.title} {...event} />
+            ))}
           </div>
         )}
 
         {activeTab === 'interviews' && (
           <div>
-            <EventRow
-              title="Round 1: Resume Drop"
-              desc="Submit your application online. You will be notified if you are selected for an interview."
-              date="Tuesday, February 3rd"
-              time="Due by 11:59pm"
-              location="Online"
-            />
-            <EventRow
-              title="Round 2: Round-Robin Interviews"
-              desc="Invite-only. Selected applicants will rotate through multiple short conversations with brothers."
-              date="Saturday, February 7th"
-              time="9:00am - 1:00pm"
-              location="Invite Only"
-            />
-            <EventRow
-              title="Round 3: Final Interview"
-              desc="Invite-only. Finalists will have a longer, deeper conversation with chapter leadership."
-              date="Sunday, February 8th"
-              time="9:00am - 1:00pm"
-              location="Invite Only"
-            />
+            {RECRUITMENT_INTERVIEW_ROUNDS.map((event) => (
+              <EventRow key={event.title} {...event} />
+            ))}
           </div>
         )}
 
         {activeTab === 'coffee' && (
-          <div className="text-center py-8">
-            <h4 className="mb-4" style={{ color: 'var(--navbar-bg-color)' }}>
-              Schedule a Coffee Chat
-            </h4>
+          <div className="text-center py-8 max-w-3xl mx-auto">
+            <h4 className="mb-4 text-ktp-navy">Schedule a Coffee Chat</h4>
             <p className="mb-6">
               Coffee chats are a great way to get to know our brothers in a low-pressure, one-on-one
               setting. Sign up using the form below!
@@ -128,7 +93,7 @@ export function RecruitmentTabs() {
               href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="custom-btn"
+              className={solidBtn}
             >
               Sign Up for Coffee Chat
             </a>
@@ -136,10 +101,8 @@ export function RecruitmentTabs() {
         )}
 
         {activeTab === 'tips' && (
-          <div className="py-8">
-            <h4 className="mb-4" style={{ color: 'var(--navbar-bg-color)' }}>
-              Application Tips
-            </h4>
+          <div className="py-8 max-w-3xl mx-auto">
+            <h4 className="mb-4 text-ktp-navy">Application Tips</h4>
             <ul className="list-disc pl-6 space-y-3">
               <li><p>Attend at least one info session or open event before applying.</p></li>
               <li><p>Be genuine — we value authenticity and passion for technology over GPA or prestige.</p></li>
@@ -152,7 +115,7 @@ export function RecruitmentTabs() {
                 href="https://forms.gle/AbQNh6rqBK94MRH18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="custom-btn custom-border-btn"
+                className={outlineBtn}
               >
                 Interest Form
               </a>
@@ -160,7 +123,7 @@ export function RecruitmentTabs() {
                 href="https://forms.gle/cNQJKc8drtGXK74j9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="custom-btn"
+                className={solidBtn}
               >
                 Spring 26 Application
               </a>

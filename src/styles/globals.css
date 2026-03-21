@@ -37,8 +37,8 @@
 
     /* Legacy CSS variable names — kept for ported CSS classes in legacy.css */
     --white-color: #ffffff;
-    --primary-color: #0dcaf0;
-    --secondary-color: #0d6efd;
+    --primary-color: #273053;  /* navy — matches ShadCN --primary */
+    --ktp-cyan: #0dcaf0;
     --section-bg-color: #f0f8ff;
     --dark-color: #000000;
     --navbar-bg-color: #273053;
@@ -104,9 +104,9 @@ a {
   transition: all 0.3s;
 }
 
-a:hover { color: var(--primary-color); }
+a:hover { color: var(--ktp-cyan); }
 
 ::selection {
-  background: var(--primary-color);
+  background: var(--ktp-cyan);
   color: var(--white-color);
 }

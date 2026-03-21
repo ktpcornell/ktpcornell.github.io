@@ -17,21 +17,12 @@ export function AdminSidebar() {
   }
 
   return (
-    <aside
-      className="flex flex-col"
-      style={{
-        background: 'var(--navbar-bg-color)',
-        width: 220,
-        minHeight: '100vh',
-        position: 'sticky',
-        top: 0,
-      }}
-    >
+    <aside className="flex flex-col bg-ktp-navy w-56 min-h-screen sticky top-0">
       {/* Brand */}
       <div className="px-6 py-6 border-b border-white/10">
         <NavLink to="/" className="flex flex-col items-center no-underline">
-          <img src="/navbarlogo.png" alt="KTP" style={{ height: 36 }} />
-          <span className="text-white mt-1" style={{ fontSize: 11 }}>Admin Dashboard</span>
+          <img src="/navbarlogo.png" alt="KTP" className="h-9" />
+          <span className="text-white text-[11px] mt-1">Admin Dashboard</span>
         </NavLink>
       </div>
 
@@ -43,16 +34,11 @@ export function AdminSidebar() {
             to={link.to}
             end={link.end}
             className={({ isActive }) =>
-              `flex items-center px-4 py-3 rounded-lg mb-1 text-sm font-medium transition-all no-underline ${
+              `flex items-center px-4 py-3 rounded-lg mb-1 text-sm font-medium transition-all no-underline border-l-[3px] ${
                 isActive
-                  ? 'text-white'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
+                  ? 'text-white border-l-ktp-cyan bg-white/10'
+                  : 'text-white/70 hover:text-white hover:bg-white/10 border-l-transparent'
               }`
-            }
-            style={({ isActive }) =>
-              isActive
-                ? { borderLeft: '3px solid var(--primary-color)', background: 'rgba(255,255,255,0.1)' }
-                : { borderLeft: '3px solid transparent' }
             }
           >
             {link.label}
@@ -67,8 +53,7 @@ export function AdminSidebar() {
         </NavLink>
         <button
           onClick={handleSignOut}
-          className="w-full text-left px-4 py-2 text-sm text-white/70 hover:text-white"
-          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+          className="w-full text-left px-4 py-2 text-sm text-white/70 hover:text-white bg-transparent border-none cursor-pointer"
         >
           Sign Out
         </button>

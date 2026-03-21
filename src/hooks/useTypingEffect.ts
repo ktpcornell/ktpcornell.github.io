@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface TypingOptions {
   phrases: string[]
@@ -14,34 +14,36 @@ export function useTypingEffect({
   holdDelay = 1200,
 }: TypingOptions) {
   const [text, setText] = useState('')
+  const phraseIndexRef = useRef(0)
+  const charIndexRef = useRef(0)
+  const deletingRef = useRef(false)
 
   useEffect(() => {
-    let phraseIndex = 0
-    let charIndex = 0
-    let deleting = false
+    if (phrases.length === 0) return
+
     let timeoutId: ReturnType<typeof setTimeout>
 
     const typeLoop = () => {
-      const currentPhrase = phrases[phraseIndex]
+      const currentPhrase = phrases[phraseIndexRef.current]
 
-      if (deleting) {
-        setText(currentPhrase.substring(0, charIndex - 1))
-        charIndex--
+      if (deletingRef.current) {
+        charIndexRef.current--
+        setText(currentPhrase.substring(0, charIndexRef.current))
 
-        if (charIndex === 0) {
-          deleting = false
-          phraseIndex = (phraseIndex + 1) % phrases.length
+        if (charIndexRef.current === 0) {
+          deletingRef.current = false
+          phraseIndexRef.current = (phraseIndexRef.current + 1) % phrases.length
         }
 
         timeoutId = setTimeout(typeLoop, deleteSpeed)
         return
       }
 
-      setText(currentPhrase.substring(0, charIndex + 1))
-      charIndex++
+      charIndexRef.current++
+      setText(currentPhrase.substring(0, charIndexRef.current))
 
-      if (charIndex === currentPhrase.length) {
-        deleting = true
+      if (charIndexRef.current === currentPhrase.length) {
+        deletingRef.current = true
         timeoutId = setTimeout(typeLoop, holdDelay)
         return
       }

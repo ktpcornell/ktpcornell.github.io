@@ -1,21 +1,25 @@
+import { Mail, Instagram, Linkedin } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 export function Footer() {
   const location = useLocation()
   const activePath = location.pathname
+  const year = new Date().getFullYear()
 
   const linkClass = (path: string) =>
-    `d-block mb-2 ${activePath === path ? 'text-ktp-cyan' : 'text-white'}`
+    `block mb-2 text-sm no-underline transition-colors ${
+      activePath === path ? 'text-ktp-cyan' : 'text-white hover:text-ktp-cyan'
+    }`
 
   return (
-    <footer className="site-footer" id="contact-footer">
+    <footer className="bg-ktp-navy text-white py-16" id="contact-footer">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           {/* Nav column */}
           <div className="w-full sm:w-64">
-            <Link to="/" className="flex flex-col items-start mb-3 no-underline">
-              <img src="/navbarlogo.png" alt="KTP" style={{ height: 30 }} />
-              <span className="text-white" style={{ fontSize: 12 }}>Cornell Chapter</span>
+            <Link to="/" className="flex flex-col items-start mb-4 no-underline">
+              <img src="/navbarlogo.png" alt="KTP" className="h-8" />
+              <span className="text-white text-xs mt-1">Cornell Chapter</span>
             </Link>
             <ul className="list-none p-0 m-0">
               <li><Link to="/" className={linkClass('/')}>Home</Link></li>
@@ -23,7 +27,12 @@ export function Footer() {
               <li><Link to="/members" className={linkClass('/members')}>Members</Link></li>
               <li><Link to="/join" className={linkClass('/join')}>Recruitment</Link></li>
               <li>
-                <a href="https://kappathetapi.org" target="_blank" rel="noopener noreferrer" className="text-white d-block mb-2">
+                <a
+                  href="https://kappathetapi.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mb-2 text-sm text-white hover:text-ktp-cyan no-underline transition-colors"
+                >
                   Nationals
                 </a>
               </li>
@@ -32,50 +41,50 @@ export function Footer() {
 
           {/* Contact column */}
           <div className="w-full sm:w-64">
-            <h5 className="fw-bold mb-3 text-white">Contact Us</h5>
-            <div className="flex items-center mb-2 gap-2">
-              <span className="text-white text-xl">✉</span>
-              <p className="mb-0 text-white">ktpcornell@gmail.com</p>
+            <h5 className="font-bold mb-4 text-white">Contact Us</h5>
+            <div className="flex items-center mb-3 gap-2">
+              <Mail size={18} className="text-white shrink-0" />
+              <p className="text-white text-sm mb-0">ktpcornell@gmail.com</p>
             </div>
-            <div className="flex items-center mb-2 gap-2">
+            <div className="flex items-center mb-3 gap-2">
+              <Instagram size={18} className="text-white shrink-0" />
               <a
                 href="https://www.instagram.com/ktpcornell"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-xl"
+                className="text-white text-sm hover:text-ktp-cyan no-underline transition-colors"
               >
-                IG
+                @ktpcornell
               </a>
-              <p className="mb-0 text-white">@ktpcornell</p>
             </div>
-            <div className="flex items-center mb-2 gap-2">
+            <div className="flex items-center mb-3 gap-2">
+              <Linkedin size={18} className="text-white shrink-0" />
               <a
                 href="https://www.linkedin.com/company/kappa-theta-pi-cornell-chapter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-xl"
+                className="text-white text-sm hover:text-ktp-cyan no-underline transition-colors"
               >
-                in
+                KTP Cornell Chapter
               </a>
-              <p className="mb-0 text-white">KTP Cornell Chapter</p>
             </div>
           </div>
         </div>
 
         <div className="text-center border-t border-white/20 pt-6">
-          <p className="text-white mb-1" style={{ fontSize: 14 }}>
+          <p className="text-white text-sm mb-1">
             This organization is a registered student organization of Cornell University.{' '}
             <a
               href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment"
-              className="text-white underline"
+              className="text-white underline hover:text-ktp-cyan transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
               Equal Education and Employment
             </a>
           </p>
-          <p className="text-white mb-0" style={{ fontSize: 14 }}>
-            © Kappa Theta Pi Alpha Epsilon Chapter 2026. All rights reserved.
+          <p className="text-white text-sm mb-0">
+            © Kappa Theta Pi Alpha Epsilon Chapter {year}. All rights reserved.
           </p>
         </div>
       </div>
