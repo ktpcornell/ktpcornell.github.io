@@ -1,0 +1,44 @@
+import { Link } from 'react-router-dom'
+
+export function HistorySection() {
+  return (
+    <section className="section-padding" id="our-history">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="mb-4">Our History</h2>
+            <p className="mb-4">
+              Kappa Theta Pi takes pride in being Cornell's first co-ed professional technology
+              fraternity focused on the professional, social, and technological advancement of our
+              members. Our members learn a plethora of skills needed to stay knowledgeable about
+              the tech industry, as well as a strong sense of professional development for future
+              job positions.
+            </p>
+            <p>
+              KTP was founded on January 10, 2012 at the University of Michigan, with the mission
+              to create a tech community that enthusiastic students could join. KTP was started in
+              Spring 2025 at Cornell with the desire to create a group which not only supports
+              members to develop technologically but also provides a close-knit community which
+              helps members grow professionally and socially.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/about" className="custom-btn custom-border-btn">
+                About Us
+              </Link>
+              <Link to="/join" className="custom-btn">
+                Join Us
+              </Link>
+            </div>
+          </div>
+          <div className="mt-6 lg:mt-0">
+            <img
+              src="/images/classpictures/alphaclass.png"
+              className="img-fluid history-image w-full"
+              alt="KTP Alpha Class"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

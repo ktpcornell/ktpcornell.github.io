@@ -1,0 +1,503 @@
+/* ============================================================
+   LEGACY CSS — Ported from templatemo-leadership-event.css
+   These styles power the public-facing site sections and must
+   be kept in sync with the existing visual design.
+   ============================================================ */
+
+/* ------------------------------------------
+   UTILITIES
+------------------------------------------ */
+.section-padding { padding-top: 120px; padding-bottom: 120px; }
+.custom-border-radius { border-radius: 20px; }
+
+.small-title { text-transform: uppercase; }
+
+.history-image {
+  border-radius: 14px;
+  transition: transform 0.25s ease;
+}
+.history-image:hover { transform: scale(1.04); }
+
+.values-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 14px;
+}
+.values-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------
+   TYPING ANIMATION
+------------------------------------------ */
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.2em;
+}
+
+.about-typing {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 1.2em;
+  line-height: 1.2em;
+  min-width: 18ch;
+  padding-right: 8px;
+}
+
+.about-typing::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1em;
+  background: currentColor;
+  animation: about-typing-caret 0.9s steps(1) infinite;
+}
+
+@keyframes about-typing-caret {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ------------------------------------------
+   CUSTOM BUTTON
+------------------------------------------ */
+.custom-btn {
+  background: var(--navbar-bg-color);
+  border-radius: 100px;
+  color: var(--white-color);
+  font-size: var(--copyright-text-font-size);
+  font-weight: var(--font-weight-bold);
+  padding: 10px 20px;
+  display: inline-block;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-btn:hover {
+  background: var(--navbar-bg-color);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  color: var(--white-color);
+}
+
+.apply-btn {
+  background: var(--secondary-color);
+  border-radius: 100px;
+  color: var(--white-color);
+  font-size: var(--copyright-text-font-size);
+  font-weight: var(--font-weight-bold);
+  padding: 10px 20px;
+  display: inline-block;
+  margin-left: 20px;
+  transition: all 0.3s;
+}
+
+.apply-btn:hover {
+  background: var(--navbar-bg-color);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  color: var(--white-color);
+}
+
+.custom-border-btn {
+  background: transparent;
+  border: 2px solid var(--navbar-bg-color);
+  color: var(--navbar-bg-color) !important;
+}
+
+.custom-border-btn:hover {
+  background: var(--navbar-bg-color);
+  color: var(--white-color) !important;
+}
+
+/* ------------------------------------------
+   NAVBAR
+------------------------------------------ */
+.site-navbar {
+  background: var(--navbar-bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 15px 0;
+  transition: all 0.3s;
+}
+
+.site-navbar .navbar-brand {
+  font-size: 20px;
+  line-height: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.site-navbar .nav-link {
+  color: var(--white-color);
+  font-size: var(--menu-font-size);
+  font-weight: var(--font-weight-medium);
+  padding: 15px 20px;
+  transition: all 0.3s;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+  color: var(--primary-color);
+}
+
+.navbar-toggler-bars {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--white-color);
+  position: relative;
+  transition: background 10ms 300ms ease;
+}
+
+.navbar-toggler-bars::before,
+.navbar-toggler-bars::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: var(--white-color);
+  width: 30px;
+  height: 2px;
+  transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+}
+
+.navbar-toggler-bars::before { top: -8px; }
+.navbar-toggler-bars::after { top: 8px; }
+
+/* ------------------------------------------
+   HERO
+------------------------------------------ */
+.hero {
+  position: relative;
+  height: calc(90vh - 84px);
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  background: linear-gradient(rgba(39, 48, 83, 0.1) 0%, rgb(39, 48, 83) 100%);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin-bottom: -5px;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.custom-video {
+  position: absolute;
+  top: 0; left: 0;
+  object-fit: cover;
+  width: 100%; height: 100%;
+}
+
+.arrow-icon {
+  background: var(--section-bg-color);
+  border-radius: 100px;
+  color: var(--dark-color);
+  font-size: var(--h5-font-size);
+  width: 50px; height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+}
+
+.arrow-icon:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* ------------------------------------------
+   HIGHLIGHT STRIP
+------------------------------------------ */
+.highlight {
+  background: var(--navbar-bg-color);
+  padding-bottom: 16px;
+}
+
+.highlight-image {
+  display: block;
+  width: 100%;
+  transition: transform 2s;
+}
+
+/* ------------------------------------------
+   CALL TO ACTION
+------------------------------------------ */
+.call-to-action {
+  background-image: url('/images/classpictures/Fall2025GirlsHappy.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.call-to-action::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.call-to-action .container {
+  position: relative;
+  z-index: 2;
+}
+
+.call-to-action .custom-btn {
+  background: var(--white-color);
+  color: var(--dark-color);
+}
+
+.call-to-action .custom-btn:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* ------------------------------------------
+   PLACEMENTS CLOUD
+------------------------------------------ */
+.placements-cloud {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.placement-logo {
+  animation: simple-fade-in 0.5s ease-out;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  object-fit: contain;
+  width: auto;
+  min-width: 40px;
+  max-width: 120px;
+}
+
+.placement-logo img {
+  max-height: 48px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(10%);
+}
+
+.placement-logo:hover { transform: scale(1.05); }
+
+@keyframes simple-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ------------------------------------------
+   MEMBER CARDS (3D FLIP)
+------------------------------------------ */
+.member-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.member-card .card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 140%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.member-card:hover .card-inner {
+  transform: scale(1.03);
+}
+
+.member-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.member-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 20, 60, 0.85);
+  color: white;
+  text-align: center;
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.member-major {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.card-back {
+  background-color: #001433;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.card-back p,
+.card-back a {
+  font-size: 1rem;
+}
+
+/* ------------------------------------------
+   GALLERY
+------------------------------------------ */
+.gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-image-wrapper img.gallery-image {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%; width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper img.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------------------------------
+   RECRUITMENT HERO
+------------------------------------------ */
+.recruitment-hero {
+  position: relative;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+              url('/images/classpictures/2025boys.JPG') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.recruitment-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+  z-index: 1;
+}
+
+.recruitment-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ------------------------------------------
+   SCHEDULE / TABS
+------------------------------------------ */
+.schedule-tabs {
+  display: flex;
+  border-bottom: 0;
+}
+
+.schedule-tab-btn {
+  background: var(--white-color);
+  border: 0;
+  border-left: 3px solid var(--section-bg-color);
+  padding: 20px 30px;
+  transition: all 0.3s;
+  width: 25%;
+  cursor: pointer;
+  text-align: left;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.schedule-tab-btn:first-child {
+  border-left-color: transparent;
+}
+
+.schedule-tab-btn.active,
+.schedule-tab-btn:hover {
+  border-left-color: var(--primary-color);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.schedule-tab-btn.active h3,
+.schedule-tab-btn:hover h3 {
+  color: var(--primary-color);
+}
+
+.schedule-tab-btn h3 {
+  font-size: 20px;
+  color: var(--navbar-bg-color);
+  margin-bottom: 4px;
+}
+
+.schedule-tab-btn small {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--p-color);
+}
+
+/* ------------------------------------------
+   FOOTER
+------------------------------------------ */
+.site-footer {
+  background-color: var(--navbar-bg-color);
+  color: var(--white-color);
+  padding: 60px 0;
+  font-size: 14px;
+}
+
+/* ------------------------------------------
+   ICON BOX (values cards)
+------------------------------------------ */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-pink { background-color: #f78fb3; }

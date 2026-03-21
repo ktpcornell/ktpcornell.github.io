@@ -1,0 +1,32 @@
+{
+  "faqs": [
+    {
+      "question": "Who can join KTP?",
+      "answer": "Anyone is allowed to join — we gladly accept (and encourage) potential new members from all disciplines! The only requirement is that you must have at least 4 semesters left in school after your pledging semester."
+    },
+    {
+      "question": "What is KTP looking for?",
+      "answer": "We are looking for students who are passionate about technology, eager to learn and grow, and committed to fostering community and collaboration."
+    },
+    {
+      "question": "What will the NME process look like?",
+      "answer": "NME will be held weekly, covering topics in Tech Consulting, Data Science, Machine Learning, and SWE. New Members will be split into groups and expected to present deliverables for these topics every other week during G-body in addition to hosting a fundraiser. We will also have professional development workshops such as Github, LinkedIn, Resume Review, and Internship Recruitment. Attend a info session for more information!"
+    },
+    {
+      "question": "How would I benefit from KTP?",
+      "answer": "Members gain access to mentorship, technical workshops, networking opportunities, social events, and a lifelong professional support system."
+    },
+    {
+      "question": "Which majors are represented in KTP?",
+      "answer": "We have members from Computer Science, ECE, Information Science, Economics, and more. Anyone passionate about tech is welcome!"
+    },
+    {
+      "question": "What types of social events does KTP have?",
+      "answer": "We host retreats, game nights, group dinners, and more. Our events help members bond beyond academics and projects."
+    },
+    {
+      "question": "How much of a time commitment is pledging?",
+      "answer": "Pledging is a manageable commitment designed to fit into a student's schedule. Expect to dedicate a few hours each week for meetings, events, and bonding activities."
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ShadCN tokens — mapped to KTP brand */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 24%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 24%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 24%;
+
+    --primary: 228 36% 24%;        /* #273053 navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 193 89% 50%;      /* #0dcaf0 cyan */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 193 89% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 193 89% 50%;           /* cyan focus ring */
+
+    --radius: 0.5rem;
+
+    /* Legacy CSS variable names — kept for ported CSS classes in legacy.css */
+    --white-color: #ffffff;
+    --primary-color: #0dcaf0;
+    --secondary-color: #0d6efd;
+    --section-bg-color: #f0f8ff;
+    --dark-color: #000000;
+    --navbar-bg-color: #273053;
+    --p-color: #717275;
+    --highlight-icon-color: #ff0100;
+
+    --body-font-family: 'DM Sans', sans-serif;
+
+    --h1-font-size: 62px;
+    --h2-font-size: 48px;
+    --h3-font-size: 36px;
+    --h4-font-size: 32px;
+    --h5-font-size: 24px;
+    --h6-font-size: 22px;
+    --p-font-size: 18px;
+    --menu-font-size: 16px;
+    --copyright-text-font-size: 16px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--white-color);
+  font-family: var(--body-font-family);
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+h2 { font-size: var(--h2-font-size); letter-spacing: -2px; }
+h3 { font-size: var(--h3-font-size); }
+h4 { font-size: var(--h4-font-size); }
+h5 { font-size: var(--h5-font-size); line-height: normal; }
+h6 { font-size: var(--h6-font-size); }
+
+p {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-normal);
+}
+
+a {
+  color: var(--p-color);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover { color: var(--primary-color); }
+
+::selection {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
