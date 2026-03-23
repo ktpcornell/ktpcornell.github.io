@@ -1,6 +1,5 @@
 import { Outlet, NavLink, Link } from 'react-router-dom'
 import { Separator } from '@/components/ui/separator'
-import { Button } from '@/components/ui/button'
 
 const NAV_SECTIONS = [
   {
@@ -67,9 +66,9 @@ export function DesignSystemLayout() {
           <span className="text-white/90 text-sm font-medium tracking-wide">
             Design System
           </span>
-          <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10">
-            <Link to="/">← Back to site</Link>
-          </Button>
+          <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
+            ← Back to site
+          </Link>
         </div>
       </nav>
 

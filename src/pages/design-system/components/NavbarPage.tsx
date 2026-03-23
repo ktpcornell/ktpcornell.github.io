@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Megaphone, Users, LayoutDashboard, UserCog } from 'lucide-react'
 import { Caption } from '@/design-system/components/Typography'
 
 function Section({ children }: { children: React.ReactNode }) {
@@ -124,18 +124,18 @@ function DesignSystemNavPreview() {
         <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-white/20">
           <img src="/logo.svg" alt="KTP" className="h-10" />
         </div>
-        {/* Title + back button */}
+        {/* Title + back link */}
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">Design System</span>
-          <span className="px-3 py-1.5 text-xs text-white/70 rounded cursor-default">← Back to site</span>
+          <span className="text-sm text-white cursor-default">← Back to site</span>
         </div>
       </nav>
       {/* Sidebar hint */}
-      <div className="flex" style={{ height: 80 }}>
-        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col justify-center px-4 gap-1">
-          <span className="text-xs text-ktp-accent font-semibold uppercase tracking-widest px-4">Styles</span>
-          <span className="text-xs text-ktp-primary font-medium px-4 py-1 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent">Colors</span>
-          <span className="text-xs text-ktp-muted px-4 py-1">Typography</span>
+      <div className="flex">
+        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col py-4 px-2 gap-0.5">
+          <span className="text-xs text-ktp-accent font-semibold uppercase tracking-widest px-4 py-1.5">Styles</span>
+          <span className="text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]">Colors</span>
+          <span className="text-xs text-ktp-muted px-4 py-2">Typography</span>
         </div>
         <div className="flex-1 bg-white flex items-center px-8">
           <span className="text-xs text-ktp-muted italic">page content</span>
@@ -151,24 +151,27 @@ function PortalNavPreview({ isAdmin }: { isAdmin?: boolean }) {
     <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
       {/* Top bar */}
       <nav className="bg-ktp-primary h-16 flex items-center">
-        <div className="w-56 shrink-0 h-full flex flex-col items-center justify-center border-r border-white/20">
+        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-white/20">
           <img src="/logo.svg" alt="KTP" className="h-10" />
-          <span className="text-white/60 text-[11px] mt-0.5">Member Portal</span>
         </div>
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">Member Portal</span>
-          <div className="flex items-center gap-2 text-xs">
-            {isAdmin && <span className="text-white/70 cursor-default">Admin Dashboard</span>}
-            <span className="text-white/70 cursor-default">← Public Site</span>
-            <span className="text-white/70 cursor-default">Sign Out</span>
+          <div className="flex items-center gap-5 text-sm">
+            {isAdmin && <span className="text-white cursor-default">Admin Dashboard</span>}
+            <span className="text-white cursor-default">← Public Site</span>
+            <span className="text-white cursor-default">Sign Out</span>
           </div>
         </div>
       </nav>
       {/* Sidebar hint */}
-      <div className="flex" style={{ height: 72 }}>
-        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col justify-center px-4 gap-1">
-          <span className="text-xs text-ktp-accent font-medium px-4 py-1 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent">Announcements</span>
-          <span className="text-xs text-ktp-muted px-4 py-1">Alumni</span>
+      <div className="flex">
+        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col py-4 px-2 gap-0.5">
+          <span className="flex items-center gap-2.5 text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]">
+            <Megaphone size={13} />Announcements
+          </span>
+          <span className="flex items-center gap-2.5 text-xs text-ktp-muted px-4 py-2">
+            <Users size={13} />Alumni
+          </span>
         </div>
         <div className="flex-1 bg-ktp-surface flex items-center px-8">
           <span className="text-xs text-ktp-muted italic">page content</span>
@@ -180,37 +183,41 @@ function PortalNavPreview({ isAdmin }: { isAdmin?: boolean }) {
 
 /** Admin layout mockup */
 function AdminNavPreview() {
-  const links = ['Overview', 'Announcements', 'Alumni', 'Users']
+  const links = [
+    { label: 'Overview', icon: LayoutDashboard },
+    { label: 'Announcements', icon: Megaphone },
+    { label: 'Alumni', icon: Users },
+    { label: 'Users', icon: UserCog },
+  ]
 
   return (
     <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
       {/* Top bar */}
       <nav className="bg-ktp-primary h-16 flex items-center">
-        <div className="w-56 shrink-0 h-full flex flex-col items-center justify-center border-r border-white/20">
+        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-white/20">
           <img src="/logo.svg" alt="KTP" className="h-10" />
-          <span className="text-white/60 text-[11px] mt-0.5">Admin Portal</span>
         </div>
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">Admin Dashboard</span>
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-white/70 cursor-default">← Member Portal</span>
-            <span className="text-white/70 cursor-default">Sign Out</span>
+          <div className="flex items-center gap-5 text-sm">
+            <span className="text-white cursor-default">← Member Portal</span>
+            <span className="text-white cursor-default">Sign Out</span>
           </div>
         </div>
       </nav>
       {/* Sidebar hint */}
-      <div className="flex" style={{ height: 120 }}>
-        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col justify-center px-4 gap-1">
-          {links.map((label, i) => (
+      <div className="flex">
+        <div className="w-56 shrink-0 border-r border-gray-200 bg-gray-50/50 flex flex-col py-4 px-2 gap-0.5">
+          {links.map(({ label, icon: Icon }, i) => (
             <span
               key={label}
-              className={`text-xs px-4 py-1 rounded-lg cursor-default ${
+              className={`flex items-center gap-2.5 text-xs px-4 py-2 rounded-lg cursor-default ${
                 i === 0
-                  ? 'text-ktp-primary font-medium bg-ktp-surface border-l-2 border-ktp-accent'
+                  ? 'text-ktp-primary font-medium bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]'
                   : 'text-ktp-muted'
               }`}
             >
-              {label}
+              <Icon size={13} />{label}
             </span>
           ))}
         </div>
@@ -251,9 +258,9 @@ export function NavbarPage() {
           <div className="flex flex-col gap-2">
             <p className="font-semibold text-ktp-primary">Internal tooling nav</p>
             <ul className="list-disc pl-5 flex flex-col gap-1">
-              <li><strong>Design System</strong> — <Code>DesignSystemLayout.tsx</Code> — no logo subtext</li>
-              <li><strong>Member Portal</strong> — <Code>PortalLayout.tsx</Code> — "Member Portal" below logo</li>
-              <li><strong>Admin</strong> — <Code>AdminLayout.tsx</Code> — "Admin Portal" below logo</li>
+              <li><strong>Design System</strong> — <Code>DesignSystemLayout.tsx</Code></li>
+              <li><strong>Member Portal</strong> — <Code>PortalLayout.tsx</Code> — sidebar has icons</li>
+              <li><strong>Admin</strong> — <Code>AdminLayout.tsx</Code> — sidebar has icons</li>
               <li>All three share the same <Code>h-16</Code> top bar + <Code>w-56</Code> light sidebar pattern</li>
             </ul>
           </div>
@@ -284,18 +291,10 @@ export function NavbarPage() {
         <Label>Desktop — member logged in</Label>
         <DesktopNavPreview authState="member" />
         <p className="text-sm text-ktp-muted leading-relaxed">
-          When a user is authenticated, the Member Login and Apply links are
-          replaced with a <strong>Portal</strong> link and a{' '}
-          <strong>Sign Out</strong> button.
-        </p>
-      </Section>
-
-      <Section>
-        <Label>Desktop — admin logged in</Label>
-        <DesktopNavPreview authState="admin" />
-        <p className="text-sm text-ktp-muted leading-relaxed">
-          Admin users additionally see an <strong>Admin</strong> link.
-          Admin access is managed separately — see the admin guide for details.
+          When a user is authenticated, the Member Login and Apply links are replaced with a{' '}
+          <strong>Portal</strong> link and a <strong>Sign Out</strong> button. Admin users
+          additionally see an <strong>Admin</strong> link between Portal and Sign Out.
+          Admin access is managed in Firestore — see the admin guide for details.
         </p>
       </Section>
 
@@ -334,28 +333,19 @@ export function NavbarPage() {
         <DesignSystemNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
           A fixed <Code>h-16</Code> top bar with the logo centered in a <Code>w-56</Code> column that
-          aligns exactly with the sidebar border. "Design System" label and a "Back to site" ghost
-          button sit in the remaining space. The sidebar is <Code>hidden</Code> below <Code>lg</Code>;
+          aligns exactly with the sidebar border. "Design System" label and a plain "← Back to site"
+          link sit in the remaining space. The sidebar is <Code>hidden</Code> below <Code>lg</Code>;
           on mobile only the top bar is shown.
         </p>
       </Section>
 
       <Section>
-        <Label>Member Portal — member (<Code>PortalLayout.tsx</Code>)</Label>
+        <Label>Member Portal (<Code>PortalLayout.tsx</Code>)</Label>
         <PortalNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
-          Same top bar + sidebar pattern as the Design System. Logo is centered in the{' '}
-          <Code>w-56</Code> column with "Member Portal" below. Sidebar has Announcements and Alumni
-          links. Right section shows "← Public Site" and Sign Out.
-        </p>
-      </Section>
-
-      <Section>
-        <Label>Member Portal — admin user</Label>
-        <PortalNavPreview isAdmin />
-        <p className="text-sm text-ktp-muted leading-relaxed">
-          Same as member view but an <strong>Admin Dashboard</strong> link is shown in the top bar
-          for admin users.
+          Same top bar + sidebar pattern as the Design System. Sidebar has Announcements and Alumni
+          links, each with a lucide icon. Right section shows "← Public Site" and Sign Out. Admin
+          users additionally see an <strong>Admin Dashboard</strong> link in the top bar.
         </p>
       </Section>
 
@@ -363,10 +353,10 @@ export function NavbarPage() {
         <Label>Admin Dashboard (<Code>AdminLayout.tsx</Code>)</Label>
         <AdminNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
-          Same top bar + sidebar pattern. Logo shows "Admin Portal" below. Sidebar has Overview,
-          Announcements, Alumni, and Users. Right section shows "← Member Portal" and Sign Out.
-          Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
-          <Code>bg-ktp-surface</Code> treatment as the Design System.
+          Same top bar + sidebar pattern. Sidebar has Overview, Announcements, Alumni, and Users —
+          each with a lucide icon. Right section shows "← Member Portal" and Sign Out as plain text
+          links. Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
+          <Code>bg-ktp-surface</Code> treatment as the other layouts.
         </p>
       </Section>
 

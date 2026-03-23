@@ -1,16 +1,23 @@
 import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
-import { Separator } from '@/components/ui/separator'
-import { Button } from '@/components/ui/button'
 import { signOut } from '@/services/authService'
 import { useAuth } from '@/hooks/useAuth'
+import { Megaphone, Users } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
-const NAV_LINKS = [
-  { to: '/portal', label: 'Announcements', end: true },
-  { to: '/portal/alumni', label: 'Alumni' },
+type NavLink = {
+  to: string
+  label: string
+  end?: boolean
+  icon?: LucideIcon
+}
+
+const NAV_LINKS: NavLink[] = [
+  { to: '/portal', label: 'Announcements', end: true, icon: Megaphone },
+  { to: '/portal/alumni', label: 'Alumni', icon: Users },
 ]
 
 const NAV_LINK_BASE =
-  'block pr-4 py-2 pl-4 rounded-lg text-sm transition-colors no-underline'
+  'flex items-center gap-2.5 pr-4 py-2 pl-4 rounded-lg text-sm transition-colors no-underline'
 const NAV_LINK_ACTIVE =
   'border-l-2 border-ktp-accent bg-ktp-surface text-ktp-primary font-medium !pl-[14px] cursor-default hover:bg-ktp-surface hover:text-ktp-primary'
 const NAV_LINK_INACTIVE = 'text-ktp-muted hover:text-ktp-primary hover:bg-gray-100'
@@ -29,10 +36,9 @@ export function PortalLayout() {
       {/* Top nav */}
       <nav className="bg-ktp-primary sticky top-0 z-50 h-16 flex items-center">
         {/* Logo — same width as sidebar, centered */}
-        <div className="hidden lg:flex w-56 shrink-0 h-full flex-col items-center justify-center border-r border-white/20">
-          <Link to="/" className="no-underline flex flex-col items-center gap-0.5">
+        <div className="hidden lg:flex w-56 shrink-0 h-full items-center justify-center border-r border-white/20">
+          <Link to="/" className="no-underline">
             <img src="/logo.svg" alt="KTP" className="h-10" />
-            <span className="text-white/60 text-[11px]">Member Portal</span>
           </Link>
         </div>
         {/* Title + actions */}
@@ -40,27 +46,21 @@ export function PortalLayout() {
           <span className="text-white/90 text-sm font-medium tracking-wide">
             Member Portal
           </span>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-5">
             {appUser?.isAdmin && (
-              <>
-                <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10">
-                  <Link to="/admin">Admin Dashboard</Link>
-                </Button>
-                <Separator orientation="vertical" className="h-4 bg-white/20 mx-1" />
-              </>
+              <Link to="/admin" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
+                Admin Dashboard
+              </Link>
             )}
-            <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10">
-              <Link to="/">← Public Site</Link>
-            </Button>
-            <Separator orientation="vertical" className="h-4 bg-white/20 mx-1" />
-            <Button
-              variant="ghost"
-              size="sm"
+            <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
+              ← Public Site
+            </Link>
+            <button
               onClick={handleSignOut}
-              className="text-white/70 hover:text-white hover:bg-white/10"
+              className="text-sm text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer p-0"
             >
               Sign Out
-            </Button>
+            </button>
           </div>
         </div>
       </nav>
@@ -79,6 +79,7 @@ export function PortalLayout() {
                   `${NAV_LINK_BASE} ${isActive ? NAV_LINK_ACTIVE : NAV_LINK_INACTIVE}`
                 }
               >
+                {link.icon && <link.icon size={15} className="shrink-0" />}
                 {link.label}
               </NavLink>
             ))}
