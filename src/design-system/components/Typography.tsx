@@ -18,9 +18,18 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 const headingColorMap = {
-  navy: 'text-ktp-navy',
+  navy: 'text-primary',
   white: 'text-white',
   default: '',
+}
+
+const headingSizeMap: Record<HeadingLevel, string> = {
+  1: 'text-heading-1',
+  2: 'text-heading-2',
+  3: 'text-heading-3',
+  4: 'text-heading-4',
+  5: 'text-heading-5',
+  6: 'text-heading-6',
 }
 
 export function Heading({
@@ -33,7 +42,7 @@ export function Heading({
   const Tag = `h${level}` as React.ElementType
   return (
     <Tag
-      className={cn(headingColorMap[color], className)}
+      className={cn(headingSizeMap[level], headingColorMap[color], className)}
       {...props}
     >
       {children}
@@ -45,7 +54,7 @@ export function Heading({
 export function SmallTitle({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('small-title text-xs font-semibold tracking-widest text-ktp-cyan mb-2', className)}
+      className={cn('small-title text-xs font-semibold tracking-widest text-secondary mb-2', className)}
       {...props}
     />
   )

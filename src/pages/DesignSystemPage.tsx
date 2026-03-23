@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Copy, Check } from 'lucide-react'
 import { Button } from '@/design-system/components/Button'
 import { Badge } from '@/design-system/components/Badge'
 import { Card, CardHeader, CardBody } from '@/design-system/components/Card'
@@ -7,31 +9,54 @@ import { SectionTitle } from '@/design-system/components/SectionTitle'
 import { SectionSeparator } from '@/design-system/components/SectionSeparator'
 import { AlertBanner } from '@/design-system/components/AlertBanner'
 import { SmallTitle, Body, Caption } from '@/design-system/components/Typography'
-import { ktpColors } from '@/design-system/tokens'
 
 // ---------------------------------------------------------------------------
-// Color swatch component
+// Color card component
 // ---------------------------------------------------------------------------
-function ColorSwatch({
+function ColorCard({
   name,
   hex,
   tailwindClass,
+  description,
 }: {
   name: string
   hex: string
   tailwindClass: string
+  description: string
 }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(hex)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
   return (
-    <div className="flex flex-col gap-2">
-      <div
-        className={`w-full h-16 rounded-lg border border-gray-200 ${tailwindClass}`}
-      />
-      <div>
-        <p className="text-sm font-semibold text-ktp-navy">{name}</p>
-        <p className="text-xs text-ktp-text font-mono">{hex}</p>
-        <p className="text-xs text-ktp-text/70 font-mono">{tailwindClass}</p>
+    <article className="flex flex-col rounded-lg border border-gray-200 overflow-clip">
+      <div className="h-32 w-full" style={{ backgroundColor: hex }} />
+      <div className="flex flex-col gap-3 p-3 border-t border-gray-200">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center justify-between gap-2">
+            <h6 className="text-ktp-navy mb-0 leading-tight">{name}</h6>
+            <button
+              type="button"
+              onClick={handleCopy}
+              aria-label={`Copy ${name} color`}
+              className="w-8 h-8 flex items-center justify-center rounded-md text-ktp-text hover:text-ktp-navy hover:bg-gray-100 transition-colors shrink-0"
+            >
+              {copied
+                ? <Check className="w-4 h-4 text-green-600" />
+                : <Copy className="w-4 h-4" />
+              }
+            </button>
+          </div>
+          <p className="text-xs font-mono text-ktp-text leading-tight">{hex}</p>
+          <p className="text-xs font-mono text-ktp-text/70 leading-tight">{tailwindClass}</p>
+        </div>
+        <p className="text-xs text-ktp-text leading-snug">{description}</p>
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -134,9 +159,9 @@ export function DesignSystemPage() {
           {/* ---------------------------------------------------------------- */}
           <Section id="colors" title="Colors">
             <p className="text-ktp-text mb-6">
-              All color values are defined in{' '}
+              All color values are defined as CSS variables in{' '}
               <code className="font-mono text-sm bg-ktp-section-bg px-1 py-0.5 rounded">
-                src/design-system/tokens.ts
+                src/styles/globals.css
               </code>{' '}
               and exposed as Tailwind utilities (
               <code className="font-mono text-sm">bg-ktp-navy</code>,{' '}
@@ -144,25 +169,26 @@ export function DesignSystemPage() {
             </p>
 
             <h4 className="text-ktp-navy mb-4">Brand</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
-              <ColorSwatch name="Navy" hex={ktpColors.navy} tailwindClass="bg-ktp-navy" />
-              <ColorSwatch name="Cyan" hex={ktpColors.cyan} tailwindClass="bg-ktp-cyan" />
-              <ColorSwatch name="Section BG" hex={ktpColors.sectionBg} tailwindClass="bg-ktp-section-bg" />
-              <ColorSwatch name="Text Gray" hex={ktpColors.text} tailwindClass="bg-ktp-text" />
-              <ColorSwatch name="Dark" hex={ktpColors.dark} tailwindClass="bg-ktp-dark" />
-              <ColorSwatch name="Deep Navy" hex={ktpColors.deepNavy} tailwindClass="bg-ktp-deep-navy" />
-              <ColorSwatch name="Pink" hex={ktpColors.pink} tailwindClass="bg-ktp-pink" />
-              <ColorSwatch name="White" hex={ktpColors.white} tailwindClass="bg-white" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+              <ColorCard name="Navy" hex="#273053" tailwindClass="bg-ktp-navy" description="Primary brand color. Used for headers, CTAs, nav background, and card headers." />
+              <ColorCard name="Cyan" hex="#0dcaf0" tailwindClass="bg-ktp-cyan" description="Accent color. Used for highlights, secondary buttons, and focus rings." />
+              <ColorCard name="Section BG" hex="#f0f8ff" tailwindClass="bg-ktp-section-bg" description="Light blue page background for alternating sections." />
+              <ColorCard name="Text Gray" hex="#717275" tailwindClass="bg-ktp-text" description="Body copy and secondary text across all pages." />
+              <ColorCard name="Dark" hex="#191c24" tailwindClass="bg-ktp-dark" description="Near-black for high-contrast text contexts." />
+              <ColorCard name="Deep Navy" hex="#001433" tailwindClass="bg-ktp-deep-navy" description="Hero overlays and image gradient backgrounds." />
+              <ColorCard name="Pink" hex="#f78fb3" tailwindClass="bg-ktp-pink" description="Accent for icon backgrounds and team highlights." />
+              <ColorCard name="White" hex="#ffffff" tailwindClass="bg-white" description="Surfaces, card backgrounds, and text on dark backgrounds." />
             </div>
 
             <h4 className="text-ktp-navy mb-4">Status</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              <ColorSwatch name="Error BG" hex={ktpColors.errorBg} tailwindClass="bg-ktp-error-bg" />
-              <ColorSwatch name="Error" hex={ktpColors.error} tailwindClass="bg-ktp-error" />
-              <ColorSwatch name="Danger" hex={ktpColors.danger} tailwindClass="bg-ktp-danger" />
-              <ColorSwatch name="Warning BG" hex={ktpColors.warningBg} tailwindClass="bg-ktp-warning-bg" />
-              <ColorSwatch name="Warning Border" hex={ktpColors.warningBorder} tailwindClass="bg-ktp-warning-border" />
-              <ColorSwatch name="Warning Text" hex={ktpColors.warningText} tailwindClass="bg-ktp-warning-text" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <ColorCard name="Error BG" hex="#fee2e2" tailwindClass="bg-ktp-error-bg" description="Background fill for error alert banners." />
+              <ColorCard name="Error" hex="#991b1b" tailwindClass="bg-ktp-error" description="Error text and icon color inside alert banners." />
+              <ColorCard name="Error Border" hex="#fca5a5" tailwindClass="bg-ktp-error-border" description="Border accent on error input fields and banners." />
+              <ColorCard name="Danger" hex="#dc2626" tailwindClass="bg-ktp-danger" description="Destructive action buttons such as delete and remove." />
+              <ColorCard name="Warning BG" hex="#fef3c7" tailwindClass="bg-ktp-warning-bg" description="Background fill for warning alert banners." />
+              <ColorCard name="Warning Border" hex="#f59e0b" tailwindClass="bg-ktp-warning-border" description="Border accent on warning banners and indicators." />
+              <ColorCard name="Warning Text" hex="#92400e" tailwindClass="bg-ktp-warning-text" description="Body text color inside warning alert banners." />
             </div>
           </Section>
 

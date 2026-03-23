@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { cn } from '@/lib/utils'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 /**
- * KTP FormField — labeled input/select/textarea with optional error state.
- * Replaces all inline-styled form inputs across admin and portal pages.
+ * KTP FormField — labeled input with optional error/helper text.
+ * Wraps ShadCN Input + Label primitives for consistent accessibility.
  */
 
-interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FormFieldProps extends React.ComponentProps<typeof Input> {
   label?: string
   error?: string
   helperText?: string
@@ -25,19 +27,15 @@ export function FormField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label
-          htmlFor={fieldId}
-          className="text-sm font-medium text-ktp-navy"
-        >
+        <Label htmlFor={fieldId} className="text-primary">
           {label}
-        </label>
+        </Label>
       )}
-      <input
+      <Input
         id={fieldId}
         className={cn(
-          'w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors',
-          'border-gray-200 focus:border-ktp-navy placeholder:text-ktp-text/60',
-          error && 'border-ktp-error focus:border-ktp-error',
+          'rounded-lg',
+          error && 'border-destructive focus-visible:ring-destructive',
           className,
         )}
         {...props}
@@ -71,16 +69,16 @@ export function SelectField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label htmlFor={fieldId} className="text-sm font-medium text-ktp-navy">
+        <Label htmlFor={fieldId} className="text-primary">
           {label}
-        </label>
+        </Label>
       )}
       <select
         id={fieldId}
         className={cn(
-          'w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors bg-white',
-          'border-gray-200 focus:border-ktp-navy',
-          error && 'border-ktp-error focus:border-ktp-error',
+          'w-full px-3 py-2 h-10 rounded-lg border border-input bg-background text-sm outline-none transition-colors',
+          'focus:border-primary focus:ring-2 focus:ring-ring focus:ring-offset-2',
+          error && 'border-destructive',
           className,
         )}
         {...props}
@@ -109,16 +107,16 @@ export function TextareaField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label htmlFor={fieldId} className="text-sm font-medium text-ktp-navy">
+        <Label htmlFor={fieldId} className="text-primary">
           {label}
-        </label>
+        </Label>
       )}
       <textarea
         id={fieldId}
         className={cn(
-          'w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors resize-none',
-          'border-gray-200 focus:border-ktp-navy placeholder:text-ktp-text/60',
-          error && 'border-ktp-error focus:border-ktp-error',
+          'w-full px-3 py-2 rounded-lg border border-input bg-background text-sm outline-none transition-colors resize-none',
+          'placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+          error && 'border-destructive focus-visible:ring-destructive',
           className,
         )}
         {...props}

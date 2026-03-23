@@ -10,20 +10,22 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-  			'ktp-navy': 'rgb(39 48 83 / <alpha-value>)',
-  			'ktp-cyan': 'rgb(13 202 240 / <alpha-value>)',
-  			'ktp-section-bg': '#f0f8ff',
-  			'ktp-text': '#717275',
-  			'ktp-dark': '#191c24',
-  			'ktp-deep-navy': '#001433',
-  			'ktp-pink': '#f78fb3',
-  			'ktp-error': '#991b1b',
-  			'ktp-error-bg': '#fee2e2',
-  			'ktp-error-border': '#fca5a5',
-  			'ktp-danger': '#dc2626',
-  			'ktp-warning-bg': '#fef3c7',
-  			'ktp-warning-border': '#f59e0b',
-  			'ktp-warning-text': '#92400e',
+  			// KTP brand aliases — reference globals.css CSS variables as single source of truth
+  			// Colors that need opacity modifier support use hsl(var()) with <alpha-value>
+  			'ktp-navy': 'hsl(var(--primary) / <alpha-value>)',       // = primary / #273053
+  			'ktp-cyan': 'hsl(var(--secondary) / <alpha-value>)',     // = secondary / #0dcaf0
+  			'ktp-danger': 'hsl(var(--destructive) / <alpha-value>)', // = destructive / #dc2626
+  			'ktp-section-bg': 'var(--ktp-section-bg)',
+  			'ktp-text': 'var(--ktp-text)',
+  			'ktp-dark': 'var(--ktp-dark)',
+  			'ktp-deep-navy': 'var(--ktp-deep-navy)',
+  			'ktp-pink': 'var(--ktp-pink)',
+  			'ktp-error': 'var(--ktp-error)',
+  			'ktp-error-bg': 'var(--ktp-error-bg)',
+  			'ktp-error-border': 'var(--ktp-error-border)',
+  			'ktp-warning-bg': 'var(--ktp-warning-bg)',
+  			'ktp-warning-border': 'var(--ktp-warning-border)',
+  			'ktp-warning-text': 'var(--ktp-warning-text)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -63,6 +65,14 @@ const config: Config = {
   				'DM Sans',
   				'sans-serif'
   			]
+  		},
+  		fontSize: {
+  			'heading-1': 'var(--h1-font-size)',
+  			'heading-2': 'var(--h2-font-size)',
+  			'heading-3': 'var(--h3-font-size)',
+  			'heading-4': 'var(--h4-font-size)',
+  			'heading-5': 'var(--h5-font-size)',
+  			'heading-6': 'var(--h6-font-size)',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

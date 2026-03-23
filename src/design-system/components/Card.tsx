@@ -1,50 +1,31 @@
 import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
+import { CardContent } from '@/components/ui/card'
 
 /**
- * KTP Card — container for grouping related information.
+ * KTP Card — re-exports ShadCN Card primitives with KTP-specific additions.
+ * The canonical Card/ktpCardVariants implementation lives in src/components/ui/card.tsx.
  *
- * Variants: default, flat (no shadow), navy (dark header style)
+ * CardHeader here is KTP-specific: a navy background title bar used in portal/admin cards.
+ * It is intentionally different from ShadCN's CardHeader (a layout column — no background).
+ * CardBody is an alias for CardContent with KTP's standard padding.
  */
-export const ktpCardVariants = cva(
-  'bg-white rounded-xl overflow-hidden',
-  {
-    variants: {
-      variant: {
-        default: 'shadow-sm border border-gray-100',
-        flat: 'border border-gray-200',
-        elevated: 'shadow-md border border-gray-100',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-    },
-  },
-)
-
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof ktpCardVariants> {}
-
-export function Card({ className, variant, ...props }: CardProps) {
-  return (
-    <div className={cn(ktpCardVariants({ variant }), className)} {...props} />
-  )
-}
+export { Card, ktpCardVariants } from '@/components/ui/card'
+export type { CardProps } from '@/components/ui/card'
 
 /** Navy header bar used in portal/admin cards */
 export function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn('px-6 py-4 bg-ktp-navy flex items-center justify-between', className)}
+      className={cn('px-6 py-4 bg-primary flex items-center justify-between', className)}
       {...props}
     />
   )
 }
 
+/** Alias for ShadCN CardContent with KTP's standard padding */
 export function CardBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('px-6 py-5', className)} {...props} />
+    <CardContent className={cn('px-6 py-5 pt-5', className)} {...props} />
   )
 }
