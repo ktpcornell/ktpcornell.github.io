@@ -137,7 +137,7 @@ function DesignSystemNavPreview() {
           <span className="text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]">Colors</span>
           <span className="text-xs text-ktp-muted px-4 py-2">Typography</span>
         </div>
-        <div className="flex-1 bg-white flex items-center px-8">
+        <div className="flex-1 bg-ktp-surface flex items-center px-8">
           <span className="text-xs text-ktp-muted italic">page content</span>
         </div>
       </div>
