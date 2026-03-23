@@ -67,7 +67,7 @@ export function DesignSystemLayout() {
             Design System
           </span>
           <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
-            ← Back to site
+            Public Site
           </Link>
         </div>
       </nav>

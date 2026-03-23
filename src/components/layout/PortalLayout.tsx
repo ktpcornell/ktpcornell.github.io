@@ -48,7 +48,7 @@ export function PortalLayout() {
           </span>
           <div className="flex items-center gap-5">
             <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
-              ← Public Site
+              Public Site
             </Link>
             <button
               onClick={handleSignOut}

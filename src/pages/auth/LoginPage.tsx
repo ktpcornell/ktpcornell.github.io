@@ -87,7 +87,7 @@ export function LoginPage() {
 
             <div className="mt-6 text-center">
               <Link to="/" className="text-sm text-ktp-primary hover:text-ktp-accent transition-colors no-underline">
-                ← Back to main site
+                Public Site
               </Link>
             </div>
           </div>

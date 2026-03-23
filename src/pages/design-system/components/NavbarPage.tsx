@@ -127,7 +127,7 @@ function DesignSystemNavPreview() {
         {/* Title + back link */}
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">Design System</span>
-          <span className="text-sm text-white cursor-default">← Back to site</span>
+          <span className="text-sm text-white cursor-default">Public Site</span>
         </div>
       </nav>
       {/* Sidebar hint */}
@@ -158,7 +158,7 @@ function PortalNavPreview({ isAdmin }: { isAdmin?: boolean }) {
           <span className="text-white/90 text-sm font-medium tracking-wide">Member Portal</span>
           <div className="flex items-center gap-5 text-sm">
             {isAdmin && <span className="text-white cursor-default">Admin Dashboard</span>}
-            <span className="text-white cursor-default">← Public Site</span>
+            <span className="text-white cursor-default">Public Site</span>
             <span className="text-white cursor-default">Sign Out</span>
           </div>
         </div>
@@ -200,7 +200,7 @@ function AdminNavPreview() {
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">Admin Portal</span>
           <div className="flex items-center gap-5 text-sm">
-            <span className="text-white cursor-default">← Public Site</span>
+            <span className="text-white cursor-default">Public Site</span>
             <span className="text-white cursor-default">Sign Out</span>
           </div>
         </div>
@@ -334,7 +334,7 @@ export function NavbarPage() {
         <DesignSystemNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
           A fixed <Code>h-16</Code> top bar with the logo centered in a <Code>w-56</Code> column that
-          aligns exactly with the sidebar border. "Design System" label and a plain "← Back to site"
+          aligns exactly with the sidebar border. "Design System" label and a plain "Public Site"
           link sit in the remaining space. The sidebar is <Code>hidden</Code> below <Code>lg</Code>;
           on mobile only the top bar is shown.
         </p>
@@ -345,7 +345,7 @@ export function NavbarPage() {
         <PortalNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
           Same top bar + sidebar pattern as the Design System. Sidebar has Announcements and Alumni
-          links, each with a lucide icon. Right section shows "← Public Site" and Sign Out.
+          links, each with a lucide icon. Right section shows "Public Site" and Sign Out.
           This layout is for regular members only — admins are redirected to <Code>/admin</Code> on login.
         </p>
       </Section>
@@ -355,7 +355,7 @@ export function NavbarPage() {
         <AdminNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
           Admins land here directly on login. Sidebar has Overview, Announcements, Alumni, and
-          Users — each with a lucide icon. Right section shows "← Public Site" and Sign Out.
+          Users — each with a lucide icon. Right section shows "Public Site" and Sign Out.
           Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
           <Code>bg-ktp-surface</Code> treatment as the other layouts.
         </p>
