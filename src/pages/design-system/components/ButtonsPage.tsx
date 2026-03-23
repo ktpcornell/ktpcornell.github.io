@@ -56,7 +56,7 @@ export function ButtonsPage() {
       </ButtonGroup>
 
       <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100">
-        <Caption>variant="transparent" — for use over dark or image backgrounds</Caption>
+        <SectionLabel>variant="transparent" — for use over dark or image backgrounds</SectionLabel>
         <div className="bg-ktp-primary rounded-xl p-6 flex flex-wrap gap-3">
           <Button variant="transparent" size="lg">Large</Button>
           <Button variant="transparent">Default</Button>

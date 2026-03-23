@@ -1,6 +1,5 @@
 import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
 import { signOut } from '@/services/authService'
-import { useAuth } from '@/hooks/useAuth'
 import { Megaphone, Users } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -24,7 +23,7 @@ const NAV_LINK_INACTIVE = 'text-ktp-muted hover:text-ktp-primary hover:bg-gray-1
 
 export function PortalLayout() {
   const navigate = useNavigate()
-  const { appUser } = useAuth()
+
 
   const handleSignOut = async () => {
     await signOut()
