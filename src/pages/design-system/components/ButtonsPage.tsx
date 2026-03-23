@@ -17,7 +17,7 @@ export function ButtonsPage() {
   return (
     <>
       <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
-        <h1 className="text-ktp-primary mb-2">Buttons</h1>
+        <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Buttons</h1>
         <p className="text-ktp-muted">
           Import from{' '}
           <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">

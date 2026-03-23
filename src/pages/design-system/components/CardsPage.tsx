@@ -14,7 +14,7 @@ function CardGroup({
   return (
     <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100 last:border-0">
       <div>
-        <h2 className="text-xl font-semibold text-ktp-primary mb-1">{label}</h2>
+        <h2 className="text-xl font-semibold text-ktp-primary mb-1 tracking-normal">{label}</h2>
         <p className="text-sm text-ktp-muted">{description}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{children}</div>
@@ -26,7 +26,7 @@ export function CardsPage() {
   return (
     <>
       <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
-        <h1 className="text-ktp-primary mb-2">Cards</h1>
+        <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Cards</h1>
         <p className="text-ktp-muted">
           Import from{' '}
           <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">

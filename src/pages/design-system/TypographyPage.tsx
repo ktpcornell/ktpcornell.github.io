@@ -19,7 +19,7 @@ export function TypographyPage() {
   return (
     <>
       <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
-        <h1 className="text-ktp-primary mb-2">Typography</h1>
+        <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Typography</h1>
         <p className="text-ktp-muted">
           KTP uses <strong>DM Sans</strong> for all body copy and headings. Scale and weights are
           defined as CSS variables in{' '}

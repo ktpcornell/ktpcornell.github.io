@@ -68,7 +68,7 @@ function ColorGroup({
   return (
     <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-gray-100">
       <div className="flex flex-col gap-1">
-        <h2 className="text-2xl font-semibold text-ktp-primary">{title}</h2>
+        <h2 className="text-2xl font-semibold text-ktp-primary tracking-normal">{title}</h2>
         <p className="text-ktp-muted">{description}</p>
       </div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -85,7 +85,7 @@ export function ColorsPage() {
   return (
     <>
       <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
-        <h1 className="text-ktp-primary mb-2">Colors</h1>
+        <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Colors</h1>
         <p className="text-ktp-muted">
           Guidelines for using color tokens across the KTP website. All values are defined as CSS
           variables in{' '}
