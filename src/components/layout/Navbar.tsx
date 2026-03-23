@@ -93,15 +93,8 @@ export function Navbar() {
             </li>
             {currentUser && (
               <li>
-                <NavLink className={navLinkClass} to="/portal" onClick={closeMenu}>
+                <NavLink className={navLinkClass} to={appUser?.isAdmin ? '/admin' : '/portal'} onClick={closeMenu}>
                   Portal
-                </NavLink>
-              </li>
-            )}
-            {appUser?.isAdmin && (
-              <li>
-                <NavLink className={navLinkClass} to="/admin" onClick={closeMenu}>
-                  Admin
                 </NavLink>
               </li>
             )}

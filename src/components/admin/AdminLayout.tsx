@@ -44,11 +44,11 @@ export function AdminLayout() {
         {/* Title + actions */}
         <div className="flex-1 flex items-center justify-between px-6">
           <span className="text-white/90 text-sm font-medium tracking-wide">
-            Admin Dashboard
+            Admin Portal
           </span>
           <div className="flex items-center gap-5">
-            <Link to="/portal" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
-              ← Member Portal
+            <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
+              ← Public Site
             </Link>
             <button
               onClick={handleSignOut}

@@ -47,11 +47,6 @@ export function PortalLayout() {
             Member Portal
           </span>
           <div className="flex items-center gap-5">
-            {appUser?.isAdmin && (
-              <Link to="/admin" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
-                Admin Dashboard
-              </Link>
-            )}
             <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
               ← Public Site
             </Link>

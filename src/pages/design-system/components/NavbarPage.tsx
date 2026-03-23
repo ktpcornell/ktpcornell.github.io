@@ -198,9 +198,9 @@ function AdminNavPreview() {
           <img src="/logo.svg" alt="KTP" className="h-10" />
         </div>
         <div className="flex-1 flex items-center justify-between px-6">
-          <span className="text-white/90 text-sm font-medium tracking-wide">Admin Dashboard</span>
+          <span className="text-white/90 text-sm font-medium tracking-wide">Admin Portal</span>
           <div className="flex items-center gap-5 text-sm">
-            <span className="text-white cursor-default">← Member Portal</span>
+            <span className="text-white cursor-default">← Public Site</span>
             <span className="text-white cursor-default">Sign Out</span>
           </div>
         </div>
@@ -259,8 +259,8 @@ export function NavbarPage() {
             <p className="font-semibold text-ktp-primary">Internal tooling nav</p>
             <ul className="list-disc pl-5 flex flex-col gap-1">
               <li><strong>Design System</strong> — <Code>DesignSystemLayout.tsx</Code></li>
-              <li><strong>Member Portal</strong> — <Code>PortalLayout.tsx</Code> — sidebar has icons</li>
-              <li><strong>Admin</strong> — <Code>AdminLayout.tsx</Code> — sidebar has icons</li>
+              <li><strong>Member Portal</strong> — <Code>PortalLayout.tsx</Code> — for non-admin members</li>
+              <li><strong>Admin Portal</strong> — <Code>AdminLayout.tsx</Code> — admins land here on login; sidebar has more options</li>
               <li>All three share the same <Code>h-16</Code> top bar + <Code>w-56</Code> light sidebar pattern</li>
             </ul>
           </div>
@@ -292,9 +292,10 @@ export function NavbarPage() {
         <DesktopNavPreview authState="member" />
         <p className="text-sm text-ktp-muted leading-relaxed">
           When a user is authenticated, the Member Login and Apply links are replaced with a{' '}
-          <strong>Portal</strong> link and a <strong>Sign Out</strong> button. Admin users
-          additionally see an <strong>Admin</strong> link between Portal and Sign Out.
-          Admin access is managed in Firestore — see the admin guide for details.
+          <strong>Portal</strong> link and a <strong>Sign Out</strong> button. For regular members
+          Portal links to <Code>/portal</Code>; for admins it links directly to{' '}
+          <Code>/admin</Code> (the Admin Portal). There is only one portal — admins simply have
+          more options there.
         </p>
       </Section>
 
@@ -344,18 +345,18 @@ export function NavbarPage() {
         <PortalNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
           Same top bar + sidebar pattern as the Design System. Sidebar has Announcements and Alumni
-          links, each with a lucide icon. Right section shows "← Public Site" and Sign Out. Admin
-          users additionally see an <strong>Admin Dashboard</strong> link in the top bar.
+          links, each with a lucide icon. Right section shows "← Public Site" and Sign Out.
+          This layout is for regular members only — admins are redirected to <Code>/admin</Code> on login.
         </p>
       </Section>
 
       <Section>
-        <Label>Admin Dashboard (<Code>AdminLayout.tsx</Code>)</Label>
+        <Label>Admin Portal (<Code>AdminLayout.tsx</Code>)</Label>
         <AdminNavPreview />
         <p className="text-sm text-ktp-muted leading-relaxed">
-          Same top bar + sidebar pattern. Sidebar has Overview, Announcements, Alumni, and Users —
-          each with a lucide icon. Right section shows "← Member Portal" and Sign Out as plain text
-          links. Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
+          Admins land here directly on login. Sidebar has Overview, Announcements, Alumni, and
+          Users — each with a lucide icon. Right section shows "← Public Site" and Sign Out.
+          Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
           <Code>bg-ktp-surface</Code> treatment as the other layouts.
         </p>
       </Section>
