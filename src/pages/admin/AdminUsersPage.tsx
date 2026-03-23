@@ -1,25 +1,23 @@
 import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { UserTable } from '@/components/admin/UserTable'
+import { AlertBanner } from '@/design-system/components/AlertBanner'
 
 export function AdminUsersPage() {
   return (
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8" style={{ background: 'var(--section-bg-color)' }}>
+      <div className="flex-1 p-8 bg-ktp-section-bg">
         <div className="mb-8">
-          <h2 style={{ color: 'var(--navbar-bg-color)' }}>User Management</h2>
+          <h2 className="text-ktp-navy">User Management</h2>
           <p>Toggle admin access for registered members. You cannot change your own role.</p>
         </div>
 
-        <div
-          className="mb-6 px-4 py-3 rounded-lg text-sm"
-          style={{ background: '#fef3c7', borderLeft: '4px solid #f59e0b', color: '#92400e' }}
-        >
+        <AlertBanner variant="warning" className="mb-6">
           <strong>Bootstrap note:</strong> To create the first admin, set{' '}
-          <code>isAdmin: true</code> manually in Firebase Console{' '}
+          <code className="font-mono text-xs">isAdmin: true</code> manually in Firebase Console{' '}
           <em>Firestore &gt; users &gt; {'{'}`uid`{'}'}</em>.
-        </div>
+        </AlertBanner>
 
         <UserTable />
       </div>

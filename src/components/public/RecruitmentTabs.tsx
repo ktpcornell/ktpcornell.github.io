@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Clock, MapPin } from 'lucide-react'
 import { RECRUITMENT_OPEN_EVENTS, RECRUITMENT_INTERVIEW_ROUNDS, type RecruitmentEvent } from '@/lib/constants'
+import { Button } from '@/design-system/components/Button'
 
 const TABS = [
   { id: 'events', label: 'Events', sub: 'Open Events for everyone' },
@@ -29,16 +30,6 @@ function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   )
 }
 
-const btnBase =
-  'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white'
-const btnInactive = 'border-l-ktp-section-bg'
-const btnActive = 'border-l-ktp-cyan shadow-lg'
-
-const outlineBtn =
-  'inline-block px-6 py-2.5 rounded-full border-2 border-ktp-navy text-ktp-navy text-sm font-bold hover:bg-ktp-navy hover:text-white transition-colors no-underline'
-const solidBtn =
-  'inline-block px-6 py-2.5 rounded-full bg-ktp-navy text-white text-sm font-bold hover:bg-ktp-cyan hover:text-ktp-navy transition-colors no-underline'
-
 export function RecruitmentTabs() {
   const [activeTab, setActiveTab] = useState('events')
 
@@ -49,7 +40,12 @@ export function RecruitmentTabs() {
         {TABS.map((tab, i) => (
           <button
             key={tab.id}
-            className={`${btnBase} ${activeTab === tab.id ? btnActive : btnInactive} ${i === 0 ? 'border-l-transparent' : ''}`}
+            className={[
+              'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white',
+              activeTab === tab.id
+                ? 'border-l-ktp-cyan shadow-lg'
+                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-section-bg',
+            ].join(' ')}
             onClick={() => setActiveTab(tab.id)}
           >
             <h3
@@ -89,14 +85,15 @@ export function RecruitmentTabs() {
               Coffee chats are a great way to get to know our brothers in a low-pressure, one-on-one
               setting. Sign up using the form below!
             </p>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={solidBtn}
-            >
-              Sign Up for Coffee Chat
-            </a>
+            <Button variant="primary" asChild>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sign Up for Coffee Chat
+              </a>
+            </Button>
           </div>
         )}
 
@@ -111,22 +108,24 @@ export function RecruitmentTabs() {
               <li><p>Anyone is allowed to join — we gladly accept potential new members from all disciplines!</p></li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="https://forms.gle/AbQNh6rqBK94MRH18"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={outlineBtn}
-              >
-                Interest Form
-              </a>
-              <a
-                href="https://forms.gle/cNQJKc8drtGXK74j9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={solidBtn}
-              >
-                Spring 26 Application
-              </a>
+              <Button variant="outline" asChild>
+                <a
+                  href="https://forms.gle/AbQNh6rqBK94MRH18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Interest Form
+                </a>
+              </Button>
+              <Button variant="primary" asChild>
+                <a
+                  href="https://forms.gle/cNQJKc8drtGXK74j9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Spring 26 Application
+                </a>
+              </Button>
             </div>
           </div>
         )}

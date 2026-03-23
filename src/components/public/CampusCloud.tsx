@@ -1,9 +1,10 @@
 import { campusClubs } from '@/lib/constants'
+import { SectionTitle } from '@/design-system/components/SectionTitle'
 
 export function CampusCloud() {
   return (
     <div className="text-center mb-8">
-      <h2 className="mb-6">Campus Involvements</h2>
+      <SectionTitle title="Campus Involvements" />
       <div className="max-w-[1100px] mx-auto flex flex-wrap justify-center gap-6">
         {campusClubs.map((item, i) => (
           <div
@@ -14,8 +15,7 @@ export function CampusCloud() {
             <img
               src={`/images/clubs/${item.file}`}
               alt={`${item.name} logo`}
-              className="max-h-12 max-w-[120px] min-w-[40px] w-auto object-contain"
-              style={{ filter: 'grayscale(10%)' }}
+              className="max-h-12 max-w-[120px] min-w-[40px] w-auto object-contain grayscale-[10%]"
             />
           </div>
         ))}

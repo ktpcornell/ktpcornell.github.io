@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Button } from '@/design-system/components/Button'
 
 export function CallToAction() {
   return (
@@ -13,17 +14,18 @@ export function CallToAction() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4 lg:justify-end">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="custom-btn"
-            >
-              Coffee Chat
-            </a>
-            <Link to="/join" className="custom-btn">
-              Join Us
-            </Link>
+            <Button variant="transparent" asChild>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Coffee Chat
+              </a>
+            </Button>
+            <Button variant="secondary" asChild>
+              <Link to="/join">Join Us</Link>
+            </Button>
           </div>
         </div>
       </div>

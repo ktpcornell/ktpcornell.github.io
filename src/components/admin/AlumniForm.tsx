@@ -1,7 +1,11 @@
 import { useState, type FormEvent } from 'react'
+import { X } from 'lucide-react'
 import { createAlumni, updateAlumni } from '@/services/alumniService'
 import type { AlumniEntry, AlumniFormData } from '@/types/alumni'
 import { KTP_CLASSES } from '@/lib/constants'
+import { Button } from '@/design-system/components/Button'
+import { FormField, SelectField, TextareaField } from '@/design-system/components/FormField'
+import { AlertBanner } from '@/design-system/components/AlertBanner'
 
 interface AlumniFormProps {
   existing?: AlumniEntry
@@ -24,8 +28,13 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
-  const set = (key: keyof AlumniFormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setForm((f) => ({ ...f, [key]: key === 'graduationYear' ? Number(e.target.value) : e.target.value }))
+  const set =
+    (key: keyof AlumniFormData) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setForm((f) => ({
+        ...f,
+        [key]: key === 'graduationYear' ? Number(e.target.value) : e.target.value,
+      }))
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -47,15 +56,21 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto py-8" style={{ background: 'rgba(0,0,0,0.5)' }}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto py-8 bg-black/50">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 overflow-hidden">
-        <div className="px-6 py-4 flex items-center justify-between" style={{ background: 'var(--navbar-bg-color)' }}>
+        <div className="px-6 py-4 bg-ktp-navy flex items-center justify-between">
           <h5 className="text-white mb-0">{existing ? 'Edit Alumni Entry' : 'Add Alumni'}</h5>
-          <button onClick={onClose} className="text-white text-xl" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>✕</button>
+          <button
+            onClick={onClose}
+            className="text-white bg-transparent border-none cursor-pointer p-1 hover:text-white/70 transition-colors"
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4 max-h-96 overflow-y-auto">
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+        <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4 max-h-[70vh] overflow-y-auto">
+          {error && <AlertBanner variant="error">{error}</AlertBanner>}
 
           {(
             [
@@ -67,43 +82,53 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
               { key: 'email', label: 'Email', required: false },
             ] as { key: keyof AlumniFormData; label: string; required: boolean }[]
           ).map(({ key, label, required }) => (
-            <div key={key}>
-              <label className="block text-sm font-medium mb-1" style={{ color: 'var(--navbar-bg-color)' }}>
-                {label}
-              </label>
-              <input
-                value={String(form[key] ?? '')}
-                onChange={set(key)}
-                required={required}
-                className="w-full px-4 py-2 border rounded-lg outline-none"
-                style={{ borderColor: '#e5e7eb' }}
-              />
-            </div>
+            <FormField
+              key={key}
+              label={label}
+              value={String(form[key] ?? '')}
+              onChange={set(key)}
+              required={required}
+            />
           ))}
 
-          <div>
-            <label className="block text-sm font-medium mb-1" style={{ color: 'var(--navbar-bg-color)' }}>KTP Class</label>
-            <select value={form.ktpClass} onChange={set('ktpClass')} required className="w-full px-4 py-2 border rounded-lg outline-none" style={{ borderColor: '#e5e7eb' }}>
-              <option value="">Select class…</option>
-              {KTP_CLASSES.map((c) => <option key={c} value={c}>{c}</option>)}
-            </select>
-          </div>
+          <SelectField
+            label="KTP Class"
+            value={form.ktpClass}
+            onChange={set('ktpClass')}
+            required
+          >
+            <option value="">Select class…</option>
+            {KTP_CLASSES.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </SelectField>
 
-          <div>
-            <label className="block text-sm font-medium mb-1" style={{ color: 'var(--navbar-bg-color)' }}>Graduation Year</label>
-            <input type="number" value={form.graduationYear} onChange={set('graduationYear')} required min={2020} max={2035} className="w-full px-4 py-2 border rounded-lg outline-none" style={{ borderColor: '#e5e7eb' }} />
-          </div>
+          <FormField
+            label="Graduation Year"
+            type="number"
+            value={form.graduationYear}
+            onChange={set('graduationYear')}
+            required
+            min={2020}
+            max={2035}
+          />
 
-          <div>
-            <label className="block text-sm font-medium mb-1" style={{ color: 'var(--navbar-bg-color)' }}>Internal Notes (admin only)</label>
-            <textarea value={form.notes ?? ''} onChange={set('notes')} rows={3} className="w-full px-4 py-2 border rounded-lg outline-none resize-none" style={{ borderColor: '#e5e7eb' }} />
-          </div>
+          <TextareaField
+            label="Internal Notes (admin only)"
+            value={form.notes ?? ''}
+            onChange={set('notes')}
+            rows={3}
+          />
 
           <div className="flex gap-3 pt-2">
-            <button type="submit" disabled={saving} className="custom-btn flex-1" style={{ opacity: saving ? 0.7 : 1 }}>
+            <Button type="submit" variant="primary" disabled={saving} className="flex-1">
               {saving ? 'Saving…' : 'Save'}
-            </button>
-            <button type="button" onClick={onClose} className="custom-btn custom-border-btn flex-1">Cancel</button>
+            </Button>
+            <Button type="button" variant="outline" onClick={onClose} className="flex-1">
+              Cancel
+            </Button>
           </div>
         </form>
       </div>

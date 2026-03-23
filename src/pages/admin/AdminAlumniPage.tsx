@@ -3,6 +3,8 @@ import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { AlumniForm } from '@/components/admin/AlumniForm'
 import { listAlumni, deleteAlumni } from '@/services/alumniService'
 import type { AlumniEntry } from '@/types/alumni'
+import { Button } from '@/design-system/components/Button'
+import { FormField } from '@/design-system/components/FormField'
 
 export function AdminAlumniPage() {
   const [alumni, setAlumni] = useState<AlumniEntry[]>([])
@@ -18,7 +20,9 @@ export function AdminAlumniPage() {
       .finally(() => setLoading(false))
   }
 
-  useEffect(() => { load() }, [])
+  useEffect(() => {
+    load()
+  }, [])
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this alumni entry?')) return
@@ -27,9 +31,10 @@ export function AdminAlumniPage() {
   }
 
   const filtered = search
-    ? alumni.filter((a) =>
-        a.name.toLowerCase().includes(search.toLowerCase()) ||
-        a.currentCompany.toLowerCase().includes(search.toLowerCase()),
+    ? alumni.filter(
+        (a) =>
+          a.name.toLowerCase().includes(search.toLowerCase()) ||
+          a.currentCompany.toLowerCase().includes(search.toLowerCase()),
       )
     : alumni
 
@@ -37,39 +42,50 @@ export function AdminAlumniPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8" style={{ background: 'var(--section-bg-color)' }}>
+      <div className="flex-1 p-8 bg-ktp-section-bg">
         <div className="flex items-center justify-between mb-6">
-          <h2 style={{ color: 'var(--navbar-bg-color)' }}>Alumni Database</h2>
-          <button className="custom-btn" onClick={() => { setEditing(undefined); setShowForm(true) }}>
+          <h2 className="text-ktp-navy">Alumni Database</h2>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setEditing(undefined)
+              setShowForm(true)
+            }}
+          >
             + Add Alumni
-          </button>
+          </Button>
         </div>
 
-        <input
-          placeholder="Search name or company…"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-sm px-4 py-2 border rounded-lg outline-none mb-6"
-          style={{ borderColor: '#e5e7eb' }}
-        />
+        <div className="max-w-sm mb-6">
+          <FormField
+            placeholder="Search name or company…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
         {loading ? (
           <div className="flex justify-center py-12">
             <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-xl border border-gray-200">
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ background: 'var(--navbar-bg-color)' }}>
+                <tr className="bg-ktp-navy">
                   {['Name', 'Class', 'Grad Year', 'Company', 'Role', 'Actions'].map((h) => (
-                    <th key={h} className="text-white text-left px-4 py-3">{h}</th>
+                    <th key={h} className="text-white text-left px-4 py-3">
+                      {h}
+                    </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((a, i) => (
-                  <tr key={a.id} style={{ background: i % 2 === 0 ? '#fff' : 'var(--section-bg-color)' }}>
+                  <tr
+                    key={a.id}
+                    className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-section-bg'}
+                  >
                     <td className="px-4 py-3 font-medium">{a.name}</td>
                     <td className="px-4 py-3">{a.ktpClass}</td>
                     <td className="px-4 py-3">{a.graduationYear}</td>
@@ -77,16 +93,23 @@ export function AdminAlumniPage() {
                     <td className="px-4 py-3">{a.currentRole}</td>
                     <td className="px-4 py-3">
                       <div className="flex gap-2">
-                        <button
-                          onClick={() => { setEditing(a); setShowForm(true) }}
-                          className="text-xs px-2 py-1 rounded border"
-                          style={{ color: 'var(--navbar-bg-color)', borderColor: 'var(--navbar-bg-color)', background: 'none', cursor: 'pointer' }}
-                        >Edit</button>
-                        <button
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => {
+                            setEditing(a)
+                            setShowForm(true)
+                          }}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="danger"
+                          size="sm"
                           onClick={() => handleDelete(a.id)}
-                          className="text-xs px-2 py-1 rounded border"
-                          style={{ color: '#dc2626', borderColor: '#dc2626', background: 'none', cursor: 'pointer' }}
-                        >Delete</button>
+                        >
+                          Delete
+                        </Button>
                       </div>
                     </td>
                   </tr>
@@ -94,7 +117,7 @@ export function AdminAlumniPage() {
               </tbody>
             </table>
             {filtered.length === 0 && (
-              <p className="text-center py-8" style={{ color: 'var(--p-color)' }}>No alumni entries found.</p>
+              <p className="text-center py-8 text-ktp-text">No alumni entries found.</p>
             )}
           </div>
         )}

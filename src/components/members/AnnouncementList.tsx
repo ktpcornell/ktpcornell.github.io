@@ -14,7 +14,7 @@ export function AnnouncementList() {
 
   if (error) {
     return (
-      <div className="text-center py-8 text-red-500">
+      <div className="text-center py-8 text-ktp-danger">
         Failed to load announcements: {error}
       </div>
     )
@@ -22,7 +22,7 @@ export function AnnouncementList() {
 
   if (announcements.length === 0) {
     return (
-      <div className="text-center py-12" style={{ color: 'var(--p-color)' }}>
+      <div className="text-center py-12 text-ktp-text">
         <p className="text-lg">No announcements yet.</p>
         <p className="text-sm">Check back later for updates from the chapter.</p>
       </div>

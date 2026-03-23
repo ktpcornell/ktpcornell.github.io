@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 
 interface FaqItem {
   question: string
@@ -17,27 +18,24 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
       {items.map((item, i) => (
         <div
           key={i}
-          className="border border-gray-200 rounded-lg mb-3 overflow-hidden"
-          style={{ borderLeft: '3px solid var(--primary-color)' }}
+          className={`border border-gray-200 rounded-lg mb-3 overflow-hidden border-l-[3px] ${
+            openIndex === i ? 'border-l-ktp-cyan' : 'border-l-ktp-navy'
+          }`}
         >
           <button
-            className="w-full text-left px-6 py-4 font-semibold flex justify-between items-center"
-            style={{
-              color: 'var(--navbar-bg-color)',
-              background: openIndex === i ? 'var(--section-bg-color)' : 'white',
-              border: 'none',
-              cursor: 'pointer',
-            }}
+            className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center text-ktp-navy border-none cursor-pointer transition-colors ${
+              openIndex === i ? 'bg-ktp-section-bg' : 'bg-white'
+            }`}
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             aria-expanded={openIndex === i}
           >
             <span>{item.question}</span>
-            <span
-              className="transition-transform duration-200"
-              style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
-            >
-              ▼
-            </span>
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-200 shrink-0 ${
+                openIndex === i ? 'rotate-180' : ''
+              }`}
+            />
           </button>
           {openIndex === i && (
             <div className="px-6 py-4 bg-white">

@@ -3,6 +3,7 @@ import { PageWrapper } from '@/components/layout/PageWrapper'
 import { ValuesSection } from '@/components/public/ValuesSection'
 import { Gallery } from '@/components/public/Gallery'
 import { useTypingEffect } from '@/hooks/useTypingEffect'
+import { Button } from '@/design-system/components/Button'
 
 const ABOUT_PHRASES = ['innovators', 'engineers', 'leaders', 'developers', 'designers', 'problem solvers']
 
@@ -16,7 +17,7 @@ export function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="mb-4" style={{ color: 'var(--navbar-bg-color)' }}>
+              <h2 className="mb-4 text-ktp-navy">
                 We are{' '}
                 <span className="about-typing text-ktp-cyan">{typedText}</span>
               </h2>
@@ -37,14 +38,14 @@ export function AboutPage() {
                 psychologists, and more. What makes the KTP community strong is our shared
                 passion for technology and our unique backgrounds meshing together as one.
               </p>
-              <Link to="/join" className="custom-btn mt-4 inline-block">
-                Join Us
-              </Link>
+              <Button variant="primary" asChild className="mt-4">
+                <Link to="/join">Join Us</Link>
+              </Button>
             </div>
             <div className="mt-6 lg:mt-0">
               <img
                 src="/images/classpictures/Fall2025Happy.JPEG"
-                className="img-fluid history-image w-full"
+                className="history-image w-full h-auto"
                 alt="KTP members"
               />
             </div>

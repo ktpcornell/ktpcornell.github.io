@@ -13,7 +13,7 @@ export function HomePage() {
       <HighlightStrip />
       <HistorySection />
       <CallToAction />
-      <section className="section-padding" id="section_5">
+      <section className="section-padding bg-white" id="section_5">
         <div className="container mx-auto px-4">
           <PlacementsCloud />
           <CampusCloud />

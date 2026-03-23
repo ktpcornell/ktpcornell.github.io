@@ -35,15 +35,34 @@
 
     --radius: 0.5rem;
 
-    /* Legacy CSS variable names — kept for ported CSS classes in legacy.css */
-    --white-color: #ffffff;
-    --primary-color: #273053;  /* navy — matches ShadCN --primary */
+    /* KTP brand tokens — all hex values live here and in tailwind.config.ts only */
+    --ktp-navy: #273053;
+    --ktp-navy-rgb: 39, 48, 83;       /* for rgba() usage in legacy.css */
     --ktp-cyan: #0dcaf0;
-    --section-bg-color: #f0f8ff;
-    --dark-color: #000000;
-    --navbar-bg-color: #273053;
-    --p-color: #717275;
-    --highlight-icon-color: #ff0100;
+    --ktp-section-bg: #f0f8ff;
+    --ktp-text: #717275;
+    --ktp-dark: #191c24;
+    --ktp-deep-navy: #001433;
+    --ktp-overlay-rgb: 0, 20, 60;     /* for rgba() card overlay */
+    --ktp-pink: #f78fb3;
+    --ktp-white: #ffffff;
+    --ktp-error-bg: #fee2e2;
+    --ktp-error: #991b1b;
+    --ktp-error-border: #fca5a5;
+    --ktp-danger: #dc2626;
+    --ktp-warning-bg: #fef3c7;
+    --ktp-warning-border: #f59e0b;
+    --ktp-warning-text: #92400e;
+    --ktp-highlight-icon: #ff0100;
+
+    /* Legacy aliases — kept for legacy.css class references */
+    --white-color: var(--ktp-white);
+    --primary-color: var(--ktp-navy);
+    --section-bg-color: var(--ktp-section-bg);
+    --dark-color: var(--ktp-dark);
+    --navbar-bg-color: var(--ktp-navy);
+    --p-color: var(--ktp-text);
+    --highlight-icon-color: var(--ktp-highlight-icon);
 
     --body-font-family: 'DM Sans', sans-serif;
 

@@ -1,12 +1,11 @@
 import { galleryImages } from '@/lib/constants'
+import { SectionTitle } from '@/design-system/components/SectionTitle'
 
 export function Gallery() {
   return (
     <section className="section-padding">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 style={{ color: 'var(--navbar-bg-color)' }}>Gallery</h2>
-        </div>
+        <SectionTitle title="Gallery" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {galleryImages.map((src, i) => (
             <div key={i} className="gallery-image-wrapper">

@@ -75,7 +75,7 @@
 
 .hero::after {
   content: "";
-  background: linear-gradient(rgba(39, 48, 83, 0.1) 0%, rgb(39, 48, 83) 100%);
+  background: linear-gradient(rgba(var(--ktp-navy-rgb), 0.1) 0%, rgb(var(--ktp-navy-rgb)) 100%);
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   margin-bottom: -5px;
@@ -199,7 +199,7 @@
   bottom: 0;
   width: 100%;
   padding: 10px;
-  background: rgba(0, 20, 60, 0.85);
+  background: rgba(var(--ktp-overlay-rgb), 0.85);
   color: white;
   text-align: center;
 }
@@ -215,7 +215,7 @@
 }
 
 .card-back {
-  background-color: #001433;
+  background-color: var(--ktp-deep-navy);
   color: white;
   display: flex;
   flex-direction: column;
@@ -289,7 +289,7 @@
   justify-content: center;
 }
 
-.bg-pink { background-color: #f78fb3; }
+.bg-pink { background-color: var(--ktp-pink); }
 
 /* ------------------------------------------
    FADE-IN (placement/campus logos)

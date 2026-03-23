@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Button } from '@/design-system/components/Button'
 
 export function HistorySection() {
   return (
@@ -22,18 +23,18 @@ export function HistorySection() {
               helps members grow professionally and socially.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/about" className="custom-btn custom-border-btn">
-                About Us
-              </Link>
-              <Link to="/join" className="custom-btn">
-                Join Us
-              </Link>
+              <Button variant="outline" asChild>
+                <Link to="/about">About Us</Link>
+              </Button>
+              <Button variant="primary" asChild>
+                <Link to="/join">Join Us</Link>
+              </Button>
             </div>
           </div>
           <div className="mt-6 lg:mt-0">
             <img
               src="/images/classpictures/alphaclass.png"
-              className="img-fluid history-image w-full"
+              className="history-image w-full h-auto"
               alt="KTP Alpha Class"
             />
           </div>

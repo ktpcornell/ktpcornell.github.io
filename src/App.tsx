@@ -16,6 +16,9 @@ import { LoginPage } from '@/pages/auth/LoginPage'
 import { PortalHomePage } from '@/pages/portal/PortalHomePage'
 import { AlumniPage } from '@/pages/portal/AlumniPage'
 
+// Design System
+import { DesignSystemPage } from '@/pages/DesignSystemPage'
+
 // Admin
 import { AdminDashboardPage } from '@/pages/admin/AdminDashboardPage'
 import { AdminAnnouncementsPage } from '@/pages/admin/AdminAnnouncementsPage'
@@ -33,6 +36,7 @@ export function App() {
           <Route path="/members" element={<MembersPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/design-system" element={<DesignSystemPage />} />
 
           {/* Members-only portal */}
           <Route

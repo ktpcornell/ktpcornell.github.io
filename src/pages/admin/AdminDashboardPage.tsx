@@ -2,17 +2,36 @@ import { useEffect, useState } from 'react'
 import { collection, getCountFromServer } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { AdminSidebar } from '@/components/admin/AdminSidebar'
+import { Button } from '@/design-system/components/Button'
+import { Card, CardBody } from '@/design-system/components/Card'
+import { SectionTitle } from '@/design-system/components/SectionTitle'
 
 interface StatCard {
   label: string
   collection: string
-  color: string
+  headerClass: string
+  valueClass: string
 }
 
 const STATS: StatCard[] = [
-  { label: 'Announcements', collection: 'announcements', color: 'var(--navbar-bg-color)' },
-  { label: 'Alumni Entries', collection: 'alumni', color: '#0d6efd' },
-  { label: 'Registered Users', collection: 'users', color: 'var(--primary-color)' },
+  {
+    label: 'Announcements',
+    collection: 'announcements',
+    headerClass: 'bg-ktp-navy',
+    valueClass: 'text-ktp-navy',
+  },
+  {
+    label: 'Alumni Entries',
+    collection: 'alumni',
+    headerClass: 'bg-ktp-cyan',
+    valueClass: 'text-ktp-navy',
+  },
+  {
+    label: 'Registered Users',
+    collection: 'users',
+    headerClass: 'bg-ktp-dark',
+    valueClass: 'text-ktp-dark',
+  },
 ]
 
 export function AdminDashboardPage() {
@@ -29,33 +48,40 @@ export function AdminDashboardPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8" style={{ background: 'var(--section-bg-color)' }}>
-        <h2 className="mb-2" style={{ color: 'var(--navbar-bg-color)' }}>Admin Dashboard</h2>
-        <p className="mb-8">Manage your chapter content from here.</p>
+      <div className="flex-1 p-8 bg-ktp-section-bg">
+        <SectionTitle title="Admin Dashboard" subtitle="Manage your chapter content from here." align="left" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
           {STATS.map((s) => (
-            <div key={s.collection} className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <div className="px-6 py-3" style={{ background: s.color }}>
+            <Card key={s.collection}>
+              <div className={`px-6 py-3 ${s.headerClass}`}>
                 <p className="text-white text-sm font-medium mb-0">{s.label}</p>
               </div>
-              <div className="px-6 py-5">
-                <span className="text-4xl font-bold" style={{ color: s.color }}>
+              <CardBody>
+                <span className={`text-4xl font-bold ${s.valueClass}`}>
                   {counts[s.collection] ?? '—'}
                 </span>
-              </div>
-            </div>
+              </CardBody>
+            </Card>
           ))}
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h5 className="mb-4" style={{ color: 'var(--navbar-bg-color)' }}>Quick Links</h5>
-          <div className="flex flex-wrap gap-4">
-            <a href="/admin/announcements" className="custom-btn">Manage Announcements</a>
-            <a href="/admin/alumni" className="custom-btn">Manage Alumni</a>
-            <a href="/admin/users" className="custom-btn">Manage Users</a>
-          </div>
-        </div>
+        <Card>
+          <CardBody>
+            <h5 className="mb-4 text-ktp-navy">Quick Links</h5>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" asChild>
+                <a href="/admin/announcements">Manage Announcements</a>
+              </Button>
+              <Button variant="primary" asChild>
+                <a href="/admin/alumni">Manage Alumni</a>
+              </Button>
+              <Button variant="primary" asChild>
+                <a href="/admin/users">Manage Users</a>
+              </Button>
+            </div>
+          </CardBody>
+        </Card>
       </div>
     </div>
   )
