@@ -45,8 +45,7 @@ export function LoginPage() {
           {/* Header */}
           <div className="px-8 py-6 bg-ktp-primary">
             <Link to="/" className="flex flex-col items-center no-underline">
-              <img src="/navbarlogo.png" alt="KTP" className="h-12" />
-              <span className="text-white mt-2 text-sm">Alpha Epsilon Chapter</span>
+              <img src="/logo.svg" alt="KTP" className="h-12" />
             </Link>
             <h3 className="text-white text-center mt-4 mb-0">Member Login</h3>
           </div>

@@ -34,17 +34,16 @@ export function Navbar() {
   }, [])
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `block px-5 py-3 text-sm font-medium transition-colors no-underline ${
+    `block px-5 py-3 text-base font-medium transition-colors no-underline ${
       isActive ? 'text-ktp-accent' : 'text-white hover:text-ktp-accent'
     }`
 
   return (
     <nav className="bg-ktp-primary sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex items-center justify-between py-3">
+      <div className="container mx-auto px-4 flex items-center justify-between py-5">
         {/* Brand */}
         <Link to="/" className="flex flex-col items-center no-underline" onClick={closeMenu}>
-          <img src="/navbarlogo.png" alt="KTP Logo" className="h-10" />
-          <span className="text-white text-xs">Alpha Epsilon Chapter</span>
+          <img src="/logo.svg" alt="KTP Logo" className="h-14" />
         </Link>
 
         {/* Hamburger (mobile) */}
@@ -85,7 +84,7 @@ export function Navbar() {
             </li>
             <li>
               <a
-                className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-accent transition-colors no-underline"
+                className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors no-underline"
                 href="#contact-footer"
                 onClick={closeMenu}
               >
@@ -109,7 +108,7 @@ export function Navbar() {
             {currentUser ? (
               <li>
                 <button
-                  className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer"
+                  className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer"
                   onClick={() => { handleSignOut(); closeMenu() }}
                 >
                   Sign Out

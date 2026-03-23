@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { AlumniForm } from '@/components/admin/AlumniForm'
 import { listAlumni, deleteAlumni } from '@/services/alumniService'
 import type { AlumniEntry } from '@/types/alumni'
@@ -39,10 +38,7 @@ export function AdminAlumniPage() {
     : alumni
 
   return (
-    <div className="flex min-h-screen">
-      <AdminSidebar />
-
-      <div className="flex-1 p-8 bg-ktp-surface">
+    <div className="p-8 bg-ktp-surface min-h-full">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-ktp-primary">Alumni Database</h2>
           <Button
@@ -121,7 +117,6 @@ export function AdminAlumniPage() {
             )}
           </div>
         )}
-      </div>
 
       {showForm && (
         <AlumniForm

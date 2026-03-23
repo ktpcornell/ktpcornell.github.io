@@ -13,6 +13,7 @@ import { JoinPage } from '@/pages/public/JoinPage'
 import { LoginPage } from '@/pages/auth/LoginPage'
 
 // Portal
+import { PortalLayout } from '@/components/layout/PortalLayout'
 import { PortalHomePage } from '@/pages/portal/PortalHomePage'
 import { AlumniPage } from '@/pages/portal/AlumniPage'
 
@@ -27,8 +28,17 @@ import { CardsPage } from '@/pages/design-system/components/CardsPage'
 import { FormFieldsPage } from '@/pages/design-system/components/FormFieldsPage'
 import { AlertsPage } from '@/pages/design-system/components/AlertsPage'
 import { SectionTitlePage } from '@/pages/design-system/page-sections/SectionTitlePage'
+import { SectionSeparatorPage } from '@/pages/design-system/page-sections/SectionSeparatorPage'
+import { FooterPage } from '@/pages/design-system/page-sections/FooterPage'
+import { HeroPage } from '@/pages/design-system/page-sections/HeroPage'
+import { CTAPage } from '@/pages/design-system/page-sections/CTAPage'
+import { NavbarPage } from '@/pages/design-system/components/NavbarPage'
+import { AccordionPage } from '@/pages/design-system/components/AccordionPage'
+import { TabsPage } from '@/pages/design-system/components/TabsPage'
+import { LayoutPage } from '@/pages/design-system/LayoutPage'
 
 // Admin
+import { AdminLayout } from '@/components/admin/AdminLayout'
 import { AdminDashboardPage } from '@/pages/admin/AdminDashboardPage'
 import { AdminAnnouncementsPage } from '@/pages/admin/AdminAnnouncementsPage'
 import { AdminAlumniPage } from '@/pages/admin/AdminAlumniPage'
@@ -54,7 +64,15 @@ export function App() {
             <Route path="components/cards" element={<CardsPage />} />
             <Route path="components/form-fields" element={<FormFieldsPage />} />
             <Route path="components/alerts" element={<AlertsPage />} />
+            <Route path="components/navbar" element={<NavbarPage />} />
+            <Route path="components/accordion" element={<AccordionPage />} />
+            <Route path="components/tabs" element={<TabsPage />} />
+            <Route path="layout" element={<LayoutPage />} />
             <Route path="page-sections/section-title" element={<SectionTitlePage />} />
+            <Route path="page-sections/section-separator" element={<SectionSeparatorPage />} />
+            <Route path="page-sections/footer" element={<FooterPage />} />
+            <Route path="page-sections/hero" element={<HeroPage />} />
+            <Route path="page-sections/cta" element={<CTAPage />} />
           </Route>
 
           {/* Members-only portal */}
@@ -62,52 +80,28 @@ export function App() {
             path="/portal"
             element={
               <ProtectedRoute>
-                <PortalHomePage />
+                <PortalLayout />
               </ProtectedRoute>
             }
-          />
-          <Route
-            path="/portal/alumni"
-            element={
-              <ProtectedRoute>
-                <AlumniPage />
-              </ProtectedRoute>
-            }
-          />
+          >
+            <Route index element={<PortalHomePage />} />
+            <Route path="alumni" element={<AlumniPage />} />
+          </Route>
 
           {/* Admin routes */}
           <Route
             path="/admin"
             element={
               <AdminRoute>
-                <AdminDashboardPage />
+                <AdminLayout />
               </AdminRoute>
             }
-          />
-          <Route
-            path="/admin/announcements"
-            element={
-              <AdminRoute>
-                <AdminAnnouncementsPage />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin/alumni"
-            element={
-              <AdminRoute>
-                <AdminAlumniPage />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin/users"
-            element={
-              <AdminRoute>
-                <AdminUsersPage />
-              </AdminRoute>
-            }
-          />
+          >
+            <Route index element={<AdminDashboardPage />} />
+            <Route path="announcements" element={<AdminAnnouncementsPage />} />
+            <Route path="alumni" element={<AdminAlumniPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
+          </Route>
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

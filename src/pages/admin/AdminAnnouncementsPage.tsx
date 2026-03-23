@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { AnnouncementForm } from '@/components/admin/AnnouncementForm'
 import { listAnnouncements, deleteAnnouncement } from '@/services/announcementsService'
 import type { Announcement } from '@/types/announcement'
@@ -41,10 +40,7 @@ export function AdminAnnouncementsPage() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      <AdminSidebar />
-
-      <div className="flex-1 p-8 bg-ktp-surface">
+    <div className="p-8 bg-ktp-surface min-h-full">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-ktp-primary">Announcements</h2>
           <Button
@@ -106,7 +102,6 @@ export function AdminAnnouncementsPage() {
             ))}
           </div>
         )}
-      </div>
 
       {showForm && (
         <AnnouncementForm

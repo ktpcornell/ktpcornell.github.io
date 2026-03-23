@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { collection, getCountFromServer } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
-import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { Button } from '@/design-system/components/Button'
 import { Card, CardBody } from '@/design-system/components/Card'
 import { SectionTitle } from '@/design-system/components/SectionTitle'
@@ -45,10 +44,7 @@ export function AdminDashboardPage() {
   }, [])
 
   return (
-    <div className="flex min-h-screen">
-      <AdminSidebar />
-
-      <div className="flex-1 p-8 bg-ktp-surface">
+    <div className="p-8 bg-ktp-surface min-h-full">
         <SectionTitle title="Admin Dashboard" subtitle="Manage your chapter content from here." align="left" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
@@ -82,7 +78,6 @@ export function AdminDashboardPage() {
             </div>
           </CardBody>
         </Card>
-      </div>
     </div>
   )
 }

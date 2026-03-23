@@ -2,8 +2,6 @@ import { useMemo, useState } from 'react'
 import { useAlumni } from '@/hooks/useAlumni'
 import { AlumniSearch } from '@/components/members/AlumniSearch'
 import { AlumniCard } from '@/components/members/AlumniCard'
-import { PortalNavbar } from '@/components/layout/PortalNavbar'
-
 export function AlumniPage() {
   const [search, setSearch] = useState('')
   const [filterClass, setFilterClass] = useState('')
@@ -22,10 +20,7 @@ export function AlumniPage() {
   }, [alumni, search])
 
   return (
-    <div className="min-h-screen bg-ktp-surface">
-      <PortalNavbar />
-
-      <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-10">
         <div className="mb-8">
           <h2 className="text-ktp-primary">Alumni Database</h2>
           <p>Browse and search KTP Cornell alumni.</p>
@@ -61,7 +56,6 @@ export function AlumniPage() {
             ))}
           </div>
         )}
-      </div>
     </div>
   )
 }

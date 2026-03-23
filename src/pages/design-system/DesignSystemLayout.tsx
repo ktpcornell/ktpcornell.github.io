@@ -11,6 +11,7 @@ const NAV_SECTIONS = [
     label: 'Styles',
     links: [
       { to: '/design-system/colors', label: 'Colors' },
+      { to: '/design-system/layout', label: 'Layout' },
       { to: '/design-system/typography', label: 'Typography' },
     ],
   },
@@ -22,12 +23,24 @@ const NAV_SECTIONS = [
       { to: '/design-system/components/cards', label: 'Cards' },
       { to: '/design-system/components/form-fields', label: 'Form Fields' },
       { to: '/design-system/components/alerts', label: 'Alerts' },
+      { to: '/design-system/components/accordion', label: 'Accordion' },
+      { to: '/design-system/components/tabs', label: 'Tabs' },
+    ],
+  },
+  {
+    label: 'Navigation',
+    links: [
+      { to: '/design-system/components/navbar', label: 'Navbar' },
     ],
   },
   {
     label: 'Page Sections',
     links: [
       { to: '/design-system/page-sections/section-title', label: 'Section Title' },
+      { to: '/design-system/page-sections/section-separator', label: 'Section Separator' },
+      { to: '/design-system/page-sections/footer', label: 'Footer' },
+      { to: '/design-system/page-sections/hero', label: 'Hero' },
+      { to: '/design-system/page-sections/cta', label: 'CTA' },
     ],
   },
 ]
@@ -43,14 +56,17 @@ export function DesignSystemLayout() {
     <div className="min-h-screen bg-white flex flex-col">
       {/* Top nav */}
       <nav className="bg-ktp-primary sticky top-0 z-50 h-16 flex items-center">
-        <div className="w-full px-6 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 no-underline">
-            <img src="/ktp-logo.svg" alt="KTP" className="h-10" />
-            <Separator orientation="vertical" className="h-5 bg-white/20" />
-            <span className="text-white/90 text-sm font-medium tracking-wide">
-              Design System
-            </span>
+        {/* Logo — same width as sidebar, centered */}
+        <div className="hidden lg:flex w-56 shrink-0 h-full items-center justify-center border-r border-white/20">
+          <Link to="/" className="no-underline">
+            <img src="/logo.svg" alt="KTP" className="h-10" />
           </Link>
+        </div>
+        {/* Title + back button */}
+        <div className="flex-1 flex items-center justify-between px-6">
+          <span className="text-white/90 text-sm font-medium tracking-wide">
+            Design System
+          </span>
           <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10">
             <Link to="/">← Back to site</Link>
           </Button>

@@ -1,15 +1,20 @@
 import { Link } from 'react-router-dom'
 
 const SECTIONS = [
-  { label: 'Styles', items: ['Colors', 'Typography'], base: '/design-system' },
+  { label: 'Styles', items: ['Colors', 'Layout', 'Typography'], base: '/design-system' },
   {
     label: 'Components',
-    items: ['Buttons', 'Badges', 'Cards', 'Form Fields', 'Alerts'],
+    items: ['Buttons', 'Badges', 'Cards', 'Form Fields', 'Alerts', 'Accordion', 'Tabs'],
+    base: '/design-system/components',
+  },
+  {
+    label: 'Navigation',
+    items: ['Navbar'],
     base: '/design-system/components',
   },
   {
     label: 'Page Sections',
-    items: ['Section Title'],
+    items: ['Section Title', 'Section Separator', 'Footer', 'Hero', 'CTA'],
     base: '/design-system/page-sections',
   },
 ]

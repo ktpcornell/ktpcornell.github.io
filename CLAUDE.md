@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-23 by Gabriel Castillo
+Last Updated: 2026-03-23 by Claude (Gabriel Castillo)
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -89,7 +89,20 @@ The `/design-system` route is a living documentation site for KTP's UI tokens an
 
 > Whenever you add, rename, or remove a color token in `src/styles/globals.css` or `tailwind.config.ts`, you MUST **also** update `src/pages/design-system/ColorsPage.tsx` to reflect the change. Before finishing any token-related task, open `ColorsPage.tsx` and verify every token in `globals.css` has a corresponding `ColorCard`.
 
-The same applies to new design system components: if you add a component under `src/design-system/components/`, add a documentation page for it under `src/pages/design-system/`.
+The same applies to any documented component: if you change the visual appearance, sizing, spacing, or behavior of a component that has a design system docs page (e.g. `NavbarPage.tsx`), you MUST update that docs page — including any static mockups — to match. The design system is a living document, not a snapshot.
+
+If you add a new component under `src/design-system/components/`, add a documentation page for it under `src/pages/design-system/`.
+
+## Navigation Patterns
+
+There are two distinct navigation patterns in this codebase — do not conflate them:
+
+| Pattern | Used on | Component | Style |
+| ------- | ------- | --------- | ----- |
+| **Public Navbar** | `/`, `/about`, `/members`, `/join` (via `PageWrapper`) | `src/components/layout/Navbar.tsx` | Tall (`py-5`), large logo (`h-14`), `text-base` links, hamburger on mobile — prioritizes brand presence |
+| **Internal tooling nav** | `/design-system` (sidebar layout), `/portal` (top bar), `/admin` (sidebar) | `DesignSystemLayout.tsx`, `PortalNavbar.tsx`, `AdminSidebar.tsx` | Compact (`h-16` / `py-4`), `text-sm`, density-first — not intended to be branded |
+
+When making changes to one pattern, do not apply them to the other unless explicitly asked.
 
 | Path | Purpose |
 | ---- | ------- |

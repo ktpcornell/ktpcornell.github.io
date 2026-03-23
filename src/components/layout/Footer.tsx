@@ -18,7 +18,7 @@ export function Footer() {
           {/* Nav column */}
           <div className="w-full sm:w-64">
             <Link to="/" className="flex flex-col items-start mb-4 no-underline">
-              <img src="/navbarlogo.png" alt="KTP" className="h-8" />
+              <img src="/logo.svg" alt="KTP" className="h-8" />
               <span className="text-white text-xs mt-1">Cornell Chapter</span>
             </Link>
             <ul className="list-none p-0 m-0">
