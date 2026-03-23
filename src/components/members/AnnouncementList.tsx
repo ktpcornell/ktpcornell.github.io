@@ -7,7 +7,7 @@ export function AnnouncementList() {
   if (loading) {
     return (
       <div className="flex justify-center py-12">
-        <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -22,7 +22,7 @@ export function AnnouncementList() {
 
   if (announcements.length === 0) {
     return (
-      <div className="text-center py-12 text-ktp-text">
+      <div className="text-center py-12 text-ktp-muted">
         <p className="text-lg">No announcements yet.</p>
         <p className="text-sm">Check back later for updates from the chapter.</p>
       </div>

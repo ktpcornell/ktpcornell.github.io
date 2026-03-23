@@ -58,7 +58,7 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto py-8 bg-black/50">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 overflow-hidden">
-        <div className="px-6 py-4 bg-ktp-navy flex items-center justify-between">
+        <div className="px-6 py-4 bg-ktp-primary flex items-center justify-between">
           <h5 className="text-white mb-0">{existing ? 'Edit Alumni Entry' : 'Add Alumni'}</h5>
           <button
             onClick={onClose}

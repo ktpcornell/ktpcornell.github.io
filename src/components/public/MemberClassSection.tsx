@@ -16,7 +16,7 @@ export function MemberClassSection({
 }: MemberClassSectionProps) {
   return (
     <div className="mb-12">
-      <h2 className="font-bold text-center text-ktp-navy mb-1">{className}</h2>
+      <h2 className="font-bold text-center text-ktp-primary mb-1">{className}</h2>
       {semester && <h4 className="text-center mb-4">{semester}</h4>}
 
       {classPictureSrc && (

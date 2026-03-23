@@ -17,20 +17,20 @@ const STATS: StatCard[] = [
   {
     label: 'Announcements',
     collection: 'announcements',
-    headerClass: 'bg-ktp-navy',
-    valueClass: 'text-ktp-navy',
+    headerClass: 'bg-ktp-primary',
+    valueClass: 'text-ktp-primary',
   },
   {
     label: 'Alumni Entries',
     collection: 'alumni',
-    headerClass: 'bg-ktp-cyan',
-    valueClass: 'text-ktp-navy',
+    headerClass: 'bg-ktp-accent',
+    valueClass: 'text-ktp-primary',
   },
   {
     label: 'Registered Users',
     collection: 'users',
-    headerClass: 'bg-ktp-dark',
-    valueClass: 'text-ktp-dark',
+    headerClass: 'bg-gray-800',
+    valueClass: 'text-gray-800',
   },
 ]
 
@@ -48,7 +48,7 @@ export function AdminDashboardPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8 bg-ktp-section-bg">
+      <div className="flex-1 p-8 bg-ktp-surface">
         <SectionTitle title="Admin Dashboard" subtitle="Manage your chapter content from here." align="left" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
@@ -68,7 +68,7 @@ export function AdminDashboardPage() {
 
         <Card>
           <CardBody>
-            <h5 className="mb-4 text-ktp-navy">Quick Links</h5>
+            <h5 className="mb-4 text-ktp-primary">Quick Links</h5>
             <div className="flex flex-wrap gap-4">
               <Button variant="primary" asChild>
                 <a href="/admin/announcements">Manage Announcements</a>

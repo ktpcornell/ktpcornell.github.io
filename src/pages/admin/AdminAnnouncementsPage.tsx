@@ -44,9 +44,9 @@ export function AdminAnnouncementsPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8 bg-ktp-section-bg">
+      <div className="flex-1 p-8 bg-ktp-surface">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-ktp-navy">Announcements</h2>
+          <h2 className="text-ktp-primary">Announcements</h2>
           <Button
             variant="primary"
             onClick={() => {
@@ -60,10 +60,10 @@ export function AdminAnnouncementsPage() {
 
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
           </div>
         ) : announcements.length === 0 ? (
-          <p className="text-ktp-text">No announcements yet.</p>
+          <p className="text-ktp-muted">No announcements yet.</p>
         ) : (
           <div className="space-y-4">
             {announcements.map((a) => (

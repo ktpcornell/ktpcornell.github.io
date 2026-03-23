@@ -6,9 +6,6 @@
  * unless you need a low-level ShadCN primitive not covered here.
  */
 
-// Tokens
-export * from './tokens'
-
 // Components
 export { Button, ktpButtonVariants } from './components/Button'
 export type { ButtonProps } from './components/Button'

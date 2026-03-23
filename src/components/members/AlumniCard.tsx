@@ -20,7 +20,7 @@ export function AlumniCard({ alumni }: AlumniCardProps) {
         <Badge variant="cyan">{alumni.ktpClass}</Badge>
       </CardHeader>
       <CardBody>
-        <p className="font-semibold mb-1 text-ktp-navy">
+        <p className="font-semibold mb-1 text-ktp-primary">
           {alumni.currentRole}
         </p>
         <Caption className="mb-2">{alumni.currentCompany}</Caption>
@@ -30,7 +30,7 @@ export function AlumniCard({ alumni }: AlumniCardProps) {
             href={alumni.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-ktp-navy hover:text-ktp-cyan transition-colors no-underline"
+            className="text-sm font-medium text-ktp-primary hover:text-ktp-accent transition-colors no-underline"
           >
             LinkedIn ↗
           </a>

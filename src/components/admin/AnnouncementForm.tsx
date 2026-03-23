@@ -52,7 +52,7 @@ export function AnnouncementForm({ existing, onClose, onSaved }: AnnouncementFor
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 bg-ktp-navy flex items-center justify-between">
+        <div className="px-6 py-4 bg-ktp-primary flex items-center justify-between">
           <h5 className="text-white mb-0">{existing ? 'Edit Announcement' : 'New Announcement'}</h5>
           <button
             onClick={onClose}
@@ -88,9 +88,9 @@ export function AnnouncementForm({ existing, onClose, onSaved }: AnnouncementFor
               id="pinned"
               checked={pinned}
               onChange={(e) => setPinned(e.target.checked)}
-              className="w-4 h-4 accent-ktp-navy"
+              className="w-4 h-4 accent-ktp-primary"
             />
-            <label htmlFor="pinned" className="text-sm font-medium text-ktp-navy">
+            <label htmlFor="pinned" className="text-sm font-medium text-ktp-primary">
               Pin this announcement (shows at top of feed)
             </label>
           </div>

@@ -7,9 +7,9 @@ export function AdminUsersPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8 bg-ktp-section-bg">
+      <div className="flex-1 p-8 bg-ktp-surface">
         <div className="mb-8">
-          <h2 className="text-ktp-navy">User Management</h2>
+          <h2 className="text-ktp-primary">User Management</h2>
           <p>Toggle admin access for registered members. You cannot change your own role.</p>
         </div>
 

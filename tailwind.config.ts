@@ -12,17 +12,14 @@ const config: Config = {
   		colors: {
   			// KTP brand aliases — reference globals.css CSS variables as single source of truth
   			// Colors that need opacity modifier support use hsl(var()) with <alpha-value>
-  			'ktp-navy': 'hsl(var(--primary) / <alpha-value>)',       // = primary / #273053
-  			'ktp-cyan': 'hsl(var(--secondary) / <alpha-value>)',     // = secondary / #0dcaf0
+  			'ktp-primary': 'hsl(var(--primary) / <alpha-value>)',    // = primary / #273053
+  			'ktp-accent': 'hsl(var(--secondary) / <alpha-value>)',   // = secondary / #0dcaf0
   			'ktp-danger': 'hsl(var(--destructive) / <alpha-value>)', // = destructive / #dc2626
-  			'ktp-section-bg': 'var(--ktp-section-bg)',
-  			'ktp-text': 'var(--ktp-text)',
-  			'ktp-dark': 'var(--ktp-dark)',
-  			'ktp-deep-navy': 'var(--ktp-deep-navy)',
-  			'ktp-pink': 'var(--ktp-pink)',
+  			'ktp-surface': 'var(--ktp-surface)',
+  			'ktp-muted': 'var(--ktp-muted)',
+  			'ktp-accent-pink': 'var(--ktp-accent-pink)',
   			'ktp-error': 'var(--ktp-error)',
   			'ktp-error-bg': 'var(--ktp-error-bg)',
-  			'ktp-error-border': 'var(--ktp-error-border)',
   			'ktp-warning-bg': 'var(--ktp-warning-bg)',
   			'ktp-warning-border': 'var(--ktp-warning-border)',
   			'ktp-warning-text': 'var(--ktp-warning-text)',

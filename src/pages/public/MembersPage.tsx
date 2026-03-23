@@ -28,7 +28,7 @@ export function MembersPage() {
     return (
       <PageWrapper>
         <div className="container mx-auto px-4 py-16 text-center">
-          <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin mx-auto" />
         </div>
       </PageWrapper>
     )

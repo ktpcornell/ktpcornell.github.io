@@ -44,7 +44,7 @@ export function FormField({
         <p className="text-xs text-ktp-error">{error}</p>
       )}
       {helperText && !error && (
-        <p className="text-xs text-ktp-text">{helperText}</p>
+        <p className="text-xs text-ktp-muted">{helperText}</p>
       )}
     </div>
   )

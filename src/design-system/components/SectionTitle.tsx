@@ -12,7 +12,7 @@ interface SectionTitleProps {
   title: string
   subtitle?: string
   align?: 'left' | 'center' | 'right'
-  color?: 'navy' | 'white' | 'default'
+  color?: 'primary' | 'white' | 'default'
   className?: string
 }
 
@@ -21,7 +21,7 @@ export function SectionTitle({
   title,
   subtitle,
   align = 'center',
-  color = 'navy',
+  color = 'primary',
   className,
 }: SectionTitleProps) {
   const alignClass = {
@@ -31,7 +31,7 @@ export function SectionTitle({
   }[align]
 
   const titleColorClass = {
-    navy: 'text-ktp-navy',
+    primary: 'text-ktp-primary',
     white: 'text-white',
     default: '',
   }[color]
@@ -41,7 +41,7 @@ export function SectionTitle({
       {label && <SmallTitle>{label}</SmallTitle>}
       <h2 className={cn('mb-3', titleColorClass)}>{title}</h2>
       {subtitle && (
-        <p className={cn('max-w-2xl text-ktp-text', align === 'center' && 'mx-auto')}>
+        <p className={cn('max-w-2xl text-ktp-muted', align === 'center' && 'mx-auto')}>
           {subtitle}
         </p>
       )}

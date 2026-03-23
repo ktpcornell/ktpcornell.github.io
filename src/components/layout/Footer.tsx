@@ -8,11 +8,11 @@ export function Footer() {
 
   const linkClass = (path: string) =>
     `block mb-2 text-sm no-underline transition-colors ${
-      activePath === path ? 'text-ktp-cyan' : 'text-white hover:text-ktp-cyan'
+      activePath === path ? 'text-ktp-accent' : 'text-white hover:text-ktp-accent'
     }`
 
   return (
-    <footer className="bg-ktp-navy text-white py-16" id="contact-footer">
+    <footer className="bg-ktp-primary text-white py-16" id="contact-footer">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           {/* Nav column */}
@@ -31,7 +31,7 @@ export function Footer() {
                   href="https://kappathetapi.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block mb-2 text-sm text-white hover:text-ktp-cyan no-underline transition-colors"
+                  className="block mb-2 text-sm text-white hover:text-ktp-accent no-underline transition-colors"
                 >
                   Nationals
                 </a>
@@ -52,7 +52,7 @@ export function Footer() {
                 href="https://www.instagram.com/ktpcornell"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-sm hover:text-ktp-cyan no-underline transition-colors"
+                className="text-white text-sm hover:text-ktp-accent no-underline transition-colors"
               >
                 @ktpcornell
               </a>
@@ -63,7 +63,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/kappa-theta-pi-cornell-chapter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-sm hover:text-ktp-cyan no-underline transition-colors"
+                className="text-white text-sm hover:text-ktp-accent no-underline transition-colors"
               >
                 KTP Cornell Chapter
               </a>
@@ -76,7 +76,7 @@ export function Footer() {
             This organization is a registered student organization of Cornell University.{' '}
             <a
               href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment"
-              className="text-white underline hover:text-ktp-cyan transition-colors"
+              className="text-white underline hover:text-ktp-accent transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

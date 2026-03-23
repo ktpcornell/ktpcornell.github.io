@@ -20,7 +20,7 @@ export function AnnouncementCard({ announcement }: AnnouncementCardProps) {
   return (
     <Card
       variant={announcement.pinned ? 'elevated' : 'default'}
-      className={`mb-4 ${announcement.pinned ? 'border-l-4 border-l-ktp-cyan' : ''}`}
+      className={`mb-4 ${announcement.pinned ? 'border-l-4 border-l-ktp-accent' : ''}`}
     >
       <CardHeader>
         <h5 className="text-white mb-0 font-semibold">{announcement.title}</h5>

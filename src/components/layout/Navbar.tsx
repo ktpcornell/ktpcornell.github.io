@@ -35,11 +35,11 @@ export function Navbar() {
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `block px-5 py-3 text-sm font-medium transition-colors no-underline ${
-      isActive ? 'text-ktp-cyan' : 'text-white hover:text-ktp-cyan'
+      isActive ? 'text-ktp-accent' : 'text-white hover:text-ktp-accent'
     }`
 
   return (
-    <nav className="bg-ktp-navy sticky top-0 z-50">
+    <nav className="bg-ktp-primary sticky top-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between py-3">
         {/* Brand */}
         <Link to="/" className="flex flex-col items-center no-underline" onClick={closeMenu}>
@@ -65,7 +65,7 @@ export function Navbar() {
           ref={menuRef}
           className={`${
             menuOpen ? 'flex' : 'hidden'
-          } lg:flex flex-col lg:flex-row absolute lg:static top-full left-0 right-0 bg-ktp-navy lg:bg-transparent z-50 lg:z-auto pb-4 lg:pb-0 transition-all`}
+          } lg:flex flex-col lg:flex-row absolute lg:static top-full left-0 right-0 bg-ktp-primary lg:bg-transparent z-50 lg:z-auto pb-4 lg:pb-0 transition-all`}
         >
           <ul className="flex flex-col lg:flex-row items-start lg:items-center list-none m-0 p-0 ms-auto">
             <li>
@@ -85,7 +85,7 @@ export function Navbar() {
             </li>
             <li>
               <a
-                className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-cyan transition-colors no-underline"
+                className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-accent transition-colors no-underline"
                 href="#contact-footer"
                 onClick={closeMenu}
               >
@@ -109,7 +109,7 @@ export function Navbar() {
             {currentUser ? (
               <li>
                 <button
-                  className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-cyan transition-colors bg-transparent border-none cursor-pointer"
+                  className="block px-5 py-3 text-sm font-medium text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer"
                   onClick={() => { handleSignOut(); closeMenu() }}
                 >
                   Sign Out
@@ -126,7 +126,7 @@ export function Navbar() {
                   <NavLink
                     to="/join"
                     onClick={closeMenu}
-                    className="inline-block mx-4 my-2 lg:my-0 px-5 py-2 rounded-full bg-ktp-cyan text-ktp-navy text-sm font-bold hover:bg-white transition-colors no-underline"
+                    className="inline-block mx-4 my-2 lg:my-0 px-5 py-2 rounded-full bg-ktp-accent text-ktp-primary text-sm font-bold hover:bg-white transition-colors no-underline"
                   >
                     Apply
                   </NavLink>

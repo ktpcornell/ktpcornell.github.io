@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
  *
  * Heading — h1–h6 with consistent brand styling.
  * SmallTitle — uppercase label shown above section headings (like "About Us →").
- * Body — paragraph with ktp-text color.
+ * Body — paragraph with ktp-muted color.
  * Caption — small utility text.
  */
 
@@ -14,11 +14,11 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
 
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level?: HeadingLevel
-  color?: 'navy' | 'white' | 'default'
+  color?: 'primary' | 'white' | 'default'
 }
 
 const headingColorMap = {
-  navy: 'text-primary',
+  primary: 'text-primary',
   white: 'text-white',
   default: '',
 }
@@ -62,12 +62,12 @@ export function SmallTitle({ className, ...props }: React.HTMLAttributes<HTMLPar
 
 export function Body({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-ktp-text', className)} {...props} />
+    <p className={cn('text-ktp-muted', className)} {...props} />
   )
 }
 
 export function Caption({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-xs text-ktp-text', className)} {...props} />
+    <p className={cn('text-xs text-ktp-muted', className)} {...props} />
   )
 }

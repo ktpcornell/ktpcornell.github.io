@@ -6,13 +6,13 @@ export function PortalHomePage() {
   const { appUser } = useAuth()
 
   return (
-    <div className="min-h-screen bg-ktp-section-bg">
+    <div className="min-h-screen bg-ktp-surface">
       <PortalNavbar />
 
       <div className="container mx-auto px-4 py-10">
         <div className="max-w-3xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-ktp-navy">
+            <h2 className="text-ktp-primary">
               Welcome back{appUser?.displayName ? `, ${appUser.displayName.split(' ')[0]}` : ''}
             </h2>
             <p>Here are the latest announcements from the chapter.</p>

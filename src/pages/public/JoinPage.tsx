@@ -61,7 +61,7 @@ export function JoinPage() {
 
       {/* FAQ */}
       {faqItems.length > 0 && (
-        <section className="section-padding bg-ktp-section-bg">
+        <section className="section-padding bg-ktp-surface">
           <div className="container mx-auto px-4">
             <SectionTitle title="Frequently Asked Questions" />
             <FaqAccordion items={faqItems} />

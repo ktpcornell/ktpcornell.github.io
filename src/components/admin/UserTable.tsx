@@ -33,7 +33,7 @@ export function UserTable() {
   if (loading) {
     return (
       <div className="flex justify-center py-8">
-        <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -42,7 +42,7 @@ export function UserTable() {
     <div className="overflow-x-auto rounded-xl border border-gray-200">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-ktp-navy">
+          <tr className="bg-ktp-primary">
             <th className="text-white text-left px-4 py-3">Email</th>
             <th className="text-white text-left px-4 py-3">UID</th>
             <th className="text-white text-center px-4 py-3">Admin</th>
@@ -52,17 +52,17 @@ export function UserTable() {
           {users.map((user, i) => (
             <tr
               key={user.uid}
-              className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-section-bg'}
+              className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-surface'}
             >
               <td className="px-4 py-3">{user.email}</td>
-              <td className="px-4 py-3 font-mono text-xs text-ktp-text">
+              <td className="px-4 py-3 font-mono text-xs text-ktp-muted">
                 {user.uid.slice(0, 16)}…
               </td>
               <td className="px-4 py-3 text-center">
                 <button
                   onClick={() => toggleAdmin(user.uid, user.isAdmin)}
                   className={`relative inline-flex items-center w-10 h-5 rounded-full transition-colors focus:outline-none ${
-                    user.isAdmin ? 'bg-ktp-navy' : 'bg-gray-300'
+                    user.isAdmin ? 'bg-ktp-primary' : 'bg-gray-300'
                   } ${user.uid === currentUser?.uid ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}`}
                   title={
                     user.uid === currentUser?.uid ? 'Cannot change own role' : undefined

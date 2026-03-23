@@ -16,7 +16,7 @@ export const ktpBadgeVariants = cva(
         default: 'bg-primary/10 text-primary',
         navy:    'bg-primary text-primary-foreground',
         cyan:    'bg-secondary text-secondary-foreground',
-        pink:    'bg-ktp-pink text-primary',
+        pink:    'bg-ktp-accent-pink text-primary',
         gray:    'bg-gray-100 text-gray-700',
         warning: 'bg-ktp-warning-bg text-ktp-warning-text',
         danger:  'bg-ktp-error-bg text-ktp-error',

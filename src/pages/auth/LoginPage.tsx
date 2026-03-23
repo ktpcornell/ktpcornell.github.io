@@ -39,11 +39,11 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-ktp-section-bg">
+    <div className="min-h-screen flex items-center justify-center bg-ktp-surface">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           {/* Header */}
-          <div className="px-8 py-6 bg-ktp-navy">
+          <div className="px-8 py-6 bg-ktp-primary">
             <Link to="/" className="flex flex-col items-center no-underline">
               <img src="/navbarlogo.png" alt="KTP" className="h-12" />
               <span className="text-white mt-2 text-sm">Alpha Epsilon Chapter</span>
@@ -87,7 +87,7 @@ export function LoginPage() {
             </form>
 
             <div className="mt-6 text-center">
-              <Link to="/" className="text-sm text-ktp-navy hover:text-ktp-cyan transition-colors no-underline">
+              <Link to="/" className="text-sm text-ktp-primary hover:text-ktp-accent transition-colors no-underline">
                 ← Back to main site
               </Link>
             </div>

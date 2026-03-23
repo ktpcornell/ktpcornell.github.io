@@ -22,12 +22,12 @@ export function AlumniPage() {
   }, [alumni, search])
 
   return (
-    <div className="min-h-screen bg-ktp-section-bg">
+    <div className="min-h-screen bg-ktp-surface">
       <PortalNavbar />
 
       <div className="container mx-auto px-4 py-10">
         <div className="mb-8">
-          <h2 className="text-ktp-navy">Alumni Database</h2>
+          <h2 className="text-ktp-primary">Alumni Database</h2>
           <p>Browse and search KTP Cornell alumni.</p>
         </div>
 
@@ -40,7 +40,7 @@ export function AlumniPage() {
 
         {loading && (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
           </div>
         )}
 
@@ -49,7 +49,7 @@ export function AlumniPage() {
         )}
 
         {!loading && !error && filtered.length === 0 && (
-          <div className="text-center py-12 text-ktp-text">
+          <div className="text-center py-12 text-ktp-muted">
             <p>No alumni found{search ? ' matching your search' : ''}.</p>
           </div>
         )}

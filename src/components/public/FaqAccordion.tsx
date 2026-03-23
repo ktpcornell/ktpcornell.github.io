@@ -19,12 +19,12 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         <div
           key={i}
           className={`border border-gray-200 rounded-lg mb-3 overflow-hidden border-l-[3px] ${
-            openIndex === i ? 'border-l-ktp-cyan' : 'border-l-ktp-navy'
+            openIndex === i ? 'border-l-ktp-accent' : 'border-l-ktp-primary'
           }`}
         >
           <button
-            className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center text-ktp-navy border-none cursor-pointer transition-colors ${
-              openIndex === i ? 'bg-ktp-section-bg' : 'bg-white'
+            className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center text-ktp-primary border-none cursor-pointer transition-colors ${
+              openIndex === i ? 'bg-ktp-surface' : 'bg-white'
             }`}
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             aria-expanded={openIndex === i}

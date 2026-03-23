@@ -42,9 +42,9 @@ export function AdminAlumniPage() {
     <div className="flex min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8 bg-ktp-section-bg">
+      <div className="flex-1 p-8 bg-ktp-surface">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-ktp-navy">Alumni Database</h2>
+          <h2 className="text-ktp-primary">Alumni Database</h2>
           <Button
             variant="primary"
             onClick={() => {
@@ -66,13 +66,13 @@ export function AdminAlumniPage() {
 
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-cyan border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-ktp-navy">
+                <tr className="bg-ktp-primary">
                   {['Name', 'Class', 'Grad Year', 'Company', 'Role', 'Actions'].map((h) => (
                     <th key={h} className="text-white text-left px-4 py-3">
                       {h}
@@ -84,7 +84,7 @@ export function AdminAlumniPage() {
                 {filtered.map((a, i) => (
                   <tr
                     key={a.id}
-                    className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-section-bg'}
+                    className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-surface'}
                   >
                     <td className="px-4 py-3 font-medium">{a.name}</td>
                     <td className="px-4 py-3">{a.ktpClass}</td>
@@ -117,7 +117,7 @@ export function AdminAlumniPage() {
               </tbody>
             </table>
             {filtered.length === 0 && (
-              <p className="text-center py-8 text-ktp-text">No alumni entries found.</p>
+              <p className="text-center py-8 text-ktp-muted">No alumni entries found.</p>
             )}
           </div>
         )}

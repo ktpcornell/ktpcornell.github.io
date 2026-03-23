@@ -15,7 +15,7 @@ function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
     <div className="border-b pb-8 mb-8 max-w-3xl mx-auto">
       <h4 className="mb-2">{title}</h4>
       <p>{desc}</p>
-      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-text">
+      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-muted">
         <span>{date}</span>
         <span className="flex items-center gap-1">
           <Clock size={14} />
@@ -43,19 +43,19 @@ export function RecruitmentTabs() {
             className={[
               'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white',
               activeTab === tab.id
-                ? 'border-l-ktp-cyan shadow-lg'
-                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-section-bg',
+                ? 'border-l-ktp-accent shadow-lg'
+                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-surface',
             ].join(' ')}
             onClick={() => setActiveTab(tab.id)}
           >
             <h3
               className={`text-xl mb-1 font-bold ${
-                activeTab === tab.id ? 'text-ktp-cyan' : 'text-ktp-navy'
+                activeTab === tab.id ? 'text-ktp-accent' : 'text-ktp-primary'
               }`}
             >
               {tab.label}
             </h3>
-            {tab.sub && <small className="text-sm font-normal text-ktp-text">{tab.sub}</small>}
+            {tab.sub && <small className="text-sm font-normal text-ktp-muted">{tab.sub}</small>}
           </button>
         ))}
       </div>
@@ -80,7 +80,7 @@ export function RecruitmentTabs() {
 
         {activeTab === 'coffee' && (
           <div className="text-center py-8 max-w-3xl mx-auto">
-            <h4 className="mb-4 text-ktp-navy">Schedule a Coffee Chat</h4>
+            <h4 className="mb-4 text-ktp-primary">Schedule a Coffee Chat</h4>
             <p className="mb-6">
               Coffee chats are a great way to get to know our brothers in a low-pressure, one-on-one
               setting. Sign up using the form below!
@@ -99,7 +99,7 @@ export function RecruitmentTabs() {
 
         {activeTab === 'tips' && (
           <div className="py-8 max-w-3xl mx-auto">
-            <h4 className="mb-4 text-ktp-navy">Application Tips</h4>
+            <h4 className="mb-4 text-ktp-primary">Application Tips</h4>
             <ul className="list-disc pl-6 space-y-3">
               <li><p>Attend at least one info session or open event before applying.</p></li>
               <li><p>Be genuine — we value authenticity and passion for technology over GPA or prestige.</p></li>

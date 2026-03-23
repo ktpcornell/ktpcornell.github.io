@@ -57,7 +57,7 @@ export function MemberCard({ member }: MemberCardProps) {
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ktp-cyan"
+                  className="text-ktp-accent"
                   onClick={(e) => e.stopPropagation()}
                 >
                   LinkedIn ↗

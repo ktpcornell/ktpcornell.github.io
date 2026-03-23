@@ -17,9 +17,9 @@ export function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="mb-4 text-ktp-navy">
+              <h2 className="mb-4 text-ktp-primary">
                 We are{' '}
-                <span className="about-typing text-ktp-cyan">{typedText}</span>
+                <span className="about-typing text-ktp-accent">{typedText}</span>
               </h2>
               <p className="mb-4">
                 Kappa Theta Pi takes pride in being the first professional technology fraternity

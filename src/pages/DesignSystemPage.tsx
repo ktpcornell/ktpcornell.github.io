@@ -38,12 +38,12 @@ function ColorCard({
       <div className="flex flex-col gap-3 p-3 border-t border-gray-200">
         <div className="flex flex-col gap-1">
           <div className="flex items-center justify-between gap-2">
-            <h6 className="text-ktp-navy mb-0 leading-tight">{name}</h6>
+            <h6 className="text-ktp-primary mb-0 leading-tight">{name}</h6>
             <button
               type="button"
               onClick={handleCopy}
               aria-label={`Copy ${name} color`}
-              className="w-8 h-8 flex items-center justify-center rounded-md text-ktp-text hover:text-ktp-navy hover:bg-gray-100 transition-colors shrink-0"
+              className="w-8 h-8 flex items-center justify-center rounded-md text-ktp-muted hover:text-ktp-primary hover:bg-gray-100 transition-colors shrink-0"
             >
               {copied
                 ? <Check className="w-4 h-4 text-green-600" />
@@ -51,10 +51,10 @@ function ColorCard({
               }
             </button>
           </div>
-          <p className="text-xs font-mono text-ktp-text leading-tight">{hex}</p>
-          <p className="text-xs font-mono text-ktp-text/70 leading-tight">{tailwindClass}</p>
+          <p className="text-xs font-mono text-ktp-muted leading-tight">{hex}</p>
+          <p className="text-xs font-mono text-ktp-muted/70 leading-tight">{tailwindClass}</p>
         </div>
-        <p className="text-xs text-ktp-text leading-snug">{description}</p>
+        <p className="text-xs text-ktp-muted leading-snug">{description}</p>
       </div>
     </article>
   )
@@ -74,7 +74,7 @@ function Section({
 }) {
   return (
     <section id={id} className="py-12">
-      <h2 className="text-ktp-navy mb-2">{title}</h2>
+      <h2 className="text-ktp-primary mb-2">{title}</h2>
       <SectionSeparator className="mb-8" />
       {children}
     </section>
@@ -88,7 +88,7 @@ export function DesignSystemPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Top nav */}
-      <nav className="bg-ktp-navy sticky top-0 z-50 py-3">
+      <nav className="bg-ktp-primary sticky top-0 z-50 py-3">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 no-underline">
             <img src="/navbarlogo.png" alt="KTP" className="h-9" />
@@ -110,7 +110,7 @@ export function DesignSystemPage() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="block text-sm text-ktp-text hover:text-ktp-navy no-underline py-1"
+                className="block text-sm text-ktp-muted hover:text-ktp-primary no-underline py-1"
               >
                 {item}
               </a>
@@ -120,7 +120,7 @@ export function DesignSystemPage() {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="block text-sm text-ktp-text hover:text-ktp-navy no-underline py-1"
+                className="block text-sm text-ktp-muted hover:text-ktp-primary no-underline py-1"
               >
                 {item}
               </a>
@@ -130,7 +130,7 @@ export function DesignSystemPage() {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="block text-sm text-ktp-text hover:text-ktp-navy no-underline py-1"
+                className="block text-sm text-ktp-muted hover:text-ktp-primary no-underline py-1"
               >
                 {item}
               </a>
@@ -143,11 +143,11 @@ export function DesignSystemPage() {
           {/* Intro */}
           <div className="mb-12">
             <SmallTitle>KTP Cornell</SmallTitle>
-            <h1 className="text-ktp-navy mb-4">Design System</h1>
+            <h1 className="text-ktp-primary mb-4">Design System</h1>
             <Body className="max-w-2xl">
               Centralized design language for the KTP Cornell website. All UI components,
               color tokens, and typography in one place. Import from{' '}
-              <code className="text-sm bg-ktp-section-bg px-1.5 py-0.5 rounded font-mono text-ktp-navy">
+              <code className="text-sm bg-ktp-surface px-1.5 py-0.5 rounded font-mono text-ktp-primary">
                 @/design-system
               </code>
               .
@@ -158,34 +158,31 @@ export function DesignSystemPage() {
 
           {/* ---------------------------------------------------------------- */}
           <Section id="colors" title="Colors">
-            <p className="text-ktp-text mb-6">
+            <p className="text-ktp-muted mb-6">
               All color values are defined as CSS variables in{' '}
-              <code className="font-mono text-sm bg-ktp-section-bg px-1 py-0.5 rounded">
+              <code className="font-mono text-sm bg-ktp-surface px-1 py-0.5 rounded">
                 src/styles/globals.css
               </code>{' '}
               and exposed as Tailwind utilities (
-              <code className="font-mono text-sm">bg-ktp-navy</code>,{' '}
-              <code className="font-mono text-sm">text-ktp-cyan</code>, etc.).
+              <code className="font-mono text-sm">bg-ktp-primary</code>,{' '}
+              <code className="font-mono text-sm">text-ktp-muted</code>, etc.).
             </p>
 
-            <h4 className="text-ktp-navy mb-4">Brand</h4>
+            <h4 className="text-ktp-primary mb-4">Brand</h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-              <ColorCard name="Navy" hex="#273053" tailwindClass="bg-ktp-navy" description="Primary brand color. Used for headers, CTAs, nav background, and card headers." />
-              <ColorCard name="Cyan" hex="#0dcaf0" tailwindClass="bg-ktp-cyan" description="Accent color. Used for highlights, secondary buttons, and focus rings." />
-              <ColorCard name="Section BG" hex="#f0f8ff" tailwindClass="bg-ktp-section-bg" description="Light blue page background for alternating sections." />
-              <ColorCard name="Text Gray" hex="#717275" tailwindClass="bg-ktp-text" description="Body copy and secondary text across all pages." />
-              <ColorCard name="Dark" hex="#191c24" tailwindClass="bg-ktp-dark" description="Near-black for high-contrast text contexts." />
-              <ColorCard name="Deep Navy" hex="#001433" tailwindClass="bg-ktp-deep-navy" description="Hero overlays and image gradient backgrounds." />
-              <ColorCard name="Pink" hex="#f78fb3" tailwindClass="bg-ktp-pink" description="Accent for icon backgrounds and team highlights." />
+              <ColorCard name="Primary" hex="#273053" tailwindClass="bg-ktp-primary" description="Primary brand color. Used for headers, CTAs, nav background, and card headers." />
+              <ColorCard name="Accent" hex="#0dcaf0" tailwindClass="bg-ktp-accent" description="Accent color. Used for highlights, secondary buttons, and focus rings." />
+              <ColorCard name="Surface" hex="#f0f8ff" tailwindClass="bg-ktp-surface" description="Light blue page background for alternating sections and portal pages." />
+              <ColorCard name="Muted" hex="#717275" tailwindClass="bg-ktp-muted" description="Body copy and secondary text across all pages." />
+              <ColorCard name="Accent Pink" hex="#f78fb3" tailwindClass="bg-ktp-accent-pink" description="Accent for icon backgrounds and team highlights." />
               <ColorCard name="White" hex="#ffffff" tailwindClass="bg-white" description="Surfaces, card backgrounds, and text on dark backgrounds." />
             </div>
 
-            <h4 className="text-ktp-navy mb-4">Status</h4>
+            <h4 className="text-ktp-primary mb-4">Status</h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               <ColorCard name="Error BG" hex="#fee2e2" tailwindClass="bg-ktp-error-bg" description="Background fill for error alert banners." />
               <ColorCard name="Error" hex="#991b1b" tailwindClass="bg-ktp-error" description="Error text and icon color inside alert banners." />
-              <ColorCard name="Error Border" hex="#fca5a5" tailwindClass="bg-ktp-error-border" description="Border accent on error input fields and banners." />
-              <ColorCard name="Danger" hex="#dc2626" tailwindClass="bg-ktp-danger" description="Destructive action buttons such as delete and remove." />
+<ColorCard name="Danger" hex="#dc2626" tailwindClass="bg-ktp-danger" description="Destructive action buttons such as delete and remove." />
               <ColorCard name="Warning BG" hex="#fef3c7" tailwindClass="bg-ktp-warning-bg" description="Background fill for warning alert banners." />
               <ColorCard name="Warning Border" hex="#f59e0b" tailwindClass="bg-ktp-warning-border" description="Border accent on warning banners and indicators." />
               <ColorCard name="Warning Text" hex="#92400e" tailwindClass="bg-ktp-warning-text" description="Body text color inside warning alert banners." />
@@ -222,7 +219,7 @@ export function DesignSystemPage() {
                 <h6>Announcements</h6>
               </div>
               <div>
-                <Caption className="mb-1">Body (p) — 18px / text-ktp-text</Caption>
+                <Caption className="mb-1">Body (p) — 18px / text-ktp-muted</Caption>
                 <Body>
                   KTP was founded on January 10, 2012 at the University of Michigan, with
                   the mission to create a tech community that enthusiastic students could join.
@@ -233,7 +230,7 @@ export function DesignSystemPage() {
                 <SmallTitle>About Us</SmallTitle>
               </div>
               <div>
-                <Caption className="mb-1">Caption — xs / text-ktp-text</Caption>
+                <Caption className="mb-1">Caption — xs / text-ktp-muted</Caption>
                 <Caption>Posted by Gabriel · March 2026</Caption>
               </div>
             </div>
@@ -276,7 +273,7 @@ export function DesignSystemPage() {
                   <Button variant="ghost" size="sm">Small</Button>
                 </div>
               </div>
-              <div className="bg-ktp-navy rounded-xl p-6">
+              <div className="bg-ktp-primary rounded-xl p-6">
                 <Caption className="mb-3 text-white/60">Transparent — for use over dark/image backgrounds</Caption>
                 <div className="flex flex-wrap gap-3">
                   <Button variant="transparent" size="lg">Large</Button>
@@ -342,13 +339,13 @@ export function DesignSystemPage() {
               </Card>
               <Card variant="flat">
                 <CardBody>
-                  <h5 className="text-ktp-navy mb-2">Flat Card</h5>
+                  <h5 className="text-ktp-primary mb-2">Flat Card</h5>
                   <Body>No shadow, just a border. Good for grid layouts with lots of cards.</Body>
                 </CardBody>
               </Card>
               <Card variant="elevated">
                 <CardBody>
-                  <h5 className="text-ktp-navy mb-2">Elevated Card</h5>
+                  <h5 className="text-ktp-primary mb-2">Elevated Card</h5>
                   <Body>Stronger shadow. Use for featured or highlighted content.</Body>
                 </CardBody>
               </Card>
@@ -414,7 +411,7 @@ export function DesignSystemPage() {
                   align="left"
                 />
               </div>
-              <div className="bg-ktp-navy rounded-xl p-8">
+              <div className="bg-ktp-primary rounded-xl p-8">
                 <Caption className="mb-4 text-white/60">White text on dark background</Caption>
                 <SectionTitle
                   label="Recruitment"
