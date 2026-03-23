@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-21 by Gabriel Castillo
+Last Updated: 2026-03-23 by Gabriel Castillo
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -80,6 +80,24 @@ See `docs/FIREBASE_SETUP.md` for collection schemas, security rules explanation,
 | `firestore.rules`               | Firestore security rules                                                   |
 | `firebase.json`                 | Firebase Hosting + Firestore + Storage config                              |
 | `.env.example`                  | Template for required environment variables                                |
+
+## Design System
+
+The `/design-system` route is a living documentation site for KTP's UI tokens and components. See `docs/DESIGN_SYSTEM.md` for full details.
+
+**CRITICAL RULE — always keep the design system page in sync with the code:**
+
+> Whenever you add, rename, or remove a color token in `src/styles/globals.css` or `tailwind.config.ts`, you MUST **also** update `src/pages/design-system/ColorsPage.tsx` to reflect the change. Before finishing any token-related task, open `ColorsPage.tsx` and verify every token in `globals.css` has a corresponding `ColorCard`.
+
+The same applies to new design system components: if you add a component under `src/design-system/components/`, add a documentation page for it under `src/pages/design-system/`.
+
+| Path | Purpose |
+| ---- | ------- |
+| `src/styles/globals.css` | CSS variable definitions — single source of truth for all tokens |
+| `tailwind.config.ts` | Exposes CSS variables as Tailwind utility classes (`ktp-*`) |
+| `src/pages/design-system/ColorsPage.tsx` | Visual documentation of every color token — **must stay in sync** |
+| `src/design-system/components/` | Shared UI components (SectionTitle, Typography, Card, etc.) |
+| `src/pages/design-system/` | Per-component and per-token documentation pages |
 
 ## Getting Access
 

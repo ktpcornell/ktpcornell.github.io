@@ -42,10 +42,10 @@ export function DesignSystemLayout() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Top nav */}
-      <nav className="bg-ktp-primary sticky top-0 z-50 h-14 flex items-center">
+      <nav className="bg-ktp-primary sticky top-0 z-50 h-16 flex items-center">
         <div className="w-full px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 no-underline">
-            <img src="/ktp-logo.svg" alt="KTP" className="h-8" />
+            <img src="/ktp-logo.svg" alt="KTP" className="h-10" />
             <Separator orientation="vertical" className="h-5 bg-white/20" />
             <span className="text-white/90 text-sm font-medium tracking-wide">
               Design System
@@ -60,7 +60,7 @@ export function DesignSystemLayout() {
       {/* Sidebar + content */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col w-56 shrink-0 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto border-r border-gray-200 bg-gray-50/50">
+        <aside className="hidden lg:flex flex-col w-56 shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto border-r border-gray-200 bg-gray-50/50">
           <nav className="flex flex-col py-4">
             {NAV_SECTIONS.map((section, i) => (
               <div key={i}>

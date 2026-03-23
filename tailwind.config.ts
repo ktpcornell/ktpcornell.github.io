@@ -16,6 +16,7 @@ const config: Config = {
   			'ktp-accent': 'hsl(var(--secondary) / <alpha-value>)',   // = secondary / #0dcaf0
   			'ktp-surface': 'var(--ktp-surface)',
   			'ktp-muted': 'var(--ktp-muted)',
+  			'ktp-muted-light': 'var(--ktp-muted-light)',
   			'ktp-accent-pink': 'var(--ktp-accent-pink)',
   			'ktp-error': 'var(--ktp-error)',
   			'ktp-error-bg': 'var(--ktp-error-bg)',

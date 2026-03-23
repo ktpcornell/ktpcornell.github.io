@@ -131,6 +131,12 @@ export function ColorsPage() {
           description="Default body copy and secondary text across all pages."
         />
         <ColorCard
+          name="Muted Light"
+          hex="#a8adb8"
+          tailwindClass="text-ktp-muted-light"
+          description="Lighter muted text for use on dark (ktp-primary) backgrounds where ktp-muted lacks sufficient contrast."
+        />
+        <ColorCard
           name="White"
           hex="#ffffff"
           tailwindClass="text-white"

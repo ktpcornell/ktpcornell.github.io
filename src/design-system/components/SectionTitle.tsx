@@ -36,12 +36,18 @@ export function SectionTitle({
     default: '',
   }[color]
 
+  const subtitleColorClass = {
+    primary: 'text-ktp-muted',
+    white: 'text-ktp-muted-light',
+    default: 'text-ktp-muted',
+  }[color]
+
   return (
     <div className={cn('mb-8', alignClass, className)}>
       {label && <SmallTitle>{label}</SmallTitle>}
       <h2 className={cn('mb-3', titleColorClass)}>{title}</h2>
       {subtitle && (
-        <p className={cn('max-w-2xl text-ktp-muted', align === 'center' && 'mx-auto')}>
+        <p className={cn('max-w-2xl', subtitleColorClass, align === 'center' && 'mx-auto')}>
           {subtitle}
         </p>
       )}

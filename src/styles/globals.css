@@ -41,6 +41,7 @@
     --ktp-accent: #0dcaf0;
     --ktp-surface: #f0f8ff;
     --ktp-muted: #717275;
+    --ktp-muted-light: #a8adb8;   /* lighter muted — readable on ktp-primary dark backgrounds */
     --ktp-overlay-rgb: 0, 20, 60;     /* for rgba() card overlay */
     --ktp-accent-pink: #f78fb3;
     --ktp-white: #ffffff;
