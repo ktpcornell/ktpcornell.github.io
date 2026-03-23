@@ -14,7 +14,6 @@ const config: Config = {
   			// Colors that need opacity modifier support use hsl(var()) with <alpha-value>
   			'ktp-primary': 'hsl(var(--primary) / <alpha-value>)',    // = primary / #273053
   			'ktp-accent': 'hsl(var(--secondary) / <alpha-value>)',   // = secondary / #0dcaf0
-  			'ktp-danger': 'hsl(var(--destructive) / <alpha-value>)', // = destructive / #dc2626
   			'ktp-surface': 'var(--ktp-surface)',
   			'ktp-muted': 'var(--ktp-muted)',
   			'ktp-accent-pink': 'var(--ktp-accent-pink)',

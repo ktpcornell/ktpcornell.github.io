@@ -14,7 +14,7 @@ export function AnnouncementList() {
 
   if (error) {
     return (
-      <div className="text-center py-8 text-ktp-danger">
+      <div className="text-center py-8 text-destructive">
         Failed to load announcements: {error}
       </div>
     )

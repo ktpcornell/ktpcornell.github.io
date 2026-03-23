@@ -17,7 +17,16 @@ import { PortalHomePage } from '@/pages/portal/PortalHomePage'
 import { AlumniPage } from '@/pages/portal/AlumniPage'
 
 // Design System
-import { DesignSystemPage } from '@/pages/DesignSystemPage'
+import { DesignSystemLayout } from '@/pages/design-system/DesignSystemLayout'
+import { IntroductionPage } from '@/pages/design-system/IntroductionPage'
+import { ColorsPage } from '@/pages/design-system/ColorsPage'
+import { TypographyPage } from '@/pages/design-system/TypographyPage'
+import { ButtonsPage } from '@/pages/design-system/components/ButtonsPage'
+import { BadgesPage } from '@/pages/design-system/components/BadgesPage'
+import { CardsPage } from '@/pages/design-system/components/CardsPage'
+import { FormFieldsPage } from '@/pages/design-system/components/FormFieldsPage'
+import { AlertsPage } from '@/pages/design-system/components/AlertsPage'
+import { SectionTitlePage } from '@/pages/design-system/page-sections/SectionTitlePage'
 
 // Admin
 import { AdminDashboardPage } from '@/pages/admin/AdminDashboardPage'
@@ -36,7 +45,17 @@ export function App() {
           <Route path="/members" element={<MembersPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/design-system" element={<DesignSystemPage />} />
+          <Route path="/design-system" element={<DesignSystemLayout />}>
+            <Route index element={<IntroductionPage />} />
+            <Route path="colors" element={<ColorsPage />} />
+            <Route path="typography" element={<TypographyPage />} />
+            <Route path="components/buttons" element={<ButtonsPage />} />
+            <Route path="components/badges" element={<BadgesPage />} />
+            <Route path="components/cards" element={<CardsPage />} />
+            <Route path="components/form-fields" element={<FormFieldsPage />} />
+            <Route path="components/alerts" element={<AlertsPage />} />
+            <Route path="page-sections/section-title" element={<SectionTitlePage />} />
+          </Route>
 
           {/* Members-only portal */}
           <Route
