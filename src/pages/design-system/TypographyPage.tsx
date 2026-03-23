@@ -1,4 +1,4 @@
-import { SmallTitle, Body, Caption } from '@/design-system/components/Typography'
+import { SmallTitle, SectionLabel, Body, Caption } from '@/design-system/components/Typography'
 
 function TypeRow({
   label,
@@ -57,6 +57,9 @@ export function TypographyPage() {
         </TypeRow>
         <TypeRow label="SmallTitle — xs / tracking-widest / uppercase / cyan">
           <SmallTitle>About Us</SmallTitle>
+        </TypeRow>
+        <TypeRow label="SectionLabel — xs / semibold / uppercase / tracking-widest / ktp-muted">
+          <SectionLabel>Usage</SectionLabel>
         </TypeRow>
         <TypeRow label="Caption — xs / text-ktp-muted">
           <Caption>Posted by Gabriel · March 2026</Caption>

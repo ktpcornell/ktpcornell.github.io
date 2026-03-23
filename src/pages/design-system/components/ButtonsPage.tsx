@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/design-system/components/Button'
-import { Caption } from '@/design-system/components/Typography'
+import { SectionLabel } from '@/design-system/components/Typography'
 
 function ButtonGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100 last:border-0">
       <div>
-        <Caption>{label}</Caption>
+        <SectionLabel>{label}</SectionLabel>
       </div>
       <div className="flex flex-wrap gap-3">{children}</div>
     </section>

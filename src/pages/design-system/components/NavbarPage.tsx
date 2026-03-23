@@ -1,5 +1,5 @@
 import { Menu, X, Megaphone, Users, LayoutDashboard, UserCog } from 'lucide-react'
-import { Caption } from '@/design-system/components/Typography'
+import { SectionLabel } from '@/design-system/components/Typography'
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ function Section({ children }: { children: React.ReactNode }) {
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Caption>{children}</Caption>
+      <SectionLabel>{children}</SectionLabel>
     </div>
   )
 }
