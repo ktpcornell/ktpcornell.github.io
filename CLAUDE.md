@@ -1,8 +1,23 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-23 by Claude (Gabriel Castillo)
+Last Updated: 2026-03-29 by Claude (Gabriel Castillo)
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Commit Convention
+
+Use conventional commits with a single subject line — no body, no bullet points:
+
+```
+type: short description
+```
+
+Types: `feat`, `fix`, `chore`, `refactor`, `docs`, `style`, `test`
+
+Examples from this repo:
+- `feat: add SectionLabel typography component`
+- `fix: build errors from Caption → SectionLabel migration`
+- `chore: fix .gitignore — add .vite/, Firebase debug logs`
 
 **Important:** If you change the file structure, add new Firestore collections, or alter anything that would impact future devs, also update the relevant file in `/docs/`.
 
