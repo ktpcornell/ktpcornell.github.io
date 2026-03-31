@@ -1,5 +1,6 @@
 import { useAnnouncements } from '@/hooks/useAnnouncements'
 import { AnnouncementCard } from './AnnouncementCard'
+import { Spinner } from '@/design-system/components/Spinner'
 
 export function AnnouncementList() {
   const { announcements, loading, error } = useAnnouncements()
@@ -7,7 +8,7 @@ export function AnnouncementList() {
   if (loading) {
     return (
       <div className="flex justify-center py-12">
-        <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
+        <Spinner />
       </div>
     )
   }

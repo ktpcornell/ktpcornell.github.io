@@ -54,6 +54,8 @@ export function AnnouncementForm({ existing, onClose, onSaved }: AnnouncementFor
         {/* Header */}
         <div className="px-6 py-4 bg-ktp-primary flex items-center justify-between">
           <h5 className="text-white mb-0">{existing ? 'Edit Announcement' : 'New Announcement'}</h5>
+          {/* DS-SKIP: <button> — modal close icon-button; Button component adds px-4 py-2 that would resize the X icon region */}
+          {/* DS-SKIP: hover:text-white/70 — opacity modifier for hover dim on dark bg; no ktp-* equivalent token */}
           <button
             onClick={onClose}
             className="text-white bg-transparent border-none cursor-pointer p-1 hover:text-white/70 transition-colors"

@@ -6,6 +6,7 @@ import { Button } from '@/design-system/components/Button'
 import { Badge } from '@/design-system/components/Badge'
 import { Card, CardHeader, CardBody } from '@/design-system/components/Card'
 import { Caption } from '@/design-system/components/Typography'
+import { Spinner } from '@/design-system/components/Spinner'
 
 function formatDate(ts: { seconds: number } | null): string {
   if (!ts) return ''
@@ -56,7 +57,7 @@ export function AdminAnnouncementsPage() {
 
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
+            <Spinner />
           </div>
         ) : announcements.length === 0 ? (
           <p className="text-ktp-muted">No announcements yet.</p>

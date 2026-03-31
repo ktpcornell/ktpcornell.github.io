@@ -3,6 +3,7 @@ import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import type { AppUser } from '@/types/user'
 import { useAuth } from '@/hooks/useAuth'
+import { Spinner } from '@/design-system/components/Spinner'
 
 export function UserTable() {
   const { currentUser } = useAuth()
@@ -33,13 +34,13 @@ export function UserTable() {
   if (loading) {
     return (
       <div className="flex justify-center py-8">
-        <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
+        <Spinner />
       </div>
     )
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-200">
+    <div className="overflow-x-auto rounded-xl border border-ktp-ui-border">
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-ktp-primary">
@@ -59,10 +60,11 @@ export function UserTable() {
                 {user.uid.slice(0, 16)}…
               </td>
               <td className="px-4 py-3 text-center">
+                {/* DS-SKIP: <button> — custom toggle switch UI; Button component adds padding/border that overrides the pill/track shape */}
                 <button
                   onClick={() => toggleAdmin(user.uid, user.isAdmin)}
                   className={`relative inline-flex items-center w-10 h-5 rounded-full transition-colors focus:outline-none ${
-                    user.isAdmin ? 'bg-ktp-primary' : 'bg-gray-300'
+                    user.isAdmin ? 'bg-ktp-primary' : 'bg-ktp-neutral-bg'
                   } ${user.uid === currentUser?.uid ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}`}
                   title={
                     user.uid === currentUser?.uid ? 'Cannot change own role' : undefined

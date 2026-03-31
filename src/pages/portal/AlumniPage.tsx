@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { useAlumni } from '@/hooks/useAlumni'
 import { AlumniSearch } from '@/components/members/AlumniSearch'
 import { AlumniCard } from '@/components/members/AlumniCard'
+import { Spinner } from '@/design-system/components/Spinner'
+import { AlertBanner } from '@/design-system/components/AlertBanner'
 export function AlumniPage() {
   const [search, setSearch] = useState('')
   const [filterClass, setFilterClass] = useState('')
@@ -35,12 +37,12 @@ export function AlumniPage() {
 
         {loading && (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
+            <Spinner />
           </div>
         )}
 
         {error && (
-          <p className="text-red-500 text-center py-8">Failed to load alumni: {error}</p>
+          <AlertBanner variant="error">Failed to load alumni: {error}</AlertBanner>
         )}
 
         {!loading && !error && filtered.length === 0 && (

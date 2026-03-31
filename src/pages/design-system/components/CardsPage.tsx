@@ -12,7 +12,7 @@ function CardGroup({
   children: React.ReactNode
 }) {
   return (
-    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100 last:border-0">
+    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-ui-border last:border-0">
       <div>
         <h2 className="text-xl font-semibold text-ktp-primary mb-1 tracking-normal">{label}</h2>
         <p className="text-sm text-ktp-muted">{description}</p>
@@ -25,7 +25,7 @@ function CardGroup({
 export function CardsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Cards</h1>
         <p className="text-ktp-muted">
           Import from{' '}

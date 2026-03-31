@@ -3,6 +3,8 @@ import { PageWrapper } from '@/components/layout/PageWrapper'
 import { MemberClassSection } from '@/components/public/MemberClassSection'
 import { fetchMembers } from '@/services/membersService'
 import type { MembersData } from '@/types/member'
+import { Spinner } from '@/design-system/components/Spinner'
+import { AlertBanner } from '@/design-system/components/AlertBanner'
 
 export function MembersPage() {
   const [members, setMembers] = useState<MembersData | null>(null)
@@ -17,8 +19,8 @@ export function MembersPage() {
   if (error) {
     return (
       <PageWrapper>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <p className="text-red-500">Failed to load members: {error}</p>
+        <div className="container mx-auto px-4 py-16">
+          <AlertBanner variant="error">Failed to load members: {error}</AlertBanner>
         </div>
       </PageWrapper>
     )
@@ -27,8 +29,8 @@ export function MembersPage() {
   if (!members) {
     return (
       <PageWrapper>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin mx-auto" />
+        <div className="container mx-auto px-4 py-16 flex justify-center">
+          <Spinner />
         </div>
       </PageWrapper>
     )

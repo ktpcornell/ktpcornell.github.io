@@ -1,32 +1,374 @@
 import { Link } from 'react-router-dom'
+import { Card } from '@/design-system'
+import { Badge } from '@/design-system'
 
-const SECTIONS = [
-  { label: 'Styles', items: ['Colors', 'Layout', 'Typography'], base: '/design-system' },
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface SectionItem {
+  label: string
+  description: string
+  path: string
+  preview: React.ReactNode
+}
+
+interface SectionGroup {
+  label: string
+  items: SectionItem[]
+}
+
+// ---------------------------------------------------------------------------
+// Preview components
+//
+// These are simplified skeleton previews — not real design system components.
+// They use inline <span> buttons, abstract placeholder bars, and fixed widths
+// to fit within the constrained 150px preview zone. Real components would
+// break the layout here due to their natural sizing and padding.
+//
+// DS-SKIP: opacity modifiers (bg-ktp-primary/30, bg-white/50, etc.) and raw
+// gray Tailwind classes (bg-gray-200, bg-red-300, etc.) throughout this block
+// are intentional — these are abstract skeleton bars, not real UI elements.
+// They must NOT be used as patterns in production code.
+// ---------------------------------------------------------------------------
+
+const PREVIEW_COLORS: [string, boolean][] = [
+  ['#273053', false],
+  ['#0dcaf0', false],
+  ['#f0f8ff', true],
+  ['#717275', false],
+  ['#f78fb3', false],
+  ['#dc2626', false],
+]
+
+const ColorsPreview = () => (
+  <div className="grid grid-cols-3 gap-3">
+    {PREVIEW_COLORS.map(([hex, border]) => (
+      <div
+        key={hex}
+        className="w-9 h-9 rounded-full"
+        style={{ backgroundColor: hex, border: border ? '1px solid #e5e7eb' : undefined }}
+      />
+    ))}
+  </div>
+)
+
+const LayoutPreview = () => (
+  <div className="w-full max-w-[190px] flex flex-col gap-2">
+    <div className="w-full h-4 rounded bg-ktp-primary/30" />
+    <div className="flex gap-2">
+      <div className="flex-1 h-12 rounded bg-ktp-primary/15" />
+      <div className="flex-1 h-12 rounded bg-ktp-primary/15" />
+      <div className="flex-1 h-12 rounded bg-ktp-primary/15" />
+    </div>
+    <div className="w-full h-4 rounded bg-ktp-primary/20" />
+  </div>
+)
+
+const TypographyPreview = () => (
+  <div className="flex items-center gap-5">
+    <span className="text-5xl font-bold text-ktp-primary leading-none">Aa</span>
+    <div className="flex flex-col gap-2">
+      <div className="w-24 h-2.5 rounded bg-ktp-primary/60" />
+      <div className="w-20 h-2 rounded bg-ktp-primary/35" />
+      <div className="w-28 h-2 rounded bg-ktp-primary/20" />
+      <div className="w-16 h-1.5 rounded bg-gray-300" />
+    </div>
+  </div>
+)
+
+const ButtonsPreview = () => (
+  <div className="flex gap-2 items-center">
+    <span className="inline-block px-3 py-1 rounded-lg bg-ktp-primary text-white text-xs font-medium">
+      Primary
+    </span>
+    <span className="inline-block px-3 py-1 rounded-lg bg-ktp-accent text-ktp-primary text-xs font-medium">
+      Secondary
+    </span>
+    <span className="inline-block px-3 py-1 rounded-lg border border-ktp-primary text-ktp-primary text-xs font-medium">
+      Outline
+    </span>
+  </div>
+)
+
+const BadgesPreview = () => (
+  <div className="flex flex-wrap gap-2 justify-center">
+    <Badge variant="navy">Navy</Badge>
+    <Badge variant="cyan">Cyan</Badge>
+    <Badge variant="pink">Pink</Badge>
+    <Badge variant="gray">Gray</Badge>
+  </div>
+)
+
+const CardsPreview = () => (
+  <div className="w-44 rounded-xl border border-ktp-ui-border overflow-hidden shadow-sm bg-white">
+    <div className="bg-ktp-primary h-8 px-3 flex items-center">
+      <div className="w-16 h-2 rounded bg-white/50" />
+    </div>
+    <div className="p-3 flex flex-col gap-2">
+      <div className="w-full h-2 rounded bg-gray-200" />
+      <div className="w-3/4 h-2 rounded bg-gray-200" />
+      <div className="w-1/2 h-1.5 rounded bg-gray-100" />
+    </div>
+  </div>
+)
+
+const FormFieldsPreview = () => (
+  <div className="w-48 flex flex-col gap-2">
+    <div className="w-20 h-2 rounded bg-ktp-primary/50" />
+    <div className="w-full h-9 rounded-lg border border-gray-300 bg-white px-3 flex items-center">
+      <div className="w-24 h-2 rounded bg-gray-200" />
+    </div>
+  </div>
+)
+
+const AlertsPreview = () => (
+  <div className="w-52 flex flex-col gap-2">
+    <div className="w-full h-8 rounded border-l-4 border-ktp-error bg-ktp-error-bg flex items-center px-3">
+      <div className="w-28 h-2 rounded bg-red-300" />
+    </div>
+    <div className="w-full h-8 rounded border-l-4 border-ktp-warning-border bg-ktp-warning-bg flex items-center px-3">
+      <div className="w-24 h-2 rounded bg-amber-300" />
+    </div>
+  </div>
+)
+
+const AccordionPreview = () => (
+  <div className="w-52 flex flex-col divide-y divide-gray-200 border border-ktp-ui-border rounded-lg overflow-hidden">
+    {(['+', '−', '+'] as const).map((icon, i) => (
+      <div key={i} className="flex items-center justify-between px-3 py-2 bg-white">
+        <div className="w-28 h-2 rounded bg-ktp-primary/30" />
+        <span className="text-ktp-muted text-sm leading-none">{icon}</span>
+      </div>
+    ))}
+  </div>
+)
+
+const TabsPreview = () => (
+  <div className="w-52 flex flex-col">
+    <div className="flex border-b border-ktp-ui-border">
+      <div className="px-4 py-2 border-b-2 border-ktp-accent">
+        <div className="w-10 h-2 rounded bg-ktp-primary/70" />
+      </div>
+      <div className="px-4 py-2">
+        <div className="w-10 h-2 rounded bg-gray-300" />
+      </div>
+      <div className="px-4 py-2">
+        <div className="w-10 h-2 rounded bg-gray-300" />
+      </div>
+    </div>
+    <div className="p-3 flex flex-col gap-1.5">
+      <div className="w-full h-2 rounded bg-gray-200" />
+      <div className="w-3/4 h-1.5 rounded bg-gray-100" />
+    </div>
+  </div>
+)
+
+const NavbarPreview = () => (
+  <div className="w-full max-w-[240px] rounded-lg bg-ktp-primary px-4 py-3 flex items-center justify-between">
+    <div className="w-10 h-5 rounded bg-white/40" />
+    <div className="flex gap-2">
+      <div className="w-8 h-2 rounded bg-white/40" />
+      <div className="w-8 h-2 rounded bg-white/40" />
+      <div className="w-8 h-2 rounded bg-ktp-accent/70" />
+    </div>
+  </div>
+)
+
+const SectionTitlePreview = () => (
+  <div className="flex flex-col items-center gap-2 w-52">
+    <div className="w-20 h-2 rounded bg-ktp-accent/60" />
+    <div className="w-40 h-3.5 rounded bg-ktp-primary/70" />
+    <div className="w-36 h-2 rounded bg-gray-300" />
+    <div className="w-28 h-2 rounded bg-gray-200" />
+  </div>
+)
+
+const SectionSeparatorPreview = () => (
+  <div className="w-52 flex items-center gap-2">
+    <div className="flex-1 h-px bg-gray-300" />
+    <div className="w-2 h-2 rounded-full bg-ktp-accent" />
+    <div className="flex-1 h-px bg-gray-300" />
+  </div>
+)
+
+const FooterPreview = () => (
+  <div className="w-full max-w-[240px] rounded-lg bg-ktp-primary p-3">
+    <div className="flex gap-6 mb-2.5">
+      <div className="flex flex-col gap-1.5">
+        <div className="w-12 h-2 rounded bg-white/50" />
+        <div className="w-14 h-1.5 rounded bg-white/25" />
+        <div className="w-12 h-1.5 rounded bg-white/25" />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <div className="w-12 h-2 rounded bg-white/50" />
+        <div className="w-14 h-1.5 rounded bg-white/25" />
+        <div className="w-10 h-1.5 rounded bg-white/25" />
+      </div>
+    </div>
+    <div className="w-full h-px bg-white/20 mt-1" />
+    <div className="w-24 h-1.5 rounded bg-white/20 mt-1.5 mx-auto" />
+  </div>
+)
+
+// HeroPreview intentionally uses self-stretch to override the parent flex container's items-center,
+// filling the full 150px height edge-to-edge. All other previews stay centered via items-center.
+const HeroPreview = () => (
+  <div className="w-full self-stretch bg-ktp-primary flex flex-col items-center justify-center gap-2.5">
+    <div className="w-32 h-3 rounded bg-white/70" />
+    <div className="w-44 h-2 rounded bg-white/40" />
+    <span className="mt-3 inline-block px-3 py-1 rounded-lg bg-ktp-accent text-ktp-primary text-xs font-medium">
+      Get Started
+    </span>
+  </div>
+)
+
+const CTAPreview = () => (
+  <div className="w-52 flex flex-col items-center gap-2">
+    <div className="w-40 h-3 rounded bg-ktp-primary/70" />
+    <div className="w-32 h-2 rounded bg-gray-300" />
+    <div className="flex gap-2 mt-3">
+      <span className="inline-block px-3 py-1 rounded-lg bg-ktp-primary text-white text-xs font-medium">
+        Apply
+      </span>
+      <span className="inline-block px-3 py-1 rounded-lg border border-ktp-primary text-ktp-primary text-xs font-medium">
+        Learn More
+      </span>
+    </div>
+  </div>
+)
+
+// ---------------------------------------------------------------------------
+// Sections data
+// ---------------------------------------------------------------------------
+
+const SECTIONS: SectionGroup[] = [
+  {
+    label: 'Styles',
+    items: [
+      {
+        label: 'Colors',
+        description: 'Brand, text, and status color tokens.',
+        path: '/design-system/colors',
+        preview: <ColorsPreview />,
+      },
+      {
+        label: 'Layout',
+        description: 'Breakpoints, container widths, and grid patterns.',
+        path: '/design-system/layout',
+        preview: <LayoutPreview />,
+      },
+      {
+        label: 'Typography',
+        description: 'DM Sans type scale from heading to caption.',
+        path: '/design-system/typography',
+        preview: <TypographyPreview />,
+      },
+    ],
+  },
   {
     label: 'Components',
-    items: ['Buttons', 'Badges', 'Cards', 'Form Fields', 'Alerts', 'Accordion', 'Tabs'],
-    base: '/design-system/components',
+    items: [
+      {
+        label: 'Buttons',
+        description: 'Variants: primary, secondary, outline, ghost, danger.',
+        path: '/design-system/components/buttons',
+        preview: <ButtonsPreview />,
+      },
+      {
+        label: 'Badges',
+        description: 'Status and label chips in six color variants.',
+        path: '/design-system/components/badges',
+        preview: <BadgesPreview />,
+      },
+      {
+        label: 'Cards',
+        description: 'Default, flat, and elevated card surfaces.',
+        path: '/design-system/components/cards',
+        preview: <CardsPreview />,
+      },
+      {
+        label: 'Form Fields',
+        description: 'Text input, select, and textarea field wrappers.',
+        path: '/design-system/components/form-fields',
+        preview: <FormFieldsPreview />,
+      },
+      {
+        label: 'Alerts',
+        description: 'Inline error, warning, and info banners.',
+        path: '/design-system/components/alerts',
+        preview: <AlertsPreview />,
+      },
+      {
+        label: 'Accordion',
+        description: 'Collapsible FAQ-style content panels.',
+        path: '/design-system/components/accordion',
+        preview: <AccordionPreview />,
+      },
+      {
+        label: 'Tabs',
+        description: 'Tabbed content switcher with active indicator.',
+        path: '/design-system/components/tabs',
+        preview: <TabsPreview />,
+      },
+    ],
   },
   {
     label: 'Navigation',
-    items: ['Navbar'],
-    base: '/design-system/components',
+    items: [
+      {
+        label: 'Navbar',
+        description: 'Public and internal navigation bar patterns.',
+        path: '/design-system/components/navbar',
+        preview: <NavbarPreview />,
+      },
+    ],
   },
   {
     label: 'Page Sections',
-    items: ['Section Title', 'Section Separator', 'Footer', 'Hero', 'CTA'],
-    base: '/design-system/page-sections',
+    items: [
+      {
+        label: 'Section Title',
+        description: 'Label, heading, and subtitle intro block.',
+        path: '/design-system/page-sections/section-title',
+        preview: <SectionTitlePreview />,
+      },
+      {
+        label: 'Section Separator',
+        description: 'Thin horizontal divider between sections.',
+        path: '/design-system/page-sections/section-separator',
+        preview: <SectionSeparatorPreview />,
+      },
+      {
+        label: 'Footer',
+        description: 'Site-wide footer with links and legal copy.',
+        path: '/design-system/page-sections/footer',
+        preview: <FooterPreview />,
+      },
+      {
+        label: 'Hero',
+        description: 'Full-height hero with overlay and animation.',
+        path: '/design-system/page-sections/hero',
+        preview: <HeroPreview />,
+      },
+      {
+        label: 'CTA',
+        description: 'Recruitment call-to-action with two CTAs.',
+        path: '/design-system/page-sections/cta',
+        preview: <CTAPreview />,
+      },
+    ],
   },
 ]
 
-function slug(label: string) {
-  return label.toLowerCase().replace(/\s+/g, '-')
-}
+// ---------------------------------------------------------------------------
+// Page
+// ---------------------------------------------------------------------------
 
 export function IntroductionPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <p className="text-sm font-medium text-ktp-accent uppercase tracking-widest mb-2">KTP Cornell</p>
         <h1 className="text-ktp-primary mb-4 tracking-normal normal-case">Design System</h1>
         <p className="text-ktp-muted max-w-2xl">
@@ -44,21 +386,22 @@ export function IntroductionPage() {
           <div key={section.label}>
             <h2 className="text-xl font-semibold text-ktp-primary mb-4 tracking-normal">{section.label}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {section.items.map((item) => {
-                const path =
-                  section.label === 'Styles'
-                    ? `/design-system/${slug(item)}`
-                    : `${section.base}/${slug(item)}`
-                return (
-                  <Link
-                    key={item}
-                    to={path}
-                    className="block p-4 rounded-xl border border-gray-200 hover:border-ktp-accent hover:bg-ktp-surface transition-colors no-underline group"
+              {section.items.map((item) => (
+                <Link key={item.label} to={item.path} className="block group no-underline">
+                  <Card
+                    variant="flat"
+                    className="h-full hover:border-ktp-accent transition-colors cursor-pointer overflow-hidden"
                   >
-                    <p className="font-medium text-ktp-primary group-hover:text-ktp-primary">{item}</p>
-                  </Link>
-                )
-              })}
+                    <div className="h-[150px] bg-ktp-surface border-b border-ktp-ui-border flex items-center justify-center overflow-hidden">
+                      {item.preview}
+                    </div>
+                    <div className="px-4 py-3 flex flex-col gap-1">
+                      <p className="font-medium text-sm text-ktp-primary">{item.label}</p>
+                      <p className="text-xs text-ktp-muted">{item.description}</p>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </div>
         ))}

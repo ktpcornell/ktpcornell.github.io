@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Copy, Check } from 'lucide-react'
-import { Card } from '@/design-system/components/Card'
-import { CardBody } from '@/design-system/components/Card'
+import { Card, CardBody } from '@/design-system/components/Card'
+import { Button } from '@/design-system/components/Button'
 
 // ---------------------------------------------------------------------------
 // ColorCard
@@ -28,23 +28,25 @@ function ColorCard({
   return (
     <Card variant="flat" className="overflow-clip">
       <div className="h-32 w-full" style={{ backgroundColor: hex }} />
-      <CardBody className="flex flex-col gap-3 border-t border-gray-200 !px-3 !py-3 !pt-3">
+      <CardBody className="flex flex-col gap-3 border-t border-ktp-ui-border !px-3 !py-3 !pt-3">
         <div className="flex flex-col gap-1">
           <div className="flex items-center justify-between gap-2">
             <h6 className="text-ktp-primary mb-0 leading-tight">{name}</h6>
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={handleCopy}
               aria-label={`Copy ${name} color`}
-              className="w-8 h-8 flex items-center justify-center rounded-md text-ktp-muted hover:text-ktp-primary hover:bg-gray-100 transition-colors shrink-0"
+              className="w-8 h-8 p-0 shrink-0"
             >
               {copied
-                ? <Check className="w-4 h-4 text-green-600" />
+                ? <Check className="w-4 h-4 text-ktp-accent" />
                 : <Copy className="w-4 h-4" />
               }
-            </button>
+            </Button>
           </div>
           <p className="text-xs font-mono text-ktp-muted leading-tight">{hex}</p>
+          {/* DS-SKIP: text-ktp-muted/70 — intentional dimming for secondary metadata text; no separate token for this level */}
           <p className="text-xs font-mono text-ktp-muted/70 leading-tight">{tailwindClass}</p>
         </div>
         <p className="text-xs text-ktp-muted leading-snug">{description}</p>
@@ -66,7 +68,7 @@ function ColorGroup({
   children: React.ReactNode
 }) {
   return (
-    <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-gray-100">
+    <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border">
       <div className="flex flex-col gap-1">
         <h2 className="text-2xl font-semibold text-ktp-primary tracking-normal">{title}</h2>
         <p className="text-ktp-muted">{description}</p>
@@ -84,7 +86,7 @@ function ColorGroup({
 export function ColorsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Colors</h1>
         <p className="text-ktp-muted">
           Guidelines for using color tokens across the KTP website. All values are defined as CSS
@@ -145,14 +147,44 @@ export function ColorsPage() {
       </ColorGroup>
 
       <ColorGroup
-        title="Border"
-        description="Colors used for dividers, outlines, and card borders."
+        title="UI Shell"
+        description="Structural colors for sidebars, navigation surfaces, and dividers. Not for brand or content use."
       >
         <ColorCard
-          name="Border"
+          name="UI Border"
           hex="#e5e7eb"
-          tailwindClass="border-gray-200"
-          description="Standard border color used on cards, separators, and input outlines."
+          tailwindClass="border-ktp-ui-border"
+          description="Sidebar and card border. Use instead of border-gray-200."
+        />
+        <ColorCard
+          name="UI Background"
+          hex="#f9fafb"
+          tailwindClass="bg-ktp-ui-bg"
+          description="Sidebar panel background. Use instead of bg-gray-50."
+        />
+        <ColorCard
+          name="UI Hover"
+          hex="#f3f4f6"
+          tailwindClass="bg-ktp-ui-hover"
+          description="Nav item hover state background. Use instead of hover:bg-gray-100."
+        />
+        <ColorCard
+          name="Divider on Dark"
+          hex="rgba(255,255,255,0.20)"
+          tailwindClass="border-ktp-divider-on-dark"
+          description="Subtle divider line on navy top bars. A named rgba() value — avoids opacity modifier syntax."
+        />
+        <ColorCard
+          name="Neutral"
+          hex="#4b5563"
+          tailwindClass="bg-ktp-neutral"
+          description="Dark neutral for stat cards and secondary UI accents without brand blue."
+        />
+        <ColorCard
+          name="Neutral Background"
+          hex="#d1d5db"
+          tailwindClass="bg-ktp-neutral-bg"
+          description="Inactive/disabled toggle track background."
         />
       </ColorGroup>
 

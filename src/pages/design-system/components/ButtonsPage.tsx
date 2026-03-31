@@ -4,7 +4,7 @@ import { SectionLabel } from '@/design-system/components/Typography'
 
 function ButtonGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100 last:border-0">
+    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-ui-border last:border-0">
       <div>
         <SectionLabel>{label}</SectionLabel>
       </div>
@@ -16,7 +16,7 @@ function ButtonGroup({ label, children }: { label: string; children: React.React
 export function ButtonsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Buttons</h1>
         <p className="text-ktp-muted">
           Import from{' '}
@@ -55,7 +55,7 @@ export function ButtonsPage() {
         <Button variant="ghost" size="sm">Small</Button>
       </ButtonGroup>
 
-      <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-gray-100">
+      <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-ui-border">
         <SectionLabel>variant="transparent" — for use over dark or image backgrounds</SectionLabel>
         <div className="bg-ktp-primary rounded-xl p-6 flex flex-wrap gap-3">
           <Button variant="transparent" size="lg">Large</Button>

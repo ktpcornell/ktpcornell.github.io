@@ -3,7 +3,7 @@ import { CallToAction } from '@/components/public/CallToAction'
 export function CTAPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">CTA</h1>
         <p className="text-ktp-muted">
           Call-to-action block that drives recruitment engagement. Import from{' '}
@@ -24,7 +24,7 @@ export function CTAPage() {
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
           <p className="text-sm text-ktp-muted mb-4">Live preview</p>
-          <div className="border border-gray-200 rounded-xl overflow-hidden">
+          <div className="border border-ktp-ui-border rounded-xl overflow-hidden">
             <CallToAction />
           </div>
         </div>

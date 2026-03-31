@@ -28,8 +28,8 @@ const STATS: StatCard[] = [
   {
     label: 'Registered Users',
     collection: 'users',
-    headerClass: 'bg-gray-800',
-    valueClass: 'text-gray-800',
+    headerClass: 'bg-ktp-neutral',
+    valueClass: 'text-ktp-neutral',
   },
 ]
 

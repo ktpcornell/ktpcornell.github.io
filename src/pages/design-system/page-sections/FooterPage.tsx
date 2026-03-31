@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 export function FooterPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Footer</h1>
         <p className="text-ktp-muted">
           Bottom section of every public page containing navigation links, contact info, and legal
@@ -24,7 +24,7 @@ export function FooterPage() {
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
           <p className="text-sm text-ktp-muted mb-4">Live preview</p>
-          <div className="border border-gray-200 rounded-xl overflow-hidden">
+          <div className="border border-ktp-ui-border rounded-xl overflow-hidden">
             <Footer />
           </div>
         </div>

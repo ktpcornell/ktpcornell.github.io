@@ -47,6 +47,7 @@ export function Navbar() {
         </Link>
 
         {/* Hamburger (mobile) */}
+        {/* DS-SKIP: <button> — icon-only mobile nav toggle requiring ref forwarding and aria-controls; Button component does not expose these */}
         <button
           ref={toggleRef}
           className="lg:hidden text-white p-2"
@@ -100,6 +101,7 @@ export function Navbar() {
             )}
             {currentUser ? (
               <li>
+                {/* DS-SKIP: <button> — transparent text-only sign-out styled as a nav link; Button variants all include padding/borders incompatible with this layout */}
                 <button
                   className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer"
                   onClick={() => { handleSignOut(); closeMenu() }}

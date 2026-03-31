@@ -38,6 +38,8 @@ export function RecruitmentTabs() {
       {/* Tab buttons */}
       <div className="flex flex-wrap border-b-0">
         {TABS.map((tab, i) => (
+          // DS-SKIP: <button> — custom tab control with border-l-[3px] left accent and fixed h-[150px] layout; cannot be expressed through Button variants without breaking the tab shape
+          // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
           <button
             key={tab.id}
             className={[

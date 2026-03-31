@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-30 by Claude (Gabriel Castillo)
+Last Updated: 2026-03-30 by Claude (Gabriel Castillo) — design system refactor: Spinner component, 6 new UI shell tokens, DS-SKIP audit, self-updating hooks
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -98,6 +98,7 @@ All design system components import from `@/design-system/components/<Name>`.
 | **SectionSeparator** | `SectionSeparator` | Horizontal rule between content sections | Raw `<hr>` or `<div className="border-t ...">` |
 | **SectionTitle** | `SectionTitle` | Section heading block with optional label + subtitle. Props: `title`, `label?`, `subtitle?`, `align?`, `color?` | Hand-written `<h2>` + `<p>` combos for section headings |
 | **Heading / SmallTitle / SectionLabel / Body / Caption** | `Heading`, `SmallTitle`, `SectionLabel`, `Body`, `Caption` | All typographic content | Raw `<h2>`, `<p>`, `<span>` with manual color/size classes |
+| **Spinner** | `Spinner` | Loading indicator. Sizes: `sm`, `md` (default), `lg`. No centering wrapper — caller owns layout. | Raw `<div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin">` |
 
 ### Component Decision Tree
 
@@ -112,7 +113,7 @@ All design system components import from `@/design-system/components/<Name>`.
 - **Small metadata/timestamp** → `Caption`
 - **Uppercase label above heading** → `SmallTitle`
 - **Horizontal divider** → `SectionSeparator`
-- **Loading spinner** → No shared component exists yet. When you need one, create `src/design-system/components/Spinner.tsx`, add a docs page, then use it everywhere. Add `DS-SKIP` to any existing raw spinner copies noting the gap — do not copy-paste the raw Tailwind spinner a ninth time.
+- **Loading spinner** → `Spinner` from `@/design-system/components/Spinner`
 
 ### Prohibited Patterns
 
@@ -125,7 +126,8 @@ These patterns are bugs. If you see them without a `DS-SKIP` comment, fix them.
 | `bg-green-500`, `text-green-600` | No KTP green token exists. Use `Badge variant="cyan"` for success states. Add a token first if green is semantically required. |
 | Any raw `blue-*`, `zinc-*`, `slate-*`, `gray-*` as brand surface colors | `ktp-primary`, `ktp-surface`, `ktp-muted`, `ktp-muted-light` |
 | `bg-gray-50/50` or any `color/opacity` modifier | Full-opacity `ktp-*` token, or define a new token in `globals.css` |
-| Duplicated inline spinner: `w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin` | Extract `Spinner.tsx` design system component |
+| Raw `gray-*` for sidebar/nav surfaces | `ktp-ui-border`, `ktp-ui-bg`, `ktp-ui-hover`, `ktp-divider-on-dark` |
+| Duplicated inline spinner: `w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin` | `<Spinner />` from `@/design-system/components/Spinner` |
 | `<div className="bg-primary px-6 py-4 ...">` as a card title bar | `<CardHeader>` |
 | Raw `<input>`, `<select>`, `<textarea>` without label/error wiring | `FormField`, `SelectField`, `TextareaField` |
 

@@ -3,7 +3,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 export function TabsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Tabs</h1>
         <p className="text-ktp-muted">
           Switch between related views on the same page. Import from{' '}
@@ -29,7 +29,7 @@ export function TabsPage() {
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
           <p className="text-sm text-ktp-muted mb-4">Default (ShadCN Tabs)</p>
-          <div className="border border-gray-200 rounded-xl p-8">
+          <div className="border border-ktp-ui-border rounded-xl p-8">
             <Tabs defaultValue="overview">
               <TabsList>
                 <TabsTrigger value="overview">Overview</TabsTrigger>

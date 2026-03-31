@@ -23,6 +23,13 @@ const config: Config = {
   			'ktp-warning-bg': 'var(--ktp-warning-bg)',
   			'ktp-warning-border': 'var(--ktp-warning-border)',
   			'ktp-warning-text': 'var(--ktp-warning-text)',
+  			// UI shell tokens
+  			'ktp-ui-border':       'var(--ktp-ui-border)',
+  			'ktp-ui-bg':           'var(--ktp-ui-bg)',
+  			'ktp-ui-hover':        'var(--ktp-ui-hover)',
+  			'ktp-divider-on-dark': 'var(--ktp-divider-on-dark)',
+  			'ktp-neutral':         'var(--ktp-neutral)',
+  			'ktp-neutral-bg':      'var(--ktp-neutral-bg)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

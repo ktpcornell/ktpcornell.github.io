@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/gabrielcastillo/Developer/Websites/ktpcornell.github.io/scripts/ds-sync-check.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}

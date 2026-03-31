@@ -3,7 +3,7 @@ import { SectionTitle } from '@/design-system/components/SectionTitle'
 export function SectionTitlePage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Section Title</h1>
         <p className="text-ktp-muted">
           Import from{' '}
@@ -21,7 +21,7 @@ export function SectionTitlePage() {
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
           <p className="text-sm text-ktp-muted mb-4">Center-aligned with label (default)</p>
-          <div className="border border-gray-200 rounded-xl p-8">
+          <div className="border border-ktp-ui-border rounded-xl p-8">
             <SectionTitle
               label="About Us"
               title="Our History"
@@ -32,7 +32,7 @@ export function SectionTitlePage() {
 
         <div>
           <p className="text-sm text-ktp-muted mb-4">Left-aligned, no label</p>
-          <div className="border border-gray-200 rounded-xl p-8">
+          <div className="border border-ktp-ui-border rounded-xl p-8">
             <SectionTitle
               title="Alumni Database"
               subtitle="Browse and search KTP Cornell alumni."

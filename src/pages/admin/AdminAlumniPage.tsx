@@ -4,6 +4,7 @@ import { listAlumni, deleteAlumni } from '@/services/alumniService'
 import type { AlumniEntry } from '@/types/alumni'
 import { Button } from '@/design-system/components/Button'
 import { FormField } from '@/design-system/components/FormField'
+import { Spinner } from '@/design-system/components/Spinner'
 
 export function AdminAlumniPage() {
   const [alumni, setAlumni] = useState<AlumniEntry[]>([])
@@ -62,10 +63,10 @@ export function AdminAlumniPage() {
 
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
+            <Spinner />
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+          <div className="overflow-x-auto rounded-xl border border-ktp-ui-border bg-white">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-ktp-primary">

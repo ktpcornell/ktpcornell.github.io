@@ -51,6 +51,14 @@
     --ktp-warning-border: #f59e0b;
     --ktp-warning-text: #92400e;
 
+    /* UI shell tokens — structural grays used in sidebars, nav, and dividers */
+    --ktp-ui-border: #e5e7eb;                         /* sidebar/card border (= gray-200) */
+    --ktp-ui-bg: #f9fafb;                             /* sidebar background (= gray-50 full opacity) */
+    --ktp-ui-hover: #f3f4f6;                          /* nav item hover bg (= gray-100) */
+    --ktp-divider-on-dark: rgba(255, 255, 255, 0.20); /* divider line on navy top bars */
+    --ktp-neutral: #4b5563;                           /* gray-600 — neutral stat card accent */
+    --ktp-neutral-bg: #d1d5db;                        /* gray-300 — disabled/inactive toggle track */
+
     /* Legacy aliases — kept for legacy.css class references */
     --white-color: var(--ktp-white);
     --primary-color: var(--ktp-primary);

@@ -16,12 +16,14 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
   return (
     <div className="w-full max-w-3xl mx-auto">
       {items.map((item, i) => (
+        // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
         <div
           key={i}
-          className={`border border-gray-200 rounded-lg mb-3 overflow-hidden border-l-[3px] ${
+          className={`border border-ktp-ui-border rounded-lg mb-3 overflow-hidden border-l-[3px] ${
             openIndex === i ? 'border-l-ktp-accent' : 'border-l-ktp-primary'
           }`}
         >
+          {/* DS-SKIP: <button> — accessibility-required pattern; Radix Accordion would change the animation/behavior contract for this existing implementation */}
           <button
             className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center text-ktp-primary border-none cursor-pointer transition-colors ${
               openIndex === i ? 'bg-ktp-surface' : 'bg-white'

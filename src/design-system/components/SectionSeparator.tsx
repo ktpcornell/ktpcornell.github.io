@@ -5,6 +5,6 @@ import { cn } from '@/lib/utils'
  */
 export function SectionSeparator({ className }: { className?: string }) {
   return (
-    <hr className={cn('border-0 border-t border-gray-200 my-0', className)} />
+    <hr className={cn('border-0 border-t border-ktp-ui-border my-0', className)} />
   )
 }

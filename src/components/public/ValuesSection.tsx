@@ -9,6 +9,7 @@ const pillars = [
   },
   {
     Icon: Globe,
+    // DS-SKIP: bg-amber-400 — decorative pillar icon bg; no ktp-* semantic equivalent; tokenization deferred
     iconBg: 'bg-amber-400',
     title: 'Alumni Connections',
     body: 'Our alumni are spread out across the world and work on cutting-edge technologies at companies like Microsoft, Amazon, Apple, and Google, to startups, consulting firms, financial technology firms, and more!',
@@ -21,6 +22,7 @@ const pillars = [
   },
   {
     Icon: Cpu,
+    // DS-SKIP: bg-green-500 — decorative pillar icon bg; no ktp-* semantic equivalent; tokenization deferred
     iconBg: 'bg-green-500',
     title: 'Technical Advancement',
     body: 'Kappa Theta Pi provides members numerous opportunities to enhance their current technical skills, as well as learn new ones. NME covers Tech Consulting, Data Science, Machine Learning, Frontend, Backend, and Project Management.',

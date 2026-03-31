@@ -21,7 +21,7 @@ const NAV_LINK_BASE =
   'flex items-center gap-2.5 pr-4 py-2 pl-4 rounded-lg text-sm transition-colors no-underline'
 const NAV_LINK_ACTIVE =
   'border-l-2 border-ktp-accent bg-ktp-surface text-ktp-primary font-medium !pl-[14px] cursor-default hover:bg-ktp-surface hover:text-ktp-primary'
-const NAV_LINK_INACTIVE = 'text-ktp-muted hover:text-ktp-primary hover:bg-gray-100'
+const NAV_LINK_INACTIVE = 'text-ktp-muted hover:text-ktp-primary hover:bg-ktp-ui-hover'
 
 export function AdminLayout() {
   const navigate = useNavigate()
@@ -36,13 +36,14 @@ export function AdminLayout() {
       {/* Top nav */}
       <nav className="bg-ktp-primary sticky top-0 z-50 h-16 flex items-center">
         {/* Logo — same width as sidebar, centered */}
-        <div className="hidden lg:flex w-56 shrink-0 h-full items-center justify-center border-r border-white/20">
+        <div className="hidden lg:flex w-56 shrink-0 h-full items-center justify-center border-r border-ktp-divider-on-dark">
           <Link to="/" className="no-underline">
             <img src="/logo.svg" alt="KTP" className="h-10" />
           </Link>
         </div>
         {/* Title + actions */}
         <div className="flex-1 flex items-center justify-between px-6">
+          {/* DS-SKIP: text-white/90 — slight dimming for visual hierarchy on dark nav; requires --ktp-white-dim token to avoid opacity modifier */}
           <span className="text-white/90 text-sm font-medium tracking-wide">
             Admin Portal
           </span>
@@ -50,6 +51,7 @@ export function AdminLayout() {
             <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
               Public Site
             </Link>
+            {/* DS-SKIP: <button> — transparent text-only sign-out on dark nav; Button component adds padding/border not suitable here */}
             <button
               onClick={handleSignOut}
               className="text-sm text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer p-0"
@@ -63,7 +65,7 @@ export function AdminLayout() {
       {/* Sidebar + content */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col w-56 shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto border-r border-gray-200 bg-gray-50/50">
+        <aside className="hidden lg:flex flex-col w-56 shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto border-r border-ktp-ui-border bg-ktp-ui-bg">
           <nav className="flex flex-col py-4 px-2 gap-0.5">
             {NAV_LINKS.map((link) => (
               <NavLink

@@ -35,6 +35,12 @@ All KTP brand tokens are defined as CSS custom properties under `:root`. Naming 
 | `--ktp-warning-bg` | `#fef3c7` | Warning alert banner background |
 | `--ktp-warning-border` | `#f59e0b` | Warning banner border |
 | `--ktp-warning-text` | `#92400e` | Warning banner body text |
+| `--ktp-ui-border` | `#e5e7eb` | Sidebar and card border (replaces raw `gray-200`) |
+| `--ktp-ui-bg` | `#f9fafb` | Sidebar panel background (replaces `gray-50/50`) |
+| `--ktp-ui-hover` | `#f3f4f6` | Nav item hover background (replaces `gray-100`) |
+| `--ktp-divider-on-dark` | `rgba(255,255,255,0.20)` | Divider line on navy top bars (named rgba — avoids opacity modifier syntax) |
+| `--ktp-neutral` | `#4b5563` | Dark neutral for non-brand stat cards |
+| `--ktp-neutral-bg` | `#d1d5db` | Disabled/inactive toggle track background |
 
 ### Tailwind Classes (`tailwind.config.ts`)
 
@@ -53,6 +59,12 @@ CSS variables are aliased as Tailwind utilities so they work with all modifiers 
 | `ktp-warning-bg` | `--ktp-warning-bg` |
 | `ktp-warning-border` | `--ktp-warning-border` |
 | `ktp-warning-text` | `--ktp-warning-text` |
+| `ktp-ui-border` | `--ktp-ui-border` |
+| `ktp-ui-bg` | `--ktp-ui-bg` |
+| `ktp-ui-hover` | `--ktp-ui-hover` |
+| `ktp-divider-on-dark` | `--ktp-divider-on-dark` |
+| `ktp-neutral` | `--ktp-neutral` |
+| `ktp-neutral-bg` | `--ktp-neutral-bg` |
 
 ---
 
@@ -329,11 +341,11 @@ The following are bugs without a `DS-SKIP` comment.
 
 ### Duplicated Loading Spinner
 
-The following HTML is duplicated across the codebase:
-```tsx
-<div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />
-```
-Do not copy-paste this. When you next need a spinner, create `src/design-system/components/Spinner.tsx`, add a docs page, and use the component everywhere. Add `DS-SKIP` to existing raw copies noting this known gap.
+| Prohibited | Use instead |
+|-----------|-------------|
+| `<div className="w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin" />` | `<Spinner />` from `@/design-system/components/Spinner` |
+
+The Spinner component is available at three sizes: `sm`, `md` (default), `lg`. It does not include a centering wrapper — callers own layout.
 
 ### Other Prohibited Patterns
 
@@ -435,8 +447,9 @@ Components live in `src/design-system/components/`. Each has a corresponding doc
 | Button | `components/Button.tsx` | `@/design-system/components/Button` | `/design-system/components/buttons` |
 | Card / CardHeader / CardBody | `components/Card.tsx` | `@/design-system/components/Card` | `/design-system/components/cards` |
 | FormField / SelectField / TextareaField | `components/FormField.tsx` | `@/design-system/components/FormField` | `/design-system/components/form-fields` |
-| SectionSeparator | `components/SectionSeparator.tsx` | `@/design-system/components/SectionSeparator` | `/design-system/section-separator` |
-| SectionTitle | `components/SectionTitle.tsx` | `@/design-system/components/SectionTitle` | `/design-system/section-title` |
+| SectionSeparator | `components/SectionSeparator.tsx` | `@/design-system/components/SectionSeparator` | `/design-system/page-sections/section-separator` |
+| SectionTitle | `components/SectionTitle.tsx` | `@/design-system/components/SectionTitle` | `/design-system/page-sections/section-title` |
+| Spinner | `components/Spinner.tsx` | `@/design-system/components/Spinner` | `/design-system/components/spinner` |
 | Heading / SmallTitle / SectionLabel / Body / Caption | `components/Typography.tsx` | `@/design-system/components/Typography` | `/design-system/typography` |
 
 When adding a new shared component, create a corresponding doc page and add it to the sidebar in `src/pages/design-system/DesignSystemLayout.tsx`.

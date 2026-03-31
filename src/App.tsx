@@ -27,6 +27,7 @@ import { BadgesPage } from '@/pages/design-system/components/BadgesPage'
 import { CardsPage } from '@/pages/design-system/components/CardsPage'
 import { FormFieldsPage } from '@/pages/design-system/components/FormFieldsPage'
 import { AlertsPage } from '@/pages/design-system/components/AlertsPage'
+import { SpinnerPage } from '@/pages/design-system/components/SpinnerPage'
 import { SectionTitlePage } from '@/pages/design-system/page-sections/SectionTitlePage'
 import { SectionSeparatorPage } from '@/pages/design-system/page-sections/SectionSeparatorPage'
 import { FooterPage } from '@/pages/design-system/page-sections/FooterPage'
@@ -67,6 +68,7 @@ export function App() {
             <Route path="components/navbar" element={<NavbarPage />} />
             <Route path="components/accordion" element={<AccordionPage />} />
             <Route path="components/tabs" element={<TabsPage />} />
+            <Route path="components/spinner" element={<SpinnerPage />} />
             <Route path="layout" element={<LayoutPage />} />
             <Route path="page-sections/section-title" element={<SectionTitlePage />} />
             <Route path="page-sections/section-separator" element={<SectionSeparatorPage />} />

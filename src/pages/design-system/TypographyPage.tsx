@@ -8,7 +8,7 @@ function TypeRow({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-2 py-8 border-b border-gray-100 last:border-0">
+    <div className="flex flex-col gap-2 py-8 border-b border-ktp-ui-border last:border-0">
       <Caption>{label}</Caption>
       {children}
     </div>
@@ -18,7 +18,7 @@ function TypeRow({
 export function TypographyPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Typography</h1>
         <p className="text-ktp-muted">
           KTP uses <strong>DM Sans</strong> for all body copy and headings. Scale and weights are

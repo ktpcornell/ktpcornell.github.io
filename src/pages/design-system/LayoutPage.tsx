@@ -1,7 +1,7 @@
 export function LayoutPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-gray-200">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Layout</h1>
         <p className="text-ktp-muted">
           Structure, spacing, and responsive design rules used across the KTP site.
@@ -17,7 +17,7 @@ export function LayoutPage() {
             Standard Tailwind breakpoints used for responsive layouts across all pages.
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <table className="w-full text-sm border border-ktp-ui-border rounded-xl overflow-hidden">
               <thead>
                 <tr className="bg-ktp-surface text-ktp-primary">
                   <th className="text-left px-4 py-3 font-semibold">Prefix</th>
@@ -34,7 +34,7 @@ export function LayoutPage() {
                   { prefix: 'xl:', width: '1280px', usage: 'Wide desktop' },
                   { prefix: '2xl:', width: '1536px', usage: 'Extra wide (rarely used)' },
                 ].map((row) => (
-                  <tr key={row.prefix} className="border-t border-gray-200">
+                  <tr key={row.prefix} className="border-t border-ktp-ui-border">
                     <td className="px-4 py-3 font-mono text-ktp-primary">{row.prefix}</td>
                     <td className="px-4 py-3 text-ktp-muted">{row.width}</td>
                     <td className="px-4 py-3 text-ktp-muted">{row.usage}</td>
@@ -51,7 +51,7 @@ export function LayoutPage() {
           <p className="text-ktp-muted text-sm mb-4">
             Page content is constrained with a max-width container and horizontal padding.
           </p>
-          <div className="border border-gray-200 rounded-xl p-6 bg-white">
+          <div className="border border-ktp-ui-border rounded-xl p-6 bg-white">
             <code className="text-sm font-mono bg-ktp-surface px-2 py-1 rounded text-ktp-primary">
               container mx-auto px-4
             </code>
@@ -71,7 +71,7 @@ export function LayoutPage() {
             Two standard vertical padding patterns used for page sections.
           </p>
           <div className="flex flex-col gap-4">
-            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <div className="border border-ktp-ui-border rounded-xl p-6 bg-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-ktp-muted mb-2">Standard section</p>
               <code className="text-sm font-mono bg-ktp-surface px-2 py-1 rounded text-ktp-primary">
                 py-16 md:py-24
@@ -80,7 +80,7 @@ export function LayoutPage() {
                 Used for full-width page sections (Values, History, Gallery, etc.).
               </p>
             </div>
-            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <div className="border border-ktp-ui-border rounded-xl p-6 bg-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-ktp-muted mb-2">Content area (design system, portal)</p>
               <code className="text-sm font-mono bg-ktp-surface px-2 py-1 rounded text-ktp-primary">
                 p-6 md:p-12
@@ -116,7 +116,7 @@ export function LayoutPage() {
                 usage: 'MemberClassSection',
               },
             ].map((item) => (
-              <div key={item.label} className="border border-gray-200 rounded-xl p-5 bg-white">
+              <div key={item.label} className="border border-ktp-ui-border rounded-xl p-5 bg-white">
                 <p className="text-xs font-semibold uppercase tracking-widest text-ktp-muted mb-1">{item.label}</p>
                 <code className="text-sm font-mono bg-ktp-surface px-2 py-1 rounded text-ktp-primary break-all">
                   {item.code}
