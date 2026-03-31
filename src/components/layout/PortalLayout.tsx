@@ -2,6 +2,7 @@ import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
 import { signOut } from '@/services/authService'
 import { Megaphone, Users } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { Button } from '@/design-system/components/Button'
 
 type NavLink = {
   to: string
@@ -32,6 +33,7 @@ export function PortalLayout() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      {/* DS-SKIP: layout shell — no TopNav/Sidebar DS component exists; ktp-* tokens used for all colors */}
       {/* Top nav */}
       <nav className="bg-ktp-primary sticky top-0 z-50 h-16 flex items-center">
         {/* Logo — same width as sidebar, centered */}
@@ -42,21 +44,16 @@ export function PortalLayout() {
         </div>
         {/* Title + actions */}
         <div className="flex-1 flex items-center justify-between px-6">
-          {/* DS-SKIP: text-white/90 — slight dimming for visual hierarchy on dark nav; requires --ktp-white-dim token to avoid opacity modifier */}
-          <span className="text-white/90 text-sm font-medium tracking-wide">
+          <span className="text-ktp-on-dark-secondary text-sm font-medium tracking-wide">
             Member Portal
           </span>
           <div className="flex items-center gap-5">
             <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">
               Public Site
             </Link>
-            {/* DS-SKIP: <button> — transparent text-only sign-out on dark nav; Button component adds padding/border not suitable here */}
-            <button
-              onClick={handleSignOut}
-              className="text-sm text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer p-0"
-            >
+            <Button variant="transparent" size="sm" onClick={handleSignOut}>
               Sign Out
-            </button>
+            </Button>
           </div>
         </div>
       </nav>

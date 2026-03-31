@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-31 by Claude (Gabriel Castillo) — design system migration: DataTable, KtpModal, IconButton, CheckboxField, SwitchField; admin page migration; CLAUDE.md sync
+Last Updated: 2026-03-31 by Claude (Gabriel Castillo) — design system migration: PortalLayout, AdminAlumniPage, AlumniCard; DESIGN_SYSTEM.md docs for Switch, DataTable, KtpModal, IconButton, CheckboxField
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 

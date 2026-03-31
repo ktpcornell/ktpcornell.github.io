@@ -5,6 +5,7 @@ import type { AlumniEntry } from '@/types/alumni'
 import { Button } from '@/design-system/components/Button'
 import { FormField } from '@/design-system/components/FormField'
 import { Spinner } from '@/design-system/components/Spinner'
+import { Heading } from '@/design-system/components/Typography'
 import {
   DataTable,
   DataTableHead,
@@ -50,7 +51,7 @@ export function AdminAlumniPage() {
   return (
     <div className="p-8 bg-ktp-surface min-h-full">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-ktp-primary">Alumni Database</h2>
+        <Heading level={2} color="primary">Alumni Database</Heading>
         <Button
           variant="primary"
           onClick={() => {

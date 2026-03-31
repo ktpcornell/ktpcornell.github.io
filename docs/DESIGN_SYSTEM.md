@@ -1,6 +1,6 @@
 # Design System
 
-Last Updated: 2026-03-30
+Last Updated: 2026-03-31
 
 The KTP design system lives at `/design-system` in the running app and provides a visual reference for every color token, typography scale, and shared UI component.
 
@@ -250,6 +250,172 @@ import { FormField, SelectField, TextareaField } from '@/design-system/component
 
 ---
 
+### CheckboxField
+
+**Import:** `@/design-system/components/FormField`
+**Exports:** `CheckboxField`
+**Props:** `label` (required), `checked`, `onCheckedChange`, `description?`, `disabled?`, `id?`
+
+When to use: Any labeled checkbox with accessible wiring. Built on ShadCN Checkbox + Label.
+
+```tsx
+import { CheckboxField } from '@/design-system/components/FormField'
+
+<CheckboxField
+  label="Send email notifications"
+  checked={notify}
+  onCheckedChange={setNotify}
+  description="You'll receive a weekly digest."
+/>
+```
+
+**Do not use instead:** Raw `<input type="checkbox">` without label wiring.
+
+---
+
+### Switch / SwitchField
+
+**Import:** `@/design-system/components/Switch`
+**Exports:** `Switch`, `SwitchField`
+
+| Export | Use for |
+|--------|---------|
+| `Switch` | Toggle inside a table cell or other dense layout — no label |
+| `SwitchField` | Toggle with an accessible label + optional description |
+
+**SwitchField props:** `label` (required), `checked`, `onCheckedChange`, `description?`, `disabled?`, `id?`
+
+```tsx
+import { Switch, SwitchField } from '@/design-system/components/Switch'
+
+{/* Inside a DataTableCell */}
+<Switch checked={row.isAdmin} onCheckedChange={(v) => toggle(row.id, v)} />
+
+{/* Standalone with label */}
+<SwitchField
+  label="Enable announcements"
+  checked={enabled}
+  onCheckedChange={setEnabled}
+/>
+```
+
+**Do not use instead:** Raw `<button>` toggle pills with hand-written styles.
+
+---
+
+### DataTable / sub-components
+
+**Import:** `@/design-system/components/DataTable`
+**Exports:** `DataTable`, `DataTableHead`, `DataTableHeadCell`, `DataTableBody`, `DataTableRow`, `DataTableCell`, `DataTableEmptyState`
+
+| Export | Maps to | Notes |
+|--------|---------|-------|
+| `DataTable` | `<div><table>` wrapper | Handles overflow scroll |
+| `DataTableHead` | `<thead>` | |
+| `DataTableHeadCell` | `<th>` | `align?: 'left' \| 'center' \| 'right'` |
+| `DataTableBody` | `<tbody>` | |
+| `DataTableRow` | `<tr>` | `index` prop required — drives zebra-striping |
+| `DataTableCell` | `<td>` | `variant?: 'default' \| 'mono' \| 'actions'` |
+| `DataTableEmptyState` | `<tr><td>` | `colSpan` required, `message?` optional |
+
+```tsx
+import {
+  DataTable, DataTableHead, DataTableHeadCell,
+  DataTableBody, DataTableRow, DataTableCell, DataTableEmptyState,
+} from '@/design-system/components/DataTable'
+
+<DataTable>
+  <DataTableHead>
+    <tr>
+      <DataTableHeadCell>Name</DataTableHeadCell>
+      <DataTableHeadCell>Role</DataTableHeadCell>
+      <DataTableHeadCell align="right">Actions</DataTableHeadCell>
+    </tr>
+  </DataTableHead>
+  <DataTableBody>
+    {rows.length === 0 && <DataTableEmptyState colSpan={3} message="No results." />}
+    {rows.map((row, i) => (
+      <DataTableRow key={row.id} index={i}>
+        <DataTableCell>{row.name}</DataTableCell>
+        <DataTableCell variant="mono">{row.id}</DataTableCell>
+        <DataTableCell variant="actions">
+          <Button variant="outline" size="sm">Edit</Button>
+        </DataTableCell>
+      </DataTableRow>
+    ))}
+  </DataTableBody>
+</DataTable>
+```
+
+**Do not use instead:** Raw `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`.
+
+---
+
+### KtpModal / sub-components
+
+**Import:** `@/design-system/components/Modal`
+**Exports:** `KtpModal`, `KtpModalHeader`, `KtpModalBody`, `KtpModalFooter`
+
+Built on Radix Dialog — provides focus-trap, scroll-lock, and keyboard dismissal automatically.
+
+| Export | Purpose |
+|--------|---------|
+| `KtpModal` | Root wrapper. Props: `open`, `onClose`, `maxWidth?: 'sm' \| 'md' \| 'lg' \| 'xl'` |
+| `KtpModalHeader` | KTP-branded navy title bar with built-in close (×) button. Props: `title` |
+| `KtpModalBody` | Scrollable content area with standard padding |
+| `KtpModalFooter` | Action row — typically holds `Button` components |
+
+```tsx
+import { KtpModal, KtpModalHeader, KtpModalBody, KtpModalFooter } from '@/design-system/components/Modal'
+
+<KtpModal open={showModal} onClose={() => setShowModal(false)} maxWidth="md">
+  <KtpModalHeader title="Edit Member" />
+  <KtpModalBody>
+    <FormField label="Name" value={name} onChange={(e) => setName(e.target.value)} />
+  </KtpModalBody>
+  <KtpModalFooter>
+    <Button variant="outline" onClick={() => setShowModal(false)}>Cancel</Button>
+    <Button variant="primary" onClick={handleSave}>Save</Button>
+  </KtpModalFooter>
+</KtpModal>
+```
+
+**Do not use instead:** `fixed inset-0 z-50` overlay divs, `bg-black/50` or `bg-ktp-overlay` backdrops built by hand.
+
+---
+
+### IconButton
+
+**Import:** `@/design-system/components/IconButton`
+**Exports:** `IconButton`, `iconButtonVariants`
+**Props:** `variant?: 'ghost' | 'on-dark'` (default: `'ghost'`), `size?: 'sm' | 'default' | 'lg'`, `aria-label` (required), `asChild?`
+
+When to use: Icon-only triggers — hamburger menus, modal close buttons, row action icons — where no text label is visible.
+
+| Variant | Background context |
+|---------|--------------------|
+| `ghost` | Light backgrounds (white, `ktp-surface`) |
+| `on-dark` | Dark backgrounds (`ktp-primary` nav, card headers) |
+
+```tsx
+import { IconButton } from '@/design-system/components/IconButton'
+import { X, LogOut } from 'lucide-react'
+
+{/* Close button on a light modal */}
+<IconButton variant="ghost" aria-label="Close" onClick={onClose}>
+  <X className="h-4 w-4" />
+</IconButton>
+
+{/* Sign-out button on a dark nav bar */}
+<IconButton variant="on-dark" aria-label="Sign out" onClick={handleSignOut}>
+  <LogOut className="h-4 w-4" />
+</IconButton>
+```
+
+**Do not use instead:** Raw `<button>` for hamburger, close, or other icon-only triggers.
+
+---
+
 ### SectionSeparator
 
 **Import:** `@/design-system/components/SectionSeparator`
@@ -354,6 +520,12 @@ The Spinner component is available at three sizes: `sm`, `md` (default), `lg`. I
 | `<p className="text-red-500">` for error states | `<AlertBanner variant="error">` |
 | `<div className="bg-primary px-6 py-4 ...">` as a card title bar | `<CardHeader>` |
 | Raw `<input>`, `<select>`, `<textarea>` without label/error wiring | `FormField`, `SelectField`, `TextareaField` |
+| Raw `<input type="checkbox">` | `CheckboxField` |
+| Raw `<button>` toggle pill | `Switch` (no label) or `SwitchField` (with label) |
+| Raw `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` | `DataTable` and sub-components |
+| `fixed inset-0 z-50` overlay div + manual panel + manual close button | `KtpModal` + `KtpModalHeader` + `KtpModalBody` |
+| `bg-black/50` or `bg-ktp-overlay` modal backdrop built by hand | Use `KtpModal` which handles the backdrop |
+| Raw `<button>` for icon-only triggers (hamburger, close, sign-out icon, etc.) | `IconButton variant="ghost"` (light bg) or `variant="on-dark"` (dark bg) |
 | `<button className="...">` with hand-written styles | `<Button variant="...">` |
 | `<h2 className="text-2xl font-bold text-ktp-primary">` as a section heading | `<SectionTitle title="...">` |
 
@@ -446,7 +618,11 @@ Components live in `src/design-system/components/`. Each has a corresponding doc
 | Badge | `components/Badge.tsx` | `@/design-system/components/Badge` | `/design-system/components/badges` |
 | Button | `components/Button.tsx` | `@/design-system/components/Button` | `/design-system/components/buttons` |
 | Card / CardHeader / CardBody | `components/Card.tsx` | `@/design-system/components/Card` | `/design-system/components/cards` |
-| FormField / SelectField / TextareaField | `components/FormField.tsx` | `@/design-system/components/FormField` | `/design-system/components/form-fields` |
+| FormField / SelectField / CheckboxField / TextareaField | `components/FormField.tsx` | `@/design-system/components/FormField` | `/design-system/components/form-fields` |
+| Switch / SwitchField | `components/Switch.tsx` | `@/design-system/components/Switch` | `/design-system/components/switch` |
+| DataTable + sub-components | `components/DataTable.tsx` | `@/design-system/components/DataTable` | `/design-system/components/data-table` |
+| KtpModal + sub-components | `components/Modal.tsx` | `@/design-system/components/Modal` | `/design-system/components/modal` |
+| IconButton | `components/IconButton.tsx` | `@/design-system/components/IconButton` | `/design-system/components/icon-button` |
 | SectionSeparator | `components/SectionSeparator.tsx` | `@/design-system/components/SectionSeparator` | `/design-system/page-sections/section-separator` |
 | SectionTitle | `components/SectionTitle.tsx` | `@/design-system/components/SectionTitle` | `/design-system/page-sections/section-title` |
 | Spinner | `components/Spinner.tsx` | `@/design-system/components/Spinner` | `/design-system/components/spinner` |
