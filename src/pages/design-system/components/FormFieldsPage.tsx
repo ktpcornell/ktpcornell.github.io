@@ -10,11 +10,11 @@ export function FormFieldsPage() {
 
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Form Fields</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/FormField
           </code>
           . Exports <code className="text-sm font-mono">FormField</code>,{' '}
@@ -28,7 +28,7 @@ export function FormFieldsPage() {
 
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
-          <p className="text-sm text-ktp-muted mb-4">Text inputs</p>
+          <p className="text-sm text-ktp-fg-body mb-4">Text inputs</p>
           <div className="max-w-md space-y-4">
             <FormField label="Full Name" placeholder="Gabriel Castillo" />
             <FormField label="Email" type="email" placeholder="you@cornell.edu" />
@@ -36,7 +36,7 @@ export function FormFieldsPage() {
         </div>
 
         <div>
-          <p className="text-sm text-ktp-muted mb-4">With error state</p>
+          <p className="text-sm text-ktp-fg-body mb-4">With error state</p>
           <div className="max-w-md">
             <FormField
               label="LinkedIn URL"
@@ -47,7 +47,7 @@ export function FormFieldsPage() {
         </div>
 
         <div>
-          <p className="text-sm text-ktp-muted mb-4">Select field</p>
+          <p className="text-sm text-ktp-fg-body mb-4">Select field</p>
           <div className="max-w-md">
             <SelectField label="KTP Class">
               <option value="">Select class…</option>
@@ -59,12 +59,12 @@ export function FormFieldsPage() {
       </section>
 
       {/* CheckboxField */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-border">
         <div>
           <SectionLabel>CheckboxField — labeled checkbox</SectionLabel>
-          <p className="text-sm text-ktp-muted mt-1">
+          <p className="text-sm text-ktp-fg-body mt-1">
             Import from{' '}
-            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+            <code className="font-mono text-xs bg-ktp-bg-surface px-1 py-0.5 rounded">
               @/design-system/components/FormField
             </code>
             . Replaces raw{' '}
@@ -94,12 +94,12 @@ export function FormFieldsPage() {
       </section>
 
       {/* SwitchField */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-border">
         <div>
           <SectionLabel>Switch / SwitchField — toggle control</SectionLabel>
-          <p className="text-sm text-ktp-muted mt-1">
+          <p className="text-sm text-ktp-fg-body mt-1">
             Import from{' '}
-            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+            <code className="font-mono text-xs bg-ktp-bg-surface px-1 py-0.5 rounded">
               @/design-system/components/Switch
             </code>
             . Use bare <code className="font-mono text-xs">Switch</code> inside table cells.
@@ -109,7 +109,7 @@ export function FormFieldsPage() {
         <div className="max-w-md space-y-6">
           <div className="flex items-center gap-3">
             <Switch checked={toggled} onCheckedChange={setToggled} />
-            <span className="text-sm text-ktp-muted">Bare Switch (no label)</span>
+            <span className="text-sm text-ktp-fg-body">Bare Switch (no label)</span>
           </div>
           <SwitchField
             label="Enable public profile"

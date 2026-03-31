@@ -13,7 +13,7 @@ export function AlumniCard({ alumni }: AlumniCardProps) {
       <CardHeader>
         <div>
           <Heading level={6} color="white" className="mb-0">{alumni.name}</Heading>
-          <Caption className="text-ktp-muted-light">{alumni.graduationYear}</Caption>
+          <Caption className="text-ktp-fg-subtle">{alumni.graduationYear}</Caption>
         </div>
         <Badge variant="cyan">{alumni.ktpClass}</Badge>
       </CardHeader>

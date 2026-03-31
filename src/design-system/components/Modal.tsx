@@ -122,7 +122,7 @@ interface KtpModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function KtpModalFooter({ className, children, ...props }: KtpModalFooterProps) {
   return (
     <div
-      className={cn('flex items-center justify-end gap-3 px-6 py-4 border-t border-ktp-ui-border', className)}
+      className={cn('flex items-center justify-end gap-3 px-6 py-4 border-t border-ktp-border', className)}
       {...props}
     >
       {children}

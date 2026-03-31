@@ -46,7 +46,7 @@ export function AlumniPage() {
         )}
 
         {!loading && !error && filtered.length === 0 && (
-          <div className="text-center py-12 text-ktp-muted">
+          <div className="text-center py-12 text-ktp-fg-body">
             <p>No alumni found{search ? ' matching your search' : ''}.</p>
           </div>
         )}

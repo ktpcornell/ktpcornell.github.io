@@ -12,11 +12,11 @@ export function ModalPage() {
 
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Modal</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/Modal
           </code>
           . Built on Radix Dialog for focus-trap, scroll-lock, and{' '}
@@ -26,7 +26,7 @@ export function ModalPage() {
       </section>
 
       {/* Basic modal */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-border">
         <SectionLabel>Basic modal with header + body</SectionLabel>
         <div>
           <Button onClick={() => setBasicOpen(true)}>Open Modal</Button>
@@ -34,13 +34,13 @@ export function ModalPage() {
         <KtpModal open={basicOpen} onClose={() => setBasicOpen(false)}>
           <KtpModalHeader title="Example Modal" />
           <KtpModalBody>
-            <p className="text-ktp-muted text-sm">
+            <p className="text-ktp-fg-body text-sm">
               This modal uses <code className="font-mono text-xs">KtpModalHeader</code> (navy bar
               with built-in close button), <code className="font-mono text-xs">KtpModalBody</code>{' '}
               (scrollable padded area), and the optional{' '}
               <code className="font-mono text-xs">KtpModalFooter</code>.
             </p>
-            <p className="text-ktp-muted text-sm">
+            <p className="text-ktp-fg-body text-sm">
               The overlay uses <code className="font-mono text-xs">bg-ktp-overlay</code> instead of{' '}
               <code className="font-mono text-xs">bg-black/50</code>. The close button uses{' '}
               <code className="font-mono text-xs">IconButton variant="on-dark"</code>.
@@ -54,7 +54,7 @@ export function ModalPage() {
       </section>
 
       {/* Form modal */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-border">
         <SectionLabel>Form modal — with CheckboxField</SectionLabel>
         <div>
           <Button onClick={() => setFormOpen(true)}>New Announcement</Button>
@@ -84,13 +84,13 @@ export function ModalPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-ktp-ui-border">
+              <tr className="border-b border-ktp-border">
                 <th className="text-left py-2 pr-4 font-semibold text-ktp-primary">Component</th>
                 <th className="text-left py-2 pr-4 font-semibold text-ktp-primary">Props</th>
                 <th className="text-left py-2 font-semibold text-ktp-primary">Notes</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-ktp-ui-border">
+            <tbody className="divide-y divide-ktp-border">
               {[
                 ['KtpModal', 'open, onClose, maxWidth? = "lg"', 'maxWidth: sm | md | lg | xl'],
                 ['KtpModalHeader', 'title', 'Navy bar + built-in IconButton close'],
@@ -99,8 +99,8 @@ export function ModalPage() {
               ].map(([comp, props, notes]) => (
                 <tr key={comp}>
                   <td className="py-2 pr-4 font-mono text-xs text-ktp-primary">{comp}</td>
-                  <td className="py-2 pr-4 font-mono text-xs text-ktp-muted">{props}</td>
-                  <td className="py-2 text-xs text-ktp-muted">{notes}</td>
+                  <td className="py-2 pr-4 font-mono text-xs text-ktp-fg-body">{props}</td>
+                  <td className="py-2 text-xs text-ktp-fg-body">{notes}</td>
                 </tr>
               ))}
             </tbody>

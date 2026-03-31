@@ -23,7 +23,7 @@ export function AnnouncementList() {
 
   if (announcements.length === 0) {
     return (
-      <div className="text-center py-12 text-ktp-muted">
+      <div className="text-center py-12 text-ktp-fg-body">
         <p className="text-lg">No announcements yet.</p>
         <p className="text-sm">Check back later for updates from the chapter.</p>
       </div>

@@ -39,9 +39,6 @@
     --ktp-primary: #273053;
     --ktp-primary-rgb: 39, 48, 83;    /* for rgba() usage in legacy.css */
     --ktp-accent: #0dcaf0;
-    --ktp-surface: #f0f8ff;
-    --ktp-muted: #717275;
-    --ktp-muted-light: #a8adb8;   /* lighter muted — readable on ktp-primary dark backgrounds */
     --ktp-overlay-rgb: 0, 20, 60;     /* for rgba() card overlay */
     --ktp-accent-pink: #f78fb3;
     --ktp-white: #ffffff;
@@ -51,17 +48,22 @@
     --ktp-warning-border: #f59e0b;
     --ktp-warning-text: #92400e;
 
-    /* UI shell tokens — structural grays used in sidebars, nav, and dividers */
-    --ktp-ui-border: #e5e7eb;                         /* sidebar/card border (= gray-200) */
-    --ktp-ui-bg: #f9fafb;                             /* sidebar background (= gray-50 full opacity) */
-    --ktp-ui-hover: #f3f4f6;                          /* nav item hover bg (= gray-100) */
-    --ktp-divider-on-dark: rgba(255, 255, 255, 0.20); /* divider line on navy top bars */
-    --ktp-neutral: #4b5563;                           /* gray-600 — neutral stat card accent */
-    --ktp-neutral-bg: #d1d5db;                        /* gray-300 — disabled/inactive toggle track */
+    /* Background tokens — surfaces, panels, and hover states */
+    --ktp-bg-surface: #f0f8ff;  /* section alt bg, portal pages */
+    --ktp-bg-panel: #f9fafb;    /* sidebar/panel background (= gray-50) */
+    --ktp-bg-hover: #f3f4f6;    /* nav/item hover state (= gray-100) */
 
-    /* On-dark text tokens — semantic aliases for text on navy; avoids opacity modifier syntax */
-    --ktp-on-dark-secondary: #d4d8e4;               /* ~90% white on navy — portal/admin title bar text */
-    --ktp-on-dark-tertiary: var(--ktp-muted-light); /* ~70% white on navy — secondary text on dark backgrounds */
+    /* Foreground tokens — text hierarchy */
+    --ktp-fg-body: #717275;     /* default body text */
+    --ktp-fg-subtle: #a8adb8;   /* secondary/dimmed text; also used on dark backgrounds */
+    --ktp-fg-on-dark: #d4d8e4;  /* primary text on navy (portal/admin title bar) */
+
+    /* Border tokens */
+    --ktp-border: #e5e7eb;                         /* default border (= gray-200) */
+    --ktp-border-dark: rgba(255, 255, 255, 0.20);  /* divider on navy surfaces */
+
+    /* Neutral — gray-600, used for stat card accents */
+    --ktp-neutral: #4b5563;
 
     /* Overlay token — modal backdrop; replaces bg-black/50 opacity modifier */
     --ktp-overlay: rgba(0, 0, 0, 0.50);
@@ -72,10 +74,10 @@
     /* Legacy aliases — kept for legacy.css class references */
     --white-color: var(--ktp-white);
     --primary-color: var(--ktp-primary);
-    --section-bg-color: var(--ktp-surface);
+    --section-bg-color: var(--ktp-bg-surface);
     --dark-color: #191c24;
     --navbar-bg-color: var(--ktp-primary);
-    --p-color: var(--ktp-muted);
+    --p-color: var(--ktp-fg-body);
     --highlight-icon-color: #ff0100;
 
     --body-font-family: 'DM Sans', sans-serif;

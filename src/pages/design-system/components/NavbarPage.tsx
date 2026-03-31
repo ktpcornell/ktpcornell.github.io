@@ -3,7 +3,7 @@ import { SectionLabel } from '@/design-system/components/Typography'
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border last:border-0">
+    <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-border last:border-0">
       {children}
     </section>
   )
@@ -19,7 +19,7 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
-    <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+    <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
       {children}
     </code>
   )
@@ -31,7 +31,7 @@ function DesktopNavPreview({ authState }: { authState: 'guest' | 'member' | 'adm
   const activeClass = 'px-5 py-3 text-base font-medium text-ktp-accent transition-colors no-underline cursor-default'
 
   return (
-    <div className="rounded-xl overflow-hidden border border-ktp-ui-border shadow-sm">
+    <div className="rounded-xl overflow-hidden border border-ktp-border shadow-sm">
       <nav className="bg-ktp-primary">
         <div className="px-4 flex items-center justify-between py-5">
           {/* Brand */}
@@ -79,7 +79,7 @@ function MobileNavPreview({ menuOpen }: { menuOpen: boolean }) {
   const linkClass = 'block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors no-underline cursor-default'
 
   return (
-    <div className="rounded-xl overflow-hidden border border-ktp-ui-border shadow-sm max-w-sm">
+    <div className="rounded-xl overflow-hidden border border-ktp-border shadow-sm max-w-sm">
       <nav className="bg-ktp-primary relative">
         <div className="px-4 flex items-center justify-between py-5">
           {/* Brand */}
@@ -118,10 +118,10 @@ function MobileNavPreview({ menuOpen }: { menuOpen: boolean }) {
 /** Design System top bar mockup */
 function DesignSystemNavPreview() {
   return (
-    <div className="rounded-xl overflow-hidden border border-ktp-ui-border shadow-sm">
+    <div className="rounded-xl overflow-hidden border border-ktp-border shadow-sm">
       <nav className="bg-ktp-primary h-16 flex items-center">
         {/* Logo section — same width as sidebar */}
-        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-divider-on-dark">
+        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-border-dark">
           <img src="/logo.svg" alt="KTP" className="h-10" />
         </div>
         {/* Title + back link */}
@@ -133,13 +133,13 @@ function DesignSystemNavPreview() {
       </nav>
       {/* Sidebar hint */}
       <div className="flex">
-        <div className="w-56 shrink-0 border-r border-ktp-ui-border bg-ktp-ui-bg flex flex-col py-4 px-2 gap-0.5">
+        <div className="w-56 shrink-0 border-r border-ktp-border bg-ktp-bg-panel flex flex-col py-4 px-2 gap-0.5">
           <span className="text-xs text-ktp-accent font-semibold uppercase tracking-widest px-4 py-1.5">Styles</span>
-          <span className="text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]">Colors</span>
-          <span className="text-xs text-ktp-muted px-4 py-2">Typography</span>
+          <span className="text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-bg-surface border-l-2 border-ktp-accent !pl-[14px]">Colors</span>
+          <span className="text-xs text-ktp-fg-body px-4 py-2">Typography</span>
         </div>
-        <div className="flex-1 bg-ktp-surface flex items-center px-8">
-          <span className="text-xs text-ktp-muted italic">page content</span>
+        <div className="flex-1 bg-ktp-bg-surface flex items-center px-8">
+          <span className="text-xs text-ktp-fg-body italic">page content</span>
         </div>
       </div>
     </div>
@@ -149,10 +149,10 @@ function DesignSystemNavPreview() {
 /** Portal layout mockup */
 function PortalNavPreview({ isAdmin }: { isAdmin?: boolean }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-ktp-ui-border shadow-sm">
+    <div className="rounded-xl overflow-hidden border border-ktp-border shadow-sm">
       {/* Top bar */}
       <nav className="bg-ktp-primary h-16 flex items-center">
-        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-divider-on-dark">
+        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-border-dark">
           <img src="/logo.svg" alt="KTP" className="h-10" />
         </div>
         <div className="flex-1 flex items-center justify-between px-6">
@@ -167,16 +167,16 @@ function PortalNavPreview({ isAdmin }: { isAdmin?: boolean }) {
       </nav>
       {/* Sidebar hint */}
       <div className="flex">
-        <div className="w-56 shrink-0 border-r border-ktp-ui-border bg-ktp-ui-bg flex flex-col py-4 px-2 gap-0.5">
-          <span className="flex items-center gap-2.5 text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]">
+        <div className="w-56 shrink-0 border-r border-ktp-border bg-ktp-bg-panel flex flex-col py-4 px-2 gap-0.5">
+          <span className="flex items-center gap-2.5 text-xs text-ktp-primary font-medium px-4 py-2 rounded-lg bg-ktp-bg-surface border-l-2 border-ktp-accent !pl-[14px]">
             <Megaphone size={13} />Announcements
           </span>
-          <span className="flex items-center gap-2.5 text-xs text-ktp-muted px-4 py-2">
+          <span className="flex items-center gap-2.5 text-xs text-ktp-fg-body px-4 py-2">
             <Users size={13} />Alumni
           </span>
         </div>
-        <div className="flex-1 bg-ktp-surface flex items-center px-8">
-          <span className="text-xs text-ktp-muted italic">page content</span>
+        <div className="flex-1 bg-ktp-bg-surface flex items-center px-8">
+          <span className="text-xs text-ktp-fg-body italic">page content</span>
         </div>
       </div>
     </div>
@@ -193,10 +193,10 @@ function AdminNavPreview() {
   ]
 
   return (
-    <div className="rounded-xl overflow-hidden border border-ktp-ui-border shadow-sm">
+    <div className="rounded-xl overflow-hidden border border-ktp-border shadow-sm">
       {/* Top bar */}
       <nav className="bg-ktp-primary h-16 flex items-center">
-        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-divider-on-dark">
+        <div className="w-56 shrink-0 h-full flex items-center justify-center border-r border-ktp-border-dark">
           <img src="/logo.svg" alt="KTP" className="h-10" />
         </div>
         <div className="flex-1 flex items-center justify-between px-6">
@@ -210,22 +210,22 @@ function AdminNavPreview() {
       </nav>
       {/* Sidebar hint */}
       <div className="flex">
-        <div className="w-56 shrink-0 border-r border-ktp-ui-border bg-ktp-ui-bg flex flex-col py-4 px-2 gap-0.5">
+        <div className="w-56 shrink-0 border-r border-ktp-border bg-ktp-bg-panel flex flex-col py-4 px-2 gap-0.5">
           {links.map(({ label, icon: Icon }, i) => (
             <span
               key={label}
               className={`flex items-center gap-2.5 text-xs px-4 py-2 rounded-lg cursor-default ${
                 i === 0
-                  ? 'text-ktp-primary font-medium bg-ktp-surface border-l-2 border-ktp-accent !pl-[14px]'
-                  : 'text-ktp-muted'
+                  ? 'text-ktp-primary font-medium bg-ktp-bg-surface border-l-2 border-ktp-accent !pl-[14px]'
+                  : 'text-ktp-fg-body'
               }`}
             >
               <Icon size={13} />{label}
             </span>
           ))}
         </div>
-        <div className="flex-1 bg-ktp-surface flex items-center px-8">
-          <span className="text-xs text-ktp-muted italic">page content</span>
+        <div className="flex-1 bg-ktp-bg-surface flex items-center px-8">
+          <span className="text-xs text-ktp-fg-body italic">page content</span>
         </div>
       </div>
     </div>
@@ -236,9 +236,9 @@ export function NavbarPage() {
   return (
     <>
       {/* Header */}
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Navbar</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           KTP uses two distinct navigation patterns depending on context. The
           public-facing <Code>Navbar</Code> is tall and branded; internal tooling
           (Design System, Portal, Admin) uses compact, density-first chrome.
@@ -248,7 +248,7 @@ export function NavbarPage() {
       {/* Two patterns */}
       <Section>
         <Label>Two navigation patterns</Label>
-        <div className="grid md:grid-cols-2 gap-6 text-sm text-ktp-muted">
+        <div className="grid md:grid-cols-2 gap-6 text-sm text-ktp-fg-body">
           <div className="flex flex-col gap-2">
             <p className="font-semibold text-ktp-primary">Public Navbar — <Code>Navbar.tsx</Code></p>
             <ul className="list-disc pl-5 flex flex-col gap-1">
@@ -273,7 +273,7 @@ export function NavbarPage() {
       {/* Public navbar heading */}
       <section className="px-6 pt-10 md:px-12 pb-2">
         <h2 className="text-ktp-primary tracking-normal normal-case text-xl">Public navbar</h2>
-        <p className="text-ktp-muted text-sm mt-1">
+        <p className="text-ktp-fg-body text-sm mt-1">
           Used on all public-facing pages via <Code>PageWrapper</Code>. Tall, branded, and fully responsive.
         </p>
       </section>
@@ -282,7 +282,7 @@ export function NavbarPage() {
       <Section>
         <Label>Desktop (≥ lg / 1024px) — guest</Label>
         <DesktopNavPreview authState="guest" />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           On desktop the full link list is always visible. The brand mark sits on
           the left; navigation links flow right. Unauthenticated visitors see a
           plain-text <strong>Member Login</strong> link and a pill-shaped{' '}
@@ -293,7 +293,7 @@ export function NavbarPage() {
       <Section>
         <Label>Desktop — member logged in</Label>
         <DesktopNavPreview authState="member" />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           When a user is authenticated, the Member Login and Apply links are replaced with a{' '}
           <strong>Portal</strong> link and a <strong>Sign Out</strong> button. For regular members
           Portal links to <Code>/portal</Code>; for admins it links directly to{' '}
@@ -306,7 +306,7 @@ export function NavbarPage() {
       <Section>
         <Label>Mobile ({'<'} lg) — menu closed</Label>
         <MobileNavPreview menuOpen={false} />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           Below the <Code>lg</Code> breakpoint (1024 px) the link list is hidden
           and a hamburger icon (<Code>Menu</Code> from <Code>lucide-react</Code>)
           appears on the right side of the bar.
@@ -316,7 +316,7 @@ export function NavbarPage() {
       <Section>
         <Label>Mobile — menu open</Label>
         <MobileNavPreview menuOpen={true} />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           Tapping the hamburger toggles the menu open. The icon swaps to an{' '}
           <Code>X</Code> and the link list drops below the bar as a full-width
           vertical stack. Clicking any link or clicking outside the menu closes it.
@@ -326,7 +326,7 @@ export function NavbarPage() {
       {/* Internal tooling heading */}
       <section className="px-6 pt-10 md:px-12 pb-2">
         <h2 className="text-ktp-primary tracking-normal normal-case text-xl">Internal tooling nav</h2>
-        <p className="text-ktp-muted text-sm mt-1">
+        <p className="text-ktp-fg-body text-sm mt-1">
           Compact chrome used across <Code>/design-system</Code>, <Code>/portal</Code>, and <Code>/admin</Code>.
           Density over branding — <Code>text-sm</Code>, tighter padding, no hamburger menu.
         </p>
@@ -335,7 +335,7 @@ export function NavbarPage() {
       <Section>
         <Label>Design System — top bar + sidebar (<Code>DesignSystemLayout.tsx</Code>)</Label>
         <DesignSystemNavPreview />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           A fixed <Code>h-16</Code> top bar with the logo centered in a <Code>w-56</Code> column that
           aligns exactly with the sidebar border. "Design System" label and a plain "Public Site"
           link sit in the remaining space. The sidebar is <Code>hidden</Code> below <Code>lg</Code>;
@@ -346,7 +346,7 @@ export function NavbarPage() {
       <Section>
         <Label>Member Portal (<Code>PortalLayout.tsx</Code>)</Label>
         <PortalNavPreview />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           Same top bar + sidebar pattern as the Design System. Sidebar has Announcements and Alumni
           links, each with a lucide icon. Right section shows "Public Site" and Sign Out.
           This layout is for regular members only — admins are redirected to <Code>/admin</Code> on login.
@@ -356,18 +356,18 @@ export function NavbarPage() {
       <Section>
         <Label>Admin Portal (<Code>AdminLayout.tsx</Code>)</Label>
         <AdminNavPreview />
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           Admins land here directly on login. Sidebar has Overview, Announcements, Alumni, and
           Users — each with a lucide icon. Right section shows "Public Site" and Sign Out.
           Active sidebar link uses the same <Code>border-l-ktp-accent</Code> +{' '}
-          <Code>bg-ktp-surface</Code> treatment as the other layouts.
+          <Code>bg-ktp-bg-surface</Code> treatment as the other layouts.
         </p>
       </Section>
 
       {/* Behavior */}
       <Section>
         <Label>Behavior &amp; implementation notes</Label>
-        <ul className="flex flex-col gap-2 text-sm text-ktp-muted list-disc pl-5">
+        <ul className="flex flex-col gap-2 text-sm text-ktp-fg-body list-disc pl-5">
           <li>
             <strong>Sticky positioning</strong> — <Code>sticky top-0 z-50</Code> keeps the
             bar pinned while the page scrolls.
@@ -399,12 +399,12 @@ export function NavbarPage() {
       {/* Usage */}
       <Section>
         <Label>Usage</Label>
-        <p className="text-sm text-ktp-muted leading-relaxed">
+        <p className="text-sm text-ktp-fg-body leading-relaxed">
           You do not need to import <Code>Navbar</Code> directly. All public pages
           are wrapped with <Code>PageWrapper</Code>, which renders the navbar and
           footer automatically. If you need to add a new public page, wrap it:
         </p>
-        <pre className="text-sm font-mono bg-ktp-surface rounded-xl p-4 text-ktp-primary overflow-x-auto whitespace-pre">
+        <pre className="text-sm font-mono bg-ktp-bg-surface rounded-xl p-4 text-ktp-primary overflow-x-auto whitespace-pre">
 {`import { PageWrapper } from '@/components/layout/PageWrapper'
 
 export function MyPage() {

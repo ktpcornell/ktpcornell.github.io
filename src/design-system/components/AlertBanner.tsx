@@ -13,7 +13,7 @@ interface AlertBannerProps extends React.HTMLAttributes<HTMLDivElement> {
 const variantStyles = {
   error: 'bg-ktp-error-bg border-l-ktp-error text-ktp-error',
   warning: 'bg-ktp-warning-bg border-l-ktp-warning-border text-ktp-warning-text',
-  info: 'bg-ktp-surface border-l-ktp-accent text-ktp-primary',
+  info: 'bg-ktp-bg-surface border-l-ktp-accent text-ktp-primary',
 }
 
 export function AlertBanner({

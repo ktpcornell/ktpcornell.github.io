@@ -72,7 +72,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-center border-t border-ktp-divider-on-dark pt-6">
+        <div className="text-center border-t border-ktp-border-dark pt-6">
           <p className="text-white text-sm mb-1">
             This organization is a registered student organization of Cornell University.{' '}
             <a

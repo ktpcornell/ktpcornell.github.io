@@ -14,29 +14,28 @@ const config: Config = {
   			// Colors that need opacity modifier support use hsl(var()) with <alpha-value>
   			'ktp-primary': 'hsl(var(--primary) / <alpha-value>)',    // = primary / #273053
   			'ktp-accent': 'hsl(var(--secondary) / <alpha-value>)',   // = secondary / #0dcaf0
-  			'ktp-surface': 'var(--ktp-surface)',
-  			'ktp-muted': 'var(--ktp-muted)',
-  			'ktp-muted-light': 'var(--ktp-muted-light)',
   			'ktp-accent-pink': 'var(--ktp-accent-pink)',
   			'ktp-error': 'var(--ktp-error)',
   			'ktp-error-bg': 'var(--ktp-error-bg)',
   			'ktp-warning-bg': 'var(--ktp-warning-bg)',
   			'ktp-warning-border': 'var(--ktp-warning-border)',
   			'ktp-warning-text': 'var(--ktp-warning-text)',
-  			// On-dark text tokens — use instead of text-white/90 / text-white/70
-  			'ktp-on-dark-secondary': 'var(--ktp-on-dark-secondary)',
-  			'ktp-on-dark-tertiary':  'var(--ktp-muted-light)',
-  			// Overlay token — use bg-ktp-overlay instead of bg-black/50
-  			'ktp-overlay':         'var(--ktp-overlay)',
-  			// Card back token
-  			'ktp-card-back':       'var(--ktp-card-back)',
-  			// UI shell tokens
-  			'ktp-ui-border':       'var(--ktp-ui-border)',
-  			'ktp-ui-bg':           'var(--ktp-ui-bg)',
-  			'ktp-ui-hover':        'var(--ktp-ui-hover)',
-  			'ktp-divider-on-dark': 'var(--ktp-divider-on-dark)',
-  			'ktp-neutral':         'var(--ktp-neutral)',
-  			'ktp-neutral-bg':      'var(--ktp-neutral-bg)',
+  			// Background tokens
+  			'ktp-bg-surface': 'var(--ktp-bg-surface)',
+  			'ktp-bg-panel':   'var(--ktp-bg-panel)',
+  			'ktp-bg-hover':   'var(--ktp-bg-hover)',
+  			// Foreground tokens
+  			'ktp-fg-body':    'var(--ktp-fg-body)',
+  			'ktp-fg-subtle':  'var(--ktp-fg-subtle)',
+  			'ktp-fg-on-dark': 'var(--ktp-fg-on-dark)',
+  			// Border tokens
+  			'ktp-border':      'var(--ktp-border)',
+  			'ktp-border-dark': 'var(--ktp-border-dark)',
+  			// Overlay + special
+  			'ktp-overlay':   'var(--ktp-overlay)',
+  			'ktp-card-back': 'var(--ktp-card-back)',
+  			// Neutral
+  			'ktp-neutral': 'var(--ktp-neutral)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

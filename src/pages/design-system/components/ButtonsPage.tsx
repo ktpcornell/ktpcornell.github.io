@@ -6,7 +6,7 @@ import { X, Menu, Copy, Trash2 } from 'lucide-react'
 
 function ButtonGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-ui-border last:border-0">
+    <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-border last:border-0">
       <div>
         <SectionLabel>{label}</SectionLabel>
       </div>
@@ -18,11 +18,11 @@ function ButtonGroup({ label, children }: { label: string; children: React.React
 export function ButtonsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Buttons</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/Button
           </code>
           . All variants support <code className="text-sm font-mono">size</code> (
@@ -57,7 +57,7 @@ export function ButtonsPage() {
         <Button variant="ghost" size="sm">Small</Button>
       </ButtonGroup>
 
-      <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-4 border-b border-ktp-border">
         <SectionLabel>variant="transparent" — for use over dark or image backgrounds</SectionLabel>
         <div className="bg-ktp-primary rounded-xl p-6 flex flex-wrap gap-3">
           <Button variant="transparent" size="lg">Large</Button>
@@ -83,12 +83,12 @@ export function ButtonsPage() {
       </ButtonGroup>
 
       {/* IconButton */}
-      <section className="p-6 md:p-12 flex flex-col gap-4 border-t border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-4 border-t border-ktp-border">
         <div>
           <SectionLabel>IconButton — icon-only trigger, no text padding</SectionLabel>
-          <p className="text-sm text-ktp-muted mt-1">
+          <p className="text-sm text-ktp-fg-body mt-1">
             Import from{' '}
-            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+            <code className="font-mono text-xs bg-ktp-bg-surface px-1 py-0.5 rounded">
               @/design-system/components/IconButton
             </code>
             . Use instead of <code className="font-mono text-xs">Button</code> when the clickable
@@ -98,7 +98,7 @@ export function ButtonsPage() {
         </div>
         <div className="flex flex-col gap-6">
           <div>
-            <p className="text-xs text-ktp-muted mb-3">variant="ghost" (default) — sizes sm / default / lg</p>
+            <p className="text-xs text-ktp-fg-body mb-3">variant="ghost" (default) — sizes sm / default / lg</p>
             <div className="flex items-center gap-3">
               <IconButton variant="ghost" size="sm" aria-label="Copy small"><Copy /></IconButton>
               <IconButton variant="ghost" aria-label="Copy default"><Copy /></IconButton>
@@ -109,7 +109,7 @@ export function ButtonsPage() {
             </div>
           </div>
           <div>
-            <p className="text-xs text-ktp-muted mb-3">variant="on-dark" — for use on navy backgrounds</p>
+            <p className="text-xs text-ktp-fg-body mb-3">variant="on-dark" — for use on navy backgrounds</p>
             <div className="bg-ktp-primary rounded-xl px-6 py-4 flex items-center gap-3">
               <IconButton variant="on-dark" aria-label="Close modal"><X /></IconButton>
               <IconButton variant="on-dark" aria-label="Open menu"><Menu /></IconButton>

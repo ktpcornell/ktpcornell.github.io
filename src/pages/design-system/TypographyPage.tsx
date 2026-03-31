@@ -8,7 +8,7 @@ function TypeRow({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-2 py-8 border-b border-ktp-ui-border last:border-0">
+    <div className="flex flex-col gap-2 py-8 border-b border-ktp-border last:border-0">
       <Caption>{label}</Caption>
       {children}
     </div>
@@ -18,12 +18,12 @@ function TypeRow({
 export function TypographyPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Typography</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           KTP uses <strong>DM Sans</strong> for all body copy and headings. Scale and weights are
           defined as CSS variables in{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             globals.css
           </code>
           .
@@ -49,7 +49,7 @@ export function TypographyPage() {
         <TypeRow label="h6 — 22px / bold">
           <h6>Announcements</h6>
         </TypeRow>
-        <TypeRow label="Body (p) — 18px / text-ktp-muted">
+        <TypeRow label="Body (p) — 18px / text-ktp-fg-body">
           <Body>
             KTP was founded on January 10, 2012 at the University of Michigan, with the mission
             to create a tech community that enthusiastic students could join.
@@ -61,7 +61,7 @@ export function TypographyPage() {
         <TypeRow label="SectionLabel — sm / semibold / uppercase / tracking-widest / ktp-primary">
           <SectionLabel>Usage</SectionLabel>
         </TypeRow>
-        <TypeRow label="Caption — xs / text-ktp-muted">
+        <TypeRow label="Caption — xs / text-ktp-fg-body">
           <Caption>Posted by Gabriel · March 2026</Caption>
         </TypeRow>
       </section>

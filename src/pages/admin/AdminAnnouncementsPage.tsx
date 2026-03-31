@@ -41,7 +41,7 @@ export function AdminAnnouncementsPage() {
   }
 
   return (
-    <div className="p-8 bg-ktp-surface min-h-full">
+    <div className="p-8 bg-ktp-bg-surface min-h-full">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-ktp-primary">Announcements</h2>
           <Button
@@ -60,7 +60,7 @@ export function AdminAnnouncementsPage() {
             <Spinner />
           </div>
         ) : announcements.length === 0 ? (
-          <p className="text-ktp-muted">No announcements yet.</p>
+          <p className="text-ktp-fg-body">No announcements yet.</p>
         ) : (
           <div className="space-y-4">
             {announcements.map((a) => (

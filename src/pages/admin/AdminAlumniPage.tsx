@@ -49,7 +49,7 @@ export function AdminAlumniPage() {
     : alumni
 
   return (
-    <div className="p-8 bg-ktp-surface min-h-full">
+    <div className="p-8 bg-ktp-bg-surface min-h-full">
       <div className="flex items-center justify-between mb-6">
         <Heading level={2} color="primary">Alumni Database</Heading>
         <Button

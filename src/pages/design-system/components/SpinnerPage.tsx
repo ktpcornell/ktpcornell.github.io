@@ -4,11 +4,11 @@ import { SectionLabel } from '@/design-system/components/Typography'
 export function SpinnerPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Spinner</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/Spinner
           </code>
           . Use for loading states. Three sizes:{' '}
@@ -26,15 +26,15 @@ export function SpinnerPage() {
           <div className="flex items-center gap-8">
             <div className="flex flex-col items-center gap-2">
               <Spinner size="sm" />
-              <span className="text-xs text-ktp-muted font-mono">sm</span>
+              <span className="text-xs text-ktp-fg-body font-mono">sm</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner size="md" />
-              <span className="text-xs text-ktp-muted font-mono">md</span>
+              <span className="text-xs text-ktp-fg-body font-mono">md</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner size="lg" />
-              <span className="text-xs text-ktp-muted font-mono">lg</span>
+              <span className="text-xs text-ktp-fg-body font-mono">lg</span>
             </div>
           </div>
         </div>
@@ -42,10 +42,10 @@ export function SpinnerPage() {
         {/* Common layout pattern */}
         <div className="flex flex-col gap-4">
           <SectionLabel>Common usage — full-page loading</SectionLabel>
-          <div className="border border-ktp-ui-border rounded-lg bg-white flex items-center justify-center h-32">
+          <div className="border border-ktp-border rounded-lg bg-white flex items-center justify-center h-32">
             <Spinner />
           </div>
-          <pre className="bg-ktp-surface rounded-lg p-4 text-sm font-mono text-ktp-primary overflow-x-auto">{`<div className="flex items-center justify-center min-h-screen">
+          <pre className="bg-ktp-bg-surface rounded-lg p-4 text-sm font-mono text-ktp-primary overflow-x-auto">{`<div className="flex items-center justify-center min-h-screen">
   <Spinner />
 </div>`}</pre>
         </div>
@@ -53,10 +53,10 @@ export function SpinnerPage() {
         {/* Inline loading */}
         <div className="flex flex-col gap-4">
           <SectionLabel>Inline / section loading</SectionLabel>
-          <div className="border border-ktp-ui-border rounded-lg bg-white flex justify-center py-8">
+          <div className="border border-ktp-border rounded-lg bg-white flex justify-center py-8">
             <Spinner size="sm" />
           </div>
-          <pre className="bg-ktp-surface rounded-lg p-4 text-sm font-mono text-ktp-primary overflow-x-auto">{`<div className="flex justify-center py-8">
+          <pre className="bg-ktp-bg-surface rounded-lg p-4 text-sm font-mono text-ktp-primary overflow-x-auto">{`<div className="flex justify-center py-8">
   <Spinner size="sm" />
 </div>`}</pre>
         </div>

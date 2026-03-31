@@ -31,7 +31,7 @@ interface DataTableProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function DataTable({ className, children, ...props }: DataTableProps) {
   return (
     <div
-      className={cn('overflow-x-auto rounded-xl border border-ktp-ui-border', className)}
+      className={cn('overflow-x-auto rounded-xl border border-ktp-border', className)}
       {...props}
     >
       <table className="w-full border-collapse text-sm">{children}</table>
@@ -85,7 +85,7 @@ interface DataTableBodyProps extends React.HTMLAttributes<HTMLTableSectionElemen
 
 export function DataTableBody({ className, children, ...props }: DataTableBodyProps) {
   return (
-    <tbody className={cn('divide-y divide-ktp-ui-border', className)} {...props}>
+    <tbody className={cn('divide-y divide-ktp-border', className)} {...props}>
       {children}
     </tbody>
   )
@@ -102,7 +102,7 @@ export function DataTableRow({ className, index, children, ...props }: DataTable
   return (
     <tr
       className={cn(
-        index % 2 === 0 ? 'bg-white' : 'bg-ktp-surface',
+        index % 2 === 0 ? 'bg-white' : 'bg-ktp-bg-surface',
         className,
       )}
       {...props}
@@ -133,7 +133,7 @@ export function DataTableCell({
     <td
       className={cn(
         'px-4 py-3 align-middle',
-        variant === 'mono' && 'font-mono text-xs text-ktp-muted',
+        variant === 'mono' && 'font-mono text-xs text-ktp-fg-body',
         className,
       )}
       {...props}
@@ -160,7 +160,7 @@ export function DataTableEmptyState({
 }: DataTableEmptyStateProps) {
   return (
     <tr>
-      <td colSpan={colSpan} className="px-4 py-10 text-center text-sm text-ktp-muted">
+      <td colSpan={colSpan} className="px-4 py-10 text-center text-sm text-ktp-fg-body">
         {message}
       </td>
     </tr>

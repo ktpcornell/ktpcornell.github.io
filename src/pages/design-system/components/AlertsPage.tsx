@@ -3,11 +3,11 @@ import { AlertBanner } from '@/design-system/components/AlertBanner'
 export function AlertsPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Alerts</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/AlertBanner
           </code>
           . Three variants: <code className="text-sm font-mono">error</code>,{' '}

@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
  * Heading — h1–h6 with consistent brand styling.
  * SmallTitle — uppercase label shown above section headings (like "About Us →").
  * SectionLabel — uppercase label used above demo blocks in design system docs.
- * Body — paragraph with ktp-muted color.
+ * Body — paragraph with ktp-fg-body color.
  * Caption — small utility text (metadata, timestamps, footnotes).
  */
 
@@ -73,12 +73,12 @@ export function SectionLabel({ className, ...props }: React.HTMLAttributes<HTMLP
 
 export function Body({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-ktp-muted', className)} {...props} />
+    <p className={cn('text-ktp-fg-body', className)} {...props} />
   )
 }
 
 export function Caption({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-xs text-ktp-muted', className)} {...props} />
+    <p className={cn('text-xs text-ktp-fg-body', className)} {...props} />
   )
 }

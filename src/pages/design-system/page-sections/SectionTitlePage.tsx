@@ -3,11 +3,11 @@ import { SectionTitle } from '@/design-system/components/SectionTitle'
 export function SectionTitlePage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Section Title</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/SectionTitle
           </code>
           . Props: <code className="text-sm font-mono">label?</code>,{' '}
@@ -20,8 +20,8 @@ export function SectionTitlePage() {
 
       <section className="p-6 md:p-12 flex flex-col gap-8">
         <div>
-          <p className="text-sm text-ktp-muted mb-4">Center-aligned with label (default)</p>
-          <div className="border border-ktp-ui-border rounded-xl p-8">
+          <p className="text-sm text-ktp-fg-body mb-4">Center-aligned with label (default)</p>
+          <div className="border border-ktp-border rounded-xl p-8">
             <SectionTitle
               label="About Us"
               title="Our History"
@@ -31,8 +31,8 @@ export function SectionTitlePage() {
         </div>
 
         <div>
-          <p className="text-sm text-ktp-muted mb-4">Left-aligned, no label</p>
-          <div className="border border-ktp-ui-border rounded-xl p-8">
+          <p className="text-sm text-ktp-fg-body mb-4">Left-aligned, no label</p>
+          <div className="border border-ktp-border rounded-xl p-8">
             <SectionTitle
               title="Alumni Database"
               subtitle="Browse and search KTP Cornell alumni."
@@ -42,7 +42,7 @@ export function SectionTitlePage() {
         </div>
 
         <div>
-          <p className="text-sm text-ktp-muted mb-4">White text on dark background</p>
+          <p className="text-sm text-ktp-fg-body mb-4">White text on dark background</p>
           <div className="bg-ktp-primary rounded-xl p-8">
             <SectionTitle
               label="Recruitment"

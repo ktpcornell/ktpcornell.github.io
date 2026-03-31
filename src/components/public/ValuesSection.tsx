@@ -38,7 +38,7 @@ const pillars = [
 
 export function ValuesSection() {
   return (
-    <section className="section-padding bg-ktp-surface" id="pillars">
+    <section className="section-padding bg-ktp-bg-surface" id="pillars">
       <div className="container mx-auto px-4 text-center">
         <Heading level={2} className="mb-10 text-ktp-primary">Our Values</Heading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">

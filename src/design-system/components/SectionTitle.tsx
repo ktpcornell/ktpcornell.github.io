@@ -37,9 +37,9 @@ export function SectionTitle({
   }[color]
 
   const subtitleColorClass = {
-    primary: 'text-ktp-muted',
-    white: 'text-ktp-muted-light',
-    default: 'text-ktp-muted',
+    primary: 'text-ktp-fg-body',
+    white: 'text-ktp-fg-subtle',
+    default: 'text-ktp-fg-body',
   }[color]
 
   return (

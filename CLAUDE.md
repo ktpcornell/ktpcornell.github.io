@@ -57,11 +57,11 @@ Opacity modifiers produce implicit colors that composite differently over differ
 ```tsx
 className="bg-gray-50/50"         // What color is this? Depends on background.
 className="bg-white/10"           // Undocumented semi-transparent surface
-className="text-ktp-primary/80"   // Off-spec navy — use text-ktp-muted instead
+className="text-ktp-primary/80"   // Off-spec navy — use text-ktp-fg-body instead
 ```
 
 **Allowed:**
-- `ktp-*` tokens at full opacity (`bg-ktp-surface`, `bg-ktp-primary`, `text-ktp-muted`)
+- `ktp-*` tokens at full opacity (`bg-ktp-bg-surface`, `bg-ktp-primary`, `text-ktp-fg-body`)
 - `rgba(...)` in `globals.css` using `--ktp-primary-rgb` or `--ktp-overlay-rgb` when a transparent value is genuinely required for an overlay or animation, with a `DS-SKIP` comment
 
 ### DS-SKIP Comment Format
@@ -134,9 +134,9 @@ These patterns are bugs. If you see them without a `DS-SKIP` comment, fix them.
 | `text-red-500`, `bg-red-100`, `<p className="text-red-500">` | `AlertBanner variant="error"` or `text-ktp-error` / `bg-ktp-error-bg` |
 | `bg-amber-400`, `bg-yellow-300` | `bg-ktp-warning-bg` / `Badge variant="warning"` |
 | `bg-green-500`, `text-green-600` | No KTP green token exists. Use `Badge variant="cyan"` for success states. Add a token first if green is semantically required. |
-| Any raw `blue-*`, `zinc-*`, `slate-*`, `gray-*` as brand surface colors | `ktp-primary`, `ktp-surface`, `ktp-muted`, `ktp-muted-light` |
+| Any raw `blue-*`, `zinc-*`, `slate-*`, `gray-*` as brand surface colors | `ktp-primary`, `ktp-bg-surface`, `ktp-fg-body`, `ktp-fg-subtle` |
 | `bg-gray-50/50` or any `color/opacity` modifier | Full-opacity `ktp-*` token, or define a new token in `globals.css` |
-| Raw `gray-*` for sidebar/nav surfaces | `ktp-ui-border`, `ktp-ui-bg`, `ktp-ui-hover`, `ktp-divider-on-dark` |
+| Raw `gray-*` for sidebar/nav surfaces | `ktp-border`, `ktp-bg-panel`, `ktp-bg-hover`, `ktp-border-dark` |
 | Duplicated inline spinner: `w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin` | `<Spinner />` from `@/design-system/components/Spinner` |
 | `<div className="bg-primary px-6 py-4 ...">` as a card title bar | `<CardHeader>` |
 | Raw `<input>`, `<select>`, `<textarea>` without label/error wiring | `FormField`, `SelectField`, `TextareaField` |
@@ -144,7 +144,7 @@ These patterns are bugs. If you see them without a `DS-SKIP` comment, fix them.
 | Raw `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` | `DataTable` and sub-components |
 | `fixed inset-0 z-50` overlay div + manual panel + manual header | `KtpModal` + `KtpModalHeader` + `KtpModalBody` |
 | `bg-black/50` modal backdrop | `bg-ktp-overlay` (or use `KtpModal` which handles this) |
-| `text-white/90`, `text-white/70` on dark backgrounds | `text-ktp-on-dark-secondary`, `text-ktp-on-dark-tertiary` |
+| `text-white/90`, `text-white/70` on dark backgrounds | `text-ktp-fg-on-dark`, `text-ktp-fg-subtle` |
 | Raw `<button>` for icon-only triggers (hamburger, close, etc.) | `IconButton variant="ghost"` or `variant="on-dark"` |
 
 ### Design System Sync Rules

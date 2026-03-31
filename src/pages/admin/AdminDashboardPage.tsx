@@ -44,7 +44,7 @@ export function AdminDashboardPage() {
   }, [])
 
   return (
-    <div className="p-8 bg-ktp-surface min-h-full">
+    <div className="p-8 bg-ktp-bg-surface min-h-full">
         <SectionTitle title="Admin Dashboard" subtitle="Manage your chapter content from here." align="left" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">

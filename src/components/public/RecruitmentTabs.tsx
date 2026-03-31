@@ -16,7 +16,7 @@ function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
     <div className="border-b pb-8 mb-8 max-w-3xl mx-auto">
       <Heading level={4} className="mb-2">{title}</Heading>
       <p>{desc}</p>
-      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-muted">
+      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-fg-body">
         <span>{date}</span>
         <span className="flex items-center gap-1">
           <Clock size={14} />
@@ -47,7 +47,7 @@ export function RecruitmentTabs() {
               'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white',
               activeTab === tab.id
                 ? 'border-l-ktp-accent shadow-lg'
-                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-surface',
+                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-bg-surface',
             ].join(' ')}
             onClick={() => setActiveTab(tab.id)}
           >
@@ -59,7 +59,7 @@ export function RecruitmentTabs() {
             >
               {tab.label}
             </Heading>
-            {tab.sub && <small className="text-sm font-normal text-ktp-muted">{tab.sub}</small>}
+            {tab.sub && <small className="text-sm font-normal text-ktp-fg-body">{tab.sub}</small>}
           </button>
         ))}
       </div>

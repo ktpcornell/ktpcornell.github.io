@@ -21,11 +21,11 @@ const DEMO_ROWS = [
 export function DataTablePage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <h1 className="text-ktp-primary mb-2 tracking-normal normal-case">Data Table</h1>
-        <p className="text-ktp-muted">
+        <p className="text-ktp-fg-body">
           Import from{' '}
-          <code className="text-sm font-mono bg-ktp-surface px-1.5 py-0.5 rounded text-ktp-primary">
+          <code className="text-sm font-mono bg-ktp-bg-surface px-1.5 py-0.5 rounded text-ktp-primary">
             @/design-system/components/DataTable
           </code>
           . Replaces raw{' '}
@@ -36,7 +36,7 @@ export function DataTablePage() {
       </section>
 
       {/* Demo table */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-border">
         <SectionLabel>Standard table with zebra rows</SectionLabel>
         <DataTable>
           <DataTableHead>
@@ -74,7 +74,7 @@ export function DataTablePage() {
       </section>
 
       {/* Empty state */}
-      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-ui-border">
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-b border-ktp-border">
         <SectionLabel>DataTableEmptyState — no results row</SectionLabel>
         <DataTable>
           <DataTableHead>
@@ -95,32 +95,32 @@ export function DataTablePage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-ktp-ui-border">
+              <tr className="border-b border-ktp-border">
                 <th className="text-left py-2 pr-4 font-semibold text-ktp-primary">Component</th>
                 <th className="text-left py-2 pr-4 font-semibold text-ktp-primary">Key Props</th>
                 <th className="text-left py-2 font-semibold text-ktp-primary">Notes</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-ktp-ui-border">
+            <tbody className="divide-y divide-ktp-border">
               {[
                 ['DataTable', 'className?', 'Outer wrapper: overflow-x-auto + rounded-xl border'],
                 ['DataTableHead', 'className?', 'Renders <thead> with bg-ktp-primary'],
                 ['DataTableHeadCell', 'align? = "left"', 'Renders <th> with white text. align: left | center | right'],
                 ['DataTableBody', 'className?', 'Renders <tbody> with dividers'],
-                ['DataTableRow', 'index (required)', 'Auto zebra-stripe: even = white, odd = ktp-surface'],
+                ['DataTableRow', 'index (required)', 'Auto zebra-stripe: even = white, odd = ktp-bg-surface'],
                 ['DataTableCell', 'variant? = "default"', 'variant: default | mono | actions'],
                 ['DataTableEmptyState', 'colSpan, message?', 'Full-width no-results row'],
               ].map(([comp, props, notes]) => (
                 <tr key={comp}>
                   <td className="py-2 pr-4 font-mono text-xs text-ktp-primary">{comp}</td>
-                  <td className="py-2 pr-4 font-mono text-xs text-ktp-muted">{props}</td>
-                  <td className="py-2 text-xs text-ktp-muted">{notes}</td>
+                  <td className="py-2 pr-4 font-mono text-xs text-ktp-fg-body">{props}</td>
+                  <td className="py-2 text-xs text-ktp-fg-body">{notes}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-sm text-ktp-muted">
+        <p className="text-sm text-ktp-fg-body">
           <strong className="text-ktp-primary">Cell variants:</strong>{' '}
           <code className="font-mono text-xs">default</code> — plain text.{' '}
           <code className="font-mono text-xs">mono</code> — monospace, muted (IDs, timestamps).{' '}

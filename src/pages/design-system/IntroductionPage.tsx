@@ -101,7 +101,7 @@ const BadgesPreview = () => (
 )
 
 const CardsPreview = () => (
-  <div className="w-44 rounded-xl border border-ktp-ui-border overflow-hidden shadow-sm bg-white">
+  <div className="w-44 rounded-xl border border-ktp-border overflow-hidden shadow-sm bg-white">
     <div className="bg-ktp-primary h-8 px-3 flex items-center">
       <div className="w-16 h-2 rounded bg-white/50" />
     </div>
@@ -134,11 +134,11 @@ const AlertsPreview = () => (
 )
 
 const AccordionPreview = () => (
-  <div className="w-52 flex flex-col divide-y divide-gray-200 border border-ktp-ui-border rounded-lg overflow-hidden">
+  <div className="w-52 flex flex-col divide-y divide-gray-200 border border-ktp-border rounded-lg overflow-hidden">
     {(['+', '−', '+'] as const).map((icon, i) => (
       <div key={i} className="flex items-center justify-between px-3 py-2 bg-white">
         <div className="w-28 h-2 rounded bg-ktp-primary/30" />
-        <span className="text-ktp-muted text-sm leading-none">{icon}</span>
+        <span className="text-ktp-fg-body text-sm leading-none">{icon}</span>
       </div>
     ))}
   </div>
@@ -146,7 +146,7 @@ const AccordionPreview = () => (
 
 const TabsPreview = () => (
   <div className="w-52 flex flex-col">
-    <div className="flex border-b border-ktp-ui-border">
+    <div className="flex border-b border-ktp-border">
       <div className="px-4 py-2 border-b-2 border-ktp-accent">
         <div className="w-10 h-2 rounded bg-ktp-primary/70" />
       </div>
@@ -239,14 +239,14 @@ const CTAPreview = () => (
 )
 
 const DataTablePreview = () => (
-  <div className="w-52 rounded-lg border border-ktp-ui-border overflow-hidden">
+  <div className="w-52 rounded-lg border border-ktp-border overflow-hidden">
     <div className="bg-ktp-primary flex">
       <div className="flex-1 px-2 py-1.5"><div className="w-10 h-1.5 rounded bg-white/60" /></div>
       <div className="flex-1 px-2 py-1.5"><div className="w-8 h-1.5 rounded bg-white/60" /></div>
       <div className="w-8 px-2 py-1.5"><div className="w-5 h-1.5 rounded bg-white/60" /></div>
     </div>
     {[true, false, true].map((even, i) => (
-      <div key={i} className={`flex ${even ? 'bg-white' : 'bg-ktp-surface'}`}>
+      <div key={i} className={`flex ${even ? 'bg-white' : 'bg-ktp-bg-surface'}`}>
         <div className="flex-1 px-2 py-2"><div className="w-16 h-1.5 rounded bg-gray-200" /></div>
         <div className="flex-1 px-2 py-2"><div className="w-10 h-1.5 rounded bg-gray-200" /></div>
         <div className="w-8 px-2 py-2"><div className="w-5 h-1.5 rounded bg-ktp-primary/30" /></div>
@@ -278,13 +278,13 @@ const ModalPreview = () => (
 const IconButtonPreview = () => (
   <div className="flex flex-col gap-3 items-center">
     <div className="flex gap-2 items-center">
-      <div className="w-7 h-7 rounded-full border border-ktp-ui-border flex items-center justify-center">
+      <div className="w-7 h-7 rounded-full border border-ktp-border flex items-center justify-center">
         <div className="w-3 h-3 rounded bg-ktp-primary/40" />
       </div>
-      <div className="w-9 h-9 rounded-full border border-ktp-ui-border flex items-center justify-center">
+      <div className="w-9 h-9 rounded-full border border-ktp-border flex items-center justify-center">
         <div className="w-4 h-4 rounded bg-ktp-primary/40" />
       </div>
-      <div className="w-10 h-10 rounded-full border border-ktp-ui-border flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full border border-ktp-border flex items-center justify-center">
         <div className="w-5 h-5 rounded bg-ktp-primary/40" />
       </div>
     </div>
@@ -447,13 +447,13 @@ const SECTIONS: SectionGroup[] = [
 export function IntroductionPage() {
   return (
     <>
-      <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
+      <section className="p-6 pt-12 md:p-12 border-b border-ktp-border">
         <p className="text-sm font-medium text-ktp-accent uppercase tracking-widest mb-2">KTP Cornell</p>
         <h1 className="text-ktp-primary mb-4 tracking-normal normal-case">Design System</h1>
-        <p className="text-ktp-muted max-w-2xl">
+        <p className="text-ktp-fg-body max-w-2xl">
           Centralized design language for the KTP Cornell website. All UI components,
           color tokens, and typography in one place. Import from{' '}
-          <code className="text-sm bg-ktp-surface px-1.5 py-0.5 rounded font-mono text-ktp-primary">
+          <code className="text-sm bg-ktp-bg-surface px-1.5 py-0.5 rounded font-mono text-ktp-primary">
             @/design-system
           </code>
           .
@@ -471,12 +471,12 @@ export function IntroductionPage() {
                     variant="flat"
                     className="h-full hover:border-ktp-accent transition-colors cursor-pointer overflow-hidden"
                   >
-                    <div className="h-[150px] bg-ktp-surface border-b border-ktp-ui-border flex items-center justify-center overflow-hidden">
+                    <div className="h-[150px] bg-ktp-bg-surface border-b border-ktp-border flex items-center justify-center overflow-hidden">
                       {item.preview}
                     </div>
                     <div className="px-4 py-3 flex flex-col gap-1">
                       <p className="font-medium text-sm text-ktp-primary">{item.label}</p>
-                      <p className="text-xs text-ktp-muted">{item.description}</p>
+                      <p className="text-xs text-ktp-fg-body">{item.description}</p>
                     </div>
                   </Card>
                 </Link>

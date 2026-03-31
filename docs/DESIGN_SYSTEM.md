@@ -26,21 +26,20 @@ All KTP brand tokens are defined as CSS custom properties under `:root`. Naming 
 | -------- | ----- | ----- |
 | `--ktp-primary` | `#273053` | Navy — headers, nav, CTAs, card headers |
 | `--ktp-accent` | `#0dcaf0` | Cyan — highlights, secondary buttons, focus rings |
-| `--ktp-surface` | `#f0f8ff` | Light blue — alternating section backgrounds, portal pages |
-| `--ktp-muted` | `#717275` | Default body copy and secondary text on **light** backgrounds |
-| `--ktp-muted-light` | `#a8adb8` | Muted text on **dark** (`ktp-primary`) backgrounds |
+| `--ktp-bg-surface` | `#f0f8ff` | Light blue — alternating section backgrounds, portal pages |
+| `--ktp-fg-body` | `#717275` | Default body copy and secondary text on **light** backgrounds |
+| `--ktp-fg-subtle` | `#a8adb8` | Muted text on **dark** (`ktp-primary`) backgrounds |
 | `--ktp-accent-pink` | `#f78fb3` | Pink accent — decorative use only |
 | `--ktp-error` | `#991b1b` | Error text inside alert banners |
 | `--ktp-error-bg` | `#fee2e2` | Error alert banner background |
 | `--ktp-warning-bg` | `#fef3c7` | Warning alert banner background |
 | `--ktp-warning-border` | `#f59e0b` | Warning banner border |
 | `--ktp-warning-text` | `#92400e` | Warning banner body text |
-| `--ktp-ui-border` | `#e5e7eb` | Sidebar and card border (replaces raw `gray-200`) |
-| `--ktp-ui-bg` | `#f9fafb` | Sidebar panel background (replaces `gray-50/50`) |
-| `--ktp-ui-hover` | `#f3f4f6` | Nav item hover background (replaces `gray-100`) |
-| `--ktp-divider-on-dark` | `rgba(255,255,255,0.20)` | Divider line on navy top bars (named rgba — avoids opacity modifier syntax) |
+| `--ktp-border` | `#e5e7eb` | Sidebar and card border (replaces raw `gray-200`) |
+| `--ktp-bg-panel` | `#f9fafb` | Sidebar panel background (replaces `gray-50/50`) |
+| `--ktp-bg-hover` | `#f3f4f6` | Nav item hover background (replaces `gray-100`) |
+| `--ktp-border-dark` | `rgba(255,255,255,0.20)` | Divider line on navy top bars (named rgba — avoids opacity modifier syntax) |
 | `--ktp-neutral` | `#4b5563` | Dark neutral for non-brand stat cards |
-| `--ktp-neutral-bg` | `#d1d5db` | Disabled/inactive toggle track background |
 
 ### Tailwind Classes (`tailwind.config.ts`)
 
@@ -50,37 +49,36 @@ CSS variables are aliased as Tailwind utilities so they work with all modifiers 
 | -------------- | ------------ |
 | `ktp-primary` | `--primary` (HSL, supports opacity) |
 | `ktp-accent` | `--secondary` (HSL, supports opacity) |
-| `ktp-surface` | `--ktp-surface` |
-| `ktp-muted` | `--ktp-muted` |
-| `ktp-muted-light` | `--ktp-muted-light` |
+| `ktp-bg-surface` | `--ktp-bg-surface` |
+| `ktp-fg-body` | `--ktp-fg-body` |
+| `ktp-fg-subtle` | `--ktp-fg-subtle` |
 | `ktp-accent-pink` | `--ktp-accent-pink` |
 | `ktp-error` | `--ktp-error` |
 | `ktp-error-bg` | `--ktp-error-bg` |
 | `ktp-warning-bg` | `--ktp-warning-bg` |
 | `ktp-warning-border` | `--ktp-warning-border` |
 | `ktp-warning-text` | `--ktp-warning-text` |
-| `ktp-ui-border` | `--ktp-ui-border` |
-| `ktp-ui-bg` | `--ktp-ui-bg` |
-| `ktp-ui-hover` | `--ktp-ui-hover` |
-| `ktp-divider-on-dark` | `--ktp-divider-on-dark` |
+| `ktp-border` | `--ktp-border` |
+| `ktp-bg-panel` | `--ktp-bg-panel` |
+| `ktp-bg-hover` | `--ktp-bg-hover` |
+| `ktp-border-dark` | `--ktp-border-dark` |
 | `ktp-neutral` | `--ktp-neutral` |
-| `ktp-neutral-bg` | `--ktp-neutral-bg` |
 
 ---
 
 ## Muted Text on Dark Backgrounds
 
-`ktp-muted` (#717275) is designed for light backgrounds. On `ktp-primary` (dark navy) it does not have sufficient contrast.
+`ktp-fg-body` (#717275) is designed for light backgrounds. On `ktp-primary` (dark navy) it does not have sufficient contrast.
 
-**Rule:** use `text-ktp-muted-light` (#a8adb8) for muted/secondary text whenever the background is dark.
+**Rule:** use `text-ktp-fg-subtle` (#a8adb8) for muted/secondary text whenever the background is dark.
 
 | Context | Class to use |
 | ------- | ------------ |
-| Body copy on white/surface bg | `text-ktp-muted` |
-| Subtitle/secondary text on `bg-ktp-primary` | `text-ktp-muted-light` |
+| Body copy on white/surface bg | `text-ktp-fg-body` |
+| Subtitle/secondary text on `bg-ktp-primary` | `text-ktp-fg-subtle` |
 | Headings on dark bg | `text-white` |
 
-The `SectionTitle` component handles this automatically via its `color` prop: `color="white"` switches the subtitle to `text-ktp-muted-light`.
+The `SectionTitle` component handles this automatically via its `color` prop: `color="white"` switches the subtitle to `text-ktp-fg-subtle`.
 
 ---
 
@@ -89,7 +87,7 @@ The `SectionTitle` component handles this automatically via its `color` prop: `c
 **Never use Tailwind's opacity modifier syntax (`color/opacity`) to create one-off color values.**
 
 Opacity modifiers produce implicit colors that:
-- Composite differently over different backgrounds (`bg-gray-50/50` over `bg-white` ≠ over `bg-ktp-surface`)
+- Composite differently over different backgrounds (`bg-gray-50/50` over `bg-white` ≠ over `bg-ktp-bg-surface`)
 - Are invisible to the design token system — they don't appear in `ColorsPage.tsx`
 - Silently produce colors that are outside the brand palette and impossible to audit
 
@@ -97,7 +95,7 @@ Opacity modifiers produce implicit colors that:
 ```tsx
 className="bg-gray-50/50"         // implicit ~#fcfdfd — not a real token
 className="bg-white/10"           // undocumented semi-transparent surface
-className="text-ktp-primary/80"   // off-spec navy — use text-ktp-muted instead
+className="text-ktp-primary/80"   // off-spec navy — use text-ktp-fg-body instead
 ```
 
 **Allowed alternative — define a real token if a transparent surface is genuinely needed:**
@@ -394,7 +392,7 @@ When to use: Icon-only triggers — hamburger menus, modal close buttons, row ac
 
 | Variant | Background context |
 |---------|--------------------|
-| `ghost` | Light backgrounds (white, `ktp-surface`) |
+| `ghost` | Light backgrounds (white, `ktp-bg-surface`) |
 | `on-dark` | Dark backgrounds (`ktp-primary` nav, card headers) |
 
 ```tsx
@@ -440,7 +438,7 @@ import { SectionSeparator } from '@/design-system/components/SectionSeparator'
 **Exports:** `SectionTitle`
 **Props:** `title` (required), `label?`, `subtitle?`, `align?: 'left' | 'center' | 'right'` (default: `'center'`), `color?: 'primary' | 'white' | 'default'` (default: `'primary'`)
 
-When to use: The heading block for any major page section. Handles muted text contrast automatically — `color="white"` switches the subtitle to `text-ktp-muted-light`.
+When to use: The heading block for any major page section. Handles muted text contrast automatically — `color="white"` switches the subtitle to `text-ktp-fg-subtle`.
 
 ```tsx
 import { SectionTitle } from '@/design-system/components/SectionTitle'
@@ -471,7 +469,7 @@ import { SectionTitle } from '@/design-system/components/SectionTitle'
 | `Heading` | `h1`–`h6` | Semantic headings with brand scale. Props: `level?: 1–6`, `color?: 'primary' \| 'white' \| 'default'` |
 | `SmallTitle` | `<p>` | Uppercase cyan label shown above section headings |
 | `SectionLabel` | `<p>` | Uppercase muted label above design-system doc demo blocks |
-| `Body` | `<p>` | Body copy in `text-ktp-muted` |
+| `Body` | `<p>` | Body copy in `text-ktp-fg-body` |
 | `Caption` | `<p>` | Small (`text-xs`) muted text — metadata, timestamps, footnotes |
 
 ```tsx
@@ -482,7 +480,7 @@ import { Heading, Body, Caption } from '@/design-system/components/Typography'
 <Caption>Last updated March 2026</Caption>
 ```
 
-**Do not use instead:** Raw `<h2 className="text-2xl font-bold text-ktp-primary">`, `<p className="text-ktp-muted">` when the Typography components directly cover the need.
+**Do not use instead:** Raw `<h2 className="text-2xl font-bold text-ktp-primary">`, `<p className="text-ktp-fg-body">` when the Typography components directly cover the need.
 
 ---
 
@@ -497,7 +495,7 @@ The following are bugs without a `DS-SKIP` comment.
 | `text-red-500`, `text-red-600`, `bg-red-100` | `AlertBanner variant="error"` or `text-ktp-error` / `bg-ktp-error-bg` |
 | `bg-amber-400`, `bg-yellow-300`, `text-yellow-800` | `AlertBanner variant="warning"` or `Badge variant="warning"` or `bg-ktp-warning-bg` |
 | `bg-green-500`, `text-green-600` | No KTP green token exists. Use `Badge variant="cyan"` for success states. Add a `ktp-success` token first if green is semantically required. |
-| Any raw `blue-*`, `zinc-*`, `slate-*`, `gray-*` as brand surface colors | `ktp-primary`, `ktp-surface`, `ktp-muted`, `ktp-muted-light` |
+| Any raw `blue-*`, `zinc-*`, `slate-*`, `gray-*` as brand surface colors | `ktp-primary`, `ktp-bg-surface`, `ktp-fg-body`, `ktp-fg-subtle` |
 
 ### Opacity Modifiers
 
@@ -573,7 +571,7 @@ Place the comment directly above the deviating element or class.
 // Button sizing/padding interfering with the constrained preview zone.
 const ButtonsPreview = () => (...)
 
-{/* DS-SKIP: bg-gray-50/50 predates opacity modifier ban — replace with bg-ktp-surface */}
+{/* DS-SKIP: bg-gray-50/50 predates opacity modifier ban — replace with bg-ktp-bg-surface */}
 <aside className="bg-gray-50/50 ...">
 ```
 

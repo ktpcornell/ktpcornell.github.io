@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils'
  *
  * Variants:
  *   ghost    — navy icon, subtle hover bg. Default for light backgrounds.
- *   on-dark  — white icon, dims to ktp-muted-light on hover. For navy bars.
+ *   on-dark  — white icon, dims to ktp-fg-subtle on hover. For navy bars.
  */
 export const iconButtonVariants = cva(
   [
@@ -27,7 +27,7 @@ export const iconButtonVariants = cva(
         ghost:
           'text-ktp-primary hover:bg-ktp-primary/10',
         'on-dark':
-          'text-white hover:text-ktp-muted-light bg-transparent',
+          'text-white hover:text-ktp-fg-subtle bg-transparent',
       },
       size: {
         sm:      'w-7 h-7 [&_svg]:size-4',

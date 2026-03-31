@@ -43,7 +43,7 @@ export function SwitchField({
           {label}
         </Label>
         {description && (
-          <p className="text-xs text-ktp-muted">{description}</p>
+          <p className="text-xs text-ktp-fg-body">{description}</p>
         )}
       </div>
     </div>
