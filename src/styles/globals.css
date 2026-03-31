@@ -59,6 +59,16 @@
     --ktp-neutral: #4b5563;                           /* gray-600 — neutral stat card accent */
     --ktp-neutral-bg: #d1d5db;                        /* gray-300 — disabled/inactive toggle track */
 
+    /* On-dark text tokens — semantic aliases for text on navy; avoids opacity modifier syntax */
+    --ktp-on-dark-secondary: #d4d8e4;               /* ~90% white on navy — portal/admin title bar text */
+    --ktp-on-dark-tertiary: var(--ktp-muted-light); /* ~70% white on navy — secondary text on dark backgrounds */
+
+    /* Overlay token — modal backdrop; replaces bg-black/50 opacity modifier */
+    --ktp-overlay: rgba(0, 0, 0, 0.50);
+
+    /* Card back token — deep navy for 3D member card back face (referenced in legacy.css) */
+    --ktp-card-back: #001433;
+
     /* Legacy aliases — kept for legacy.css class references */
     --white-color: var(--ktp-white);
     --primary-color: var(--ktp-primary);
@@ -108,22 +118,12 @@ body {
   overscroll-behavior: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-bold);
-  letter-spacing: -1px;
-}
-
-h1 {
-  font-size: var(--h1-font-size);
-  letter-spacing: -2px;
-  text-transform: uppercase;
-}
-
-h2 { font-size: var(--h2-font-size); letter-spacing: -2px; }
-h3 { font-size: var(--h3-font-size); }
-h4 { font-size: var(--h4-font-size); }
-h5 { font-size: var(--h5-font-size); line-height: normal; }
-h6 { font-size: var(--h6-font-size); }
+/* Heading elements are intentionally unstyled here.
+   All KTP heading typography is applied exclusively via the Heading DS component
+   (src/design-system/components/Typography.tsx). Styling raw <h*> elements via
+   global CSS causes third-party library internals (Radix, ShadCN) to inherit
+   KTP typography unexpectedly — which breaks modal titles, accordion triggers,
+   dialog labels, etc. Use <Heading level={n}> instead of raw <h*> elements. */
 
 p {
   color: var(--p-color);

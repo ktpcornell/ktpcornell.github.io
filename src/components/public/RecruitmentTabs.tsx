@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Clock, MapPin } from 'lucide-react'
 import { RECRUITMENT_OPEN_EVENTS, RECRUITMENT_INTERVIEW_ROUNDS, type RecruitmentEvent } from '@/lib/constants'
 import { Button } from '@/design-system/components/Button'
+import { Heading } from '@/design-system/components/Typography'
 
 const TABS = [
   { id: 'events', label: 'Events', sub: 'Open Events for everyone' },
@@ -13,7 +14,7 @@ const TABS = [
 function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   return (
     <div className="border-b pb-8 mb-8 max-w-3xl mx-auto">
-      <h4 className="mb-2">{title}</h4>
+      <Heading level={4} className="mb-2">{title}</Heading>
       <p>{desc}</p>
       <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-muted">
         <span>{date}</span>
@@ -50,13 +51,14 @@ export function RecruitmentTabs() {
             ].join(' ')}
             onClick={() => setActiveTab(tab.id)}
           >
-            <h3
-              className={`text-xl mb-1 font-bold ${
+            <Heading
+              level={3}
+              className={`text-xl mb-1 tracking-normal ${
                 activeTab === tab.id ? 'text-ktp-accent' : 'text-ktp-primary'
               }`}
             >
               {tab.label}
-            </h3>
+            </Heading>
             {tab.sub && <small className="text-sm font-normal text-ktp-muted">{tab.sub}</small>}
           </button>
         ))}
@@ -82,7 +84,7 @@ export function RecruitmentTabs() {
 
         {activeTab === 'coffee' && (
           <div className="text-center py-8 max-w-3xl mx-auto">
-            <h4 className="mb-4 text-ktp-primary">Schedule a Coffee Chat</h4>
+            <Heading level={4} className="mb-4 text-ktp-primary">Schedule a Coffee Chat</Heading>
             <p className="mb-6">
               Coffee chats are a great way to get to know our brothers in a low-pressure, one-on-one
               setting. Sign up using the form below!
@@ -101,7 +103,7 @@ export function RecruitmentTabs() {
 
         {activeTab === 'tips' && (
           <div className="py-8 max-w-3xl mx-auto">
-            <h4 className="mb-4 text-ktp-primary">Application Tips</h4>
+            <Heading level={4} className="mb-4 text-ktp-primary">Application Tips</Heading>
             <ul className="list-disc pl-6 space-y-3">
               <li><p>Attend at least one info session or open event before applying.</p></li>
               <li><p>Be genuine — we value authenticity and passion for technology over GPA or prestige.</p></li>

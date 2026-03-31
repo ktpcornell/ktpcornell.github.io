@@ -58,7 +58,7 @@ export function TypographyPage() {
         <TypeRow label="SmallTitle — xs / tracking-widest / uppercase / cyan">
           <SmallTitle>About Us</SmallTitle>
         </TypeRow>
-        <TypeRow label="SectionLabel — xs / semibold / uppercase / tracking-widest / ktp-muted">
+        <TypeRow label="SectionLabel — sm / semibold / uppercase / tracking-widest / ktp-primary">
           <SectionLabel>Usage</SectionLabel>
         </TypeRow>
         <TypeRow label="Caption — xs / text-ktp-muted">

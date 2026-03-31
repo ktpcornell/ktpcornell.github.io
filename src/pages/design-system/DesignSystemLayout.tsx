@@ -25,6 +25,8 @@ const NAV_SECTIONS = [
       { to: '/design-system/components/accordion', label: 'Accordion' },
       { to: '/design-system/components/tabs', label: 'Tabs' },
       { to: '/design-system/components/spinner', label: 'Spinner' },
+      { to: '/design-system/components/data-table', label: 'Data Table' },
+      { to: '/design-system/components/modal', label: 'Modal' },
     ],
   },
   {
@@ -64,8 +66,7 @@ export function DesignSystemLayout() {
         </div>
         {/* Title + back button */}
         <div className="flex-1 flex items-center justify-between px-6">
-          {/* DS-SKIP: text-white/90 — slight dimming for visual hierarchy on dark nav; requires --ktp-white-dim token to avoid opacity modifier */}
-          <span className="text-white/90 text-sm font-medium tracking-wide">
+          <span className="text-ktp-on-dark-secondary text-sm font-medium tracking-wide">
             Design System
           </span>
           <Link to="/" className="text-sm text-white hover:text-ktp-accent transition-colors no-underline">

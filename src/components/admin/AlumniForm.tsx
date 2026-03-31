@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react'
-import { X } from 'lucide-react'
 import { createAlumni, updateAlumni } from '@/services/alumniService'
 import type { AlumniEntry, AlumniFormData } from '@/types/alumni'
 import { KTP_CLASSES } from '@/lib/constants'
 import { Button } from '@/design-system/components/Button'
 import { FormField, SelectField, TextareaField } from '@/design-system/components/FormField'
 import { AlertBanner } from '@/design-system/components/AlertBanner'
+import { KtpModal, KtpModalHeader, KtpModalBody, KtpModalFooter } from '@/design-system/components/Modal'
 
 interface AlumniFormProps {
   existing?: AlumniEntry
@@ -56,22 +56,10 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto py-8 bg-black/50">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 overflow-hidden">
-        <div className="px-6 py-4 bg-ktp-primary flex items-center justify-between">
-          <h5 className="text-white mb-0">{existing ? 'Edit Alumni Entry' : 'Add Alumni'}</h5>
-          {/* DS-SKIP: <button> — modal close icon-button; Button component adds px-4 py-2 that would resize the X icon region */}
-          {/* DS-SKIP: hover:text-white/70 — opacity modifier for hover dim on dark bg; no ktp-* equivalent token */}
-          <button
-            onClick={onClose}
-            className="text-white bg-transparent border-none cursor-pointer p-1 hover:text-white/70 transition-colors"
-            aria-label="Close"
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4 max-h-[70vh] overflow-y-auto">
+    <KtpModal open onClose={onClose}>
+      <KtpModalHeader title={existing ? 'Edit Alumni Entry' : 'Add Alumni'} />
+      <form onSubmit={handleSubmit}>
+        <KtpModalBody>
           {error && <AlertBanner variant="error">{error}</AlertBanner>}
 
           {(
@@ -123,17 +111,16 @@ export function AlumniForm({ existing, onClose, onSaved }: AlumniFormProps) {
             onChange={set('notes')}
             rows={3}
           />
-
-          <div className="flex gap-3 pt-2">
-            <Button type="submit" variant="primary" disabled={saving} className="flex-1">
-              {saving ? 'Saving…' : 'Save'}
-            </Button>
-            <Button type="button" variant="outline" onClick={onClose} className="flex-1">
-              Cancel
-            </Button>
-          </div>
-        </form>
-      </div>
-    </div>
+        </KtpModalBody>
+        <KtpModalFooter>
+          <Button type="button" variant="outline" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit" variant="primary" disabled={saving}>
+            {saving ? 'Saving…' : 'Save'}
+          </Button>
+        </KtpModalFooter>
+      </form>
+    </KtpModal>
   )
 }

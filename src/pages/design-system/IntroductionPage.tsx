@@ -238,6 +238,67 @@ const CTAPreview = () => (
   </div>
 )
 
+const DataTablePreview = () => (
+  <div className="w-52 rounded-lg border border-ktp-ui-border overflow-hidden">
+    <div className="bg-ktp-primary flex">
+      <div className="flex-1 px-2 py-1.5"><div className="w-10 h-1.5 rounded bg-white/60" /></div>
+      <div className="flex-1 px-2 py-1.5"><div className="w-8 h-1.5 rounded bg-white/60" /></div>
+      <div className="w-8 px-2 py-1.5"><div className="w-5 h-1.5 rounded bg-white/60" /></div>
+    </div>
+    {[true, false, true].map((even, i) => (
+      <div key={i} className={`flex ${even ? 'bg-white' : 'bg-ktp-surface'}`}>
+        <div className="flex-1 px-2 py-2"><div className="w-16 h-1.5 rounded bg-gray-200" /></div>
+        <div className="flex-1 px-2 py-2"><div className="w-10 h-1.5 rounded bg-gray-200" /></div>
+        <div className="w-8 px-2 py-2"><div className="w-5 h-1.5 rounded bg-ktp-primary/30" /></div>
+      </div>
+    ))}
+  </div>
+)
+
+const ModalPreview = () => (
+  <div className="relative w-44 h-28">
+    <div className="absolute inset-0 rounded-lg bg-black/30" />
+    <div className="absolute inset-4 rounded-xl bg-white shadow-lg overflow-hidden">
+      <div className="bg-ktp-primary px-3 py-1.5 flex items-center justify-between">
+        <div className="w-16 h-1.5 rounded bg-white/70" />
+        <div className="w-3 h-3 rounded-full bg-white/40" />
+      </div>
+      <div className="p-2.5 flex flex-col gap-1.5">
+        <div className="w-full h-1.5 rounded bg-gray-200" />
+        <div className="w-3/4 h-1.5 rounded bg-gray-100" />
+        <div className="flex gap-1.5 mt-1">
+          <div className="flex-1 h-4 rounded bg-gray-100 border border-gray-200" />
+          <div className="flex-1 h-4 rounded bg-ktp-primary" />
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+const IconButtonPreview = () => (
+  <div className="flex flex-col gap-3 items-center">
+    <div className="flex gap-2 items-center">
+      <div className="w-7 h-7 rounded-full border border-ktp-ui-border flex items-center justify-center">
+        <div className="w-3 h-3 rounded bg-ktp-primary/40" />
+      </div>
+      <div className="w-9 h-9 rounded-full border border-ktp-ui-border flex items-center justify-center">
+        <div className="w-4 h-4 rounded bg-ktp-primary/40" />
+      </div>
+      <div className="w-10 h-10 rounded-full border border-ktp-ui-border flex items-center justify-center">
+        <div className="w-5 h-5 rounded bg-ktp-primary/40" />
+      </div>
+    </div>
+    <div className="bg-ktp-primary rounded-lg px-4 py-2 flex gap-2">
+      <div className="w-7 h-7 rounded-full flex items-center justify-center">
+        <div className="w-3.5 h-3.5 rounded bg-white/60" />
+      </div>
+      <div className="w-7 h-7 rounded-full flex items-center justify-center">
+        <div className="w-3.5 h-3.5 rounded bg-white/60" />
+      </div>
+    </div>
+  </div>
+)
+
 // ---------------------------------------------------------------------------
 // Sections data
 // ---------------------------------------------------------------------------
@@ -310,6 +371,24 @@ const SECTIONS: SectionGroup[] = [
         description: 'Tabbed content switcher with active indicator.',
         path: '/design-system/components/tabs',
         preview: <TabsPreview />,
+      },
+      {
+        label: 'Data Table',
+        description: 'Navy-header table with auto zebra-stripe rows.',
+        path: '/design-system/components/data-table',
+        preview: <DataTablePreview />,
+      },
+      {
+        label: 'Modal',
+        description: 'Accessible dialog with navy header and KTP tokens.',
+        path: '/design-system/components/modal',
+        preview: <ModalPreview />,
+      },
+      {
+        label: 'Icon Button',
+        description: 'Icon-only trigger: ghost and on-dark variants.',
+        path: '/design-system/components/buttons',
+        preview: <IconButtonPreview />,
       },
     ],
   },

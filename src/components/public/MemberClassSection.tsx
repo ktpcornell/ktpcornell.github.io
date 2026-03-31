@@ -1,5 +1,6 @@
 import type { Member } from '@/types/member'
 import { MemberCard } from './MemberCard'
+import { Heading } from '@/design-system/components/Typography'
 
 interface MemberClassSectionProps {
   className: string
@@ -16,8 +17,8 @@ export function MemberClassSection({
 }: MemberClassSectionProps) {
   return (
     <div className="mb-12">
-      <h2 className="font-bold text-center text-ktp-primary mb-1">{className}</h2>
-      {semester && <h4 className="text-center mb-4">{semester}</h4>}
+      <Heading level={2} className="text-center text-ktp-primary mb-1">{className}</Heading>
+      {semester && <Heading level={4} className="text-center mb-4">{semester}</Heading>}
 
       {classPictureSrc && (
         <div className="text-center mb-8">

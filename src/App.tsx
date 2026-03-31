@@ -36,6 +36,8 @@ import { CTAPage } from '@/pages/design-system/page-sections/CTAPage'
 import { NavbarPage } from '@/pages/design-system/components/NavbarPage'
 import { AccordionPage } from '@/pages/design-system/components/AccordionPage'
 import { TabsPage } from '@/pages/design-system/components/TabsPage'
+import { DataTablePage } from '@/pages/design-system/components/DataTablePage'
+import { ModalPage } from '@/pages/design-system/components/ModalPage'
 import { LayoutPage } from '@/pages/design-system/LayoutPage'
 
 // Admin
@@ -69,6 +71,8 @@ export function App() {
             <Route path="components/accordion" element={<AccordionPage />} />
             <Route path="components/tabs" element={<TabsPage />} />
             <Route path="components/spinner" element={<SpinnerPage />} />
+            <Route path="components/data-table" element={<DataTablePage />} />
+            <Route path="components/modal" element={<ModalPage />} />
             <Route path="layout" element={<LayoutPage />} />
             <Route path="page-sections/section-title" element={<SectionTitlePage />} />
             <Route path="page-sections/section-separator" element={<SectionSeparatorPage />} />

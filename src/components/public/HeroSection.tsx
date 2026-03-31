@@ -1,6 +1,7 @@
 import { ArrowDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTypingEffect } from '@/hooks/useTypingEffect'
+import { Heading } from '@/design-system/components/Typography'
 
 const HERO_PHRASES = ['Cornell Chapter', 'Alpha Epsilon']
 
@@ -11,10 +12,10 @@ export function HeroSection() {
     <section className="hero" id="section_1">
       <div className="container mx-auto px-4 h-full flex items-center">
         <div className="hero-text">
-          <h1 className="text-white mt-[130px] mb-5">
+          <Heading level={1} className="text-white mt-[130px] mb-5 normal-case">
             Kappa Theta Pi{' '}
             <span className="typing-text block">{typedText}</span>
-          </h1>
+          </Heading>
           <Link to="/about" className="arrow-icon flex items-center justify-center">
             <ArrowDown size={24} />
           </Link>

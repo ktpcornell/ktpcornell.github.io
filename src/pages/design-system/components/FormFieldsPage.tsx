@@ -1,6 +1,13 @@
-import { FormField, SelectField } from '@/design-system/components/FormField'
+import { useState } from 'react'
+import { FormField, SelectField, CheckboxField } from '@/design-system/components/FormField'
+import { Switch, SwitchField } from '@/design-system/components/Switch'
+import { SectionLabel } from '@/design-system/components/Typography'
 
 export function FormFieldsPage() {
+  const [checked1, setChecked1] = useState(false)
+  const [checked2, setChecked2] = useState(true)
+  const [toggled, setToggled] = useState(false)
+
   return (
     <>
       <section className="p-6 pt-12 md:p-12 border-b border-ktp-ui-border">
@@ -11,8 +18,9 @@ export function FormFieldsPage() {
             @/design-system/components/FormField
           </code>
           . Exports <code className="text-sm font-mono">FormField</code>,{' '}
-          <code className="text-sm font-mono">SelectField</code>, and{' '}
-          <code className="text-sm font-mono">TextareaField</code>. All accept a{' '}
+          <code className="text-sm font-mono">SelectField</code>,{' '}
+          <code className="text-sm font-mono">TextareaField</code>, and{' '}
+          <code className="text-sm font-mono">CheckboxField</code>. All accept a{' '}
           <code className="text-sm font-mono">label</code>, <code className="text-sm font-mono">error</code>, and{' '}
           <code className="text-sm font-mono">helperText</code> prop.
         </p>
@@ -47,6 +55,74 @@ export function FormFieldsPage() {
               <option value="beta">Beta</option>
             </SelectField>
           </div>
+        </div>
+      </section>
+
+      {/* CheckboxField */}
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-ui-border">
+        <div>
+          <SectionLabel>CheckboxField — labeled checkbox</SectionLabel>
+          <p className="text-sm text-ktp-muted mt-1">
+            Import from{' '}
+            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+              @/design-system/components/FormField
+            </code>
+            . Replaces raw{' '}
+            <code className="font-mono text-xs">{'<input type="checkbox">'}</code> with proper label
+            wiring and ktp-primary styling.
+          </p>
+        </div>
+        <div className="max-w-md space-y-4">
+          <CheckboxField
+            label="Pin this announcement"
+            description="Pinned announcements appear at the top of the feed."
+            checked={checked1}
+            onCheckedChange={setChecked1}
+          />
+          <CheckboxField
+            label="Notify all members"
+            checked={checked2}
+            onCheckedChange={setChecked2}
+          />
+          <CheckboxField
+            label="Disabled option"
+            checked={false}
+            onCheckedChange={() => {}}
+            disabled
+          />
+        </div>
+      </section>
+
+      {/* SwitchField */}
+      <section className="p-6 md:p-12 flex flex-col gap-6 border-t border-ktp-ui-border">
+        <div>
+          <SectionLabel>Switch / SwitchField — toggle control</SectionLabel>
+          <p className="text-sm text-ktp-muted mt-1">
+            Import from{' '}
+            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+              @/design-system/components/Switch
+            </code>
+            . Use bare <code className="font-mono text-xs">Switch</code> inside table cells.
+            Use <code className="font-mono text-xs">SwitchField</code> when a label is needed.
+          </p>
+        </div>
+        <div className="max-w-md space-y-6">
+          <div className="flex items-center gap-3">
+            <Switch checked={toggled} onCheckedChange={setToggled} />
+            <span className="text-sm text-ktp-muted">Bare Switch (no label)</span>
+          </div>
+          <SwitchField
+            label="Enable public profile"
+            description="Your profile will be visible to other KTP members."
+            checked={toggled}
+            onCheckedChange={setToggled}
+          />
+          <SwitchField
+            label="Admin access"
+            checked={false}
+            onCheckedChange={() => {}}
+            disabled
+          />
         </div>
       </section>
     </>

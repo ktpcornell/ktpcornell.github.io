@@ -1,5 +1,6 @@
 import { Mail, Instagram, Linkedin } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+import { Heading } from '@/design-system/components/Typography'
 
 export function Footer() {
   const location = useLocation()
@@ -41,7 +42,7 @@ export function Footer() {
 
           {/* Contact column */}
           <div className="w-full sm:w-64">
-            <h5 className="font-bold mb-4 text-white">Contact Us</h5>
+            <Heading level={5} className="mb-4 text-white">Contact Us</Heading>
             <div className="flex items-center mb-3 gap-2">
               <Mail size={18} className="text-white shrink-0" />
               <p className="text-white text-sm mb-0">ktpcornell@gmail.com</p>

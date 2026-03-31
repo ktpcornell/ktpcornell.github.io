@@ -1,4 +1,5 @@
 import { Briefcase, Globe, Users, Cpu, GraduationCap } from 'lucide-react'
+import { Heading } from '@/design-system/components/Typography'
 
 const pillars = [
   {
@@ -39,14 +40,14 @@ export function ValuesSection() {
   return (
     <section className="section-padding bg-ktp-surface" id="pillars">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="font-bold mb-10 text-ktp-primary">Our Values</h2>
+        <Heading level={2} className="mb-10 text-ktp-primary">Our Values</Heading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
           {pillars.map((p) => (
             <div key={p.title} className="bg-white shadow-sm p-6 border-0 values-card rounded-xl">
               <div className={`icon-box mb-4 ${p.iconBg} text-white rounded-full mx-auto`}>
                 <p.Icon size={24} />
               </div>
-              <h5 className="font-bold mb-2">{p.title}</h5>
+              <Heading level={5} className="mb-2">{p.title}</Heading>
               <p>{p.body}</p>
             </div>
           ))}

@@ -1,7 +1,7 @@
 import type { AlumniEntry } from '@/types/alumni'
 import { Card, CardHeader, CardBody } from '@/design-system/components/Card'
 import { Badge } from '@/design-system/components/Badge'
-import { Caption } from '@/design-system/components/Typography'
+import { Heading, Caption } from '@/design-system/components/Typography'
 
 interface AlumniCardProps {
   alumni: AlumniEntry
@@ -12,8 +12,8 @@ export function AlumniCard({ alumni }: AlumniCardProps) {
     <Card className="hover:shadow-md transition-shadow">
       <CardHeader>
         <div>
-          <h6 className="text-white font-bold mb-0">{alumni.name}</h6>
-          <span className="text-white/70 text-xs">
+          <Heading level={6} className="text-white mb-0">{alumni.name}</Heading>
+          <span className="text-ktp-muted-light text-xs">
             {alumni.graduationYear}
           </span>
         </div>

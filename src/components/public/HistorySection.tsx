@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/design-system/components/Button'
+import { Heading } from '@/design-system/components/Typography'
 
 export function HistorySection() {
   return (
@@ -7,7 +8,7 @@ export function HistorySection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="mb-4">Our History</h2>
+            <Heading level={2} className="mb-4">Our History</Heading>
             <p className="mb-4">
               Kappa Theta Pi takes pride in being Cornell's first co-ed professional technology
               fraternity focused on the professional, social, and technological advancement of our

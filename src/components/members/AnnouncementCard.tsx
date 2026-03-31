@@ -1,7 +1,7 @@
 import type { Announcement } from '@/types/announcement'
 import { Card, CardHeader, CardBody } from '@/design-system/components/Card'
 import { Badge } from '@/design-system/components/Badge'
-import { Caption } from '@/design-system/components/Typography'
+import { Heading, Caption } from '@/design-system/components/Typography'
 
 interface AnnouncementCardProps {
   announcement: Announcement
@@ -23,7 +23,7 @@ export function AnnouncementCard({ announcement }: AnnouncementCardProps) {
       className={`mb-4 ${announcement.pinned ? 'border-l-4 border-l-ktp-accent' : ''}`}
     >
       <CardHeader>
-        <h5 className="text-white mb-0 font-semibold">{announcement.title}</h5>
+        <Heading level={5} className="text-white mb-0 font-semibold">{announcement.title}</Heading>
         {announcement.pinned && <Badge variant="cyan">Pinned</Badge>}
       </CardHeader>
       <CardBody>

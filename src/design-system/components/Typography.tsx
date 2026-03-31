@@ -24,13 +24,16 @@ const headingColorMap = {
   default: '',
 }
 
+// All KTP heading styles live here — not in global CSS element selectors.
+// Callers can override any property via className (tailwind-merge resolves conflicts).
+// e.g. <Heading level={1} className="tracking-normal normal-case"> for a non-uppercase h1.
 const headingSizeMap: Record<HeadingLevel, string> = {
-  1: 'text-heading-1',
-  2: 'text-heading-2',
-  3: 'text-heading-3',
-  4: 'text-heading-4',
-  5: 'text-heading-5',
-  6: 'text-heading-6',
+  1: 'text-heading-1 font-bold tracking-[-2px] uppercase',
+  2: 'text-heading-2 font-bold tracking-[-2px]',
+  3: 'text-heading-3 font-bold tracking-[-1px]',
+  4: 'text-heading-4 font-bold tracking-[-1px]',
+  5: 'text-heading-5 font-bold leading-normal tracking-[-1px]',
+  6: 'text-heading-6 font-bold tracking-[-1px]',
 }
 
 export function Heading({
@@ -64,7 +67,7 @@ export function SmallTitle({ className, ...props }: React.HTMLAttributes<HTMLPar
 /** Uppercase label used above demo blocks in design system docs */
 export function SectionLabel({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-xs font-semibold uppercase tracking-widest text-ktp-muted [&_code]:normal-case [&_code]:tracking-normal [&_code]:font-normal', className)} {...props} />
+    <p className={cn('text-sm font-semibold uppercase tracking-widest text-ktp-primary [&_code]:normal-case [&_code]:tracking-normal [&_code]:font-normal', className)} {...props} />
   )
 }
 

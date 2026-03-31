@@ -120,6 +120,18 @@ export function ColorsPage() {
           tailwindClass="bg-ktp-surface"
           description="Light blue background for alternating sections and portal pages."
         />
+        <ColorCard
+          name="Card Back"
+          hex="#001433"
+          tailwindClass="bg-ktp-card-back"
+          description="Deep navy for the back face of the 3D member flip card. Applied via var(--ktp-card-back) in legacy.css."
+        />
+        <ColorCard
+          name="Overlay"
+          hex="rgba(0,0,0,0.50)"
+          tailwindClass="bg-ktp-overlay"
+          description="Modal backdrop overlay. Use bg-ktp-overlay instead of bg-black/50 — avoids opacity modifier syntax."
+        />
       </ColorGroup>
 
       <ColorGroup
@@ -136,13 +148,19 @@ export function ColorsPage() {
           name="Muted Light"
           hex="#a8adb8"
           tailwindClass="text-ktp-muted-light"
-          description="Lighter muted text for use on dark (ktp-primary) backgrounds where ktp-muted lacks sufficient contrast."
+          description="Lighter muted text for use on dark (ktp-primary) backgrounds where ktp-muted lacks sufficient contrast. Also aliased as ktp-on-dark-tertiary."
         />
         <ColorCard
           name="White"
           hex="#ffffff"
           tailwindClass="text-white"
-          description="Text and icon color on dark or navy backgrounds."
+          description="Full-white text and icon color on dark or navy backgrounds."
+        />
+        <ColorCard
+          name="On Dark Secondary"
+          hex="#d4d8e4"
+          tailwindClass="text-ktp-on-dark-secondary"
+          description="~90% white equivalent on navy. Use instead of text-white/90 for portal/admin title bar text. Avoids opacity modifier syntax."
         />
       </ColorGroup>
 

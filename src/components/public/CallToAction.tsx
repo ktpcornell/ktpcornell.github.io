@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/design-system/components/Button'
+import { Heading } from '@/design-system/components/Typography'
 
 export function CallToAction() {
   return (
@@ -7,7 +8,7 @@ export function CallToAction() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="text-white mb-4">Become a member?</h2>
+            <Heading level={2} className="text-white mb-4">Become a member?</Heading>
             <p className="text-white">
               Join the Brotherhood or learn more about the Recruitment and application process
               today!

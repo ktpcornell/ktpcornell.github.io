@@ -23,6 +23,13 @@ const config: Config = {
   			'ktp-warning-bg': 'var(--ktp-warning-bg)',
   			'ktp-warning-border': 'var(--ktp-warning-border)',
   			'ktp-warning-text': 'var(--ktp-warning-text)',
+  			// On-dark text tokens — use instead of text-white/90 / text-white/70
+  			'ktp-on-dark-secondary': 'var(--ktp-on-dark-secondary)',
+  			'ktp-on-dark-tertiary':  'var(--ktp-muted-light)',
+  			// Overlay token — use bg-ktp-overlay instead of bg-black/50
+  			'ktp-overlay':         'var(--ktp-overlay)',
+  			// Card back token
+  			'ktp-card-back':       'var(--ktp-card-back)',
   			// UI shell tokens
   			'ktp-ui-border':       'var(--ktp-ui-border)',
   			'ktp-ui-bg':           'var(--ktp-ui-bg)',

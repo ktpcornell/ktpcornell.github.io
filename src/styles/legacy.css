@@ -215,7 +215,7 @@
 }
 
 .card-back {
-  background-color: #001433;
+  background-color: var(--ktp-card-back);
   color: white;
   display: flex;
   flex-direction: column;

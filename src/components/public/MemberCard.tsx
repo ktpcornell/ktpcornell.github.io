@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Member } from '@/types/member'
+import { Heading } from '@/design-system/components/Typography'
 
 interface MemberCardProps {
   member: Member
@@ -83,7 +84,7 @@ export function MemberCard({ member }: MemberCardProps) {
       </div>
       {member.role && (
         <div className="text-center mt-2">
-          <h6>{member.role}</h6>
+          <Heading level={6}>{member.role}</Heading>
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { SmallTitle } from './Typography'
+import { SmallTitle, Heading } from './Typography'
 
 /**
  * KTP SectionTitle — consistent heading block for major page sections.
@@ -45,7 +45,7 @@ export function SectionTitle({
   return (
     <div className={cn('mb-8', alignClass, className)}>
       {label && <SmallTitle>{label}</SmallTitle>}
-      <h2 className={cn('mb-3', titleColorClass)}>{title}</h2>
+      <Heading level={2} className={cn('mb-3', titleColorClass)}>{title}</Heading>
       {subtitle && (
         <p className={cn('max-w-2xl', subtitleColorClass, align === 'center' && 'mx-auto')}>
           {subtitle}

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Last Updated: 2026-03-30 by Claude (Gabriel Castillo) — design system refactor: Spinner component, 6 new UI shell tokens, DS-SKIP audit, self-updating hooks
+Last Updated: 2026-03-31 by Claude (Gabriel Castillo) — design system migration: DataTable, KtpModal, IconButton, CheckboxField, SwitchField; admin page migration; CLAUDE.md sync
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -95,6 +95,11 @@ All design system components import from `@/design-system/components/<Name>`.
 | **Button** | `Button`, `ktpButtonVariants` | Every clickable action. Variants: `primary`, `secondary`, `outline`, `ghost`, `transparent`, `danger`. Sizes: `default`, `sm`, `lg` | Raw `<button>` or `<a>` with arbitrary classes |
 | **Card / CardHeader / CardBody** | `Card`, `CardHeader`, `CardBody` | Content containers. `CardHeader` = navy title bar; `CardBody` = padded content area | `<div className="bg-primary px-6 py-4">` header bars |
 | **FormField / SelectField / TextareaField** | `FormField`, `SelectField`, `TextareaField` | All labeled form inputs. Includes label, error, and helper text wiring | Raw `<input>`, `<select>`, `<textarea>` |
+| **CheckboxField** | `CheckboxField` | Labeled checkbox with accessible wiring. Props: `label`, `checked`, `onCheckedChange`, `description?`, `disabled?` | Raw `<input type="checkbox">` |
+| **Switch / SwitchField** | `Switch`, `SwitchField` | Toggle control. `Switch` for use inside table cells; `SwitchField` when a label is needed. | Raw `<button>` toggle pill |
+| **DataTable / sub-components** | `DataTable`, `DataTableHead`, `DataTableHeadCell`, `DataTableBody`, `DataTableRow`, `DataTableCell`, `DataTableEmptyState` | All tabular data. `DataTableRow` auto zebra-stripes via `index` prop; `DataTableCell variant="mono\|actions"` for IDs/action buttons | Raw `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` |
+| **KtpModal / sub-components** | `KtpModal`, `KtpModalHeader`, `KtpModalBody`, `KtpModalFooter` | Accessible modal dialog with KTP-branded chrome. Built on Radix Dialog for focus-trap + scroll-lock. `KtpModalHeader` includes built-in close button. | `fixed inset-0 z-50` overlay divs, `bg-black/50` backdrops |
+| **IconButton** | `IconButton`, `iconButtonVariants` | Icon-only trigger with no text padding. Variants: `ghost`, `on-dark`. Sizes: `sm`, `default`, `lg` | Raw `<button>` for hamburger, modal close, or other icon-only triggers |
 | **SectionSeparator** | `SectionSeparator` | Horizontal rule between content sections | Raw `<hr>` or `<div className="border-t ...">` |
 | **SectionTitle** | `SectionTitle` | Section heading block with optional label + subtitle. Props: `title`, `label?`, `subtitle?`, `align?`, `color?` | Hand-written `<h2>` + `<p>` combos for section headings |
 | **Heading / SmallTitle / SectionLabel / Body / Caption** | `Heading`, `SmallTitle`, `SectionLabel`, `Body`, `Caption` | All typographic content | Raw `<h2>`, `<p>`, `<span>` with manual color/size classes |
@@ -107,6 +112,11 @@ All design system components import from `@/design-system/components/<Name>`.
 - **Any clickable action** → `Button variant="..."`
 - **Content card with optional navy header** → `Card` + `CardHeader` + `CardBody`
 - **Text input** → `FormField` · **Dropdown** → `SelectField` · **Multi-line** → `TextareaField`
+- **Labeled checkbox** → `CheckboxField`
+- **Toggle control** → `Switch` (no label) or `SwitchField` (with label)
+- **Table of data** → `DataTable` + `DataTableHead` + `DataTableBody` + `DataTableRow` + `DataTableCell`
+- **Modal dialog** → `KtpModal` + `KtpModalHeader` + `KtpModalBody` + optional `KtpModalFooter`
+- **Icon-only button** → `IconButton variant="ghost"` (light bg) or `variant="on-dark"` (dark bg)
 - **Section heading with label/subtitle** → `SectionTitle`
 - **Standalone h1–h6** → `Heading level={n}`
 - **Body paragraph** → `Body`
@@ -130,6 +140,12 @@ These patterns are bugs. If you see them without a `DS-SKIP` comment, fix them.
 | Duplicated inline spinner: `w-8 h-8 border-4 border-ktp-accent border-t-transparent rounded-full animate-spin` | `<Spinner />` from `@/design-system/components/Spinner` |
 | `<div className="bg-primary px-6 py-4 ...">` as a card title bar | `<CardHeader>` |
 | Raw `<input>`, `<select>`, `<textarea>` without label/error wiring | `FormField`, `SelectField`, `TextareaField` |
+| Raw `<input type="checkbox">` | `CheckboxField` |
+| Raw `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` | `DataTable` and sub-components |
+| `fixed inset-0 z-50` overlay div + manual panel + manual header | `KtpModal` + `KtpModalHeader` + `KtpModalBody` |
+| `bg-black/50` modal backdrop | `bg-ktp-overlay` (or use `KtpModal` which handles this) |
+| `text-white/90`, `text-white/70` on dark backgrounds | `text-ktp-on-dark-secondary`, `text-ktp-on-dark-tertiary` |
+| Raw `<button>` for icon-only triggers (hamburger, close, etc.) | `IconButton variant="ghost"` or `variant="on-dark"` |
 
 ### Design System Sync Rules
 

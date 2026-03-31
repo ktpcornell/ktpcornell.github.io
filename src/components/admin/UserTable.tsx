@@ -4,6 +4,16 @@ import { db } from '@/lib/firebase'
 import type { AppUser } from '@/types/user'
 import { useAuth } from '@/hooks/useAuth'
 import { Spinner } from '@/design-system/components/Spinner'
+import { Switch } from '@/design-system/components/Switch'
+import {
+  DataTable,
+  DataTableHead,
+  DataTableHeadCell,
+  DataTableBody,
+  DataTableRow,
+  DataTableCell,
+  DataTableEmptyState,
+} from '@/design-system/components/DataTable'
 
 export function UserTable() {
   const { currentUser } = useAuth()
@@ -40,47 +50,31 @@ export function UserTable() {
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-ktp-ui-border">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="bg-ktp-primary">
-            <th className="text-white text-left px-4 py-3">Email</th>
-            <th className="text-white text-left px-4 py-3">UID</th>
-            <th className="text-white text-center px-4 py-3">Admin</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, i) => (
-            <tr
-              key={user.uid}
-              className={i % 2 === 0 ? 'bg-white' : 'bg-ktp-surface'}
-            >
-              <td className="px-4 py-3">{user.email}</td>
-              <td className="px-4 py-3 font-mono text-xs text-ktp-muted">
-                {user.uid.slice(0, 16)}…
-              </td>
-              <td className="px-4 py-3 text-center">
-                {/* DS-SKIP: <button> — custom toggle switch UI; Button component adds padding/border that overrides the pill/track shape */}
-                <button
-                  onClick={() => toggleAdmin(user.uid, user.isAdmin)}
-                  className={`relative inline-flex items-center w-10 h-5 rounded-full transition-colors focus:outline-none ${
-                    user.isAdmin ? 'bg-ktp-primary' : 'bg-ktp-neutral-bg'
-                  } ${user.uid === currentUser?.uid ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}`}
-                  title={
-                    user.uid === currentUser?.uid ? 'Cannot change own role' : undefined
-                  }
-                >
-                  <span
-                    className={`inline-block w-4 h-4 bg-white rounded-full shadow transition-transform ${
-                      user.isAdmin ? 'translate-x-5' : 'translate-x-0.5'
-                    }`}
-                  />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <DataTable>
+      <DataTableHead>
+        <tr>
+          <DataTableHeadCell>Email</DataTableHeadCell>
+          <DataTableHeadCell>UID</DataTableHeadCell>
+          <DataTableHeadCell align="center">Admin</DataTableHeadCell>
+        </tr>
+      </DataTableHead>
+      <DataTableBody>
+        {users.length === 0 && <DataTableEmptyState colSpan={3} message="No users found." />}
+        {users.map((user, i) => (
+          <DataTableRow key={user.uid} index={i}>
+            <DataTableCell>{user.email}</DataTableCell>
+            <DataTableCell variant="mono">{user.uid.slice(0, 16)}…</DataTableCell>
+            <DataTableCell className="text-center">
+              <Switch
+                checked={user.isAdmin}
+                onCheckedChange={() => toggleAdmin(user.uid, user.isAdmin)}
+                disabled={user.uid === currentUser?.uid}
+                aria-label={`Toggle admin for ${user.email}`}
+              />
+            </DataTableCell>
+          </DataTableRow>
+        ))}
+      </DataTableBody>
+    </DataTable>
   )
 }

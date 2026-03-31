@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/design-system/components/Button'
+import { IconButton } from '@/design-system/components/IconButton'
 import { SectionLabel } from '@/design-system/components/Typography'
+import { X, Menu, Copy, Trash2 } from 'lucide-react'
 
 function ButtonGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -79,6 +81,42 @@ export function ButtonsPage() {
           </a>
         </Button>
       </ButtonGroup>
+
+      {/* IconButton */}
+      <section className="p-6 md:p-12 flex flex-col gap-4 border-t border-ktp-ui-border">
+        <div>
+          <SectionLabel>IconButton — icon-only trigger, no text padding</SectionLabel>
+          <p className="text-sm text-ktp-muted mt-1">
+            Import from{' '}
+            <code className="font-mono text-xs bg-ktp-surface px-1 py-0.5 rounded">
+              @/design-system/components/IconButton
+            </code>
+            . Use instead of <code className="font-mono text-xs">Button</code> when the clickable
+            surface contains only an icon (modal close, hamburger, copy). Requires{' '}
+            <code className="font-mono text-xs">aria-label</code>.
+          </p>
+        </div>
+        <div className="flex flex-col gap-6">
+          <div>
+            <p className="text-xs text-ktp-muted mb-3">variant="ghost" (default) — sizes sm / default / lg</p>
+            <div className="flex items-center gap-3">
+              <IconButton variant="ghost" size="sm" aria-label="Copy small"><Copy /></IconButton>
+              <IconButton variant="ghost" aria-label="Copy default"><Copy /></IconButton>
+              <IconButton variant="ghost" size="lg" aria-label="Copy large"><Copy /></IconButton>
+              <IconButton variant="ghost" aria-label="Delete" className="text-destructive hover:bg-destructive/10">
+                <Trash2 />
+              </IconButton>
+            </div>
+          </div>
+          <div>
+            <p className="text-xs text-ktp-muted mb-3">variant="on-dark" — for use on navy backgrounds</p>
+            <div className="bg-ktp-primary rounded-xl px-6 py-4 flex items-center gap-3">
+              <IconButton variant="on-dark" aria-label="Close modal"><X /></IconButton>
+              <IconButton variant="on-dark" aria-label="Open menu"><Menu /></IconButton>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
