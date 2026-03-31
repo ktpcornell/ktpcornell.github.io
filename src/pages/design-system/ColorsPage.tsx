@@ -46,8 +46,19 @@ function ColorCard({
             </Button>
           </div>
           <p className="text-xs font-mono text-ktp-fg-body leading-tight">{hex}</p>
-          {/* DS-SKIP: text-ktp-fg-body/70 — intentional dimming for secondary metadata text; no separate token for this level */}
-          <p className="text-xs font-mono text-ktp-fg-body/70 leading-tight">{tailwindClass}</p>
+          <p className="text-xs font-mono leading-tight">
+            {(() => {
+              const match = tailwindClass.match(/^([a-z]+-)(ktp-.+)$/)
+              return match ? (
+                <>
+                  <span className="text-ktp-fg-subtle">{match[1]}</span>
+                  <span className="text-ktp-fg-body">{match[2]}</span>
+                </>
+              ) : (
+                <span className="text-ktp-fg-body">{tailwindClass}</span>
+              )
+            })()}
+          </p>
         </div>
         <p className="text-xs text-ktp-fg-body leading-snug">{description}</p>
       </CardBody>
