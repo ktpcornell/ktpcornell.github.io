@@ -119,7 +119,7 @@ export function ColorsPage() {
       >
         <ColorCard
           name="Background-Surface"
-          hex="#f0f8ff"
+          hex="#e6f1ff"
           tailwindClass="bg-ktp-bg-surface"
           description="Light blue background for alternating public sections and portal pages."
         />
@@ -191,7 +191,7 @@ export function ColorsPage() {
         />
         <ColorCard
           name="Accent"
-          hex="#0dcaf0"
+          hex="#38bdf8"
           tailwindClass="bg-ktp-accent"
           description="Secondary brand color. Used for highlights, active states, and focus rings."
         />

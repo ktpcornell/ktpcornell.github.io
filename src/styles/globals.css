@@ -17,7 +17,7 @@
     --primary: 228 36% 24%;        /* #273053 navy */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 193 89% 50%;      /* #0dcaf0 cyan */
+    --secondary: 200 92% 60%;      /* #38bdf8 sky-blue */
     --secondary-foreground: 228 36% 24%;  /* navy text on cyan backgrounds */
 
     --muted: 210 40% 96%;
@@ -38,7 +38,7 @@
     /* KTP brand tokens — single source of truth; tailwind.config.ts references these */
     --ktp-primary: #273053;
     --ktp-primary-rgb: 39, 48, 83;    /* for rgba() usage in legacy.css */
-    --ktp-accent: #0dcaf0;
+    --ktp-accent: #38bdf8;  /* sky-blue — matches --secondary */
     --ktp-overlay-rgb: 0, 20, 60;     /* for rgba() card overlay */
     --ktp-accent-pink: #f78fb3;
     --ktp-white: #ffffff;
@@ -49,7 +49,7 @@
     --ktp-warning-text: #92400e;
 
     /* Background tokens — surfaces, panels, and hover states */
-    --ktp-bg-surface: #f0f8ff;  /* section alt bg, portal pages */
+    --ktp-bg-surface: #e6f1ff;  /* section alt bg, portal pages */
     --ktp-bg-panel: #f9fafb;    /* sidebar/panel background (= gray-50) */
     --ktp-bg-hover: #f3f4f6;    /* nav/item hover state (= gray-100) */
 
