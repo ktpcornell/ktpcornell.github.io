@@ -240,7 +240,7 @@ export function ColorsPage() {
         <ColorCard
           name="Error"
           hex="#dc2626"
-          tailwindClass="bg-destructive"
+          tailwindClass="bg-ktp-destructive"
           description="Error and destructive action color. Used for delete buttons and error icons."
         />
         <ColorCard

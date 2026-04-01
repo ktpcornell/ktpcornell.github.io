@@ -1,15 +1,34 @@
 import * as React from 'react'
-import { Label } from '@/components/ui/label'
-import { Switch as SwitchPrimitive } from '@/components/ui/switch'
+import * as SwitchPrimitives from '@radix-ui/react-switch'
+import { cn } from '@/lib/utils'
 
 /**
- * KTP Switch — re-export of the ShadCN Switch primitive (already styled to ktp-primary).
+ * KTP Switch — thin wrapper around @radix-ui/react-switch.
  *
  * Use Switch directly when no label is needed (e.g. inside a table cell).
  * Use SwitchField when you need a labeled, accessible toggle.
  */
-export { SwitchPrimitive as Switch }
-export type { React }
+export const Switch = React.forwardRef<
+  React.ElementRef<typeof SwitchPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+>(({ className, ...props }, ref) => (
+  <SwitchPrimitives.Root
+    className={cn(
+      'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent',
+      'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ktp-ring',
+      'focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+      'data-[state=checked]:bg-ktp-primary data-[state=unchecked]:bg-ktp-border',
+      className,
+    )}
+    {...props}
+    ref={ref}
+  >
+    <SwitchPrimitives.Thumb
+      className="pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+    />
+  </SwitchPrimitives.Root>
+))
+Switch.displayName = SwitchPrimitives.Root.displayName
 
 interface SwitchFieldProps {
   label: string
@@ -32,16 +51,16 @@ export function SwitchField({
 
   return (
     <div className="flex items-center gap-3">
-      <SwitchPrimitive
+      <Switch
         id={fieldId}
         checked={checked}
         onCheckedChange={onCheckedChange}
         disabled={disabled}
       />
       <div className="flex flex-col gap-0.5">
-        <Label htmlFor={fieldId} className="text-sm font-medium text-primary cursor-pointer">
+        <label htmlFor={fieldId} className="text-sm font-medium text-ktp-primary cursor-pointer">
           {label}
-        </Label>
+        </label>
         {description && (
           <p className="text-xs text-ktp-fg-body">{description}</p>
         )}

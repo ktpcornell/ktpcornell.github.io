@@ -1,5 +1,4 @@
 import { Outlet, NavLink, Link } from 'react-router-dom'
-import { Separator } from '@/components/ui/separator'
 
 const NAV_SECTIONS = [
   {
@@ -82,7 +81,7 @@ export function DesignSystemLayout() {
           <nav className="flex flex-col py-4">
             {NAV_SECTIONS.map((section, i) => (
               <div key={i}>
-                {i > 0 && <Separator className="my-2 mx-2 w-auto" />}
+                {i > 0 && <hr className="my-2 mx-2 border-0 border-t border-ktp-border" />}
                 <div className="px-2 flex flex-col gap-0.5">
                   {section.label && (
                     <p className="px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ktp-accent">

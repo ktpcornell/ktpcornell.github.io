@@ -19,7 +19,7 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 const headingColorMap = {
-  primary: 'text-primary',
+  primary: 'text-ktp-primary',
   white: 'text-white',
   default: '',
 }
@@ -58,7 +58,7 @@ export function Heading({
 export function SmallTitle({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('small-title text-xs font-semibold tracking-widest text-secondary mb-2', className)}
+      className={cn('small-title text-xs font-semibold tracking-widest text-ktp-accent mb-2', className)}
       {...props}
     />
   )

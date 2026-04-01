@@ -103,7 +103,7 @@ export function ButtonsPage() {
               <IconButton variant="ghost" size="sm" aria-label="Copy small"><Copy /></IconButton>
               <IconButton variant="ghost" aria-label="Copy default"><Copy /></IconButton>
               <IconButton variant="ghost" size="lg" aria-label="Copy large"><Copy /></IconButton>
-              <IconButton variant="ghost" aria-label="Delete" className="text-destructive hover:bg-destructive/10">
+              <IconButton variant="ghost" aria-label="Delete" className="text-ktp-destructive hover:bg-ktp-destructive/10">
                 <Trash2 />
               </IconButton>
             </div>

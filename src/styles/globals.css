@@ -4,36 +4,14 @@
 
 @layer base {
   :root {
-    /* ShadCN tokens — mapped to KTP brand */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 24%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 24%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 24%;
-
-    --primary: 228 36% 24%;        /* #273053 navy */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 200 92% 60%;      /* #38bdf8 sky-blue */
-    --secondary-foreground: 228 36% 24%;  /* navy text on cyan backgrounds */
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 193 89% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 193 89% 50%;           /* cyan focus ring */
-
-    --radius: 0.5rem;
+    /* KTP HSL triplets — used by tailwind.config.ts for opacity modifier support */
+    --ktp-primary-hsl: 228 36% 24%;      /* #273053 navy */
+    --ktp-accent-hsl: 200 92% 60%;       /* #38bdf8 sky-blue */
+    --ktp-destructive-hsl: 0 84% 60%;    /* red */
+    --ktp-fg-hsl: 222 47% 24%;           /* body foreground */
+    --ktp-muted-hsl: 210 40% 96%;        /* muted surface */
+    --ktp-muted-fg-hsl: 215 16% 47%;     /* muted text */
+    --ktp-radius: 0.5rem;
 
     /* KTP brand tokens — single source of truth; tailwind.config.ts references these */
     --ktp-primary: #273053;
@@ -116,7 +94,7 @@ html {
 body {
   background: var(--white-color);
   font-family: var(--body-font-family);
-  color: var(--foreground);
+  color: hsl(var(--ktp-fg-hsl));
   overscroll-behavior: none;
 }
 

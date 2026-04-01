@@ -1,15 +1,12 @@
 import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { Check } from 'lucide-react'
 
 /**
  * KTP FormField — labeled input with optional error/helper text.
- * Wraps ShadCN Input + Label primitives for consistent accessibility.
  */
 
-interface FormFieldProps extends React.ComponentProps<typeof Input> {
+interface FormFieldProps extends React.ComponentProps<'input'> {
   label?: string
   error?: string
   helperText?: string
@@ -28,15 +25,18 @@ export function FormField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <Label htmlFor={fieldId} className="text-primary">
+        <label htmlFor={fieldId} className="text-sm font-medium leading-none text-ktp-primary">
           {label}
-        </Label>
+        </label>
       )}
-      <Input
+      <input
         id={fieldId}
         className={cn(
-          'rounded-lg',
-          error && 'border-destructive focus-visible:ring-destructive',
+          'flex h-10 w-full rounded-lg border border-ktp-border bg-white px-3 py-2 text-base',
+          'placeholder:text-ktp-muted-fg focus-visible:outline-none focus-visible:ring-2',
+          'focus-visible:ring-ktp-ring focus-visible:ring-offset-2',
+          'disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+          error && 'border-ktp-destructive focus-visible:ring-ktp-destructive',
           className,
         )}
         {...props}
@@ -70,16 +70,16 @@ export function SelectField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <Label htmlFor={fieldId} className="text-primary">
+        <label htmlFor={fieldId} className="text-sm font-medium leading-none text-ktp-primary">
           {label}
-        </Label>
+        </label>
       )}
       <select
         id={fieldId}
         className={cn(
-          'w-full px-3 py-2 h-10 rounded-lg border border-input bg-background text-sm outline-none transition-colors',
-          'focus:border-primary focus:ring-2 focus:ring-ring focus:ring-offset-2',
-          error && 'border-destructive',
+          'w-full px-3 py-2 h-10 rounded-lg border border-ktp-border bg-white text-sm outline-none transition-colors',
+          'focus:border-ktp-primary focus:ring-2 focus:ring-ktp-ring focus:ring-offset-2',
+          error && 'border-ktp-destructive',
           className,
         )}
         {...props}
@@ -133,8 +133,8 @@ export function CheckboxField({
         />
         <div
           className={cn(
-            'w-4 h-4 rounded border-2 border-input transition-colors flex items-center justify-center cursor-pointer',
-            'peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2',
+            'w-4 h-4 rounded border-2 border-ktp-border transition-colors flex items-center justify-center cursor-pointer',
+            'peer-focus-visible:ring-2 peer-focus-visible:ring-ktp-ring peer-focus-visible:ring-offset-2',
             checked ? 'bg-ktp-primary border-ktp-primary' : 'bg-white',
             disabled && 'cursor-not-allowed',
           )}
@@ -145,12 +145,12 @@ export function CheckboxField({
         </div>
       </div>
       <div className="flex flex-col gap-0.5">
-        <Label
+        <label
           htmlFor={fieldId}
-          className={cn('text-sm font-medium text-primary', !disabled && 'cursor-pointer')}
+          className={cn('text-sm font-medium text-ktp-primary', !disabled && 'cursor-pointer')}
         >
           {label}
-        </Label>
+        </label>
         {description && (
           <p className="text-xs text-ktp-fg-body">{description}</p>
         )}
@@ -178,16 +178,16 @@ export function TextareaField({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <Label htmlFor={fieldId} className="text-primary">
+        <label htmlFor={fieldId} className="text-sm font-medium leading-none text-ktp-primary">
           {label}
-        </Label>
+        </label>
       )}
       <textarea
         id={fieldId}
         className={cn(
-          'w-full px-3 py-2 rounded-lg border border-input bg-background text-sm outline-none transition-colors resize-none',
-          'placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-          error && 'border-destructive focus-visible:ring-destructive',
+          'w-full px-3 py-2 rounded-lg border border-ktp-border bg-white text-sm outline-none transition-colors resize-none',
+          'placeholder:text-ktp-muted-fg focus-visible:ring-2 focus-visible:ring-ktp-ring focus-visible:ring-offset-2',
+          error && 'border-ktp-destructive focus-visible:ring-ktp-destructive',
           className,
         )}
         {...props}
