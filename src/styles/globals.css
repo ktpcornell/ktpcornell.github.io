@@ -50,7 +50,7 @@
 
     /* Background tokens — surfaces, panels, and hover states */
     --ktp-bg-surface: #e6f1ff;  /* section alt bg, portal pages */
-    --ktp-bg-panel: #f9fafb;    /* sidebar/panel background (= gray-50) */
+    --ktp-bg-panel: #fcfcfd;    /* sidebar/panel background */
     --ktp-bg-hover: #f3f4f6;    /* nav/item hover state (= gray-100) */
 
     /* Foreground tokens — text hierarchy */

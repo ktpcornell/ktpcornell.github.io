@@ -125,7 +125,7 @@ export function ColorsPage() {
         />
         <ColorCard
           name="Background-Panel"
-          hex="#f9fafb"
+          hex="#fcfcfd"
           tailwindClass="bg-ktp-bg-panel"
           description="Sidebar and panel background. Use instead of bg-gray-50."
         />
