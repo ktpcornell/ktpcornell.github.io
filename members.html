@@ -61,6 +61,18 @@
                     </div>
                 </div>
 
+                <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Gamma Class</h2>
+                <h4 class="text-center mb-4">Spring 2026</h4>
+                <div class="text-center mb-5">
+                    <img src="images/classpictures/sp26gammaclass.JPG" class="img-fluid" style="max-height: 500px; width: auto;" alt="Gamma Class group photo">
+                </div>
+
+                <div id="gamma-root" class="row g-4 mb-5 justify-content-center">
+                    <div class="col-12 text-center">
+                        <p>Loading Gamma Class members...</p>
+                    </div>
+                </div>
+
                 <h2 class="fw-bold text-center mb-1" style="color: var(--navbar-bg-color);">Beta Class</h2>
                 <h4 class="text-center mb-4">Fall 2025</h4>
                 <div class="text-center mb-5">
@@ -264,8 +276,9 @@
                 })
                 .then(data => {
                     renderMembers('eboard-root', data.eboard);
-                    renderMembers('alpha-root', data.alpha);
+                    renderMembers('gamma-root', data.gamma);
                     renderMembers('beta-root', data.beta);
+                    renderMembers('alpha-root', data.alpha);
                     renderMembers('founders-root', data.founders);
                 })
 
