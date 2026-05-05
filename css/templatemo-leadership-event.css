@@ -301,6 +301,12 @@ strong {
     padding: 10px 20px;
     margin-left: 20px;
   }
+
+  .navbar-expand-lg .navbar-nav .nav-link.custom-btn:hover,
+  .navbar-nav .nav-link.custom-btn:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  }
 }
 
 .custom-border-btn {
@@ -309,11 +315,8 @@ strong {
   color: var(--navbar-bg-color);
 }
 
-.custom-btn:hover,
-.navbar-expand-lg .navbar-nav .nav-link.custom-btn:hover,
-.navbar-nav .nav-link.custom-btn:hover {
+.custom-btn:hover {
   background: var(--navbar-bg-color);
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   color: var(--white-color);
 }
 

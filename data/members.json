@@ -67,7 +67,7 @@
       "hometown": "Rochester, NY",
       "linkedin": "https://www.linkedin.com/in/logan-canfield-55b78227b/",
       "email": "ltc37@cornell.edu",
-      "description": "Outside KTP, Logan Canfield is involved in Cornell Blockchain, Cornell Cybersecurity Club, and is a TA for CS 2110. Previously, he has worked at the University of Rochester Laboratory for Laser Energetics. In his free time, he enjoys basketball, weightlifting, and card games.",
+      "description": "Outside KTP, Logan Canfield is involved in Cornell Blockchain, Cornell Cybersecurity Club, and is a TA for CS 2110. This summer, he is going to work at AWS as a SDE. In his free time, he enjoys basketball, weightlifting, and card games.",
       "role": "VP Finance"
     },
     {
@@ -101,6 +101,108 @@
       "role": "VP Brotherhood"
     }
   ],
+  "gamma": [
+    {
+      "name": "Elizabeth Hsu",
+      "major": "Information Science '28",
+      "photo": "images/headshots/GammaClass/Elizabeth Hsu.jpg",
+      "hometown": "Syracuse, NY",
+      "linkedin": "https://www.linkedin.com/in/elizabeth--hsu/",
+      "email": "ewh77@cornell.edu",
+      "description": "Outside KTP, Elizabeth is involved in SWIB, CALS Ambassadors, AlreadyFriendz, and Kappa Kappa Gamma Sorority. In her free time, she enjoys baking, yoga, and music.",
+      "role": ""
+    },
+    {
+      "name": "Linda Gu",
+      "major": "ORIE '28",
+      "photo": "images/headshots/GammaClass/Linda Gu.jpg",
+      "hometown": "Centreville, VA",
+      "linkedin": "https://www.linkedin.com/in/lg647/",
+      "email": "lg647@cornell.edu",
+      "description": "Outside KTP, Linda is involved in Cornell University Autonomous Underwater Vehicle (CUAUV), Cornell Investments Club, Club Pickleball, and Emmaus Road. In her free time, she enjoys watching the NBA, side questing to NYC, and trying new restaurants with friends.",
+      "role": ""
+    },
+    {
+      "name": "Joshua Jung",
+      "major": "Electrical & Computer Engineering '29",
+      "photo": "images/headshots/GammaClass/Joshua Jung.jpg",
+      "hometown": "Palisades Park, NJ",
+      "linkedin": "https://www.linkedin.com/in/jungjjoshua",
+      "email": "jj826@cornell.edu",
+      "description": "Outside KTP, Josh is involved in the Cornell Nexus Project Team as a member on the electrical subteam and the Energy Transition Club. Previously, he has served as a research intern for NJIT's SCIIS lab. In his free time, he enjoys playing guitar, going to the gym, and making Spotify playlists.",
+      "role": ""
+    },
+    {
+      "name": "Michael Tommaso",
+      "major": "Mechanical Engineering '29",
+      "photo": "images/headshots/GammaClass/Michael Tommaso.jpg",
+      "hometown": "Brooklyn, NY",
+      "linkedin": "https://www.linkedin.com/in/michaeltommaso",
+      "email": "mjt288@cornell.edu",
+      "description": "Outside KTP, Michael Tommaso is involved in Cornell Blockchain and Cornell Maker Club. Previously, he has worked at GE Aerospace. In his free time, he enjoys to workout, play golf, and play basketball.",
+      "role": ""
+    },
+    {
+      "name": "Ishaan Parikh",
+      "major": "Electrical & Computer Engineering '29",
+      "photo": "images/headshots/GammaClass/Ishaan Parikh.jpg",
+      "hometown": "Ahmedabad, India",
+      "linkedin": "https://www.linkedin.com/in/ishaan-parikh10/",
+      "email": "idp7@cornell.edu",
+      "description": "Outside KTP, Ishaan Parikh is involved in Cornell Electric Vehicles, and the Cornell Poker Club. In his free time, he enjoys playing soccer, watching movies, and going to the gym.",
+      "role": ""
+    },
+    {
+      "name": "Medha Goli",
+      "major": "Computer Science '29",
+      "photo": "images/headshots/GammaClass/Medha Goli.jpg",
+      "hometown": "Overland Park, KS",
+      "linkedin": "https://www.linkedin.com/in/medhagoli",
+      "email": "mrg286@cornell.edu",
+      "description": "Outside KTP, Medha is involved in Cornell Sitara, SWIB, Engineers Without Borders, and South Asian Business Associations. In her free time, she enjoys watching football, trying new restaurants, and hanging out with friends.",
+      "role": ""
+    },
+    {
+      "name": "Rishik Gowrishetti",
+      "major": "Statistical Science '28",
+      "photo": "images/headshots/GammaClass/Rishik Gowrishetti.jpg",
+      "hometown": "Brookfield, CT",
+      "linkedin": "https://www.linkedin.com/in/rishikgowrishetti/",
+      "email": "rg796@cornell.edu",
+      "description": "Outside KTP, Rishik is involved in research at the Computational Mechanics & Scientific AI Lab and is a member of the Cornell Entertainment Engineering & Design Club and Cornell’s Powerlifting Team. In his free time, he enjoys drumming, running, and playing soccer.",
+      "role": ""
+    },
+    {
+      "name": "Leepakshi Anand",
+      "major": "ORIE '28",
+      "photo": "images/headshots/GammaClass/Leepakshi Anand.jpg",
+      "hometown": "Bethpage, NY",
+      "linkedin": "https://www.linkedin.com/in/leepakshi-anand",
+      "email": "la453@cornell.edu",
+      "description": "Outside KTP, Leepakshi is involved in Cornell Bhangra, SABA, Sikh Student Association, and Cornell AI Strategy. This summer, she is planning on returning to AWS as a SDE intern. In her free time, she enjoys dancing, going to the gym, and hanging out with her friends.",
+      "role": ""
+    },
+    {
+      "name": "Will Biloski",
+      "major": "Data Science '28",
+      "photo": "images/headshots/GammaClass/Will Biloski.jpg",
+      "hometown": "Ithaca, NY",
+      "linkedin": "https://www.linkedin.com/in/will-biloski/",
+      "email": "wb292@cornell.edu",
+      "description": "Outside KTP, Will is involved in Lambda Chi Alpha fraternity. Previously, he has worked at Cornell as a sailing teacher. In his free time, he enjoys skiing, sailing and going to concerts.",
+      "role": ""
+    },
+    {
+      "name": "Bishesh Shah",
+      "major": "Mechanical Engineering '28",
+      "photo": "images/headshots/GammaClass/Bishesh Shah.jpg",
+      "hometown": "Queens, NY",
+      "linkedin": "https://www.linkedin.com/in/bishesh-shah",
+      "email": "bs897@cornell.edu",
+      "description": "Outside KTP, Bishesh Shah is involved in Solar Panel Reboot and Cornell Sitara. This summer, he is working at GE Aerospace as a Manufacturing Intern. Previously, he has worked at Woods Hole Oceanographic Institution and NASA. In his free time, he enjoys playing soccer and hanging out with friends.",
+      "role": ""
+    }
+  ],
   "beta": [
     {
       "name": "Alan Khinkis",
@@ -129,7 +231,7 @@
       "hometown": "Chappaqua, NY",
       "linkedin": "https://www.linkedin.com/in/gabriel-meredith",
       "email": "gbm66@cornell.edu",
-      "description": "Outside KTP, Gabe is involved in Armada as a builder and Algorithmic Trading Club as a data engineer. This summer, he is planning to work as a SWE at a startup. Previously, he worked at RTE softwares as a SWE intern. In his free time, he enjoys lifting, reading, and eating food.",
+      "description": "Outside KTP, Gabe is involved in Armada and CENT as a builder and Algorithmic Trading Club as a data engineer. This summer, he is working as a SWE at a startup. Previously, he worked at RTE softwares as a SWE intern. In his free time, he enjoys lifting, reading, and eating food.",
       "role": ""
     },
     {
@@ -202,7 +304,6 @@
       "description": "Outside KTP, Wonjin is involved in Cornell Data Science, Cornell AppDev, Cayuga Healthcare Consulting, and End Overdose at Cornell. In her free time, she enjoys spending her time outdoors and listening to music in good company.",
       "role": ""
     }
-    
   ],
   "alpha": [
     {
@@ -265,7 +366,7 @@
       "description": "Outside KTP, Greg is involved in the Cornell Fintech Club as the Engineering New Member Education Lead. This summer, he is planning to work at Jahnel Group as an Associate SWE Intern. In his free time, he enjoys lifting, watching movies, and playing music with friends.",
       "role": ""
     },
-        {
+    {
       "name": "Jonathan Zhang",
       "major": "Computer Science '28",
       "photo": "images/headshots/AlphaClass/Jonathan Zhang.png",
@@ -292,7 +393,7 @@
       "hometown": "Rochester, NY",
       "linkedin": "https://www.linkedin.com/in/logan-canfield-55b78227b/",
       "email": "ltc37@cornell.edu",
-      "description": "Outside KTP, Logan Canfield is involved in Cornell Blockchain, Cornell Cybersecurity Club, and is a TA for CS 2110. Previously, he has worked at the University of Rochester Laboratory for Laser Energetics. In his free time, he enjoys basketball, weightlifting, and card games.",
+      "description": "Outside KTP, Logan Canfield is involved in Cornell Blockchain, Cornell Cybersecurity Club, and is a TA for CS 2110. This summer, he is going to work at AWS as a SDE. In his free time, he enjoys basketball, weightlifting, and card games.",
       "role": ""
     },
     {
