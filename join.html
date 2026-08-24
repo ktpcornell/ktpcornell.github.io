@@ -100,23 +100,52 @@ https://templatemo.com/tm-575-leadership-event
                     <div class="text-center">
 
                         <div class="col-12">
-                            <h2 class="mb-4 mt-4" style="color: var(--navbar-bg-color)">Spring 2026 Recruitment</h2>
+                            <h2 class="mb-4 mt-4" style="color: var(--navbar-bg-color)">Fall 2026 Recruitment</h2>
                         </div>
 
                         <div class="col-12 text-center">
 
-                            <p>Thank you for your interest in becoming a member of Kappa Theta Pi. Applications for Spring 2026 will open Sunday, January 25th and close on Tuesday, February 3rd @ 11:59pm. You will be notified if you are invited for first-round interviews. If you have any questions, please email ktpcornell@gmail.com. For more updates, follow our instagram @ktpcornell and sign up for our interest form!</p>
+                            <p>Thank you for your interest in becoming a member of Kappa Theta Pi. Applications for Fall 2026 open soon and will close on Wednesday, September 9th @ 11:59pm. You will be notified if you are invited for interviews, which will run September 10th - 13th. If you have any questions, please email ktpcornell@gmail.com. For more updates, follow our instagram @ktpcornell and sign up for our interest form!</p>
 
-                            <a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="https://forms.gle/AbQNh6rqBK94MRH18">Interest Form</a>
+                            <a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfSIErM3yo_saP6a2fNRm9Xsv5X0z68F9FOkw-1frAzvC6SyQ/viewform?usp=publish-editor">Interest Form</a>
 
-                            <a class="custom-btn btn custom-link mt-3" href="https://forms.gle/cNQJKc8drtGXK74j9">Spring 26 Application</a>
+                            <a class="custom-btn btn custom-link mt-3 disabled" href="#" tabindex="-1" aria-disabled="true" onclick="return false;" style="opacity: 0.5; pointer-events: none; background-color: #6c757d; border-color: #6c757d; color: #fff; cursor: not-allowed;">Applications Open Soon</a>
+
+                            <div id="countdown-timer" class="mt-4" style="font-weight: 600; color: var(--navbar-bg-color);"></div>
                         </div>
 
-                        
+
 
                     </div>
                 </div>
             </section>
+
+            <script>
+              (function () {
+                var countdownEl = document.getElementById('countdown-timer');
+                var targetDate = new Date('September 3, 2026 17:00:00');
+
+                function updateCountdown() {
+                  var diff = targetDate - new Date();
+
+                  if (diff <= 0) {
+                    countdownEl.textContent = 'Info Session 1 is happening now!';
+                    clearInterval(timer);
+                    return;
+                  }
+
+                  var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                  var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                  var minutes = Math.floor((diff / (1000 * 60)) % 60);
+                  var seconds = Math.floor((diff / 1000) % 60);
+
+                  countdownEl.textContent = 'Info Session 1 starts in ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+                }
+
+                updateCountdown();
+                var timer = setInterval(updateCountdown, 1000);
+              })();
+            </script>
 
             <section class="schedule mb-5" id="section_4">
                 <div class="container">
@@ -165,13 +194,13 @@ https://templatemo.com/tm-575-leadership-event
 
     <div class="row border-bottom pb-5 mb-5">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">Resume Review & Meet the Brothers</h4>
-        <p>Come join us to hear about what makes a good resume for applying to Tech Roles and get your resume reviewed. At the end, we will have a meet and greet where you can get to know the brothers in an informal setting!</p>
+        <h4 class="mb-2">AppDev x CDS x H4I x DTI x KTP Coffee Chat</h4>
+        <p>Join KTP alongside AppDev, Cornell Data Science, Hack4Impact, and Digital Tech & Innovation for a casual coffee chat where you can meet members from all five orgs and ask questions in an informal setting!</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Wednesday, January 28th</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>MVR 1157</span>
+          <span class="mx-3 mx-lg-5">Friday, August 28th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>Time TBD</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Location TBD</span>
         </div>
       </div>
     </div>
@@ -182,7 +211,7 @@ https://templatemo.com/tm-575-leadership-event
         <p>Join us for one of our information sessions! First, we'll give a presentation about what it means to be a brother in KTP. Then, we'll break out into open discussion and you'll have a chance to ask our brothers any questions related to application, Kappa Theta Pi, or anything else you may be wondering!</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Thursday, January 29th</span>
+          <span class="mx-3 mx-lg-5">Thursday, September 3rd</span>
           <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
           <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Hollister 110</span>
         </div>
@@ -191,39 +220,52 @@ https://templatemo.com/tm-575-leadership-event
 
     <div class="row border-bottom pb-5 mb-5">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">KTP x WICC x CDJ Women in Tech Panel</h4>
-        <p>Join KTP, Women in Computing at Cornell (WICC), and Cornell Data Journal (CDJ) for a collaborative Women in Tech Panel featuring guest speakers affiliated with Google, Amazon, Millennium, Washington State University Research and more!</p>
+        <h4 class="mb-2">Club Fest</h4>
+        <p>Come stop by Club Fest to talk to members tabling, learn more about the club, and how you could benefit from joining!</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Monday, February 2nd</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Phillips 203</span>
+          <span class="mx-3 mx-lg-5">Saturday, September 5th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>Time TBD</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Location TBD</span>
         </div>
       </div>
     </div>
 
     <div class="row border-bottom pb-5 mb-5">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">PFC Fair</h4>
-        <p>Come stop by the Professional Fraternity Council (PFC) Fair to talk to members tabling, learn more about the club, and how you could benefit from joining!</p>
+        <h4 class="mb-2">KTP x WICC x CFT Resume Review</h4>
+        <p>Join KTP, Women in Computing at Cornell (WICC), and Cornell Fintech (CFT) to hear about what makes a good resume for applying to tech roles and get your resume reviewed by our members!</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Tuesday, February 3rd</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>1:00pm - 2:30pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>WSH Memorial Room</span>
+          <span class="mx-3 mx-lg-5">Monday, September 7th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>Time TBD</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Location TBD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row border-bottom pb-5 mb-5">
+      <div class="col-lg-8 col-12 mt-3 mt-lg-0">
+        <h4 class="mb-2">Information Session 2</h4>
+        <p>Join us for our last information session! First, we'll give a presentation about what it means to be a brother in KTP. Then, we'll break out into open discussion and you'll have a chance to ask our brothers any questions related to application, Kappa Theta Pi, or anything else you may be wondering!</p>
+
+        <div class="d-flex align-items-center mt-4">
+          <span class="mx-3 mx-lg-5">Wednesday, September 9th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Phillips 219</span>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">Information Session 2</h4>
-        <p>Join us for our last information session! First, we'll give a presentation about what it means to be a brother in KTP. Then, we'll break out into open discussion and you'll have a chance to ask our brothers any questions related to application, Kappa Theta Pi, or anything else you may be wondering!</p>
+        <h4 class="mb-2">Applications Due</h4>
+        <p>Submit your application with your resume and a few short questions to help us get to know you and your interest in KTP.</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Tuesday, February 3rd</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Phillips 219</span>
+          <span class="mx-3 mx-lg-5">Wednesday, September 9th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>11:59pm</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Online</span>
         </div>
       </div>
     </div>
@@ -236,25 +278,12 @@ https://templatemo.com/tm-575-leadership-event
 
     <div class="row border-bottom pb-5 mb-5">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">Round 1: Resume Drop</h4>
-        <p>Submit your application with your resume and a few short questions to help us get to know you and your interest in KTP.</p>
-
-        <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Tuesday, February 3rd</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>11:59pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Online</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="row border-bottom pb-5 mb-5">
-      <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">Round 2: Round-Robin</h4>
+        <h4 class="mb-2">Round 1: Round-Robin</h4>
         <p>The round robin will consist of timed rounds where potential members will rotate through the tables, lasting 1 hour in total.</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Saturday, February 7th</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>9:00am - 1:00pm</span>
+          <span class="mx-3 mx-lg-5">September 10th - 13th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>Time TBD</span>
           <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Invite Only</span>
         </div>
       </div>
@@ -262,12 +291,12 @@ https://templatemo.com/tm-575-leadership-event
 
     <div class="row">
       <div class="col-lg-8 col-12 mt-3 mt-lg-0">
-        <h4 class="mb-2">Round 3: Final Interview</h4>
-        <p>Round 3 will be individual for each applicant where they will be asked questions by 2-3 members for 30-45 minutes.</p>
+        <h4 class="mb-2">Round 2: Final Interview</h4>
+        <p>The final round will be individual for each applicant where they will be asked questions by 2-3 members for 30-45 minutes.</p>
 
         <div class="d-flex align-items-center mt-4">
-          <span class="mx-3 mx-lg-5">Sunday, February 8th</span>
-          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>9:00am - 1:00pm</span>
+          <span class="mx-3 mx-lg-5">September 10th - 13th</span>
+          <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>Time TBD</span>
           <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Invite Only</span>
         </div>
       </div>
@@ -284,7 +313,7 @@ https://templatemo.com/tm-575-leadership-event
         <h4 class="mb-2">Get to know our members!</h4>
         <p>Coffee chats are a great way to get to know our members in an informal setting.</p>
 
-        <a class="custom-btn btn custom-link mt-3" href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog">
+        <a class="custom-btn btn custom-link mt-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfqwcJ7eLflUvJBxE8E49pHppXRdJcA3TtBmzx1bSQOO_kCLA/viewform?usp=header">
           Coffee Chat Form
         </a>
       </div>
@@ -301,8 +330,8 @@ https://templatemo.com/tm-575-leadership-event
         <h4 class="mb-2">Application Tips</h4>
         <p>We accept students from all different majors who are commited and have a dedicated interest in technology and a desire to be a part of a community which supports them professionally and technically.</p>
 
-        <a class="custom-btn btn custom-link mt-3" href="https://forms.gle/cNQJKc8drtGXK74j9">
-          Spring 26 Application
+        <a class="custom-btn btn custom-link mt-3 disabled" href="#" tabindex="-1" aria-disabled="true" onclick="return false;" style="opacity: 0.5; pointer-events: none; background-color: #6c757d; border-color: #6c757d; color: #fff; cursor: not-allowed;">
+          Applications Open Soon
         </a>
       </div>
     </div>
