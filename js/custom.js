@@ -54,48 +54,9 @@
         });
       });
 
-      document.querySelectorAll('#faqAccordion .accordion-button').forEach((button) => {
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          const targetSelector = button.getAttribute('data-bs-target');
-          if (!targetSelector) return;
-
-          const targetEl = document.querySelector(targetSelector);
-          if (!targetEl) return;
-
-          const collapse = bootstrap.Collapse.getOrCreateInstance(targetEl, { toggle: false });
-          const isOpen = targetEl.classList.contains('show');
-
-          if (isOpen) {
-            collapse.hide();
-            button.setAttribute('aria-expanded', 'false');
-            button.classList.add('collapsed');
-            return;
-          }
-
-          // Close other items inside the same accordion
-          const accordionRoot = button.closest('.accordion');
-          if (accordionRoot) {
-            accordionRoot.querySelectorAll('.accordion-collapse.show').forEach((openEl) => {
-              if (openEl !== targetEl) {
-                bootstrap.Collapse.getOrCreateInstance(openEl, { toggle: false }).hide();
-                const headerContainer = openEl.previousElementSibling;
-                if (headerContainer) {
-                  const headerBtn = headerContainer.querySelector('.accordion-button');
-                  if (headerBtn) {
-                    headerBtn.classList.add('collapsed');
-                    headerBtn.setAttribute('aria-expanded', 'false');
-                  }
-                }
-              }
-            });
-          }
-
-          collapse.show();
-          button.setAttribute('aria-expanded', 'true');
-          button.classList.remove('collapsed');
-        });
-      });
+      // Accordion open/close, single-item behavior, and aria/collapsed-class
+      // state are all handled natively by Bootstrap via data-bs-toggle,
+      // data-bs-target, and data-bs-parent on the markup -- no JS needed here.
     } else {
       // Fallback without Bootstrap: basic tab and accordion toggling
       const tabButtons = document.querySelectorAll('#nav-tab button[data-bs-target]');
