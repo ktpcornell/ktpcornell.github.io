@@ -123,23 +123,61 @@ https://templatemo.com/tm-575-leadership-event
             <script>
               (function () {
                 var countdownEl = document.getElementById('countdown-timer');
-                var targetDate = new Date('September 3, 2026 18:00:00');
 
-                function updateCountdown() {
-                  var diff = targetDate - new Date();
-
-                  if (diff <= 0) {
-                    countdownEl.textContent = 'Info Session 1 is happening now!';
-                    clearInterval(timer);
-                    return;
+                // Upcoming recruitment events, in order. Each needs a start time,
+                // an end time (so we can show "happening now"), and a location.
+                var events = [
+                  {
+                    name: 'KTP x WICC x CFT Resume Review',
+                    location: 'Goldwin Smith Hall G64',
+                    start: new Date('September 8, 2026 17:00:00'),
+                    end: new Date('September 8, 2026 18:00:00')
+                  },
+                  {
+                    name: 'Information Session 2',
+                    location: 'Caldwell 100',
+                    start: new Date('September 9, 2026 17:00:00'),
+                    end: new Date('September 9, 2026 18:00:00')
+                  },
+                  {
+                    name: 'Applications close',
+                    location: 'Online',
+                    start: new Date('September 9, 2026 23:59:00'),
+                    end: new Date('September 9, 2026 23:59:00')
                   }
+                ];
 
+                function formatDiff(diff) {
                   var days = Math.floor(diff / (1000 * 60 * 60 * 24));
                   var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
                   var minutes = Math.floor((diff / (1000 * 60)) % 60);
                   var seconds = Math.floor((diff / 1000) % 60);
+                  return days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+                }
 
-                  countdownEl.textContent = 'Info Session 1 starts in ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+                function updateCountdown() {
+                  var now = new Date();
+
+                  for (var i = 0; i < events.length; i++) {
+                    var event = events[i];
+
+                    if (now >= event.start && now < event.end) {
+                      countdownEl.textContent = event.name + ' is happening now in ' + event.location + '!';
+                      return;
+                    }
+
+                    if (now < event.start) {
+                      if (event.name === 'Applications close') {
+                        countdownEl.textContent = 'Applications close in ' + formatDiff(event.start - now);
+                      } else {
+                        countdownEl.textContent = event.name + ' starts in ' + formatDiff(event.start - now) + ' · ' + event.location;
+                      }
+                      return;
+                    }
+                  }
+
+                  countdownEl.textContent = 'Applications for Fall 2026 are now closed.';
+                  clearInterval(timer);
                 }
 
                 updateCountdown();
@@ -239,7 +277,7 @@ https://templatemo.com/tm-575-leadership-event
         <div class="d-flex align-items-center mt-4">
           <span class="mx-3 mx-lg-5">Tuesday, September 8th</span>
           <span class="mx-3 mx-lg-5"><i class="bi-clock me-2"></i>5:00pm - 6:00pm</span>
-          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Olin 255</span>
+          <span class="mx-1 mx-lg-5"><i class="bi-layout-sidebar me-2"></i>Goldwin Smith Hall G64</span>
         </div>
       </div>
     </div>
