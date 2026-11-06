@@ -24,12 +24,12 @@ export function HeroSection() {
         <div className="hero-text">
           <Heading level={1} className="text-white mt-[130px] mb-5 normal-case">
             Kappa Theta Pi{' '}
-            <TypedText phrases={HERO_PHRASES} className="typing-text block" align="center" />
+            <TypedText phrases={HERO_PHRASES} className="typing-text" align="center" />
           </Heading>
           <a
             href="#our-history"
             onClick={scrollToHistory}
-            className="arrow-icon flex items-center justify-center"
+            className="arrow-icon"
             aria-label="Scroll to Our History"
           >
             <ArrowDown size={24} />

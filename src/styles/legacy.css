@@ -108,10 +108,23 @@
   color: var(--dark-color);
   font-size: var(--h5-font-size);
   width: 50px; height: 50px;
-  line-height: 50px;
-  text-align: center;
-  display: inline-block;
+  /* inline-flex, not inline-block: the icon is an SVG, which Tailwind's preflight makes
+     display:block, so text-align/line-height can't center it. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
+}
+
+/* Live: the hero arrow sits 50px below the title (templatemo css .hero .arrow-icon). */
+.hero .arrow-icon {
+  position: relative;
+  top: 50px;
+}
+
+/* Live puts the typed phrase on its own line under "Kappa Theta Pi" (Bootstrap d-block). */
+.hero .typing-text {
+  display: block;
 }
 
 .arrow-icon:hover {
