@@ -18,7 +18,7 @@ export function Footer() {
         <div className="flex flex-wrap justify-center gap-x-20 gap-y-10 mb-10">
           {/* Nav column: logo, then the page links in two columns */}
           <div className="w-full sm:w-auto">
-            <Link to="/" className="flex flex-col items-start mb-4 no-underline">
+            <Link to="/" className="flex flex-col items-center mb-4 no-underline">
               <img src="/logo.svg" alt="KTP" className="h-12" />
               <span className="text-white text-base mt-1">Cornell Chapter</span>
             </Link>
