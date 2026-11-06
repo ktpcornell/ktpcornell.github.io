@@ -14,21 +14,25 @@ import {
 import { Button } from '@/design-system/components/Button'
 import { Heading } from '@/design-system/components/Typography'
 
+/** One schedule row, matching live join.html:233-309: a left-aligned 8/12 column, black h4 title,
+ *  gray paragraph, then date / time / location spaced wide, and a rule under every row. */
 function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   return (
-    <div className="border-b pb-8 mb-8 max-w-3xl mx-auto last:border-b-0">
-      <Heading level={4} className="mb-2">{title}</Heading>
-      <p>{desc}</p>
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-sm text-ktp-fg-body">
-        <span>{date}</span>
-        <span className="flex items-center gap-1">
-          <Clock size={14} aria-hidden="true" />
-          {time}
-        </span>
-        <span className="flex items-center gap-1">
-          <MapPin size={14} aria-hidden="true" />
-          {location}
-        </span>
+    <div className="border-b border-ktp-border pb-12 mb-12">
+      <div className="w-full lg:w-2/3">
+        <Heading level={4} className="mb-2 text-ktp-dark">{title}</Heading>
+        <p>{desc}</p>
+        <div className="flex flex-wrap items-center gap-y-2 mt-6 text-base text-ktp-text">
+          <span className="mx-4 lg:mx-12">{date}</span>
+          <span className="mx-4 lg:mx-12 flex items-center gap-2">
+            <Clock size={16} aria-hidden="true" />
+            {time}
+          </span>
+          <span className="mx-4 lg:mx-12 flex items-center gap-2">
+            <MapPin size={16} aria-hidden="true" />
+            {location}
+          </span>
+        </div>
       </div>
     </div>
   )
@@ -87,25 +91,22 @@ export function RecruitmentTabs() {
               className={[
                 'group border-0 border-l-[3px] p-4 sm:px-[30px] sm:py-5 transition-all cursor-pointer text-left',
                 'flex flex-col justify-start bg-white',
-                'w-1/2 min-h-[110px] min-[992px]:w-1/4 min-[992px]:h-[150px]',
-                'hover:border-l-ktp-accent hover:shadow-lg focus-visible:outline-none focus-visible:border-l-ktp-accent focus-visible:shadow-lg',
+                'w-1/2 min-h-[120px] min-[992px]:w-1/4 min-[992px]:h-[150px]',
+                'hover:border-l-ktp-accent hover:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)] focus-visible:outline-none focus-visible:border-l-ktp-accent focus-visible:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]',
                 selected
-                  ? 'border-l-ktp-accent shadow-lg'
+                  ? 'border-l-ktp-accent shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]'
                   : i === 0 ? 'border-l-transparent' : 'border-l-ktp-bg-surface',
               ].join(' ')}
               onClick={() => setActiveTab(tab.id)}
               onKeyDown={(e) => onKeyDown(e, i)}
             >
-              <Heading
-                level={3}
-                className={`text-lg sm:text-xl mb-1 tracking-normal group-hover:text-ktp-accent group-focus-visible:text-ktp-accent ${
-                  selected ? 'text-ktp-accent' : 'text-ktp-primary'
-                }`}
-              >
+              {/* Live keeps every tab title navy (inline style on its h3); the active tab is shown by
+                  the cyan left rule and the shadow. */}
+              <Heading level={3} className="mb-1 text-ktp-primary max-[480px]:text-2xl">
                 {tab.label}
               </Heading>
               {tab.sub && (
-                <small className="text-sm sm:text-base font-normal text-ktp-fg-body">{tab.sub}</small>
+                <small className="text-base sm:text-lg font-normal text-ktp-fg-body">{tab.sub}</small>
               )}
             </button>
           )
@@ -113,7 +114,7 @@ export function RecruitmentTabs() {
       </div>
 
       {/* Tab content */}
-      <div className="mt-8">
+      <div className="mt-12">
         {RECRUITMENT_TABS.map((tab) => (
           <div
             key={tab.id}
@@ -129,17 +130,17 @@ export function RecruitmentTabs() {
               RECRUITMENT_INTERVIEW_ROUNDS.map((event) => <EventRow key={event.title} {...event} />)}
 
             {tab.id === 'coffee' && (
-              <div className="max-w-3xl mx-auto">
-                <Heading level={4} className="mb-2">{COFFEE_CHAT_COPY.heading}</Heading>
-                <p className="mb-6">{COFFEE_CHAT_COPY.body}</p>
+              <div className="w-full lg:w-2/3">
+                <Heading level={4} className="mb-2 text-ktp-dark">{COFFEE_CHAT_COPY.heading}</Heading>
+                <p className="mb-4">{COFFEE_CHAT_COPY.body}</p>
                 <FormLink {...COFFEE_CHAT_FORM} />
               </div>
             )}
 
             {tab.id === 'tips' && (
-              <div className="max-w-3xl mx-auto">
-                <Heading level={4} className="mb-2">{TIPS_COPY.heading}</Heading>
-                <p className="mb-6">{TIPS_COPY.body}</p>
+              <div className="w-full lg:w-2/3">
+                <Heading level={4} className="mb-2 text-ktp-dark">{TIPS_COPY.heading}</Heading>
+                <p className="mb-4">{TIPS_COPY.body}</p>
                 <FormLink {...APPLICATION_FORM} />
               </div>
             )}

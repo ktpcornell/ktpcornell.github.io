@@ -26,6 +26,8 @@ const config: Config = {
         'ktp-bg-hover':   'var(--ktp-bg-hover)',
         // Foreground tokens
         'ktp-fg-body':    'var(--ktp-fg-body)',
+        'ktp-text':       'var(--ktp-text)',
+        'ktp-dark':       'var(--ktp-dark)',
         'ktp-fg-subtle':  'var(--ktp-fg-subtle)',
         'ktp-fg-on-dark': 'var(--ktp-fg-on-dark)',
         // Border tokens

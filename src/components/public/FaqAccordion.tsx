@@ -7,35 +7,30 @@ interface FaqAccordionProps {
 }
 
 /**
- * Single-open accordion (live's data-bs-parent behavior). The highlight is bound to `openIndex`,
- * so it can't stick the way live's focus-based highlight did.
- * Answers are plain text: none of the live answers contain links or markup.
+ * Single-open accordion matching live join.html:384-519 (Bootstrap `accordion-flush`): full
+ * container width, white rows separated by a bottom rule, bold 16px question, chevron on the
+ * right, plain 16px answer. The open highlight is bound to `openIndex`, so it can't stick the
+ * way live's focus-based highlight did. Answers are plain text (no live answer has links).
  */
 export function FaqAccordion({ items }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const baseId = useId()
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full mt-6">
       {items.map((item, i) => {
         const open = openIndex === i
         const buttonId = `${baseId}-q${i}`
         const panelId = `${baseId}-a${i}`
         return (
-          // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
-          <div
-            key={item.question}
-            className={`border border-ktp-border rounded-lg mb-3 overflow-hidden border-l-[3px] ${
-              open ? 'border-l-ktp-accent' : 'border-l-ktp-primary'
-            }`}
-          >
+          <div key={item.question} className="mb-3 border-b border-ktp-border">
             <h3 className="m-0 text-base">
-              {/* DS-SKIP: <button> — accessibility-required pattern; Radix Accordion would change the animation/behavior contract for this existing implementation */}
+              {/* DS-SKIP: <button> — accordion trigger; Button variants are pill-shaped CTAs */}
               <button
                 type="button"
                 id={buttonId}
-                className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center gap-4 text-ktp-primary border-none cursor-pointer transition-colors ${
-                  open ? 'bg-ktp-bg-surface' : 'bg-white'
+                className={`w-full text-left px-5 py-4 text-base font-bold flex justify-between items-center gap-4 border-none cursor-pointer transition-colors ${
+                  open ? 'bg-ktp-bg-surface text-ktp-primary' : 'bg-white text-ktp-text'
                 }`}
                 onClick={() => setOpenIndex(open ? null : i)}
                 aria-expanded={open}
@@ -54,9 +49,9 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
               role="region"
               aria-labelledby={buttonId}
               hidden={!open}
-              className="px-6 py-4 bg-white"
+              className="px-5 py-4 text-base text-ktp-text"
             >
-              <p className="mb-0">{item.answer}</p>
+              {item.answer}
             </div>
           </div>
         )

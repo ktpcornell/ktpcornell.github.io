@@ -26,7 +26,7 @@ export function JoinPage() {
       <section className="section-padding">
         <div className="container mx-auto px-4 text-center">
           <SectionTitle title={RECRUITMENT_TITLE} />
-          <p className="mb-6 max-w-3xl mx-auto">{RECRUITMENT_INTRO}</p>
+          <p className="mb-6">{RECRUITMENT_INTRO}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="outline" asChild>
               <a href={INTEREST_FORM.href} target="_blank" rel="noopener noreferrer">
@@ -50,8 +50,9 @@ export function JoinPage() {
         </div>
       </section>
 
-      {/* FAQ: always rendered, heading included, even with no items */}
-      <section className="section-padding bg-ktp-bg-surface" id="faq">
+      {/* FAQ (live join.html:381): white, full container width, plain rows. Always rendered,
+          heading included, even with no items. */}
+      <section className="pb-16" id="faq">
         <div className="container mx-auto px-4">
           <SectionTitle title="Frequently Asked Questions" />
           {faqItems.length > 0 && <FaqAccordion items={faqItems} />}
