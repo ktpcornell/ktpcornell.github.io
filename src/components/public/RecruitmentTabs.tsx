@@ -155,7 +155,8 @@ export function RecruitmentTabs() {
               RECRUITMENT_INTERVIEW_ROUNDS.map((event) => <EventRow key={event.title} {...event} />)}
 
             {tab.id === 'coffee' && (
-              <div className="w-full lg:w-2/3">
+              // Centered (Michael, 11-06): these two panels are one short message + one button.
+              <div className="w-full lg:w-2/3 mx-auto text-center">
                 <Heading level={4} className="mb-2 text-ktp-dark">{COFFEE_CHAT_COPY.heading}</Heading>
                 <p className="mb-4">{COFFEE_CHAT_COPY.body}</p>
                 <FormLink {...COFFEE_CHAT_FORM} />
@@ -163,7 +164,8 @@ export function RecruitmentTabs() {
             )}
 
             {tab.id === 'tips' && (
-              <div className="w-full lg:w-2/3">
+              // Centered (Michael, 11-06): these two panels are one short message + one button.
+              <div className="w-full lg:w-2/3 mx-auto text-center">
                 <Heading level={4} className="mb-2 text-ktp-dark">{TIPS_COPY.heading}</Heading>
                 <p className="mb-4">{TIPS_COPY.body}</p>
                 <FormLink {...APPLICATION_FORM} />
