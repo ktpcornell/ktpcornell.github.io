@@ -225,6 +225,18 @@ describe('defaultSizes', () => {
 describe('<Img>', () => {
   const html = (props: Parameters<typeof Img>[0]) => renderToStaticMarkup(createElement(Img, props))
 
+  it('shows the placeholder straight away when there is no path (an img with no src never errors)', () => {
+    const out = html({ src: '', alt: 'No photo' })
+    expect(out).toContain('src="/ktplogo2.png"')
+    expect(out).not.toMatch(/srcset=/i)
+    expect(out).toContain('data-img-fallback="placeholder"')
+  })
+
+  it('puts loading before src, so Firefox does not start an eager fetch', () => {
+    const out = html({ src: withSpace, alt: 'x' })
+    expect(out.indexOf('loading=')).toBeLessThan(out.indexOf(' src='))
+  })
+
   it('renders srcset, default sizes, intrinsic size, lazy + async', () => {
     const out = html({ src: withSpace, alt: 'x' })
     const e = IMAGE_MANIFEST[withSpace]

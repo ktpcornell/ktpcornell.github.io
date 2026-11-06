@@ -19,6 +19,11 @@ Repository: https://github.com/ktpcornell/ktpcornell.github.io
 **`main` deploys the live site to ktpcornell.com (GitHub Pages).** Never push to `main` directly. Work on a branch and
 open a pull request.
 
+**Do not merge this React app into `main` yet.** GitHub Pages currently serves the repo root as-is, so it would serve
+`index.html` pointing at `/src/main.tsx` (a blank page). Merging needs a build-and-deploy step first: a GitHub Actions
+workflow that runs `npm run build` and publishes `dist/` (with a `404.html` fallback so `/members` etc. load directly),
+or a move to another host. Where the site is hosted is still being decided.
+
 ## Running Locally
 
 Requires Node 20+.

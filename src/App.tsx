@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 
 import { ScrollToTop } from '@/components/layout/ScrollToTop'
 import { HomePage } from '@/pages/public/HomePage'
@@ -18,6 +18,12 @@ const LEGACY_REDIRECTS: Record<string, string> = {
   '/join.html': '/join',
 }
 
+/** Redirect that keeps ?query and #hash, so /join.html#faq lands on /join#faq. */
+function LegacyRedirect({ to }: { to: string }) {
+  const { search, hash } = useLocation()
+  return <Navigate to={{ pathname: to, search, hash }} replace />
+}
+
 export function App() {
   return (
     <BrowserRouter>
@@ -29,7 +35,7 @@ export function App() {
         <Route path="/join" element={<JoinPage />} />
 
         {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
-          <Route key={from} path={from} element={<Navigate to={to} replace />} />
+          <Route key={from} path={from} element={<LegacyRedirect to={to} />} />
         ))}
 
         {/* Anything else */}

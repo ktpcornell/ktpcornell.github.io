@@ -18,7 +18,13 @@ describe('safeHttpUrl', () => {
   it('rejects empty and relative values', () => {
     expect(safeHttpUrl('')).toBeNull()
     expect(safeHttpUrl(undefined)).toBeNull()
-    expect(safeHttpUrl('linkedin.com/in/someone')).toBeNull()
+    expect(safeHttpUrl('/in/someone')).toBeNull()
+    expect(safeHttpUrl('not a url')).toBeNull()
+  })
+
+  it('treats a scheme-less host/path as https', () => {
+    expect(safeHttpUrl('linkedin.com/in/someone')).toBe('https://linkedin.com/in/someone')
+    expect(safeHttpUrl('www.linkedin.com/in/someone/')).toBe('https://www.linkedin.com/in/someone/')
   })
 
   it('accepts every LinkedIn link currently in members.json', () => {

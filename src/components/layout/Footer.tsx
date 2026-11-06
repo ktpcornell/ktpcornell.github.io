@@ -30,8 +30,6 @@ export function Footer() {
               <li>
                 <a
                   href="https://kappathetapi.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block mb-2 text-sm text-white hover:text-ktp-accent no-underline transition-colors"
                 >
                   Nationals

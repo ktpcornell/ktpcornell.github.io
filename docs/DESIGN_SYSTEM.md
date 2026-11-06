@@ -1,3 +1,10 @@
+> **Note (2026-11-06, React rebuild):** this document was written for the Firebase version of the site.
+> The `/design-system` showcase route and `src/pages/design-system/` were removed with the portal and
+> admin pages, and so were the unused components (AlertBanner, Badge, Card, SectionSeparator, Spinner,
+> IconButton, FormField, Modal, Switch, DataTable). What remains in `src/design-system/components/`
+> is Button, Typography (Heading etc.) and SectionTitle. The token pipeline below (`globals.css` →
+> `tailwind.config.ts`) and the component-first rules still apply.
+
 # Design System
 
 Last Updated: 2026-03-31

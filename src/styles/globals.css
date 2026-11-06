@@ -85,6 +85,12 @@
 /* The scrollbar used to be hidden site-wide (scrollbar-width: none + overscroll-behavior: none).
    Restored: visitors need to see where they are on long pages like Members. */
 
+/* The navbar is sticky (~96px tall), so anchor jumps (/join#faq, /#our-history) would land with
+   the heading under it. Live's click-scroll.js subtracted the nav height; this does it in CSS. */
+html {
+  scroll-padding-top: 106px;
+}
+
 body {
   background: var(--white-color);
   font-family: var(--body-font-family);

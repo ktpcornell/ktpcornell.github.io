@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { SIGN_IN_URL } from '@/config'
 
@@ -9,6 +9,13 @@ export function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null)
 
   const closeMenu = () => setMenuOpen(false)
+  const { pathname } = useLocation()
+  // Live's Home link scrolls to the top even when you're already on Home; a same-route
+  // <Link> click doesn't change the location, so ScrollToTop wouldn't fire.
+  const goHome = () => {
+    closeMenu()
+    if (pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -34,7 +41,7 @@ export function Navbar() {
     <nav className="bg-ktp-primary sticky top-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between py-5">
         {/* Brand */}
-        <Link to="/" className="flex flex-col items-center no-underline" onClick={closeMenu}>
+        <Link to="/" className="flex flex-col items-center no-underline" onClick={goHome}>
           <img src="/logo.svg" alt="KTP Logo" className="h-14" />
         </Link>
 
@@ -61,7 +68,7 @@ export function Navbar() {
         >
           <ul className="flex flex-col lg:flex-row items-start lg:items-center list-none m-0 p-0 ms-auto">
             <li>
-              <NavLink className={navLinkClass} to="/" end onClick={closeMenu}>
+              <NavLink className={navLinkClass} to="/" end onClick={goHome}>
                 Home
               </NavLink>
             </li>

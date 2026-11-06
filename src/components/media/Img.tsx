@@ -56,24 +56,28 @@ export function Img({ src, alt, priority = false, sizes, className, style, width
     setState({ for: src, stage: wasCopy ? 1 : 2 })
   }
 
-  const useSrcSet = stage === 0 ? srcSet : undefined
-  const isPlaceholder = stage === 2
+  // No path at all (e.g. a member saved without a photo): an <img> with no src never fires
+  // `error`, so go straight to the placeholder instead of rendering an empty box.
+  const isPlaceholder = stage === 2 || !src
+  const useSrcSet = stage === 0 && !isPlaceholder ? srcSet : undefined
 
   return (
     <img
+      // `loading`/`decoding` come before src/srcSet: React sets attributes in prop order, and
+      // Firefox can start an eager fetch if src lands before loading="lazy".
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
       src={isPlaceholder ? IMG_PLACEHOLDER : resolved}
       srcSet={useSrcSet}
       sizes={useSrcSet ? (sizes ?? defaultSizes()) : undefined}
-      width={width ?? dims?.width}
-      height={height ?? dims?.height}
+      width={isPlaceholder ? width : (width ?? dims?.width)}
+      height={isPlaceholder ? height : (height ?? dims?.height)}
       alt={alt}
-      loading={priority ? 'eager' : 'lazy'}
-      decoding="async"
       {...(priority ? HIGH_PRIORITY : undefined)}
       className={className}
       style={isPlaceholder ? { ...style, objectFit: 'contain' } : style}
       onError={onError}
-      data-img-fallback={stage === 0 ? undefined : isPlaceholder ? 'placeholder' : 'original'}
+      data-img-fallback={isPlaceholder ? 'placeholder' : stage === 1 ? 'original' : undefined}
     />
   )
 }
