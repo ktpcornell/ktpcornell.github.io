@@ -33,6 +33,12 @@ const DERIVED_PREFIX = '/images-derived/'
  * Default `sizes` when a caller gives none. Errs LARGE on purpose (Il Colosseo's rule): a
  * tile that downloads a slightly bigger file costs a few KB; one that downloads a smaller
  * file than it needs looks soft.
+ *
+ * Use this for anything cropped with `object-fit: cover` (gallery tiles, headshots, highlight
+ * photos). The browser picks a srcset candidate from the box WIDTH, but a landscape photo in a
+ * square tile is scaled to fill the HEIGHT, so it needs ~1.5x the tile width. Exact per-tile
+ * `sizes` (e.g. "270px") made the 2026-11-06 build pick 400w copies for ~360px tiles and look
+ * soft. Only pass exact `sizes` for images that are not cropped (class photos, logos, the hero).
  */
 export function defaultSizes(fullBleed = false): string {
   return fullBleed ? '100vw' : '(max-width: 768px) 100vw, 50vw'

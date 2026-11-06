@@ -52,7 +52,6 @@ export function AboutPage() {
                 src="images/classpictures/Fall2025Happy.JPEG"
                 className="history-image w-full h-auto"
                 alt="KTP Cornell chapter, Fall 2025"
-                sizes="(min-width: 1200px) 555px, (min-width: 992px) 45vw, 100vw"
               />
             </div>
           </div>

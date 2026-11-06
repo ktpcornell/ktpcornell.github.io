@@ -48,9 +48,6 @@ function toggle(id: string) {
 
 const stop = (e: MouseEvent) => e.stopPropagation()
 
-// col-sm-6 col-md-4 col-lg-3 inside a 1140px container: ~260px wide, full width on phones.
-const HEADSHOT_SIZES =
-  '(min-width: 1200px) 270px, (min-width: 992px) 25vw, (min-width: 768px) 33vw, (min-width: 576px) 50vw, 100vw'
 
 interface MemberCardProps {
   member: Member
@@ -90,7 +87,7 @@ export function MemberCard({ member, cardId }: MemberCardProps) {
         <div className="card-inner">
           {/* Front */}
           <div className="card-front">
-            <Img src={member.photo} alt={member.name} sizes={HEADSHOT_SIZES} />
+            <Img src={member.photo} alt={member.name} />
             <div className="member-overlay">
               <div className="member-name">{member.name}</div>
               <div className="member-major">{member.major}</div>

@@ -3,7 +3,6 @@ import { galleryImages } from '@/lib/constants'
 import { SectionTitle } from '@/design-system/components/SectionTitle'
 
 // Live about.html:177-179 and 325-348: section#section_5, col-6 col-md-4 col-lg-3, g-4.
-const SIZES = '(min-width: 1200px) 270px, (min-width: 992px) 25vw, (min-width: 768px) 33vw, 50vw'
 
 export function Gallery() {
   return (
@@ -13,7 +12,7 @@ export function Gallery() {
         <div className="grid grid-cols-2 md:grid-cols-3 min-[992px]:grid-cols-4 gap-6">
           {galleryImages.map((img) => (
             <div key={img.src} className="gallery-image-wrapper">
-              <Img src={img.src} alt={img.alt} className="gallery-image" sizes={SIZES} />
+              <Img src={img.src} alt={img.alt} className="gallery-image" />
             </div>
           ))}
         </div>

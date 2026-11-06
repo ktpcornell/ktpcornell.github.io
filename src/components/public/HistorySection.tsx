@@ -41,7 +41,6 @@ export function HistorySection() {
               src="images/classpictures/alphaclass.png"
               className="history-image w-full h-auto"
               alt="KTP's Alpha class"
-              sizes="(min-width: 1200px) 555px, (min-width: 992px) 45vw, 100vw"
             />
           </div>
         </div>
