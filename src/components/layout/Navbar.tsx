@@ -105,11 +105,12 @@ export function Navbar() {
               </NavLink>
             </li>
             {/* Member sign-in to KTP Manager. Outlined (not filled like Apply) so it reads as a
-                different kind of action: for brothers, not applicants. */}
+                different kind of action: for brothers, not applicants. transition-none: text and
+                background swap on hover, and fading both makes the label blink out mid-fade. */}
             {SIGN_IN_URL && (
               <li>
                 <a
-                  className="inline-flex items-center gap-2 mx-4 lg:ml-0 my-2 lg:my-0 px-5 py-1.5 rounded-full border-2 border-white text-white text-sm font-bold hover:bg-white hover:text-ktp-primary transition-colors no-underline"
+                  className="inline-flex items-center gap-2 mx-4 lg:ml-0 my-2 lg:my-0 px-5 py-1.5 rounded-full border-2 border-white text-white text-sm font-bold hover:bg-white hover:text-ktp-primary transition-none no-underline"
                   href={SIGN_IN_URL}
                   onClick={closeMenu}
                 >

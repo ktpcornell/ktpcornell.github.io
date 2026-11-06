@@ -30,12 +30,16 @@ export const ktpButtonVariants = cva(
           'bg-ktp-primary text-white border-2 border-ktp-primary hover:bg-ktp-accent hover:text-ktp-primary hover:border-ktp-accent',
         secondary:
           'bg-ktp-accent text-ktp-primary border-2 border-ktp-accent hover:bg-white hover:border-white',
+        // outline / transparent SWAP text and background on hover, so they switch instantly
+        // (transition-none). Fading both over 150ms passes through a frame where the text and the
+        // background are the same gray (rgb 147,152,169) and the label blinks out: the "random
+        // flicker" on About Us / Interest Form (Michael, 2026-11-06).
         outline:
-          'bg-transparent text-ktp-primary border-2 border-ktp-primary hover:bg-ktp-primary hover:text-white',
+          'bg-transparent text-ktp-primary border-2 border-ktp-primary hover:bg-ktp-primary hover:text-white transition-none',
         ghost:
           'bg-transparent text-ktp-primary border-2 border-transparent hover:bg-ktp-primary/10',
         transparent:
-          'bg-transparent text-white border-2 border-white hover:bg-white hover:text-ktp-primary',
+          'bg-transparent text-white border-2 border-white hover:bg-white hover:text-ktp-primary transition-none',
         danger:
           'bg-ktp-destructive text-white border-2 border-ktp-destructive hover:bg-ktp-destructive/90 hover:border-ktp-destructive/90',
       },
