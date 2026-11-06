@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react'
 import { PageWrapper } from '@/components/layout/PageWrapper'
 import { RecruitmentHero } from '@/components/public/RecruitmentHero'
 import { RecruitmentTabs } from '@/components/public/RecruitmentTabs'
 import { FaqAccordion } from '@/components/public/FaqAccordion'
-import { fetchFaq } from '@/services/faqService'
-import type { FaqItem } from '@/services/faqService'
+import { getFaq } from '@/data/faq'
 import { Button } from '@/design-system/components/Button'
 import { SectionTitle } from '@/design-system/components/SectionTitle'
 
 export function JoinPage() {
-  const [faqItems, setFaqItems] = useState<FaqItem[]>([])
-
-  useEffect(() => {
-    fetchFaq().then(setFaqItems).catch(() => {})
-  }, [])
+  const faqItems = getFaq()
 
   return (
     <PageWrapper>

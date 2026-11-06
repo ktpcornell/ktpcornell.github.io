@@ -1,20 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import { useAuth } from '@/hooks/useAuth'
-import { signOut } from '@/services/authService'
+import { SIGN_IN_URL } from '@/config'
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const { currentUser, appUser } = useAuth()
-  const navigate = useNavigate()
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
-
-  const handleSignOut = async () => {
-    await signOut()
-    navigate('/')
-  }
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -92,41 +84,26 @@ export function Navbar() {
                 Contact Us
               </a>
             </li>
-            {currentUser && (
+            {SIGN_IN_URL && (
               <li>
-                <NavLink className={navLinkClass} to={appUser?.isAdmin ? '/admin' : '/portal'} onClick={closeMenu}>
-                  Portal
-                </NavLink>
-              </li>
-            )}
-            {currentUser ? (
-              <li>
-                {/* DS-SKIP: <button> — transparent text-only sign-out styled as a nav link; Button variants all include padding/borders incompatible with this layout */}
-                <button
-                  className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors bg-transparent border-none cursor-pointer"
-                  onClick={() => { handleSignOut(); closeMenu() }}
+                <a
+                  className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors no-underline"
+                  href={SIGN_IN_URL}
+                  onClick={closeMenu}
                 >
-                  Sign Out
-                </button>
+                  Sign in
+                </a>
               </li>
-            ) : (
-              <>
-                <li>
-                  <NavLink className={navLinkClass} to="/login" onClick={closeMenu}>
-                    Member Login
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/join"
-                    onClick={closeMenu}
-                    className="inline-block mx-4 my-2 lg:my-0 px-5 py-2 rounded-full bg-ktp-accent text-ktp-primary text-sm font-bold hover:bg-white transition-colors no-underline"
-                  >
-                    Apply
-                  </NavLink>
-                </li>
-              </>
             )}
+            <li>
+              <NavLink
+                to="/join"
+                onClick={closeMenu}
+                className="inline-block mx-4 my-2 lg:my-0 px-5 py-2 rounded-full bg-ktp-accent text-ktp-primary text-sm font-bold hover:bg-white transition-colors no-underline"
+              >
+                Apply
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

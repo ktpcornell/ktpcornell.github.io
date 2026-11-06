@@ -1,40 +1,9 @@
-import { useEffect, useState } from 'react'
 import { PageWrapper } from '@/components/layout/PageWrapper'
 import { MemberClassSection } from '@/components/public/MemberClassSection'
-import { fetchMembers } from '@/services/membersService'
-import type { MembersData } from '@/types/member'
-import { Spinner } from '@/design-system/components/Spinner'
-import { AlertBanner } from '@/design-system/components/AlertBanner'
+import { getMembers } from '@/data/members'
 
 export function MembersPage() {
-  const [members, setMembers] = useState<MembersData | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    fetchMembers()
-      .then(setMembers)
-      .catch((err: Error) => setError(err.message))
-  }, [])
-
-  if (error) {
-    return (
-      <PageWrapper>
-        <div className="container mx-auto px-4 py-16">
-          <AlertBanner variant="error">Failed to load members: {error}</AlertBanner>
-        </div>
-      </PageWrapper>
-    )
-  }
-
-  if (!members) {
-    return (
-      <PageWrapper>
-        <div className="container mx-auto px-4 py-16 flex justify-center">
-          <Spinner />
-        </div>
-      </PageWrapper>
-    )
-  }
+  const members = getMembers()
 
   return (
     <PageWrapper>
