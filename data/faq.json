@@ -6,11 +6,11 @@
     },
     {
       "question": "What is KTP looking for?",
-      "answer": "We are looking for students who express leadership skills, are passionate about technology, eager to learn and grow, and committed to fostering community and collaboration."
+      "answer": "We are looking for students who are passionate about technology, eager to learn and grow, and committed to fostering community and collaboration."
     },
     {
       "question": "What will the NME process look like?",
-      "answer": "NME will be held weekly, covering topics in Tech Consulting, Data Science, Machine Learning, and SWE. Pledges will be split into groups and expected to present deliverables for these topics every other week during G-body in addition to hosting a fundraiser. We will also have professional development workshops such as Github, LinkedIn, Resume Review, and Internship Recruitment. Attend a info session for more information!"
+      "answer": "NME will be held weekly, covering topics in Tech Consulting, Data Science, Machine Learning, and SWE. New Members will be split into groups and expected to present deliverables for these topics every other week during G-body in addition to hosting a fundraiser. We will also have professional development workshops such as Github, LinkedIn, Resume Review, and Internship Recruitment. Attend a info session for more information!"
     },
     {
       "question": "How would I benefit from KTP?",
@@ -22,19 +22,11 @@
     },
     {
       "question": "What types of social events does KTP have?",
-      "answer": "We host retreats, big/little reveals, NYC Trek, group dinners, and more. Our events help members bond beyond academics and projects."
+      "answer": "We host retreats, game nights, group dinners, and more. Our events help members bond beyond academics and projects."
     },
     {
-      "question": "How much of a time commitment is NME?",
-      "answer": "NME is a manageable commitment designed to fit into a student’s schedule. Expect to dedicate 3-4 hours each week for meetings, events, and bonding activities."
-    },
-    {
-      "question": "What does the post-bid process look like?",
-      "answer": "After new members get accepted into the fraternity, they are given a bid. The new member education process (NME) will begin the week after bids are given out and will last for one semester. New Members will earn points through attending events, completing workshops, and participating in bonding activities. At the end of the semester, new members will be initiated as full brothers of Kappa Theta Pi."
-    },
-    {
-      "question": "What will the interview process look like?",
-      "answer": "Interview will consist of both technical and behavioral questions. We will evaluate applicants based on commitment, interest, collaboration, social fit, and problem-solving skills. Check out the interview tab for more details!"
+      "question": "How much of a time commitment is pledging?",
+      "answer": "Pledging is a manageable commitment designed to fit into a student's schedule. Expect to dedicate a few hours each week for meetings, events, and bonding activities."
     }
   ]
 }
