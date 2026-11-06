@@ -30,6 +30,7 @@ export const placements = [
   { name: 'Capital One', file: 'capital_one.png' },
   { name: 'EY', file: 'ey.png' },
   { name: 'Chicago Trading Company', file: 'chicago_trading.png' },
+  { name: 'Y Combinator', file: 'ycombinator.png' },
 ]
 
 export const campusClubs = [
@@ -42,6 +43,7 @@ export const campusClubs = [
   { name: 'CDJ', file: 'cdj.png' },
   { name: 'CIBC', file: 'cibc.png' },
   { name: 'CDS', file: 'cds.png' },
+  { name: 'CENT', file: 'cent.png' },
   { name: 'CEV', file: 'cev.png' },
   { name: 'CHS', file: 'chs.png' },
   { name: 'CMR', file: 'cmr.png' },
@@ -66,25 +68,28 @@ export const campusClubs = [
   { name: 'WICC', file: 'wicc.png' },
 ]
 
-export const galleryImages = [
-  'images/gallery/2025PledgesKTP.JPEG',
-  'images/gallery/IshaKatelyn.JPEG',
-  'images/gallery/WonjinAmishiKatelyn.jpeg',
-  'images/gallery/SaeshaLexi.JPEG',
-  'images/gallery/gabesalanformal.JPEG',
-  'images/gallery/biglilgirls.jpeg',
-  'images/gallery/ktpdummies.jpeg',
-  'images/gallery/founderHeart.JPEG',
-  'images/gallery/2025dinner.jpeg',
-  'images/gallery/cruisegroup.jpeg',
-  'images/gallery/deeshlin.png',
-  'images/gallery/betaaccept.png',
-  'images/gallery/ktpmen.png',
-  'images/gallery/jbhousewarming.png',
-  'images/gallery/DeeshLexiHomecoming.JPEG',
-  'images/gallery/deeshlils.png',
-  'images/classpictures/2025eboard.JPG',
-  'images/gallery/ktpatties.jpg',
+/** About page gallery, in live order (about.html:302-323). */
+export const galleryImages: { src: string; alt: string }[] = [
+  { src: 'images/gallery/2025PledgesKTP.JPEG', alt: "KTP's 2025 pledges" },
+  { src: 'images/gallery/IshaKatelyn.JPEG', alt: 'Two KTP brothers' },
+  { src: 'images/gallery/WonjinAmishiKatelyn.jpeg', alt: 'Three KTP brothers' },
+  { src: 'images/gallery/sonjawonjin.JPEG', alt: 'Two KTP brothers' },
+  { src: 'images/gallery/vishuamishialishaFormal.jpeg', alt: 'KTP brothers at formal' },
+  { src: 'images/gallery/SaeshaLexi.JPEG', alt: 'Two KTP brothers' },
+  { src: 'images/gallery/gabesalanformal.JPEG', alt: 'KTP brothers at formal' },
+  { src: 'images/gallery/biglilgirls.jpeg', alt: 'KTP bigs and littles' },
+  { src: 'images/gallery/ktpdummies.jpeg', alt: 'KTP brothers together' },
+  { src: 'images/gallery/founderHeart.JPEG', alt: 'KTP founders' },
+  { src: 'images/gallery/2025dinner.jpeg', alt: 'KTP chapter dinner, 2025' },
+  { src: 'images/gallery/cruisegroup.jpeg', alt: 'KTP brothers on a cruise' },
+  { src: 'images/gallery/deeshlin.png', alt: 'Two KTP brothers' },
+  { src: 'images/gallery/betaaccept.png', alt: 'The Beta class on acceptance day' },
+  { src: 'images/gallery/ktpmen.png', alt: 'KTP brothers together' },
+  { src: 'images/gallery/jbhousewarming.png', alt: 'KTP brothers at a housewarming' },
+  { src: 'images/gallery/DeeshLexiHomecoming.JPEG', alt: 'Two KTP brothers at Homecoming' },
+  { src: 'images/gallery/deeshlils.png', alt: 'A KTP big with their littles' },
+  { src: 'images/classpictures/2025eboard.JPG', alt: "KTP's 2025 executive board" },
+  { src: 'images/gallery/ktpatties.jpg', alt: 'KTP brothers together' },
 ]
 
 export const KTP_CLASSES = ['Founders', 'Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta']

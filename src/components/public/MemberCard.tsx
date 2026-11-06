@@ -1,43 +1,92 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useSyncExternalStore, type KeyboardEvent, type MouseEvent } from 'react'
+import { House, Linkedin, Mail } from 'lucide-react'
+import { Img } from '@/components/media/Img'
 import type { Member } from '@/types/member'
 import { Heading } from '@/design-system/components/Typography'
 
-interface MemberCardProps {
-  member: Member
+/*
+ * Flip state for every card on the page, in one tiny store with ONE document listener
+ * (it used to be one listener per card, ~45 on Members).
+ *
+ * Behavior matches live members.html:171-244: a click on a card flips it; a click anywhere
+ * that isn't on a card unflips them all; clicking another card leaves the first one flipped
+ * (live's per-card stopPropagation keeps document listeners from seeing card clicks). Links
+ * on the back open without flipping the card.
+ */
+const flipped = new Set<string>()
+const listeners = new Set<() => void>()
+
+function emit() {
+  listeners.forEach((l) => l())
 }
 
-export function MemberCard({ member }: MemberCardProps) {
-  const [flipped, setFlipped] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+function onDocumentClick(e: Event) {
+  if (flipped.size === 0) return
+  if (e.target instanceof Element && e.target.closest('.member-card')) return
+  flipped.clear()
+  emit()
+}
 
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
-        setFlipped(false)
-      }
+function subscribe(listener: () => void) {
+  listeners.add(listener)
+  if (listeners.size === 1) document.addEventListener('click', onDocumentClick)
+  return () => {
+    listeners.delete(listener)
+    if (listeners.size === 0) {
+      document.removeEventListener('click', onDocumentClick)
+      flipped.clear()
     }
-    document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
-  }, [])
-
-  const handleCardClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setFlipped((f) => !f)
   }
+}
 
-  const photoSrc = member.photo.startsWith('http') ? member.photo : `/${member.photo}`
+function toggle(id: string) {
+  if (flipped.has(id)) flipped.delete(id)
+  else flipped.add(id)
+  emit()
+}
+
+const stop = (e: MouseEvent) => e.stopPropagation()
+
+// col-sm-6 col-md-4 col-lg-3 inside a 1140px container: ~260px wide, full width on phones.
+const HEADSHOT_SIZES =
+  '(min-width: 1200px) 270px, (min-width: 992px) 25vw, (min-width: 768px) 33vw, (min-width: 576px) 50vw, 100vw'
+
+interface MemberCardProps {
+  member: Member
+  /** Unique on the page. An eboard member also appears in their class, so include the section. */
+  cardId: string
+}
+
+export function MemberCard({ member, cardId }: MemberCardProps) {
+  const isFlipped = useSyncExternalStore(
+    subscribe,
+    useCallback(() => flipped.has(cardId), [cardId]),
+    () => false,
+  )
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.target !== e.currentTarget) return
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      toggle(cardId)
+    }
+  }
 
   return (
     <div>
       <div
-        ref={cardRef}
-        className={`member-card ${flipped ? 'flipped' : ''}`}
-        onClick={handleCardClick}
+        className={`member-card ${isFlipped ? 'flipped' : ''}`}
+        onClick={() => toggle(cardId)}
+        onKeyDown={onKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-pressed={isFlipped}
+        aria-label={`${member.name}: show ${isFlipped ? 'photo' : 'details'}`}
       >
         <div className="card-inner">
           {/* Front */}
           <div className="card-front">
-            <img src={photoSrc} alt={member.name} />
+            <Img src={member.photo} alt={member.name} sizes={HEADSHOT_SIZES} />
             <div className="member-overlay">
               <div className="member-name">{member.name}</div>
               <div className="member-major">{member.major}</div>
@@ -48,29 +97,33 @@ export function MemberCard({ member }: MemberCardProps) {
           <div className="card-back text-white">
             {member.hometown && (
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🏠</span>
+                <House size={20} aria-hidden="true" />
                 <p className="mb-0 text-white">{member.hometown}</p>
               </div>
             )}
             {member.linkedin && (
-              <div className="mb-3">
+              <div className="flex items-center gap-2 mb-3">
+                <Linkedin size={20} aria-hidden="true" />
                 <a
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-ktp-accent"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={stop}
+                  tabIndex={isFlipped ? 0 : -1}
                 >
-                  LinkedIn ↗
+                  LinkedIn
                 </a>
               </div>
             )}
             {member.email && (
-              <div className="mb-3">
+              <div className="flex items-center gap-2 mb-3 max-w-full">
+                <Mail size={20} aria-hidden="true" className="shrink-0" />
                 <a
                   href={`mailto:${member.email}`}
-                  className="text-white"
-                  onClick={(e) => e.stopPropagation()}
+                  className="text-white break-all"
+                  onClick={stop}
+                  tabIndex={isFlipped ? 0 : -1}
                 >
                   {member.email}
                 </a>

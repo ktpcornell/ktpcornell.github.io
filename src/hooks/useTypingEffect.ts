@@ -5,13 +5,22 @@ interface TypingOptions {
   typeSpeed?: number
   deleteSpeed?: number
   holdDelay?: number
+  /** false stops the loop (e.g. prefers-reduced-motion); the text stays where it was. */
+  enabled?: boolean
 }
+
+/**
+ * Types and deletes each phrase in turn, forever, at live's timings (110 / 60 / 1200 ms).
+ * It re-renders its caller on every keystroke, so call it only from a leaf that renders the
+ * text alone (`<TypedText>`), never from a page. `phrases` must be a stable array.
+ */
 
 export function useTypingEffect({
   phrases,
   typeSpeed = 110,
   deleteSpeed = 60,
   holdDelay = 1200,
+  enabled = true,
 }: TypingOptions) {
   const [text, setText] = useState('')
   const phraseIndexRef = useRef(0)
@@ -19,7 +28,7 @@ export function useTypingEffect({
   const deletingRef = useRef(false)
 
   useEffect(() => {
-    if (phrases.length === 0) return
+    if (!enabled || phrases.length === 0) return
 
     let timeoutId: ReturnType<typeof setTimeout>
 
@@ -53,7 +62,7 @@ export function useTypingEffect({
 
     timeoutId = setTimeout(typeLoop, typeSpeed)
     return () => clearTimeout(timeoutId)
-  }, [phrases, typeSpeed, deleteSpeed, holdDelay])
+  }, [phrases, typeSpeed, deleteSpeed, holdDelay, enabled])
 
   return text
 }
