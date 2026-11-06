@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent } from 'react'
-import { Clock, MapPin } from 'lucide-react'
+import { CalendarDays, Clock, MapPin } from 'lucide-react'
 import {
   APPLICATION_FORM,
   COFFEE_CHAT_COPY,
@@ -23,7 +23,10 @@ function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
         <Heading level={4} className="mb-2 text-ktp-dark">{title}</Heading>
         <p>{desc}</p>
         <div className="flex flex-wrap items-center gap-y-2 mt-6 text-base text-ktp-text">
-          <span className="mx-4 lg:mx-12">{date}</span>
+          <span className="mx-4 lg:mx-12 flex items-center gap-2">
+            <CalendarDays size={16} aria-hidden="true" />
+            {date}
+          </span>
           <span className="mx-4 lg:mx-12 flex items-center gap-2">
             <Clock size={16} aria-hidden="true" />
             {time}
@@ -68,16 +71,25 @@ export function RecruitmentTabs() {
     e.preventDefault()
     setActiveTab(RECRUITMENT_TABS[next].id)
     buttonRefs.current[next]?.focus()
+    buttonRefs.current[next]?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
   }
 
   return (
     <div>
-      {/* Tab buttons: 4 across from 992px (live's breakpoint), 2x2 below it, like live's max-width: 991px rule */}
-      <div className="flex flex-wrap border-b-0" role="tablist" aria-label="Recruitment schedule">
+      {/* Tab buttons.
+          - Phones (<640px): one row of compact pills that scrolls sideways; the selected pill is
+            filled navy. The four big boxes took a whole phone screen before any content.
+          - 640-991px: 2x2 boxes (live's max-width: 991px rule). 992px+: 4 across, 150px tall. */}
+      <div
+        // The pill row hides its own scrollbar; the cut-off last pill already shows it scrolls.
+        className="flex flex-nowrap gap-2 overflow-x-auto pb-2 -mx-4 px-4 scroll-px-4 snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:pb-0 sm:gap-0 sm:flex-wrap sm:overflow-visible"
+        role="tablist"
+        aria-label="Recruitment schedule"
+      >
         {RECRUITMENT_TABS.map((tab, i) => {
           const selected = activeTab === tab.id
           return (
-            // DS-SKIP: <button> — custom tab control with border-l-[3px] left accent and fixed-height layout; cannot be expressed through Button variants without breaking the tab shape
+            // DS-SKIP: <button> — custom tab control (pill on phones, left-ruled box from sm); not expressible through Button variants
             // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
             <button
               key={tab.id}
@@ -89,24 +101,37 @@ export function RecruitmentTabs() {
               aria-controls={panelId(tab.id)}
               tabIndex={selected ? 0 : -1}
               className={[
-                'group border-0 border-l-[3px] p-4 sm:px-[30px] sm:py-5 transition-all cursor-pointer text-left',
-                'flex flex-col justify-start bg-white',
-                'w-1/2 min-h-[120px] min-[992px]:w-1/4 min-[992px]:h-[150px]',
-                'hover:border-l-ktp-accent hover:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)] focus-visible:outline-none focus-visible:border-l-ktp-accent focus-visible:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]',
+                'group transition-all cursor-pointer text-left snap-start',
+                // phone pill
+                'shrink-0 rounded-full border-2 border-ktp-primary px-4 py-2',
+                selected ? 'bg-ktp-primary' : 'bg-white',
+                // sm+: live's box
+                'sm:shrink sm:rounded-none sm:border-0 sm:border-l-[3px] sm:px-[30px] sm:py-5 sm:bg-white',
+                'sm:flex sm:flex-col sm:justify-start sm:w-1/2 sm:min-h-[120px] min-[992px]:w-1/4 min-[992px]:h-[150px]',
+                'sm:hover:border-l-ktp-accent sm:hover:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ktp-accent sm:focus-visible:ring-0 sm:focus-visible:border-l-ktp-accent sm:focus-visible:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]',
                 selected
-                  ? 'border-l-ktp-accent shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]'
-                  : i === 0 ? 'border-l-transparent' : 'border-l-ktp-bg-surface',
+                  ? 'sm:border-l-ktp-accent sm:shadow-[0_1rem_3rem_rgba(0,0,0,0.175)]'
+                  : i === 0 ? 'sm:border-l-transparent' : 'sm:border-l-ktp-bg-surface',
               ].join(' ')}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={(e) => {
+                setActiveTab(tab.id)
+                e.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+              }}
               onKeyDown={(e) => onKeyDown(e, i)}
             >
               {/* Live keeps every tab title navy (inline style on its h3); the active tab is shown by
-                  the cyan left rule and the shadow. */}
-              <Heading level={3} className="mb-1 text-ktp-primary max-[480px]:text-2xl">
+                  the cyan left rule and the shadow. On phones the pill is filled instead. */}
+              <Heading
+                level={3}
+                className={`mb-0 sm:mb-1 max-sm:text-base max-sm:tracking-normal whitespace-nowrap sm:whitespace-normal text-ktp-primary ${
+                  selected ? 'max-sm:text-white' : ''
+                }`}
+              >
                 {tab.label}
               </Heading>
               {tab.sub && (
-                <small className="text-base sm:text-lg font-normal text-ktp-fg-body">{tab.sub}</small>
+                <small className="hidden sm:block text-lg font-normal text-ktp-fg-body">{tab.sub}</small>
               )}
             </button>
           )
@@ -114,7 +139,7 @@ export function RecruitmentTabs() {
       </div>
 
       {/* Tab content */}
-      <div className="mt-12">
+      <div className="mt-6 sm:mt-12">
         {RECRUITMENT_TABS.map((tab) => (
           <div
             key={tab.id}
