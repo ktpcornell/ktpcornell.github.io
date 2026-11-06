@@ -34,6 +34,10 @@ function rootStaticDirs(): Plugin {
         const from = path.join(root, dir)
         if (fs.existsSync(from)) fs.cpSync(from, path.join(root, 'dist', dir), { recursive: true })
       }
+      // GitHub Pages has no rewrites. It serves 404.html for any unknown path, so a copy of the
+      // app shell there lets /members, /join etc. load directly and React Router takes over.
+      const shell = path.join(root, 'dist', 'index.html')
+      if (fs.existsSync(shell)) fs.copyFileSync(shell, path.join(root, 'dist', '404.html'))
     },
   }
 }

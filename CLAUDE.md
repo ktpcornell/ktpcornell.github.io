@@ -19,10 +19,12 @@ Repository: https://github.com/ktpcornell/ktpcornell.github.io
 **`main` deploys the live site to ktpcornell.com (GitHub Pages).** Never push to `main` directly. Work on a branch and
 open a pull request.
 
-**Do not merge this React app into `main` yet.** GitHub Pages currently serves the repo root as-is, so it would serve
-`index.html` pointing at `/src/main.tsx` (a blank page). Merging needs a build-and-deploy step first: a GitHub Actions
-workflow that runs `npm run build` and publishes `dist/` (with a `404.html` fallback so `/members` etc. load directly),
-or a move to another host. Where the site is hosted is still being decided.
+**How it deploys:** `.github/workflows/deploy.yml` runs `npm run build` on every push to `main` and publishes `dist/`
+to GitHub Pages. That needs **Settings → Pages → Source = "GitHub Actions"**. If the source is ever set back to
+"Deploy from a branch", Pages serves the unbuilt repo root and the site goes blank (this happened on 2026-11-06).
+The build copies `index.html` to `404.html`, so `/members` and the other routes load directly. Merged profile-sync PRs
+redeploy too, because `members.json` is bundled at build time. If a deploy fails, the previous version stays live:
+check the Actions tab.
 
 ## Running Locally
 
