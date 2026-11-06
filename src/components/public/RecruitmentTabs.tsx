@@ -1,29 +1,32 @@
-import { useState } from 'react'
+import { useRef, useState, type KeyboardEvent } from 'react'
 import { Clock, MapPin } from 'lucide-react'
-import { RECRUITMENT_OPEN_EVENTS, RECRUITMENT_INTERVIEW_ROUNDS, type RecruitmentEvent } from '@/lib/constants'
+import {
+  APPLICATION_FORM,
+  COFFEE_CHAT_COPY,
+  COFFEE_CHAT_FORM,
+  RECRUITMENT_INTERVIEW_ROUNDS,
+  RECRUITMENT_OPEN_EVENTS,
+  RECRUITMENT_TABS,
+  TIPS_COPY,
+  type RecruitmentEvent,
+  type RecruitmentTabId,
+} from '@/content/recruitment'
 import { Button } from '@/design-system/components/Button'
 import { Heading } from '@/design-system/components/Typography'
 
-const TABS = [
-  { id: 'events', label: 'Events', sub: 'Open Events for everyone' },
-  { id: 'interviews', label: 'Interview Rounds', sub: 'Invite-only Rounds' },
-  { id: 'coffee', label: 'Coffee Chats', sub: 'Get to know our members!' },
-  { id: 'tips', label: 'Tips + Application', sub: '' },
-]
-
 function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   return (
-    <div className="border-b pb-8 mb-8 max-w-3xl mx-auto">
+    <div className="border-b pb-8 mb-8 max-w-3xl mx-auto last:border-b-0">
       <Heading level={4} className="mb-2">{title}</Heading>
       <p>{desc}</p>
-      <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-ktp-fg-body">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-sm text-ktp-fg-body">
         <span>{date}</span>
         <span className="flex items-center gap-1">
-          <Clock size={14} />
+          <Clock size={14} aria-hidden="true" />
           {time}
         </span>
         <span className="flex items-center gap-1">
-          <MapPin size={14} />
+          <MapPin size={14} aria-hidden="true" />
           {location}
         </span>
       </div>
@@ -31,108 +34,117 @@ function EventRow({ title, desc, date, time, location }: RecruitmentEvent) {
   )
 }
 
+function FormLink({ href, label }: { href: string; label: string }) {
+  return (
+    <Button variant="primary" asChild>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {label}
+      </a>
+    </Button>
+  )
+}
+
+const tabId = (id: RecruitmentTabId) => `recruitment-tab-${id}`
+const panelId = (id: RecruitmentTabId) => `recruitment-panel-${id}`
+
 export function RecruitmentTabs() {
-  const [activeTab, setActiveTab] = useState('events')
+  const [activeTab, setActiveTab] = useState<RecruitmentTabId>('events')
+  const buttonRefs = useRef<Array<HTMLButtonElement | null>>([])
+
+  // Arrow keys move between tabs (WAI-ARIA tabs pattern, automatic activation).
+  function onKeyDown(e: KeyboardEvent<HTMLButtonElement>, index: number) {
+    const last = RECRUITMENT_TABS.length - 1
+    const next =
+      e.key === 'ArrowRight' ? (index === last ? 0 : index + 1)
+      : e.key === 'ArrowLeft' ? (index === 0 ? last : index - 1)
+      : e.key === 'Home' ? 0
+      : e.key === 'End' ? last
+      : null
+    if (next === null) return
+    e.preventDefault()
+    setActiveTab(RECRUITMENT_TABS[next].id)
+    buttonRefs.current[next]?.focus()
+  }
 
   return (
     <div>
-      {/* Tab buttons */}
-      <div className="flex flex-wrap border-b-0">
-        {TABS.map((tab, i) => (
-          // DS-SKIP: <button> — custom tab control with border-l-[3px] left accent and fixed h-[150px] layout; cannot be expressed through Button variants without breaking the tab shape
-          // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
-          <button
-            key={tab.id}
-            className={[
-              'border-0 border-l-[3px] px-6 py-5 transition-all w-1/4 cursor-pointer text-left h-[150px] flex flex-col justify-start bg-white',
-              activeTab === tab.id
-                ? 'border-l-ktp-accent shadow-lg'
-                : i === 0 ? 'border-l-transparent' : 'border-l-ktp-bg-surface',
-            ].join(' ')}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            <Heading
-              level={3}
-              className={`text-xl mb-1 tracking-normal ${
-                activeTab === tab.id ? 'text-ktp-accent' : 'text-ktp-primary'
-              }`}
+      {/* Tab buttons: 4 across from 992px (live's breakpoint), 2x2 below it, like live's max-width: 991px rule */}
+      <div className="flex flex-wrap border-b-0" role="tablist" aria-label="Recruitment schedule">
+        {RECRUITMENT_TABS.map((tab, i) => {
+          const selected = activeTab === tab.id
+          return (
+            // DS-SKIP: <button> — custom tab control with border-l-[3px] left accent and fixed-height layout; cannot be expressed through Button variants without breaking the tab shape
+            // DS-SKIP: border-l-[3px] — custom border-left width for the left accent rule; not expressible as a standard Tailwind border-l utility
+            <button
+              key={tab.id}
+              ref={(el) => { buttonRefs.current[i] = el }}
+              type="button"
+              role="tab"
+              id={tabId(tab.id)}
+              aria-selected={selected}
+              aria-controls={panelId(tab.id)}
+              tabIndex={selected ? 0 : -1}
+              className={[
+                'group border-0 border-l-[3px] p-4 sm:px-[30px] sm:py-5 transition-all cursor-pointer text-left',
+                'flex flex-col justify-start bg-white',
+                'w-1/2 min-h-[110px] min-[992px]:w-1/4 min-[992px]:h-[150px]',
+                'hover:border-l-ktp-accent hover:shadow-lg focus-visible:outline-none focus-visible:border-l-ktp-accent focus-visible:shadow-lg',
+                selected
+                  ? 'border-l-ktp-accent shadow-lg'
+                  : i === 0 ? 'border-l-transparent' : 'border-l-ktp-bg-surface',
+              ].join(' ')}
+              onClick={() => setActiveTab(tab.id)}
+              onKeyDown={(e) => onKeyDown(e, i)}
             >
-              {tab.label}
-            </Heading>
-            {tab.sub && <small className="text-sm font-normal text-ktp-fg-body">{tab.sub}</small>}
-          </button>
-        ))}
+              <Heading
+                level={3}
+                className={`text-lg sm:text-xl mb-1 tracking-normal group-hover:text-ktp-accent group-focus-visible:text-ktp-accent ${
+                  selected ? 'text-ktp-accent' : 'text-ktp-primary'
+                }`}
+              >
+                {tab.label}
+              </Heading>
+              {tab.sub && (
+                <small className="text-sm sm:text-base font-normal text-ktp-fg-body">{tab.sub}</small>
+              )}
+            </button>
+          )
+        })}
       </div>
 
       {/* Tab content */}
       <div className="mt-8">
-        {activeTab === 'events' && (
-          <div>
-            {RECRUITMENT_OPEN_EVENTS.map((event) => (
-              <EventRow key={event.title} {...event} />
-            ))}
-          </div>
-        )}
+        {RECRUITMENT_TABS.map((tab) => (
+          <div
+            key={tab.id}
+            role="tabpanel"
+            id={panelId(tab.id)}
+            aria-labelledby={tabId(tab.id)}
+            hidden={activeTab !== tab.id}
+          >
+            {tab.id === 'events' &&
+              RECRUITMENT_OPEN_EVENTS.map((event) => <EventRow key={event.title} {...event} />)}
 
-        {activeTab === 'interviews' && (
-          <div>
-            {RECRUITMENT_INTERVIEW_ROUNDS.map((event) => (
-              <EventRow key={event.title} {...event} />
-            ))}
-          </div>
-        )}
+            {tab.id === 'interviews' &&
+              RECRUITMENT_INTERVIEW_ROUNDS.map((event) => <EventRow key={event.title} {...event} />)}
 
-        {activeTab === 'coffee' && (
-          <div className="text-center py-8 max-w-3xl mx-auto">
-            <Heading level={4} className="mb-4 text-ktp-primary">Schedule a Coffee Chat</Heading>
-            <p className="mb-6">
-              Coffee chats are a great way to get to know our brothers in a low-pressure, one-on-one
-              setting. Sign up using the form below!
-            </p>
-            <Button variant="primary" asChild>
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSftDj0bPM-wx-5rmwA937VZ9_Xs_tOjQRU82PmoF3tRaHULCg/viewform?usp=dialog"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sign Up for Coffee Chat
-              </a>
-            </Button>
-          </div>
-        )}
+            {tab.id === 'coffee' && (
+              <div className="max-w-3xl mx-auto">
+                <Heading level={4} className="mb-2">{COFFEE_CHAT_COPY.heading}</Heading>
+                <p className="mb-6">{COFFEE_CHAT_COPY.body}</p>
+                <FormLink {...COFFEE_CHAT_FORM} />
+              </div>
+            )}
 
-        {activeTab === 'tips' && (
-          <div className="py-8 max-w-3xl mx-auto">
-            <Heading level={4} className="mb-4 text-ktp-primary">Application Tips</Heading>
-            <ul className="list-disc pl-6 space-y-3">
-              <li><p>Attend at least one info session or open event before applying.</p></li>
-              <li><p>Be genuine — we value authenticity and passion for technology over GPA or prestige.</p></li>
-              <li><p>Show curiosity: tell us what excites you in tech, even if you're just starting out.</p></li>
-              <li><p>Come prepared with questions — our brothers love talking about their experiences.</p></li>
-              <li><p>Anyone is allowed to join — we gladly accept potential new members from all disciplines!</p></li>
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button variant="outline" asChild>
-                <a
-                  href="https://forms.gle/AbQNh6rqBK94MRH18"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Interest Form
-                </a>
-              </Button>
-              <Button variant="primary" asChild>
-                <a
-                  href="https://forms.gle/cNQJKc8drtGXK74j9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Spring 26 Application
-                </a>
-              </Button>
-            </div>
+            {tab.id === 'tips' && (
+              <div className="max-w-3xl mx-auto">
+                <Heading level={4} className="mb-2">{TIPS_COPY.heading}</Heading>
+                <p className="mb-6">{TIPS_COPY.body}</p>
+                <FormLink {...APPLICATION_FORM} />
+              </div>
+            )}
           </div>
-        )}
+        ))}
       </div>
     </div>
   )
