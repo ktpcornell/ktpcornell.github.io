@@ -1,6 +1,7 @@
 import { Mail, Instagram, Linkedin } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { Heading } from '@/design-system/components/Typography'
+import { SIGN_IN_URL } from '@/config'
 
 export function Footer() {
   const location = useLocation()
@@ -35,6 +36,17 @@ export function Footer() {
                   Nationals
                 </a>
               </li>
+              {/* Same KTP Manager sign-in page as the navbar button; rounds the links out to 3x2. */}
+              {SIGN_IN_URL && (
+                <li>
+                  <a
+                    href={SIGN_IN_URL}
+                    className="block text-xl text-white hover:text-ktp-accent no-underline transition-colors"
+                  >
+                    Member Sign In
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 
