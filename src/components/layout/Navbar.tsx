@@ -39,10 +39,14 @@ export function Navbar() {
 
   return (
     <nav className="bg-ktp-primary sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex items-center justify-between py-5">
+      <div className="container mx-auto px-4 flex items-center justify-between py-4">
         {/* Brand */}
+        {/* New logo, with the old navbar's "CORNELL CHAPTER" line under it (live: 12px, bold, uppercase) */}
         <Link to="/" className="flex flex-col items-center no-underline" onClick={goHome}>
-          <img src="/logo.svg" alt="KTP Logo" className="h-14" />
+          <img src="/logo.svg" alt="KTP Logo" className="h-12" />
+          <span className="mt-1 text-white text-xs font-bold uppercase leading-none">
+            Cornell Chapter
+          </span>
         </Link>
 
         {/* Hamburger (mobile) */}
