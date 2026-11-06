@@ -11,7 +11,14 @@ export function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      const el = document.getElementById(decodeURIComponent(hash.slice(1)))
+      // A malformed hash (e.g. "#%E0") makes decodeURIComponent throw, which would blank the app.
+      let id = hash.slice(1)
+      try {
+        id = decodeURIComponent(id)
+      } catch {
+        /* keep the raw value */
+      }
+      const el = document.getElementById(id)
       if (el) {
         el.scrollIntoView()
         return
