@@ -25,7 +25,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1350,
     "widths": [
       400,
-      800
+      800,
+      1080
     ]
   },
   "images/classpictures/2025boys.JPG": {
@@ -64,7 +65,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025Boys.JPEG": {
@@ -73,7 +75,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025BoysHappy.JPEG": {
@@ -82,7 +85,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025Eboard.JPEG": {
@@ -91,7 +95,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025Girls.jpeg": {
@@ -100,7 +105,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025GirlsHappy.jpeg": {
@@ -109,7 +115,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/Fall2025Happy.JPEG": {
@@ -118,7 +125,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/classpictures/alphaclass.png": {
@@ -127,7 +135,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2118
     ]
   },
   "images/classpictures/betaclass.png": {
@@ -135,7 +144,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 904,
     "widths": [
       400,
-      800
+      800,
+      1388
     ]
   },
   "images/classpictures/sp2025alphaclass.JPG": {
@@ -162,14 +172,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 224,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/alfa.png": {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/appdev.png": {
@@ -199,14 +211,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/cdj.png": {
     "w": 364,
     "h": 138,
     "widths": [
-      200
+      200,
+      364
     ]
   },
   "images/clubs/cds.png": {
@@ -235,7 +249,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/cibc.png": {
@@ -264,14 +279,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/cuxd.png": {
     "w": 224,
     "h": 224,
     "widths": [
-      200
+      200,
+      224
     ]
   },
   "images/clubs/cyber.png": {
@@ -286,14 +303,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/dcc.png": {
     "w": 298,
     "h": 344,
     "widths": [
-      200
+      200,
+      298
     ]
   },
   "images/clubs/dti.png": {
@@ -355,7 +374,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/nexus.png": {
@@ -370,14 +390,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/thread.png": {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/clubs/webdev.png": {
@@ -402,7 +424,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2016
     ]
   },
   "images/gallery/2025dinner.jpeg": {
@@ -420,7 +443,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 2016,
     "widths": [
       400,
-      800
+      800,
+      1512
     ]
   },
   "images/gallery/IshaKatelyn.JPEG": {
@@ -429,7 +453,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2000
     ]
   },
   "images/gallery/KTPsignformal.JPEG": {
@@ -437,7 +462,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 2048,
     "widths": [
       400,
-      800
+      800,
+      1536
     ]
   },
   "images/gallery/SaeshaLexi.JPEG": {
@@ -446,7 +472,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2000
     ]
   },
   "images/gallery/WAKFormal.jpeg": {
@@ -454,7 +481,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1770,
     "widths": [
       400,
-      800
+      800,
+      1327
     ]
   },
   "images/gallery/WonjinAmishiKatelyn.jpeg": {
@@ -472,7 +500,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1358,
     "widths": [
       400,
-      800
+      800,
+      1400
     ]
   },
   "images/gallery/biglilgirls.jpeg": {
@@ -480,7 +509,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1336,
     "widths": [
       400,
-      800
+      800,
+      1248
     ]
   },
   "images/gallery/car.png": {
@@ -489,7 +519,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1810
     ]
   },
   "images/gallery/coffeechat.jpg": {
@@ -508,7 +539,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2048
     ]
   },
   "images/gallery/deeshbelenkatelyn.jpg": {
@@ -517,7 +549,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2208
     ]
   },
   "images/gallery/deeshhousewarming.png": {
@@ -525,7 +558,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1310,
     "widths": [
       400,
-      800
+      800,
+      1334
     ]
   },
   "images/gallery/deeshlils.png": {
@@ -533,7 +567,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1258,
     "widths": [
       400,
-      800
+      800,
+      1482
     ]
   },
   "images/gallery/deeshlin.png": {
@@ -542,7 +577,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1740
     ]
   },
   "images/gallery/founderHeart.JPEG": {
@@ -550,7 +586,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/gallery/gabesalanformal.JPEG": {
@@ -559,7 +596,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2000
     ]
   },
   "images/gallery/gregtamer.png": {
@@ -567,7 +605,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1132,
     "widths": [
       400,
-      800
+      800,
+      1222
     ]
   },
   "images/gallery/jbhousewarming.png": {
@@ -586,7 +625,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2305
     ]
   },
   "images/gallery/ktpdummies.jpeg": {
@@ -594,7 +634,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 2048,
     "widths": [
       400,
-      800
+      800,
+      1536
     ]
   },
   "images/gallery/ktpmen.png": {
@@ -602,7 +643,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1006,
     "widths": [
       400,
-      800
+      800,
+      1004
     ]
   },
   "images/gallery/sakebomb.jpeg": {
@@ -611,7 +653,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2106
     ]
   },
   "images/gallery/sonjawonjin.JPEG": {
@@ -620,7 +663,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2000
     ]
   },
   "images/gallery/sonyakatelyn.jpg": {
@@ -656,7 +700,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Amishi Gupta.png": {
@@ -664,7 +709,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1198,
     "widths": [
       400,
-      800
+      800,
+      838
     ]
   },
   "images/headshots/AlphaClass/Ashley Kwarteng.jpg": {
@@ -673,7 +719,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      2271
     ]
   },
   "images/headshots/AlphaClass/Esperanza R..png": {
@@ -681,7 +728,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1418,
     "widths": [
       400,
-      800
+      800,
+      1044
     ]
   },
   "images/headshots/AlphaClass/Gabriel Benavidez.png": {
@@ -689,7 +737,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 862,
     "widths": [
       400,
-      800
+      800,
+      822
     ]
   },
   "images/headshots/AlphaClass/Gregory Parent.jpeg": {
@@ -697,7 +746,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Jonathan Zhang.png": {
@@ -705,7 +755,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1800,
     "widths": [
       400,
-      800
+      800,
+      1200
     ]
   },
   "images/headshots/AlphaClass/Kayton Buerlein.jpg": {
@@ -713,7 +764,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Logan Canfield.jpeg": {
@@ -721,7 +773,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Matthew Laterza.JPEG": {
@@ -729,7 +782,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Oscar C-A.JPG": {
@@ -747,7 +801,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/AlphaClass/Riya Pate.png": {
@@ -755,7 +810,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1034,
     "widths": [
       400,
-      800
+      800,
+      884
     ]
   },
   "images/headshots/AlphaClass/Serena Zhu.jpeg": {
@@ -793,7 +849,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1200,
     "widths": [
       400,
-      800
+      800,
+      930
     ]
   },
   "images/headshots/AlphaClass/amishigupta.JPG": {
@@ -821,7 +878,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/BetaClass/Gabriel Castillo.jpg": {
@@ -830,7 +888,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/headshots/BetaClass/Gabriel Meredith.jpeg": {
@@ -838,7 +897,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/BetaClass/Isha Nagireddy.jpeg": {
@@ -846,7 +906,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/BetaClass/Manya PN.jpg": {
@@ -854,7 +915,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1279,
     "widths": [
       400,
-      800
+      800,
+      1023
     ]
   },
   "images/headshots/BetaClass/Matthew Gresock.jpeg": {
@@ -862,7 +924,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 791,
     "widths": [
       400,
-      800
+      800,
+      1206
     ]
   },
   "images/headshots/BetaClass/Naisha Srivastava.jpeg": {
@@ -870,7 +933,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/BetaClass/Rohan Pathak.jpg": {
@@ -878,7 +942,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/BetaClass/Saesha Agarwal.jpg": {
@@ -887,7 +952,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "widths": [
       400,
       800,
-      1600
+      1600,
+      1920
     ]
   },
   "images/headshots/BetaClass/Wonjin Eum.jpeg": {
@@ -895,7 +961,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 1920,
     "widths": [
       400,
-      800
+      800,
+      1280
     ]
   },
   "images/headshots/Founders/Belen Del Castillo.JPG": {
@@ -1060,7 +1127,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 576,
     "h": 526,
     "widths": [
-      400
+      400,
+      576
     ]
   },
   "images/navbarlogo.png": {
@@ -1068,14 +1136,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "h": 405,
     "widths": [
       400,
-      800
+      800,
+      1153
     ]
   },
   "images/network/CVTE.png": {
     "w": 312,
     "h": 154,
     "widths": [
-      200
+      200,
+      312
     ]
   },
   "images/network/RTX.png": {
@@ -1146,7 +1216,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 300,
     "h": 168,
     "widths": [
-      200
+      200,
+      300
     ]
   },
   "images/network/bloomberg.png": {
@@ -1177,7 +1248,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 313,
     "h": 81,
     "widths": [
-      200
+      200,
+      313
     ]
   },
   "images/network/cisco.png": {
@@ -1248,7 +1320,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/network/figma.png": {
@@ -1303,7 +1376,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 355,
     "h": 142,
     "widths": [
-      200
+      200,
+      355
     ]
   },
   "images/network/indeed.png": {
@@ -1390,14 +1464,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 261,
     "h": 193,
     "widths": [
-      200
+      200,
+      261
     ]
   },
   "images/network/p&g.png": {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   },
   "images/network/pnc.png": {
@@ -1460,7 +1536,8 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 257,
     "h": 112,
     "widths": [
-      200
+      200,
+      257
     ]
   },
   "images/network/tesla.png": {
@@ -1514,14 +1591,16 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     "w": 356,
     "h": 142,
     "widths": [
-      200
+      200,
+      356
     ]
   },
   "images/network/ycombinator.png": {
     "w": 225,
     "h": 225,
     "widths": [
-      200
+      200,
+      225
     ]
   }
 }

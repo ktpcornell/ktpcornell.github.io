@@ -177,6 +177,17 @@ describe('width ladders', () => {
     }
   })
 
+  it('a source between two rungs also gets a copy at its own width (no stretched 1600 on big screens)', () => {
+    const hero = IMAGE_MANIFEST['images/classpictures/Fall2025.jpeg']
+    expect(hero.w).toBe(1920)
+    expect(hero.widths).toEqual([400, 800, 1600, 1920])
+    for (const [key, e] of entries) {
+      const ladder = /^images\/(network|clubs)\//.test(key) ? [200, 400] : [400, 800, 1600, 2400]
+      if (ladder.some((x) => x > e.w)) expect(e.widths[e.widths.length - 1], key).toBe(e.w)
+      else expect(e.widths, key).toEqual(ladder)
+    }
+  })
+
   it('a wide source gets every rung it can fill', () => {
     const huge = entries.find(([k, e]) => k.startsWith('images/gallery/') && e.w >= 2400)
     expect(huge, 'at least one gallery photo is 2400px+ wide').toBeDefined()

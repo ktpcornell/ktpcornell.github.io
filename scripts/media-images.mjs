@@ -78,6 +78,13 @@ const LOGO_WIDTHS = [200, 400]
 const LOGO_DIRS = ['network/', 'clubs/']
 /** Same quality Il Colosseo settled on by looking at it. WebP keeps PNG transparency. */
 const QUALITY = 82
+/**
+ * Quality for the "native width" copy (see the widths rule in main). That copy is the largest
+ * thing a big screen gets for a source that falls between rungs, and those sources are usually
+ * already-compressed exports (the Fall 2025 class photos are 1920px JPEGs), so a second q82
+ * pass shows. q90 keeps it close to the original at roughly the original's file size.
+ */
+const QUALITY_NATIVE = 90
 const IMAGE_EXT = /\.(jpe?g|png)$/i
 /** Files processed at once. sharp is itself multithreaded; this just keeps the CPU fed. */
 const CONCURRENCY = 3
@@ -191,8 +198,15 @@ async function main() {
         return
       }
 
-      const widths = ladderFor(s.rel).filter((x) => x <= w)
-      if (widths.length === 0) widths.push(w)
+      // Every rung the source can fill. A source narrower than the smallest rung gets one copy at
+      // its own width. A source that falls BETWEEN rungs (1920px: above 1600, below 2400) also
+      // gets a copy at its own width; otherwise its largest copy would be 1600 and a 1920+ screen
+      // would stretch it (the home hero looked soft on 2026-11-06). Sources wider than the top rung
+      // don't: 2400 is plenty and a 6000px copy would be megabytes.
+      const ladder = ladderFor(s.rel)
+      const widths = ladder.filter((x) => x <= w)
+      const native = widths.length === 0 || (ladder.some((x) => x > w) && widths[widths.length - 1] < w)
+      if (native) widths.push(w)
 
       const outSubdir = join(OUT_DIR, dirname(s.base))
       await mkdir(outSubdir, { recursive: true })
@@ -206,7 +220,7 @@ async function main() {
             await sharp(s.file, SHARP_INPUT)
               .rotate() // respect EXIF orientation; the copy carries no EXIF
               .resize({ width, withoutEnlargement: true })
-              .webp({ quality: QUALITY, effort: 5 })
+              .webp({ quality: native && width === w ? QUALITY_NATIVE : QUALITY, effort: 5 })
               .toFile(part)
             await rename(part, out)
           } catch (err) {
