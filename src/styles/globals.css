@@ -80,22 +80,39 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scrollbar-width: none;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  overscroll-behavior: none;
-}
+/* The scrollbar used to be hidden site-wide (scrollbar-width: none + overscroll-behavior: none).
+   Restored: visitors need to see where they are on long pages like Members. */
 
 body {
   background: var(--white-color);
   font-family: var(--body-font-family);
   color: hsl(var(--ktp-fg-hsl));
-  overscroll-behavior: none;
+}
+
+/* Responsive heading sizes, matching the live site's breakpoints
+   (templatemo-leadership-event.css @media max-width 991px / 480px). Headings read these
+   variables through the Heading component's text-heading-N classes. */
+@media screen and (max-width: 991px) {
+  :root {
+    --h1-font-size: 48px;
+    --h2-font-size: 36px;
+    --h3-font-size: 32px;
+    --h4-font-size: 28px;
+    --h5-font-size: 20px;
+    --h6-font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --h1-font-size: 38px;
+    --h2-font-size: 32px;
+    --h3-font-size: 28px;
+    --h4-font-size: 24px;
+    --h5-font-size: 20px;
+  }
 }
 
 /* Heading elements are intentionally unstyled here.

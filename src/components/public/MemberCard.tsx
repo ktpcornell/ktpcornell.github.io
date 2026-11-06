@@ -1,6 +1,7 @@
 import { useCallback, useSyncExternalStore, type KeyboardEvent, type MouseEvent } from 'react'
 import { House, Linkedin, Mail } from 'lucide-react'
 import { Img } from '@/components/media/Img'
+import { safeHttpUrl } from '@/lib/safeUrl'
 import type { Member } from '@/types/member'
 import { Heading } from '@/design-system/components/Typography'
 
@@ -64,6 +65,9 @@ export function MemberCard({ member, cardId }: MemberCardProps) {
     () => false,
   )
 
+  // Profile-sync data: only render the link if it's a real http(s) URL.
+  const linkedin = safeHttpUrl(member.linkedin)
+
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.target !== e.currentTarget) return
     if (e.key === 'Enter' || e.key === ' ') {
@@ -101,11 +105,11 @@ export function MemberCard({ member, cardId }: MemberCardProps) {
                 <p className="mb-0 text-white">{member.hometown}</p>
               </div>
             )}
-            {member.linkedin && (
+            {linkedin && (
               <div className="flex items-center gap-2 mb-3">
                 <Linkedin size={20} aria-hidden="true" />
                 <a
-                  href={member.linkedin}
+                  href={linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-ktp-accent"

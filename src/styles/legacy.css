@@ -8,6 +8,10 @@
    UTILITIES
 ------------------------------------------ */
 .section-padding { padding-top: 120px; padding-bottom: 120px; }
+/* Live site steps section padding down on tablets and phones. */
+@media screen and (max-width: 991px) {
+  .section-padding { padding-top: 80px; padding-bottom: 80px; }
+}
 .custom-border-radius { border-radius: 20px; }
 
 .small-title { text-transform: uppercase; }
@@ -133,11 +137,13 @@
    CALL TO ACTION
 ------------------------------------------ */
 .call-to-action {
-  background-image: url('/images/classpictures/Fall2025GirlsHappy.jpeg');
+  /* WebP copy from images-derived/ (scripts/media-images.mjs) instead of the original JPEG. */
+  background-image: url('/images-derived/classpictures/Fall2025GirlsHappy-jpeg-1600.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed removed: it repaints the whole section on every scroll frame
+     (and iOS ignores it anyway). */
   position: relative;
 }
 
@@ -259,10 +265,18 @@
 .recruitment-hero {
   position: relative;
   height: 60vh;
+  /* WebP copy from images-derived/ (scripts/media-images.mjs): the 2025boys.JPG original is 7 MB. */
   background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
-              url('/images/classpictures/2025boys.JPG') center center / cover no-repeat;
+              url('/images-derived/classpictures/2025boys-jpg-1600.webp') center center / cover no-repeat;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .recruitment-hero {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+                url('/images-derived/classpictures/2025boys-jpg-800.webp') center center / cover no-repeat;
+  }
 }
 
 .recruitment-hero::before {

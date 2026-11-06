@@ -83,12 +83,14 @@ const IMAGE_EXT = /\.(jpe?g|png)$/i
 const CONCURRENCY = 3
 
 /**
- * `limitInputPixels: false`: the DTI logo is 13170x3600 (47 MP) and a future upload could
- * cross sharp's default 268 MP guard. These are the chapter's own files, not anonymous
- * uploads, so the guard buys nothing. `failOn: 'error'` tolerates the minor warnings
- * (truncated EXIF etc.) that phone JPEGs often carry instead of skipping the file.
+ * `limitInputPixels: 100 MP`: headshots arrive from members through KTP Manager's profile
+ * sync, so a decompression bomb is possible in principle. The largest legitimate file is the
+ * DTI logo (13170x3600, 47 MP) and phone/camera photos top out around 50 MP, so 100 MP leaves
+ * headroom; anything bigger is skipped with a warning (the page then serves the original).
+ * `failOn: 'error'` tolerates the minor warnings (truncated EXIF etc.) that phone JPEGs often
+ * carry instead of skipping the file.
  */
-const SHARP_INPUT = { limitInputPixels: false, failOn: 'error' }
+const SHARP_INPUT = { limitInputPixels: 100_000_000, failOn: 'error' }
 
 sharp.cache(false)
 
