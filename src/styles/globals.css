@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* KTP HSL triplets — used by tailwind.config.ts for opacity modifier support */
+    --ktp-primary-hsl: 228 36% 24%;      /* #273053 navy */
+    --ktp-accent-hsl: 200 92% 60%;       /* #38bdf8 sky-blue */
+    --ktp-destructive-hsl: 0 84% 60%;    /* red */
+    --ktp-fg-hsl: 222 47% 24%;           /* body foreground */
+    --ktp-muted-hsl: 210 40% 96%;        /* muted surface */
+    --ktp-muted-fg-hsl: 215 16% 47%;     /* muted text */
+    --ktp-radius: 0.5rem;
+
+    /* KTP brand tokens — single source of truth; tailwind.config.ts references these */
+    --ktp-primary: #273053;
+    --ktp-primary-rgb: 39, 48, 83;    /* for rgba() usage in legacy.css */
+    --ktp-accent: #38bdf8;  /* sky-blue — matches --secondary */
+    --ktp-overlay-rgb: 0, 20, 60;     /* for rgba() card overlay */
+    --ktp-accent-pink: #f78fb3;
+    --ktp-white: #ffffff;
+    --ktp-error-bg: #fee2e2;
+    --ktp-error: #991b1b;
+    --ktp-warning-bg: #fef3c7;
+    --ktp-warning-border: #f59e0b;
+    --ktp-warning-text: #92400e;
+
+    /* Background tokens — surfaces, panels, and hover states */
+    --ktp-bg-surface: #e6f1ff;  /* section alt bg, portal pages */
+    --ktp-bg-panel: #fcfcfd;    /* sidebar/panel background */
+    --ktp-bg-hover: #f3f4f6;    /* nav/item hover state (= gray-100) */
+
+    /* Foreground tokens — text hierarchy */
+    --ktp-fg-body: #717275;     /* default body text */
+    --ktp-fg-subtle: #a8adb8;   /* secondary/dimmed text; also used on dark backgrounds */
+    --ktp-fg-on-dark: #d4d8e4;  /* primary text on navy (portal/admin title bar) */
+
+    /* Border tokens */
+    --ktp-border: #e5e7eb;                         /* default border (= gray-200) */
+    --ktp-border-dark: rgba(255, 255, 255, 0.20);  /* divider on navy surfaces */
+
+    /* Neutral — gray-600, used for stat card accents */
+    --ktp-neutral: #4b5563;
+
+    /* Overlay token — modal backdrop; replaces bg-black/50 opacity modifier */
+    --ktp-overlay: rgba(0, 0, 0, 0.50);
+
+    /* Card back token — deep navy for 3D member card back face (referenced in legacy.css) */
+    --ktp-card-back: #001433;
+
+    /* Legacy aliases — kept for legacy.css class references */
+    --white-color: var(--ktp-white);
+    --primary-color: var(--ktp-primary);
+    --section-bg-color: var(--ktp-bg-surface);
+    --dark-color: #191c24;
+    --navbar-bg-color: var(--ktp-primary);
+    --p-color: var(--ktp-fg-body);
+    --highlight-icon-color: #ff0100;
+
+    --body-font-family: 'DM Sans', sans-serif;
+
+    --h1-font-size: 62px;
+    --h2-font-size: 48px;
+    --h3-font-size: 36px;
+    --h4-font-size: 32px;
+    --h5-font-size: 24px;
+    --h6-font-size: 22px;
+    --p-font-size: 18px;
+    --menu-font-size: 16px;
+    --copyright-text-font-size: 16px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
+body {
+  background: var(--white-color);
+  font-family: var(--body-font-family);
+  color: hsl(var(--ktp-fg-hsl));
+  overscroll-behavior: none;
+}
+
+/* Heading elements are intentionally unstyled here.
+   All KTP heading typography is applied exclusively via the Heading DS component
+   (src/design-system/components/Typography.tsx). Styling raw <h*> elements via
+   global CSS causes third-party library internals (Radix, ShadCN) to inherit
+   KTP typography unexpectedly — which breaks modal titles, accordion triggers,
+   dialog labels, etc. Use <Heading level={n}> instead of raw <h*> elements. */
+
+p {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-normal);
+}
+
+a {
+  color: var(--p-color);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover { color: var(--ktp-accent); }
+
+::selection {
+  background: var(--ktp-accent);
+  color: var(--white-color);
+}

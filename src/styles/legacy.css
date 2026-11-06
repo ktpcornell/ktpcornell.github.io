@@ -1,0 +1,300 @@
+/* ============================================================
+   LEGACY CSS — Kept styles that cannot be replaced with Tailwind
+   utilities: 3D transforms, backface-visibility, complex
+   pseudo-elements, and section-specific overrides.
+   ============================================================ */
+
+/* ------------------------------------------
+   UTILITIES
+------------------------------------------ */
+.section-padding { padding-top: 120px; padding-bottom: 120px; }
+.custom-border-radius { border-radius: 20px; }
+
+.small-title { text-transform: uppercase; }
+
+.history-image {
+  border-radius: 14px;
+  transition: transform 0.25s ease;
+}
+.history-image:hover { transform: scale(1.04); }
+
+.values-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 14px;
+}
+.values-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------
+   TYPING ANIMATION
+------------------------------------------ */
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.2em;
+}
+
+.about-typing {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 1.2em;
+  line-height: 1.2em;
+  min-width: 18ch;
+  padding-right: 8px;
+}
+
+.about-typing::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1em;
+  background: currentColor;
+  animation: about-typing-caret 0.9s steps(1) infinite;
+}
+
+@keyframes about-typing-caret {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ------------------------------------------
+   HERO
+------------------------------------------ */
+.hero {
+  position: relative;
+  height: calc(90vh - 84px);
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  background: linear-gradient(rgba(var(--ktp-primary-rgb), 0.1) 0%, rgb(var(--ktp-primary-rgb)) 100%);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin-bottom: -5px;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.custom-video {
+  position: absolute;
+  top: 0; left: 0;
+  object-fit: cover;
+  width: 100%; height: 100%;
+}
+
+.arrow-icon {
+  background: var(--section-bg-color);
+  border-radius: 100px;
+  color: var(--dark-color);
+  font-size: var(--h5-font-size);
+  width: 50px; height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+}
+
+.arrow-icon:hover {
+  background: var(--ktp-accent);
+  color: var(--white-color);
+}
+
+/* ------------------------------------------
+   HIGHLIGHT STRIP
+------------------------------------------ */
+.highlight {
+  background: var(--navbar-bg-color);
+  padding-bottom: 16px;
+}
+
+.highlight-image {
+  display: block;
+  width: 100%;
+  transition: transform 2s;
+}
+
+/* ------------------------------------------
+   CALL TO ACTION
+------------------------------------------ */
+.call-to-action {
+  background-image: url('/images/classpictures/Fall2025GirlsHappy.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.call-to-action::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.call-to-action .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ------------------------------------------
+   MEMBER CARDS (3D FLIP)
+------------------------------------------ */
+.member-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.member-card .card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 140%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.member-card:hover .card-inner {
+  transform: scale(1.03);
+}
+
+.member-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.member-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(var(--ktp-overlay-rgb), 0.85);
+  color: white;
+  text-align: center;
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.member-major {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.card-back {
+  background-color: var(--ktp-card-back);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.card-back p,
+.card-back a {
+  font-size: 1rem;
+}
+
+/* ------------------------------------------
+   GALLERY
+------------------------------------------ */
+.gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-image-wrapper img.gallery-image {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%; width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper img.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------------------------------
+   RECRUITMENT HERO
+------------------------------------------ */
+.recruitment-hero {
+  position: relative;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+              url('/images/classpictures/2025boys.JPG') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.recruitment-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+  z-index: 1;
+}
+
+.recruitment-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ------------------------------------------
+   ICON BOX (values cards)
+------------------------------------------ */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-pink { background-color: var(--ktp-accent-pink); }
+
+/* ------------------------------------------
+   FADE-IN (placement/campus logos)
+------------------------------------------ */
+@keyframes simple-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
