@@ -131,7 +131,7 @@ export function MemberCard({ member, cardId }: MemberCardProps) {
               </div>
             )}
             {member.description && (
-              <p className="text-white text-sm">{member.description}</p>
+              <p className="text-white text-sm card-bio">{member.description}</p>
             )}
           </div>
         </div>

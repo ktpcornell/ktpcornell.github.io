@@ -249,6 +249,31 @@
   font-size: 1rem;
 }
 
+/* Long bios scroll inside the card; short ones stay centered at full height.
+   Ported from the static site's fix in PR #16. */
+.card-back .card-bio {
+  flex: 0 1 auto;
+  align-self: stretch;
+  min-height: 0;
+  margin-bottom: 0;
+  padding-right: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.card-bio::-webkit-scrollbar {
+  width: 6px;
+}
+.card-bio::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+@supports not selector(::-webkit-scrollbar) {
+  .card-bio {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  }
+}
+
 /* ------------------------------------------
    GALLERY
 ------------------------------------------ */
