@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { LogIn, Menu, X } from 'lucide-react'
 import { SIGN_IN_URL } from '@/config'
 
 export function Navbar() {
@@ -91,17 +91,6 @@ export function Navbar() {
                 Contact Us
               </a>
             </li>
-            {SIGN_IN_URL && (
-              <li>
-                <a
-                  className="block px-5 py-3 text-base font-medium text-white hover:text-ktp-accent transition-colors no-underline"
-                  href={SIGN_IN_URL}
-                  onClick={closeMenu}
-                >
-                  Sign in
-                </a>
-              </li>
-            )}
             <li>
               <NavLink
                 to="/join"
@@ -111,6 +100,20 @@ export function Navbar() {
                 Apply
               </NavLink>
             </li>
+            {/* Member sign-in to KTP Manager. Outlined (not filled like Apply) so it reads as a
+                different kind of action: for brothers, not applicants. */}
+            {SIGN_IN_URL && (
+              <li>
+                <a
+                  className="inline-flex items-center gap-2 mx-4 lg:ml-0 my-2 lg:my-0 px-5 py-1.5 rounded-full border-2 border-white text-white text-sm font-bold hover:bg-white hover:text-ktp-primary transition-colors no-underline"
+                  href={SIGN_IN_URL}
+                  onClick={closeMenu}
+                >
+                  <LogIn size={16} aria-hidden="true" />
+                  Member Sign In
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
