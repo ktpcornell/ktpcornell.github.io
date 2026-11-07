@@ -1,26 +1,35 @@
 # Builds the React site and publishes dist/ to GitHub Pages.
 # Requires Settings > Pages > Source = "GitHub Actions" (not "Deploy from a branch").
-# Every merge to main redeploys, including KTP Manager's profile-sync PRs,
-# since members.json is bundled at build time.
+#
+# Members come from KTP Manager at build time (scripts/fetch-members.mjs), so this needs:
+#   - the Actions VARIABLE  MEMBERS_ENDPOINT  (KTP Manager's members route URL)
+#   - the Actions SECRET    MEMBERS_TOKEN     (the bearer that route checks)
+# Without them the build fails on purpose, and the last good site stays live (spec D12).
+#
+# Runs on every push to main, by hand, and on `repository_dispatch` type `members-changed`, which
+# KTP Manager sends after a profile save, hide, restore or edit (spec D14).
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [members-changed]
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Rapid saves: a newer run cancels an older run's BUILD, so five saves in a minute end in one
+    # finished build. Every build fetches the latest members, so nothing is lost.
+    concurrency:
+      group: members-build
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,7 +37,21 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # Downloaded headshots and every WebP copy, so unchanged photos aren't downloaded or
+      # re-encoded. The key is unique per run (a cache entry can't be overwritten), and
+      # restore-keys picks up the most recent one.
+      - uses: actions/cache@v4
+        with:
+          path: |
+            images/headshots/db
+            images-derived
+          key: site-images-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            site-images-
       - run: npm run build
+        env:
+          MEMBERS_ENDPOINT: ${{ vars.MEMBERS_ENDPOINT }}
+          MEMBERS_TOKEN: ${{ secrets.MEMBERS_TOKEN }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -36,6 +59,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # Never cancel a Pages deploy mid-flight; a newer one waits its turn.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
