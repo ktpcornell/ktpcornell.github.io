@@ -19,7 +19,7 @@ export interface ManifestEntry {
   d?: string
 }
 
-export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
+const COMMITTED: Record<string, ManifestEntry> = {
   "images/FA25RecruitmentTimeline.png": {
     "w": 1080,
     "h": 1350,
@@ -1604,3 +1604,12 @@ export const IMAGE_MANIFEST: Record<string, ManifestEntry> = {
     ]
   }
 }
+
+// Headshots the build downloaded from KTP Manager (images/headshots/db/). Their entries live
+// in imageManifest.db.json, which is gitignored and absent on a fresh clone: the glob then
+// matches nothing and those photos render from their originals.
+const DOWNLOADED = Object.values(
+  import.meta.glob<Record<string, ManifestEntry>>('./imageManifest.db.json', { eager: true, import: 'default' }),
+)[0]
+
+export const IMAGE_MANIFEST: Record<string, ManifestEntry> = { ...COMMITTED, ...DOWNLOADED }

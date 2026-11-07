@@ -6,7 +6,7 @@
 import type { Member, MembersData } from '@/types/member'
 
 export interface ClassConfig {
-  /** The key in `data/members.json`. */
+  /** The section key in the member data (KTP Manager's lowercase key, e.g. `gamma`). */
   key: string
   label: string
   /** The pledge semester shown under the heading. Omitted for the eboard and founders. */
