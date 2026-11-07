@@ -25,11 +25,17 @@ function normalize(position: string): string {
   return position.replace(/[–—]/g, '-').replace(/\s+/g, ' ').trim().toLowerCase()
 }
 
-/** Index of a role's first position in `order`, or `order.length` when it isn't listed. */
+/**
+ * The best (lowest) index of any of a role's positions in `order`, or `order.length`
+ * when none is listed. KTP Manager joins several positions A–Z ("VP Committees / VP
+ * External Affairs"), so ranking by the first one would sort that person too low.
+ */
 export function eboardRank(role: string | undefined, order: string[] = EBOARD_ORDER): number {
-  const first = normalize((role ?? '').split('/')[0] ?? '')
-  const i = order.findIndex((p) => normalize(p) === first)
-  return i === -1 ? order.length : i
+  const ranks = (role ?? '')
+    .split('/')
+    .map((part) => order.findIndex((p) => normalize(p) === normalize(part)))
+    .filter((i) => i !== -1)
+  return ranks.length ? Math.min(...ranks) : order.length
 }
 
 /** A sorted copy: by position, then by name (so ties don't depend on the payload's order). */

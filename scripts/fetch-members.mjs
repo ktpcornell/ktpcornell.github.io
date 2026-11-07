@@ -66,7 +66,16 @@ async function fromFile(reason) {
       `fetch-members: building the Members page from data/members.json, NOT from KTP Manager.\n` +
       `fetch-members: Fine for local dev and PR checks. A deploy must set MEMBERS_ENDPOINT.\n${banner}\n`,
   )
-  const data = JSON.parse(await readFile(MEMBERS_JSON, 'utf8'))
+  // data/members.json goes away after cutover (spec D2); file mode then builds an
+  // empty Members page rather than crashing local dev and PR checks.
+  let data
+  try {
+    data = JSON.parse(await readFile(MEMBERS_JSON, 'utf8'))
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error
+    console.warn('fetch-members: data/members.json is gone; the Members page will be empty in this build.')
+    data = { eboard: [] }
+  }
   await writeJson(GENERATED, data)
   await writeJson(VERSION_FILE, FILE_MODE_VERSION)
   log(`wrote src/data/members.generated.json from data/members.json, version "file"`)

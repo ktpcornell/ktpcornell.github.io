@@ -29,8 +29,9 @@ the unbuilt repo root and the site goes blank (this happened on 2026-11-06). The
 check the Actions tab.
 
 The deploy needs the Actions **variable** `MEMBERS_ENDPOINT` (KTP Manager's members route) and the Actions **secret**
-`MEMBERS_TOKEN` (its bearer). Without them every deploy fails on purpose. Rapid saves cancel each other's build
-(`concurrency: members-build`), so five saves in a minute end in one deploy; a Pages deploy itself is never cancelled.
+`MEMBERS_TOKEN` (its bearer). Without them every deploy fails on purpose. Rapid saves collapse
+(`concurrency: members-build`): one build runs and only the newest pending one waits, so five saves in a minute end in
+at most two deploys, the last with the latest data. Nothing is cancelled mid-run, so no one can starve the build.
 
 **Pull requests** run `.github/workflows/check.yml`: `npm test` plus a build from `data/members.json`
 (`MEMBERS_SOURCE=file`), so PRs never need the secret.
@@ -105,7 +106,7 @@ is the source of truth; change it there first, then mirror it in `membersPayload
 
 **The Executive board's order** is `EBOARD_ORDER` in `src/data/eboard.ts` (KTP Manager sends the eboard unordered).
 Names must match the manager's position names. A position not in the list sorts last, then by name. A member with two
-positions ("VP Finance / VP Committees") sorts by the first.
+positions ("VP Committees / VP External Affairs") sorts by the better-ranked one.
 
 ### The member card drift guard
 

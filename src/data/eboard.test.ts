@@ -26,9 +26,13 @@ describe('eboard order (D9)', () => {
     expect(names(sortEboard(shuffled))).toEqual(['P', 'T', 'F', 'C'])
   })
 
-  it('sorts a two-position role by its first position', () => {
+  it('sorts a two-position role by its best position, whatever the join order', () => {
     const list = [m('M', 'VP Marketing'), m('L', 'VP Finance / VP Committees')]
     expect(names(sortEboard(list))).toEqual(['L', 'M'])
+    // KTP Manager joins positions A-Z, so the better-ranked one can come second.
+    const az = [m('F', 'VP Finance'), m('X', 'VP Committees / VP External Affairs')]
+    expect(names(sortEboard(az))).toEqual(['X', 'F'])
+    expect(eboardRank('VP Committees / VP External Affairs')).toBe(EBOARD_ORDER.indexOf('VP External Affairs'))
   })
 
   it('puts unknown positions last, then by name', () => {

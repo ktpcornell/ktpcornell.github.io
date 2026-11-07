@@ -25,11 +25,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Rapid saves: a newer run cancels an older run's BUILD, so five saves in a minute end in one
-    # finished build. Every build fetches the latest members, so nothing is lost.
+    # Not cancel-in-progress: cancelling would let anyone saving every ~30 s keep
+    # the site from ever finishing a build. Without it GitHub runs one build and
+    # keeps only the NEWEST pending one, so rapid saves still collapse to at most
+    # two builds, and the last one always fetches the latest data.
     concurrency:
       group: members-build
-      cancel-in-progress: true
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
