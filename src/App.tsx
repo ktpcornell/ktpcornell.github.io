@@ -5,6 +5,8 @@ import { HomePage } from '@/pages/public/HomePage'
 import { AboutPage } from '@/pages/public/AboutPage'
 import { MembersPage } from '@/pages/public/MembersPage'
 import { JoinPage } from '@/pages/public/JoinPage'
+import { NotFoundPage } from '@/pages/public/NotFoundPage'
+import { PrivacyPage } from '@/pages/public/PrivacyPage'
 
 /**
  * The old static site's URLs. Instagram bios, posts and bookmarks still point at these,
@@ -33,13 +35,15 @@ export function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/members" element={<MembersPage />} />
         <Route path="/join" element={<JoinPage />} />
+        {/* Not linked anywhere: it's the privacy notice for KTP Manager's Google sign-in. */}
+        <Route path="/privacy" element={<PrivacyPage />} />
 
         {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
           <Route key={from} path={from} element={<LegacyRedirect to={to} />} />
         ))}
 
-        {/* Anything else */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Anything else: a real "page not found", not a silent jump to Home */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
