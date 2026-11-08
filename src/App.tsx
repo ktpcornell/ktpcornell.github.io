@@ -5,6 +5,7 @@ import { HomePage } from '@/pages/public/HomePage'
 import { AboutPage } from '@/pages/public/AboutPage'
 import { MembersPage } from '@/pages/public/MembersPage'
 import { JoinPage } from '@/pages/public/JoinPage'
+import { NotFoundPage } from '@/pages/public/NotFoundPage'
 
 /**
  * The old static site's URLs. Instagram bios, posts and bookmarks still point at these,
@@ -38,8 +39,8 @@ export function App() {
           <Route key={from} path={from} element={<LegacyRedirect to={to} />} />
         ))}
 
-        {/* Anything else */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Anything else: a real "page not found", not a silent jump to Home */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
