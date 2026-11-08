@@ -52,3 +52,6 @@ scripts/serviceAccount.json
 # Misc
 *.heic
 *.HEIC
+
+# Generated WebP copies of images/ (scripts/media-images.mjs). Rebuilt on demand, never committed.
+images-derived/
