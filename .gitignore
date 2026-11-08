@@ -55,3 +55,9 @@ scripts/serviceAccount.json
 
 # Generated WebP copies of images/ (scripts/media-images.mjs). Rebuilt on demand, never committed.
 images-derived/
+
+# Written by the build from KTP Manager (scripts/fetch-members.mjs, media-images.mjs). Never committed.
+src/data/members.generated.json
+public/members-version.json
+images/headshots/db/
+src/lib/imageManifest.db.json

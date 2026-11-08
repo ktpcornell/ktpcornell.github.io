@@ -1,0 +1,26 @@
+# The pull request check: tests (including the member card drift guard,
+# src/components/public/MemberCard.fingerprint.test.ts) and a full build.
+# The build reads data/members.json (MEMBERS_SOURCE=file), so PRs never need the members secret.
+# Not part of the deploy, so a failing check can't block profile updates.
+name: Check
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      MEMBERS_SOURCE: file
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build

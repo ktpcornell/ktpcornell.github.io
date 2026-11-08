@@ -1,6 +1,14 @@
 import { describe, it, expect } from 'vitest'
 import { safeHttpUrl } from './safeUrl'
-import { getMembers } from '@/data/members'
+import type { MembersData } from '@/types/member'
+
+// Whichever member data exists: data/members.json (until cutover) and the build-written
+// members.generated.json (after `npm run members:fetch`). Globbed, so a fresh clone without the
+// generated file still runs the tests.
+const memberFiles = import.meta.glob<MembersData>(
+  ['../../data/members.json', '../data/members.generated.json'],
+  { eager: true, import: 'default' },
+)
 
 describe('safeHttpUrl', () => {
   it('keeps http and https links', () => {
@@ -27,8 +35,9 @@ describe('safeHttpUrl', () => {
     expect(safeHttpUrl('www.linkedin.com/in/someone/')).toBe('https://www.linkedin.com/in/someone/')
   })
 
-  it('accepts every LinkedIn link currently in members.json', () => {
-    const bad = Object.values(getMembers())
+  it('accepts every LinkedIn link in the member data', () => {
+    const bad = Object.values(memberFiles)
+      .flatMap((data) => Object.values(data))
       .flat()
       .filter((m) => m && m.linkedin && !safeHttpUrl(m.linkedin))
       .map((m) => `${m!.name}: ${m!.linkedin}`)
