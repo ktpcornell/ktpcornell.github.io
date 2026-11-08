@@ -44,3 +44,47 @@ export function sortEboard(members: Member[], order: string[] = EBOARD_ORDER): M
     (a, b) => eboardRank(a.role, order) - eboardRank(b.role, order) || a.name.localeCompare(b.name, 'en'),
   )
 }
+
+/*
+ * PUBLIC TITLES (Michael, 2026-11-08). The manager's position names are the source of truth for
+ * WHO is on the eboard; these three settings only change how the public site LABELS them. Each one
+ * is reversible by deleting its line: the site then shows the manager's own name again.
+ */
+
+/** Manager position name -> the title shown on ktpcornell.com. */
+export const EBOARD_TITLES: Record<string, string> = {
+  'VP of Internal Affairs': 'VP Internal Affairs',
+  'VP of External Affairs': 'VP External Affairs',
+  'VP of Finance': 'VP Finance',
+}
+
+/** Per-member titles, for one manager position that covers two public roles (keyed by email). */
+export const EBOARD_MEMBER_TITLES: Record<string, Record<string, string>> = {
+  'la453@cornell.edu': { 'VP NME': 'VP NME - Technical' },
+  'gbm66@cornell.edu': { 'VP NME': 'VP NME - Professional' },
+}
+
+/** Manager positions never shown in the public Executive board section. */
+export const EBOARD_HIDDEN: string[] = ['Presidential Advisor']
+
+function lookup(map: Record<string, string> | undefined, position: string): string | undefined {
+  if (!map) return undefined
+  const key = Object.keys(map).find((k) => normalize(k) === normalize(position))
+  return key === undefined ? undefined : map[key]
+}
+
+/**
+ * The eboard as the public site shows it: hidden positions dropped (a member left with none is
+ * dropped from the section, not from their class), the rest relabelled by EBOARD_MEMBER_TITLES
+ * then EBOARD_TITLES. Positions with no mapping keep the manager's name.
+ */
+export function publicEboard(members: Member[]): Member[] {
+  return members.flatMap((m) => {
+    const parts = (m.role ?? '')
+      .split('/')
+      .map((p) => p.trim())
+      .filter((p) => p && !EBOARD_HIDDEN.some((h) => normalize(h) === normalize(p)))
+      .map((p) => lookup(EBOARD_MEMBER_TITLES[(m.email ?? '').toLowerCase()], p) ?? lookup(EBOARD_TITLES, p) ?? p)
+    return parts.length ? [{ ...m, role: parts.join(' / ') }] : []
+  })
+}

@@ -8,4 +8,4 @@
  * manager.ktpcornell.com is set up (a Vercel domain + a GoDaddy CNAME + the Google OAuth
  * redirect URI), change this to https://manager.ktpcornell.com/signin.
  */
-export const SIGN_IN_URL = 'https://ktp-manager.vercel.app/signin'
+export const SIGN_IN_URL = 'https://manager.ktpcornell.com/signin'

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Member } from '@/types/member'
-import { EBOARD_ORDER, eboardRank, sortEboard } from './eboard'
+import { publicEboard, EBOARD_ORDER, eboardRank, sortEboard } from './eboard'
 
 const m = (name: string, role?: string): Member => ({ name, role, major: '', photo: '', hometown: '' })
 const names = (list: Member[]) => list.map((x) => x.name)
@@ -55,5 +55,40 @@ describe('eboard order (D9)', () => {
     const list = [m('C', 'VP Committees'), m('P', 'President')]
     sortEboard(list)
     expect(names(list)).toEqual(['C', 'P'])
+  })
+})
+
+describe('publicEboard', () => {
+  const e = (name: string, role: string, email = `${name.toLowerCase()}@cornell.edu`) => ({
+    name,
+    role,
+    email,
+    major: '',
+    photo: '',
+    hometown: '',
+  })
+
+  it("relabels the manager's position names to the public titles", () => {
+    expect(publicEboard([e('L', 'VP of Finance'), e('I', 'VP of Internal Affairs')]).map((m) => m.role)).toEqual([
+      'VP Finance',
+      'VP Internal Affairs',
+    ])
+  })
+
+  it('splits one shared position into per-member public titles', () => {
+    const out = publicEboard([e('Leepakshi', 'VP NME', 'la453@cornell.edu'), e('Gabe', 'VP NME', 'GBM66@cornell.edu')])
+    expect(out.map((m) => m.role)).toEqual(['VP NME - Technical', 'VP NME - Professional'])
+  })
+
+  it('drops hidden positions, and a member left with none', () => {
+    expect(publicEboard([e('Riya', 'Presidential Advisor')])).toEqual([])
+    expect(publicEboard([e('X', 'Presidential Advisor / VP Marketing')]).map((m) => m.role)).toEqual(['VP Marketing'])
+  })
+
+  it("keeps names it doesn't know, and the result sorts into the live order", () => {
+    const out = sortEboard(
+      publicEboard([e('C', 'VP Committees'), e('L', 'VP of Finance'), e('G', 'President'), e('N', 'VP Social')]),
+    )
+    expect(out.map((m) => `${m.name}:${m.role}`)).toEqual(['G:President', 'L:VP Finance', 'C:VP Committees', 'N:VP Social'])
   })
 })

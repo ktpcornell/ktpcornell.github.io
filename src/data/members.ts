@@ -11,10 +11,10 @@
  */
 import raw from './members.generated.json'
 import type { Member, MembersData } from '@/types/member'
-import { sortEboard } from './eboard'
+import { publicEboard, sortEboard } from './eboard'
 
 const data = raw as unknown as MembersData
-const members: MembersData = { ...data, eboard: sortEboard(data.eboard ?? []) }
+const members: MembersData = { ...data, eboard: sortEboard(publicEboard(data.eboard ?? [])) }
 
 export function getMembers(): MembersData {
   return members
