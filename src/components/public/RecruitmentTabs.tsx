@@ -77,12 +77,12 @@ export function RecruitmentTabs() {
   return (
     <div>
       {/* Tab buttons.
-          - Phones (<640px): one row of compact pills that scrolls sideways; the selected pill is
-            filled navy. The four big boxes took a whole phone screen before any content.
+          - Phones (<640px): compact pills that wrap onto a second line; the selected pill is filled
+            navy. The four big boxes took a whole phone screen before any content. (They used to sit
+            in one row that scrolled sideways, which read as cut off rather than scrollable.)
           - 640-991px: 2x2 boxes (live's max-width: 991px rule). 992px+: 4 across, 150px tall. */}
       <div
-        // The pill row hides its own scrollbar; the cut-off last pill already shows it scrolls.
-        className="flex flex-nowrap gap-2 overflow-x-auto pb-2 -mx-4 px-4 scroll-px-4 snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:pb-0 sm:gap-0 sm:flex-wrap sm:overflow-visible"
+        className="flex flex-wrap gap-2 sm:gap-0"
         role="tablist"
         aria-label="Recruitment schedule"
       >
@@ -101,7 +101,7 @@ export function RecruitmentTabs() {
               aria-controls={panelId(tab.id)}
               tabIndex={selected ? 0 : -1}
               className={[
-                'group transition-all cursor-pointer text-left snap-start',
+                'group transition-all cursor-pointer text-left',
                 // phone pill
                 'shrink-0 rounded-full border-2 border-ktp-primary px-4 py-2',
                 selected ? 'bg-ktp-primary' : 'bg-white',
